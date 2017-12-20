@@ -23,6 +23,7 @@ namespace DAL
         {
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = conexao.ObjetoConexao;
+            cmd.Transaction = conexao.ObjetoTransacao;
             cmd.CommandText = "insert into Produto (pro_nome, pro_descricao, pro_foto,  pro_valorpago, pro_valorvenda, pro_qtde,umed_cod , cat_cod, scat_cod) "+
             "values (@nome,@descricao,@foto,@valorpago,@valorvenda,@qtde,@undmedcod,@catcod,@scatcod); select @@IDENTITY;";
             cmd.Parameters.AddWithValue("@nome", obj.ProNome);
@@ -62,6 +63,7 @@ namespace DAL
         {
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = conexao.ObjetoConexao;
+            cmd.Transaction = conexao.ObjetoTransacao;
             cmd.CommandText = "UPDATE Produto SET pro_nome = (@nome), pro_descricao = (@descricao), "+
                 "pro_foto = (@foto), pro_valorpago = (@valorpago), pro_valorvenda = (@valorvenda), "+
                 "pro_qtde = (@qtde), umed_cod = (@undmedcod), cat_cod = (@catcod), "+
@@ -94,9 +96,19 @@ namespace DAL
         {
             DataTable tabela = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter("Select p.pro_cod, p.pro_nome, p.pro_descricao, p.pro_foto, p.pro_valorpago, "+
-"p.pro_valorvenda, p.pro_qtde, p.umed_cod, p.cat_cod, p.scat_cod, u.umed_nome, c.cat_nome, sc.scat_nome "+
- "from Produto p inner join undmedida u on p.umed_cod = u.umed_cod inner join categoria c on p.cat_cod = c.cat_cod "+
-  "inner join subcategoria sc on p.scat_cod = sc.scat_cod  where p.pro_nome like '%" + valor + "%'", conexao.StringConexao);
+            "p.pro_valorvenda, p.pro_qtde, p.umed_cod, p.cat_cod, p.scat_cod, u.umed_nome, c.cat_nome, sc.scat_nome "+
+             "from Produto p inner join undmedida u on p.umed_cod = u.umed_cod inner join categoria c on p.cat_cod = c.cat_cod "+
+              "inner join subcategoria sc on p.scat_cod = sc.scat_cod  where p.pro_nome like '%" + valor + "%'", conexao.StringConexao);
+            da.Fill(tabela);
+            return tabela;
+        }
+        public DataTable LocalizarPositivo(String valor)
+        {
+            DataTable tabela = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter("Select p.pro_cod, p.pro_nome, p.pro_descricao, p.pro_foto, p.pro_valorpago, " +
+            "p.pro_valorvenda, p.pro_qtde, p.umed_cod, p.cat_cod, p.scat_cod, u.umed_nome, c.cat_nome, sc.scat_nome " +
+             "from Produto p inner join undmedida u on p.umed_cod = u.umed_cod inner join categoria c on p.cat_cod = c.cat_cod " +
+              "inner join subcategoria sc on p.scat_cod = sc.scat_cod  where p.pro_qtde > 0 and p.pro_nome like '%" + valor + "%'", conexao.StringConexao);
             da.Fill(tabela);
             return tabela;
         }
@@ -128,6 +140,7 @@ namespace DAL
                 modelo.ScatCod = Convert.ToInt32(registro["scat_cod"]);
             }
             conexao.Desconectar();
+            registro.Close();
             return modelo;
         }
     }

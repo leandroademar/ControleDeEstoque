@@ -33,7 +33,7 @@ namespace GUI
             txtCodigo.Clear();
             txtNome.Clear();
             txtDescricao.Clear();
-            txtValorPago.Clear();
+            txtValorPago.Text = "1";
             txtValorVenda.Clear();
             txtQtde.Clear();
             this.foto = "";
@@ -145,6 +145,7 @@ namespace GUI
             {
                 txtValorVenda.Text = "0,00";
             }
+
         }
 
         private void txtQtde_KeyPress(object sender, KeyPressEventArgs e)
@@ -282,7 +283,7 @@ namespace GUI
 
         private void btLocalizar_Click(object sender, EventArgs e)
         {
-             frmConsultaProduto f = new frmConsultaProduto();
+            frmConsultaProduto f = new frmConsultaProduto(0);
             f.ShowDialog();
             if (f.codigo != 0)
             {

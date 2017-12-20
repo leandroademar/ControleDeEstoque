@@ -110,6 +110,11 @@ namespace BLL
             DALProduto DALobj = new DALProduto(conexao);
             return DALobj.Localizar(valor);
         }
+        public DataTable LocalizarPositivo(String valor)
+        {
+            DALProduto DALobj = new DALProduto(conexao);
+            return DALobj.LocalizarPositivo(valor);
+        }
         public ModeloProduto CarregaModeloProduto(int codigo)
         {
             DALProduto DALobj = new DALProduto(conexao);

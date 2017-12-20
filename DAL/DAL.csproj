@@ -40,15 +40,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DadosDaConexao.cs" />
+    <Compile Include="DALCaixa.cs" />
+    <Compile Include="DALCaixaStatus.cs" />
     <Compile Include="DALCategoria.cs" />
     <Compile Include="DALCliente.cs" />
     <Compile Include="DALCompra.cs" />
     <Compile Include="DALConexao.cs" />
+    <Compile Include="DALEquipe.cs" />
     <Compile Include="DALFornecedor.cs" />
+    <Compile Include="DALItenscompra.cs" />
+    <Compile Include="DALItensVenda.cs" />
     <Compile Include="DALProduto.cs" />
     <Compile Include="DALSubCategoria.cs" />
     <Compile Include="DALTipoPagamento.cs" />
     <Compile Include="DALUnidadeDeMedida.cs" />
+    <Compile Include="DALUsuario.cs" />
+    <Compile Include="DALVenda.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

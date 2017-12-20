@@ -11,6 +11,28 @@
     <AssemblyName>GUI</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>\\10.1.1.240\winthor\ATUALIZACAO\Tabajara\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Unc</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>false</MapFileExtensions>
+    <UpdateUrl>\\10.1.1.240\winthor\ATUALIZACAO\Tabajara\</UpdateUrl>
+    <ProductName>Controle de Estoque</ProductName>
+    <PublisherName>Leandro Ademar</PublisherName>
+    <SuiteName>Controle de Estoque</SuiteName>
+    <AutorunEnabled>true</AutorunEnabled>
+    <ApplicationRevision>39</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -31,9 +53,40 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>2E3D5EB29947E93B4BB01E7559267D38E0B79A4B</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>GUI_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>flat-icon-5.png.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
-    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.Common, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.340.80\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.340.80\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.340.80\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.340.80\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.340.80\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web.Services" />
@@ -95,6 +148,12 @@
     <Compile Include="frmCadastrounidadeDeMedida.Designer.cs">
       <DependentUpon>frmCadastrounidadeDeMedida.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCadastroUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCadastroUsuario.Designer.cs">
+      <DependentUpon>frmCadastroUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmConfiguracaoBancoDados.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -131,6 +190,12 @@
     <Compile Include="frmConsultaSubCategoria.Designer.cs">
       <DependentUpon>frmConsultaSubCategoria.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmConsultaTesouraria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmConsultaTesouraria.Designer.cs">
+      <DependentUpon>frmConsultaTesouraria.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmConsultaTipoPagamento.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,11 +208,47 @@
     <Compile Include="frmConsultaUnidadeDeMedida.Designer.cs">
       <DependentUpon>frmConsultaUnidadeDeMedida.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmConsultaUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmConsultaUsuario.Designer.cs">
+      <DependentUpon>frmConsultaUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmConsultaVenda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmConsultaVenda.Designer.cs">
+      <DependentUpon>frmConsultaVenda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmModeloDeFormularioDeCadastro.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmModeloDeFormularioDeCadastro.Designer.cs">
       <DependentUpon>frmModeloDeFormularioDeCadastro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMovimentacaoPedido.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMovimentacaoPedido.Designer.cs">
+      <DependentUpon>frmMovimentacaoPedido.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMovimentacaoVenda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMovimentacaoVenda.Designer.cs">
+      <DependentUpon>frmMovimentacaoVenda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmParametroRel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmParametroRel.Designer.cs">
+      <DependentUpon>frmParametroRel.cs</DependentUpon>
     </Compile>
     <Compile Include="frmPrincipal.cs">
       <SubType>Form</SubType>
@@ -155,14 +256,46 @@
     <Compile Include="frmPrincipal.Designer.cs">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmSobre.cs">
+    <Compile Include="frmRelatorioVendas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSobre.Designer.cs">
-      <DependentUpon>frmSobre.cs</DependentUpon>
+    <Compile Include="frmRelatorioVendas.Designer.cs">
+      <DependentUpon>frmRelatorioVendas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSeparacaoPedido.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSeparacaoPedido.Designer.cs">
+      <DependentUpon>frmSeparacaoPedido.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSuprirEstoque.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSuprirEstoque.Designer.cs">
+      <DependentUpon>frmSuprirEstoque.cs</DependentUpon>
+    </Compile>
+    <Compile Include="nControleDataSet.cs">
+      <DependentUpon>nControleDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="nControleDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>nControleDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="nControleDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>nControleDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="nControleDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>nControleDataSet2.xsd</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Settings.cs" />
+    <Compile Include="SqlServerTypes\Loader.cs" />
     <EmbeddedResource Include="frmBackupBancoDeDados.resx">
       <DependentUpon>frmBackupBancoDeDados.cs</DependentUpon>
     </EmbeddedResource>
@@ -187,6 +320,9 @@
     <EmbeddedResource Include="frmCadastrounidadeDeMedida.resx">
       <DependentUpon>frmCadastrounidadeDeMedida.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmCadastroUsuario.resx">
+      <DependentUpon>frmCadastroUsuario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmConfiguracaoBancoDados.resx">
       <DependentUpon>frmConfiguracaoBancoDados.cs</DependentUpon>
     </EmbeddedResource>
@@ -205,20 +341,47 @@
     <EmbeddedResource Include="frmConsultaSubCategoria.resx">
       <DependentUpon>frmConsultaSubCategoria.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmConsultaTesouraria.resx">
+      <DependentUpon>frmConsultaTesouraria.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmConsultaTipoPagamento.resx">
       <DependentUpon>frmConsultaTipoPagamento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmConsultaUnidadeDeMedida.resx">
       <DependentUpon>frmConsultaUnidadeDeMedida.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmConsultaUsuario.resx">
+      <DependentUpon>frmConsultaUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmConsultaVenda.resx">
+      <DependentUpon>frmConsultaVenda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmModeloDeFormularioDeCadastro.resx">
       <DependentUpon>frmModeloDeFormularioDeCadastro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMovimentacaoPedido.resx">
+      <DependentUpon>frmMovimentacaoPedido.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMovimentacaoVenda.resx">
+      <DependentUpon>frmMovimentacaoVenda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmParametroRel.resx">
+      <DependentUpon>frmParametroRel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPrincipal.resx">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSobre.resx">
-      <DependentUpon>frmSobre.cs</DependentUpon>
+    <EmbeddedResource Include="frmRelatorioVendas.resx">
+      <DependentUpon>frmRelatorioVendas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSeparacaoPedido.resx">
+      <DependentUpon>frmSeparacaoPedido.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSuprirEstoque.resx">
+      <DependentUpon>frmSuprirEstoque.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -230,6 +393,42 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Report1.rdlc" />
+    <None Include="GUI_TemporaryKey.pfx" />
+    <None Include="nControleDataSet.xsc">
+      <DependentUpon>nControleDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="nControleDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>nControleDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="nControleDataSet.xss">
+      <DependentUpon>nControleDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="nControleDataSet1.xsc">
+      <DependentUpon>nControleDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="nControleDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>nControleDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="nControleDataSet1.xss">
+      <DependentUpon>nControleDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="nControleDataSet2.xsc">
+      <DependentUpon>nControleDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="nControleDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>nControleDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="nControleDataSet2.xss">
+      <DependentUpon>nControleDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -311,6 +510,29 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Miniatura-Youtube-Playlist.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="flat-icon-5.png.ico" />
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

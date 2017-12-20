@@ -15,13 +15,13 @@ namespace Modelo
             this.ComNFiscal = 0;
             this.ComTotal = 0;
             this.ComNParcelas = 0;
-            this.ComStatus = "Válida";
+            this.ComStatus = 1;
             this.ForCod = 0;
             this.TpaCod = 0;
         }
 
         public ModeloCompra(int comCod, DateTime data, int nFiscal, double total,
-            int nParcelas, String status, int forCod, int tpaCod)
+            int nParcelas, int status, int forCod, int tpaCod)
         {
             this.ComCod = comCod;
             this.ComData = data;
@@ -73,8 +73,8 @@ namespace Modelo
             set { this._com_nparcelas = value; }
         }
 
-        private String _com_status;
-        public String ComStatus
+        private int _com_status;
+        public int ComStatus
         {
             get { return this._com_status; }
             set { this._com_status = value; }

@@ -1,24 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using DAL;
+﻿using DAL;
+using System;
 using System.Data.SqlClient;
+using System.IO;
+using System.Windows.Forms;
 
 namespace GUI
 {
     public partial class frmPrincipal : Form
     {
-        public frmPrincipal()
+        
+        public frmPrincipal(string usuario, int perfil)
         {
             InitializeComponent();
-        }
+            tstNomeUser.Text = " Usuário: " + usuario;
+            perfilusuario(perfil);
+            
+
+    }
         private void CheckMdiChildren(Form form)
         {
             foreach (Form frm in this.MdiChildren)
@@ -32,7 +30,47 @@ namespace GUI
             form.MdiParent = this;
             form.Show();
         }
+        public void perfilusuario(int pf)
+        {
+            if(pf==2)
+            {
+                menuStrip1.Visible = false;
+                toolStripButton1.Visible = false;
+                toolStripButton3.Visible = true;
+                toolStripButton4.Visible = false;
+                toolStripButton6.Visible = false;
+                toolStripButton2.Visible = false;
 
+            }
+            if (pf == 3)
+            {
+                menuStrip1.Visible = false;
+                toolStripButton1.Visible = true;
+                toolStripButton3.Visible = false;
+                toolStripButton4.Visible = false;
+                toolStripButton6.Visible = false;
+                toolStripButton2.Visible = false;
+            }
+            if (pf == 4)
+            {
+                menuStrip1.Visible = false;
+                toolStripButton1.Visible = false;
+                toolStripButton3.Visible = false;
+                toolStripButton2.Visible = true;
+                toolStripButton6.Visible = false;
+                toolStripButton4.Visible = false;
+
+            }
+            if (pf==0)
+            {
+                menuStrip1.Visible = false;
+                toolStripButton1.Visible = false;
+                toolStripButton2.Visible = false;
+                toolStripButton3.Visible = false;
+                toolStripButton4.Visible = false;
+                toolStripButton6.Visible = false;
+            }
+        }
 
 
 
@@ -80,7 +118,7 @@ namespace GUI
 
         private void produtoToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            frmConsultaProduto f = new frmConsultaProduto();
+            frmConsultaProduto f = new frmConsultaProduto(0);
             CheckMdiChildren(f);
         }
 
@@ -93,8 +131,11 @@ namespace GUI
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
             //verifica conexao com o banco
+            
+
             try
             {
+                
                 StreamReader arquivo = new StreamReader("ConfiguracaoBanco.txt");
                 DadosDaConexao.servidor = arquivo.ReadLine();
                 DadosDaConexao.banco = arquivo.ReadLine();
@@ -106,12 +147,22 @@ namespace GUI
                 conexao.ConnectionString = DadosDaConexao.StringDeConexao;
                 conexao.Open();
                 conexao.Close();
+                tssBanco.Text = "Banco de Dados: " + DadosDaConexao.banco.ToString() +" | ";
+                tssServer.Text = "Servidor: " + DadosDaConexao.servidor.ToString();
                 
+
+
+
+
             }
             catch (SqlException errob)
             {
                 MessageBox.Show("Erro ao se conectar no banco de dados \n" +
                                 "Acesse as configurações do banco de dados e informe os parâmetros de conexao");
+                frmConfiguracaoBancoDados f = new frmConfiguracaoBancoDados();
+                f.ShowDialog();
+                f.Dispose();
+                
             }
             catch (Exception erros)
             {
@@ -179,9 +230,7 @@ namespace GUI
 
         private void sobreToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmSobre f = new frmSobre();
-            f.ShowDialog();
-            f.Dispose();
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -203,14 +252,135 @@ namespace GUI
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
-            frmCadastroProduto f = new frmCadastroProduto();
-            CheckMdiChildren(f);
+            frmMovimentacaoVenda f = new frmMovimentacaoVenda();
+            if (Application.OpenForms[f.Name] == null)
+            {
+                f.ShowDialog();
+                f.Dispose();
+            }
+            else
+            {
+                Application.OpenForms[f.Name].Focus();
+            }
 
         }
 
         private void vendaToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            frmMovimentacaoPedido f = new frmMovimentacaoPedido();
+            CheckMdiChildren(f);
+        }
 
+        private void receberVendaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmMovimentacaoVenda f = new frmMovimentacaoVenda();
+            if (Application.OpenForms[f.Name] == null)
+            {
+                f.ShowDialog();
+                f.Dispose();
+            }
+            else
+            {
+                Application.OpenForms[f.Name].Focus();
+            }
+        }
+
+        private void frmPrincipal_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Login f = new Login();
+            f.Visible = true;
+            f.Close();
+        }
+
+        private void toolStripButton3_Click(object sender, EventArgs e)
+        {
+            frmMovimentacaoPedido f = new frmMovimentacaoPedido();
+            CheckMdiChildren(f);
+        }
+
+        private void usuáriosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCadastroUsuario f = new frmCadastroUsuario();
+            CheckMdiChildren(f);
+        }
+
+        private void toolStripButton4_Click(object sender, EventArgs e)
+        {
+            frmConsultaTesouraria f = new frmConsultaTesouraria();
+            CheckMdiChildren(f);
+        }
+
+        private void mapaDeSeparaçãoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmSeparacaoPedido f = new frmSeparacaoPedido();
+            CheckMdiChildren(f);
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            frmSeparacaoPedido f = new frmSeparacaoPedido();
+            CheckMdiChildren(f);
+        }
+
+        private void tlsLogoff_Click(object sender, EventArgs e)
+        {
+
+
+        }
+
+        private void tlsLogoff_DoubleClick(object sender, EventArgs e)
+        {
+
+           
+        }
+
+        private void frmPrincipal_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.F2)
+            {
+                frmMovimentacaoPedido f = new frmMovimentacaoPedido();
+                CheckMdiChildren(f);
+            }
+        }
+
+        private void suprirEstoqueToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+                frmSuprirEstoque f = new frmSuprirEstoque();
+                CheckMdiChildren(f);
+            
+
+        }
+
+        private void toolStripButton6_Click(object sender, EventArgs e)
+        {
+            frmSuprirEstoque f = new frmSuprirEstoque();
+            CheckMdiChildren(f);
+        }
+
+        private void vendasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmParametroRel f = new frmParametroRel(1);
+            CheckMdiChildren(f);
+        }
+
+        private void toolStripButton8_Click(object sender, EventArgs e)
+        {
+            frmConsultaProduto f = new frmConsultaProduto(0);
+            CheckMdiChildren(f);
+
+        }
+
+        private void tesourariaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmParametroRel f = new frmParametroRel(2);
+            CheckMdiChildren(f);
+        }
+
+        private void separaçãoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmParametroRel f = new frmParametroRel(3);
+            CheckMdiChildren(f);
         }
     }
 }

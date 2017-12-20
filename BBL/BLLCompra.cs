@@ -33,10 +33,6 @@ namespace BLL
                 throw new Exception("O código do fornecedor deve ser informado");
             }
 
-            if (modelo.ComTotal <= 0)
-            {
-                throw new Exception("O valor da compra deve ser informado");
-            }
 
             DALCompra DALobj = new DALCompra(conexao);
             DALobj.Incluir(modelo);

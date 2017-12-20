@@ -11,6 +11,7 @@ namespace DAL
     {
         private String _stringConexao;
         private SqlConnection _conexao;
+        private SqlTransaction _transaction;
         
         public DALConexao(String dadosConexao)
         {
@@ -31,6 +32,12 @@ namespace DAL
             set { this._conexao = value; }
 
         }
+
+        public SqlTransaction ObjetoTransacao
+        {
+            get { return this._transaction; }
+            set { this._transaction = value; }
+        }
         public void Conectar()
         {
             this._conexao.Open();
@@ -40,5 +47,20 @@ namespace DAL
         {
             this._conexao.Close();
         }
+        public void IniciarTransacao()
+        {
+            this._transaction = _conexao.BeginTransaction();
+        }
+
+        public void TerminarTransacao()
+        {
+            this._transaction.Commit();
+        }
+
+        public void CancelarTransacao()
+        {
+            this._transaction.Rollback();
+        }
+             
     }
 }

@@ -39,15 +39,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLLAcesso.cs" />
+    <Compile Include="BLLCaixa.cs" />
+    <Compile Include="BLLCaixaStatus.cs" />
     <Compile Include="BLLCategoria.cs" />
     <Compile Include="BLLCliente.cs" />
     <Compile Include="BLLCliente2.cs" />
     <Compile Include="BLLCompra.cs" />
+    <Compile Include="BLLEquipe.cs" />
     <Compile Include="BLLFornecedor.cs" />
+    <Compile Include="BLLItensCompra.cs" />
+    <Compile Include="BLLItensVenda.cs" />
     <Compile Include="BLLProduto.cs" />
     <Compile Include="BLLSubCategoria.cs" />
     <Compile Include="BLLTipoPagamento.cs" />
     <Compile Include="BLLUnidadeDeMedida.cs" />
+    <Compile Include="BLLUsuario.cs" />
+    <Compile Include="BLLVenda.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

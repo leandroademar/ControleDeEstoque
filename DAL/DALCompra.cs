@@ -21,7 +21,7 @@ namespace DAL
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = conexao.ObjetoConexao;
             cmd.CommandText = "insert into compra(com_data,com_nfiscal,com_total,com_nparcelas,"+
-            "com_status,for_cod,tpa_cod) values (@com_data,@com_nfiscal,@com_total,@com_nparcelas,"+
+            "com_status,for_cod,tpa_cod) values (current_timestamp,@com_nfiscal,@com_total,@com_nparcelas,"+
             "@com_status,@for_cod,@tpa_cod); select @@IDENTITY;";
             //quando o valor for uma data
             cmd.Parameters.Add("@com_data", System.Data.SqlDbType.DateTime);
@@ -111,10 +111,8 @@ namespace DAL
 
             cmd.Parameters.Add("@dtfinal", System.Data.SqlDbType.DateTime);
             cmd.Parameters["@dtfinal"].Value = dtfinal;
-            //conexao.Conectar();
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             da.Fill(tabela);
-            //conexao.Desconectar();
             return tabela;
         }
 
@@ -137,7 +135,7 @@ namespace DAL
                 modelo.ComNFiscal = Convert.ToInt32(registro["com_nfiscal"]);
                 modelo.ComTotal = Convert.ToDouble(registro["com_total"]);
                 modelo.ComNParcelas = Convert.ToInt32(registro["com_nparcelas"]);
-                modelo.ComStatus = Convert.ToString(registro["com_status"]);
+                modelo.ComStatus = Convert.ToInt32(registro["com_status"]);
                 modelo.ForCod = Convert.ToInt32(registro["for_cod"]);
                 modelo.TpaCod = Convert.ToInt32(registro["tpa_cod"]);
             }

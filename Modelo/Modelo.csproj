@@ -39,14 +39,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ModeloCaixa.cs" />
+    <Compile Include="ModeloCaixaStatus.cs" />
     <Compile Include="ModeloCategoria.cs" />
     <Compile Include="ModeloCliente.cs" />
     <Compile Include="ModeloCompra.cs" />
+    <Compile Include="ModeloEquipe.cs" />
     <Compile Include="ModeloFornecedor.cs" />
+    <Compile Include="ModeloItensCompra.cs" />
+    <Compile Include="ModeloItensVenda.cs" />
+    <Compile Include="ModeloLiberacao.cs" />
     <Compile Include="ModeloSubCategoria.cs" />
     <Compile Include="ModeloTipoPagamento.cs" />
     <Compile Include="ModeloUnidadeDeMedida.cs" />
     <Compile Include="ModeloProduto.cs" />
+    <Compile Include="ModeloUsuario.cs" />
+    <Compile Include="ModeloVenda.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
