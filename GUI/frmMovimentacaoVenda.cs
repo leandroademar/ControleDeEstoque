@@ -555,13 +555,6 @@ namespace GUI
             STW_Arquivo.WriteLine("                FECHAMENTO DE CAIXA       ");
             STW_Arquivo.WriteLine("");
             STW_Arquivo.WriteLine("");
-            STW_Arquivo.WriteLine("");
-            STW_Arquivo.WriteLine("");
-            STW_Arquivo.WriteLine("");
-            STW_Arquivo.WriteLine("");
-            STW_Arquivo.WriteLine("");
-            STW_Arquivo.WriteLine("");
-            STW_Arquivo.WriteLine("");
             STW_Arquivo.WriteLine("Total.......: R$ " + pedido);
             STW_Arquivo.WriteLine("");
             STW_Arquivo.WriteLine("------------------------------------------------");
@@ -570,7 +563,6 @@ namespace GUI
             STW_Arquivo.WriteLine("Fechamento..: " + DateTime.Now.ToString("dd/MM/yyyy HH:mm"));
             STW_Arquivo.WriteLine("Caixa.......: " + User.Trim());
             STW_Arquivo.WriteLine("Cód Caixa...: " + caixa );
-            STW_Arquivo.WriteLine("");
             STW_Arquivo.WriteLine("");
             STW_Arquivo.WriteLine("");
             STW_Arquivo.Close();
@@ -665,6 +657,8 @@ namespace GUI
             cartao = mcaixa.CaxCartao.ToString();
             total = mcaixa.CaxTotal.ToString();
             abertura = mcaixa.CaxAbertura.ToString();
+            GravarFechamento(caixa, pedido, winthor, dinheiro, cartao, total, abertura);
+            spoolrec("FECHAMENTO.txt");
             File.Move("CAIXA", "CAIXA_" + DateTime.Now.ToString("ddMMyyyy_HHmm"));
 
             this.Close();

@@ -107,20 +107,27 @@ namespace GUI
 
         private void txtCodVenda_Leave(object sender, EventArgs e)
         {
-            if (txtCodVenda.Text != null)
+            try
             {
-                DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
-                BLLVenda bll = new BLLVenda(cx);
-                ModeloVenda modelo = bll.CarregaModeloFatura(Convert.ToInt32(txtCodVenda.Text));
-                txtCodVenda.Text = modelo.VenCod.ToString();
-                txtNomeCliente.Text = modelo.VenNome.ToString();
-                txtCodEquipe.Text = modelo.CodEquipe.ToString();
-                txtNomeEquipe.Text = modelo.NomeEquipe.ToString();
-                txtValor.Text = modelo.VenTotalgeral.ToString();
-                txtNomeEquipe.Focus();
+                if (Convert.ToInt32(txtCodVenda.Text) > 0)
+                {
+                    DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
+                    BLLVenda bll = new BLLVenda(cx);
+                    ModeloVenda modelo = bll.CarregaModeloFatura(Convert.ToInt32(txtCodVenda.Text));
+                    txtCodVenda.Text = modelo.VenCod.ToString();
+                    txtNomeCliente.Text = modelo.VenNome.ToString();
+                    txtCodEquipe.Text = modelo.CodEquipe.ToString();
+                    txtNomeEquipe.Text = modelo.NomeEquipe.ToString();
+                    txtValor.Text = modelo.VenTotalgeral.ToString();
+                    txtNomeEquipe.Focus();
+
+                }
+            }catch (Exception erro)
+            {
+                MessageBox.Show(erro.Message);
 
             }
-            
+
         }
 
         private void dgvDados_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -149,7 +156,7 @@ namespace GUI
                 bll.AlterarS(modelo);
                 btnCancel_Click(sender, e);
                 this.AtualizaCabecalhoDGCompra();
-                txtCodVenda.Focus();
+                txtCodVenda.Text = null;
 
             }
             if (rbtSeparados.Checked == true && ckbDivide.Checked == false)
@@ -162,10 +169,10 @@ namespace GUI
                 bll.AlterarSf(modelo);
                 btnCancel_Click(sender, e);
                 this.AtualizaCabecalhoDGSeparados();
-                txtCodVenda.Focus();
-  
+                txtCodVenda.Text = null;
+
             }
-            
+
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
