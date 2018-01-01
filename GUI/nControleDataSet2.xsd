@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="nControleDataSet2" targetNamespace="http://tempuri.org/nControleDataSet2.xsd" xmlns:mstns="http://tempuri.org/nControleDataSet2.xsd" xmlns="http://tempuri.org/nControleDataSet2.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="nControleConnectionString1" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="nControleConnectionString1 (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.GUI.Properties.Settings.GlobalReference.Default.nControleConnectionString1" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SRE_VENDAS_SEPARADASTableAdapter" GeneratorDataComponentClassName="SRE_VENDAS_SEPARADASTableAdapter" Name="SRE_VENDAS_SEPARADAS" UserDataComponentName="SRE_VENDAS_SEPARADASTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="nControleConnectionString1 (Settings)" DbObjectName="nControle.dbo.SRE_VENDAS_SEPARADAS" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT ven_cod, ven_nome, equi_nome, ven_dtfimsep, Tabajara, Winthor, Total FROM dbo.SRE_VENDAS_SEPARADAS</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ven_cod" DataSetColumn="ven_cod" />
+              <Mapping SourceColumn="ven_nome" DataSetColumn="ven_nome" />
+              <Mapping SourceColumn="equi_nome" DataSetColumn="equi_nome" />
+              <Mapping SourceColumn="ven_dtfimsep" DataSetColumn="ven_dtfimsep" />
+              <Mapping SourceColumn="Tabajara" DataSetColumn="Tabajara" />
+              <Mapping SourceColumn="Winthor" DataSetColumn="Winthor" />
+              <Mapping SourceColumn="Total" DataSetColumn="Total" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="nControleDataSet2" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="nControleDataSet2" msprop:Generator_UserDSName="nControleDataSet2">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="SRE_VENDAS_SEPARADAS" msprop:Generator_TableClassName="SRE_VENDAS_SEPARADASDataTable" msprop:Generator_TableVarName="tableSRE_VENDAS_SEPARADAS" msprop:Generator_TablePropName="SRE_VENDAS_SEPARADAS" msprop:Generator_RowDeletingName="SRE_VENDAS_SEPARADASRowDeleting" msprop:Generator_RowChangingName="SRE_VENDAS_SEPARADASRowChanging" msprop:Generator_RowEvHandlerName="SRE_VENDAS_SEPARADASRowChangeEventHandler" msprop:Generator_RowDeletedName="SRE_VENDAS_SEPARADASRowDeleted" msprop:Generator_UserTableName="SRE_VENDAS_SEPARADAS" msprop:Generator_RowChangedName="SRE_VENDAS_SEPARADASRowChanged" msprop:Generator_RowEvArgName="SRE_VENDAS_SEPARADASRowChangeEvent" msprop:Generator_RowClassName="SRE_VENDAS_SEPARADASRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ven_cod" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnven_cod" msprop:Generator_ColumnPropNameInRow="ven_cod" msprop:Generator_ColumnPropNameInTable="ven_codColumn" msprop:Generator_UserColumnName="ven_cod" type="xs:int" />
+              <xs:element name="ven_nome" msprop:Generator_ColumnVarNameInTable="columnven_nome" msprop:Generator_ColumnPropNameInRow="ven_nome" msprop:Generator_ColumnPropNameInTable="ven_nomeColumn" msprop:Generator_UserColumnName="ven_nome" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="95" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="equi_nome" msprop:Generator_ColumnVarNameInTable="columnequi_nome" msprop:Generator_ColumnPropNameInRow="equi_nome" msprop:Generator_ColumnPropNameInTable="equi_nomeColumn" msprop:Generator_UserColumnName="equi_nome" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="95" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ven_dtfimsep" msprop:Generator_ColumnVarNameInTable="columnven_dtfimsep" msprop:Generator_ColumnPropNameInRow="ven_dtfimsep" msprop:Generator_ColumnPropNameInTable="ven_dtfimsepColumn" msprop:Generator_UserColumnName="ven_dtfimsep" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Tabajara" msprop:Generator_ColumnVarNameInTable="columnTabajara" msprop:Generator_ColumnPropNameInRow="Tabajara" msprop:Generator_ColumnPropNameInTable="TabajaraColumn" msprop:Generator_UserColumnName="Tabajara" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Winthor" msprop:Generator_ColumnVarNameInTable="columnWinthor" msprop:Generator_ColumnPropNameInRow="Winthor" msprop:Generator_ColumnPropNameInTable="WinthorColumn" msprop:Generator_UserColumnName="Winthor" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Total" msprop:Generator_ColumnVarNameInTable="columnTotal" msprop:Generator_ColumnPropNameInRow="Total" msprop:Generator_ColumnPropNameInTable="TotalColumn" msprop:Generator_UserColumnName="Total" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:SRE_VENDAS_SEPARADAS" />
+      <xs:field xpath="mstns:ven_cod" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>
