@@ -128,7 +128,7 @@ namespace GUI
                 MessageBox.Show("Pedido de Venda: \n " + modeloVenda.VenCod.ToString()+" - "+ modeloVenda.VenNome.ToString() +
                     " \n Valor Pedido: R$ "+ modeloVenda.VenTotal.ToString() + 
                     "  \n Valor Winthor: R$ "+ modeloVenda.VenWinthor.ToString() +
-                    "  \n Valor Total: R$ " + modeloVenda.VenTotalgeral.ToString() +
+                    "  \n Valor Total: R$ " + (modeloVenda.VenTotal + modeloVenda.VenWinthor).ToString() +
                     " \n ", "Informação do Pedido", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 tbpCliente.Focus();
                 this.LimpaTela();

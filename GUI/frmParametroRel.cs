@@ -44,10 +44,24 @@ namespace GUI
 
         private void btnOk_Click(object sender, EventArgs e)
         {
+            if (tp == 1)
+            {
+                
+            }
+
             if (tp == 3)
             {
-                MessageBox.Show("Ok");
+                string dtinicial = dtpInicial.Value.ToString("yyyyMMdd");
+                string dtfinal = dtpFinal.Value.ToString("yyyyMMdd");
+
+                frmRelatorioVendas f = new frmRelatorioVendas(dtinicial, dtfinal);
+                f.Show();
             }
+        }
+
+        private void frmParametroRel_Load(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Maximized;
         }
     }
     

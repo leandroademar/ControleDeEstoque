@@ -14,9 +14,15 @@ namespace GUI
 {
     public partial class frmConsultaUsuario : Form
     {
+        public int tipo = 0;
         public int codigo = 0;
-        public frmConsultaUsuario()
+        public frmConsultaUsuario(int tip)
         {
+            if (tip==1)
+            {
+                tipo = 1;
+            }
+
             InitializeComponent();
         }
 
@@ -31,9 +37,21 @@ namespace GUI
 
         private void btnLocalizar_Click(object sender, EventArgs e)
         {
-            DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
-            BLLUsuario bll = new BLLUsuario(cx);
-            dgvDados.DataSource = bll.Localizar(textBox1.Text);
+            if (tipo == 0)
+            {
+                DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
+                BLLUsuario bll = new BLLUsuario(cx);
+                dgvDados.DataSource = bll.Localizar(textBox1.Text);
+            }
+            else
+            {
+                lblUsuario.Visible = false;
+                textBox1.Visible = false;
+                btnLocalizar.Visible = false;
+                DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
+                BLLEquipe blle = new BLLEquipe(cx);
+                dgvDados.DataSource = blle.Localizar(textBox1.Text);
+            }
 
         }
 

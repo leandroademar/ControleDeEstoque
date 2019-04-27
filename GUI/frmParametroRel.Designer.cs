@@ -44,26 +44,30 @@
             // dtpInicial
             // 
             this.dtpInicial.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpInicial.Location = new System.Drawing.Point(12, 35);
+            this.dtpInicial.Location = new System.Drawing.Point(22, 65);
+            this.dtpInicial.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.dtpInicial.Name = "dtpInicial";
-            this.dtpInicial.Size = new System.Drawing.Size(96, 20);
+            this.dtpInicial.Size = new System.Drawing.Size(173, 29);
             this.dtpInicial.TabIndex = 0;
             // 
             // dtpFinal
             // 
             this.dtpFinal.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFinal.Location = new System.Drawing.Point(128, 35);
+            this.dtpFinal.Location = new System.Drawing.Point(235, 65);
+            this.dtpFinal.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.dtpFinal.Name = "dtpFinal";
-            this.dtpFinal.Size = new System.Drawing.Size(96, 20);
+            this.dtpFinal.Size = new System.Drawing.Size(173, 29);
             this.dtpFinal.TabIndex = 1;
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.rbtPendente);
             this.groupBox1.Controls.Add(this.rbtFaturado);
-            this.groupBox1.Location = new System.Drawing.Point(12, 108);
+            this.groupBox1.Location = new System.Drawing.Point(22, 199);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(220, 54);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.groupBox1.Size = new System.Drawing.Size(403, 100);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Status";
@@ -71,9 +75,10 @@
             // rbtPendente
             // 
             this.rbtPendente.AutoSize = true;
-            this.rbtPendente.Location = new System.Drawing.Point(116, 19);
+            this.rbtPendente.Location = new System.Drawing.Point(213, 35);
+            this.rbtPendente.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.rbtPendente.Name = "rbtPendente";
-            this.rbtPendente.Size = new System.Drawing.Size(71, 17);
+            this.rbtPendente.Size = new System.Drawing.Size(121, 29);
             this.rbtPendente.TabIndex = 1;
             this.rbtPendente.TabStop = true;
             this.rbtPendente.Text = "Pendente";
@@ -82,9 +87,10 @@
             // rbtFaturado
             // 
             this.rbtFaturado.AutoSize = true;
-            this.rbtFaturado.Location = new System.Drawing.Point(11, 19);
+            this.rbtFaturado.Location = new System.Drawing.Point(20, 35);
+            this.rbtFaturado.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.rbtFaturado.Name = "rbtFaturado";
-            this.rbtFaturado.Size = new System.Drawing.Size(67, 17);
+            this.rbtFaturado.Size = new System.Drawing.Size(115, 29);
             this.rbtFaturado.TabIndex = 0;
             this.rbtFaturado.TabStop = true;
             this.rbtFaturado.Text = "Faturado";
@@ -92,9 +98,10 @@
             // 
             // btnOk
             // 
-            this.btnOk.Location = new System.Drawing.Point(76, 173);
+            this.btnOk.Location = new System.Drawing.Point(139, 319);
+            this.btnOk.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnOk.Name = "btnOk";
-            this.btnOk.Size = new System.Drawing.Size(75, 29);
+            this.btnOk.Size = new System.Drawing.Size(138, 54);
             this.btnOk.TabIndex = 3;
             this.btnOk.Text = "Imprimir";
             this.btnOk.UseVisualStyleBackColor = true;
@@ -103,9 +110,10 @@
             // btnCancel
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(157, 173);
+            this.btnCancel.Location = new System.Drawing.Point(288, 319);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 29);
+            this.btnCancel.Size = new System.Drawing.Size(138, 54);
             this.btnCancel.TabIndex = 4;
             this.btnCancel.Text = "Cancelar";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -114,18 +122,20 @@
             // lblDtIni
             // 
             this.lblDtIni.AutoSize = true;
-            this.lblDtIni.Location = new System.Drawing.Point(9, 19);
+            this.lblDtIni.Location = new System.Drawing.Point(17, 35);
+            this.lblDtIni.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblDtIni.Name = "lblDtIni";
-            this.lblDtIni.Size = new System.Drawing.Size(60, 13);
+            this.lblDtIni.Size = new System.Drawing.Size(107, 25);
             this.lblDtIni.TabIndex = 5;
             this.lblDtIni.Text = "Data Inicial";
             // 
             // lblDtFim
             // 
             this.lblDtFim.AutoSize = true;
-            this.lblDtFim.Location = new System.Drawing.Point(125, 19);
+            this.lblDtFim.Location = new System.Drawing.Point(229, 35);
+            this.lblDtFim.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblDtFim.Name = "lblDtFim";
-            this.lblDtFim.Size = new System.Drawing.Size(55, 13);
+            this.lblDtFim.Size = new System.Drawing.Size(100, 25);
             this.lblDtFim.TabIndex = 6;
             this.lblDtFim.Text = "Data Final";
             // 
@@ -133,18 +143,19 @@
             // 
             this.lblTipoRel.AutoSize = true;
             this.lblTipoRel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTipoRel.Location = new System.Drawing.Point(8, 68);
+            this.lblTipoRel.Location = new System.Drawing.Point(15, 126);
+            this.lblTipoRel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblTipoRel.Name = "lblTipoRel";
-            this.lblTipoRel.Size = new System.Drawing.Size(141, 24);
+            this.lblTipoRel.Size = new System.Drawing.Size(243, 38);
             this.lblTipoRel.TabIndex = 7;
             this.lblTipoRel.Text = "Nome Relatorio";
             // 
             // frmParametroRel
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(241, 214);
+            this.ClientSize = new System.Drawing.Size(442, 395);
             this.Controls.Add(this.lblTipoRel);
             this.Controls.Add(this.lblDtFim);
             this.Controls.Add(this.lblDtIni);
@@ -153,8 +164,11 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dtpFinal);
             this.Controls.Add(this.dtpInicial);
+            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Name = "frmParametroRel";
             this.Text = "Filtros de Relatório";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.frmParametroRel_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

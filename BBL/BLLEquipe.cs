@@ -22,7 +22,7 @@ namespace BLL
         {
             if (modelo.NomeEquipe.Trim().Length == 0)
             {
-                throw new Exception("O nome da categoria é obrigatório");
+                throw new Exception("O nome da equipe é obrigatório");
             }
             //modelo.NomeEquipe = modelo.NomeEquipe.ToUpper();
 
@@ -33,11 +33,11 @@ namespace BLL
         {
             if (modelo.CodEquipe <= 0)
             {
-                throw new Exception("O código da categoria é obrigatório");
+                throw new Exception("O código da equipe é obrigatório");
             }
             if (modelo.NomeEquipe.Trim().Length == 0)
             {
-                throw new Exception("O nome da categoria é obrigatório");
+                throw new Exception("O nome da equipe é obrigatório");
             }
             //modelo.NomeEquipe = modelo.NomeEquipe.ToUpper();
 

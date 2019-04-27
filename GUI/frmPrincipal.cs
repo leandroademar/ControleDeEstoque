@@ -38,6 +38,7 @@ namespace GUI
                 toolStripButton1.Visible = false;
                 toolStripButton3.Visible = true;
                 toolStripButton4.Visible = false;
+                toolStripButton5.Visible = false;
                 toolStripButton6.Visible = false;
                 toolStripButton2.Visible = false;
 
@@ -50,6 +51,8 @@ namespace GUI
                 toolStripButton4.Visible = false;
                 toolStripButton6.Visible = false;
                 toolStripButton2.Visible = false;
+                toolStripButton5.Visible = false;
+
             }
             if (pf == 4)
             {
@@ -59,6 +62,7 @@ namespace GUI
                 toolStripButton2.Visible = true;
                 toolStripButton6.Visible = false;
                 toolStripButton4.Visible = false;
+                toolStripButton5.Visible = false;
 
             }
             if (pf==0)
@@ -69,6 +73,8 @@ namespace GUI
                 toolStripButton3.Visible = false;
                 toolStripButton4.Visible = false;
                 toolStripButton6.Visible = false;
+                toolStripButton5.Visible = false;
+
             }
         }
 
@@ -381,6 +387,34 @@ namespace GUI
         {
             frmParametroRel f = new frmParametroRel(3);
             CheckMdiChildren(f);
+        }
+
+        private void equipeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCadastroEquipe f = new frmCadastroEquipe();
+            CheckMdiChildren(f);
+        }
+
+        private void toolStripButton5_Click(object sender, EventArgs e)
+        {
+            frmParametroRel f = new frmParametroRel(3);
+            CheckMdiChildren(f);
+        }
+
+        private void atualizarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("O sistema será fechado para você \n" +
+                                                        "prosseguir com a atualização.","Atualização",MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (dialogResult == DialogResult.Yes)
+            {
+                System.Diagnostics.Process.Start(@"P:\ATUALIZACAO\nAtualizador.exe");
+                this.Close();
+            }
+        }
+
+        private void toolStripStatusLabel1_Click(object sender, EventArgs e)
+        {
+            atualizarToolStripMenuItem_Click(sender, e);
         }
     }
 }

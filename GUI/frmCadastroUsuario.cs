@@ -105,7 +105,7 @@ namespace GUI
 
         private void btLocalizar_Click(object sender, EventArgs e)
         {
-            frmConsultaUsuario f = new frmConsultaUsuario();
+            frmConsultaUsuario f = new frmConsultaUsuario(0);
             f.ShowDialog();
             if (f.codigo != 0)
             {
