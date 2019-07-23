@@ -18,9 +18,12 @@ namespace BLL
 
         public void Incluir(ModeloTABCaixa modelo)
         {
-
-            DALTABCaixa DALobj = new DALTABCaixa(conexao);
-            DALobj.Incluir(modelo);
+            if (!String.IsNullOrWhiteSpace(modelo.NomeCaixa.ToString()) && modelo.NumCaixa != 0)
+            {
+                DALTABCaixa DALobj = new DALTABCaixa(conexao);
+                DALobj.Incluir(modelo);
+            }
+            
         }
 
         public DataTable LocalizarCaixas(int turno,int seg,int dia, string dtmovimento)

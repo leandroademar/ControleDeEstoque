@@ -25,25 +25,25 @@ namespace Modelo
 
 
         }
-        public ModeloTABCaixa(int numtrans, int _numcaixa, int codcaixa, String nomecaixa,DateTime dtcaixa, double vlrdin, double vlrdep, double vlrdeb, double vlrtran, double vlrcheq, double vlrvend, double vlrcred, int turno, double vlrcctks, double vlrcdtks, double vlroutros, double vlrmoedas)
+        public ModeloTABCaixa(int _numtrans, int _numcaixa, int _codcaixa, String _nomecaixa, DateTime _dtcaixa, double _vlrdin, double _vlrdep, double _vlrdeb, double _vlrtran, double _vlrcheq, double _vlrvend, double _vlrcred, int _turno, double _vlrcctks, double _vlrcdtks, double _vlroutros, double _vlrmoedas)
         {
-            this.NumTrans = numtrans;
+            this.NumTrans = _numtrans;
             this.NumCaixa = _numcaixa;
-            this.CodCaixa = codcaixa;
-            this.NomeCaixa = nomecaixa;
-            this.DtCaixa = dtcaixa;
-            this.VlrDin = vlrdin;
-            this.VlrDep = vlrdep;
-            this.VlrDeb = vlrdeb;
-            this.VlrTran = vlrtran;
-            this.VlrCheq = vlrcheq;
-            this.VlrVend = vlrvend;
-            this.VlrCred = vlrcred;
-            this.Turno = turno;
-            this.VlrCctks = vlrcctks;
-            this.VlrCdtks = vlrcdtks;
-            this.VlrOutros = vlroutros;
-            this.VlrMoedas = vlrmoedas;
+            this.CodCaixa = _codcaixa;
+            this.NomeCaixa = _nomecaixa;
+            this.DtCaixa = _dtcaixa;
+            this.VlrDin = _vlrdin;
+            this.VlrDep = _vlrdep;
+            this.VlrDeb = _vlrdeb;
+            this.VlrTran = _vlrtran;
+            this.VlrCheq = _vlrcheq;
+            this.VlrVend = _vlrvend;
+            this.VlrCred = _vlrcred;
+            this.Turno = _turno;
+            this.VlrCctks = _vlrcctks;
+            this.VlrCdtks = _vlrcdtks;
+            this.VlrOutros = _vlroutros;
+            this.VlrMoedas = _vlrmoedas;
 
 
         }
@@ -51,104 +51,107 @@ namespace Modelo
         private int numtrans;
         public int NumTrans
         {
-            get { return this.NumTrans; }
+            get { return this.numtrans; }
             set { this.numtrans = value; }
         }
 
-        private int _numcaixa;
+        private int numcaixa;
         public int NumCaixa
         {
-            get { return this.NumCaixa; }
-            set { this._numcaixa = value; }
+            get { return this.numcaixa; }
+            set { this.numcaixa = value; }
         }
         private int codcaixa;
         public int CodCaixa
         {
-            get { return this.CodCaixa; }
+            get { return this.codcaixa; }
             set { this.codcaixa = value; }
         }
+
         private string nomecaixa;
         public string NomeCaixa
         {
-            get { return this.NomeCaixa; }
+            get { return this.nomecaixa; }
             set { this.nomecaixa = value; }
         }
+
         private double vlrdin;
         public double VlrDin
         {
-            get { return this.VlrDin; }
+            get { return this.vlrdin; }
             set { this.vlrdin = value; }
         }
+
         private double vlrdep;
         public double VlrDep
         {
-            get { return this.VlrDep; }
+            get { return this.vlrdep; }
             set { this.vlrdep = value; }
         }
         private double vlrdeb;
         public double VlrDeb
         {
-            get { return this.VlrDeb; }
+            get { return this.vlrdeb; }
             set { this.vlrdeb = value; }
         }
         private double vlrtran;
         public double VlrTran
         {
-            get { return this.VlrTran; }
+            get { return this.vlrtran; }
             set { this.vlrtran = value; }
         }
         private double vlrcheq;
         public double VlrCheq
         {
-            get { return this.VlrCheq; }
+            get { return this.vlrcheq; }
             set { this.vlrcheq = value; }
         }
         private double vlrvend;
         public double VlrVend
         {
-            get { return this.VlrVend; }
+            get { return this.vlrvend; }
             set { this.vlrvend = value; }
         }
         private double vlrcred;
         public double VlrCred
         {
-            get { return this.VlrCred; }
+            get { return this.vlrcred; }
             set { this.vlrcred = value; }
         }
         private int turno;
         public int Turno
         {
-            get { return this.Turno; }
+            get { return this.turno; }
             set { this.turno = value; }
         }
         private double vlrcctks;
         public double VlrCctks
         {
-            get { return this.VlrCctks; }
+            get { return this.vlrcctks; }
             set { this.vlrcctks = value; }
         }
         private double vlrcdtks;
         public double VlrCdtks
         {
-            get { return this.VlrCdtks; }
+            get { return this.vlrcdtks; }
             set { this.vlrcdtks = value; }
         }
         private double vlroutros;
         public double VlrOutros
         {
-            get { return this.VlrOutros; }
+            get { return this.vlroutros; }
             set { this.vlroutros = value; }
         }
         private double vlrmoedas;
         public double VlrMoedas
         {
-            get { return this.VlrMoedas; }
+            get { return this.vlrmoedas; }
             set { this.vlrmoedas = value; }
         }
         private DateTime dtcaixa;
         public DateTime DtCaixa
         {
-            get { return this.DtCaixa; }
+            get { return this.dtcaixa; }
             set { this.dtcaixa = value; }
         }
 

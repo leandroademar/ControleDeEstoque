@@ -101,7 +101,7 @@
             this.pnlTABCaixa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pnlTABCaixa.Location = new System.Drawing.Point(27, 149);
             this.pnlTABCaixa.Name = "pnlTABCaixa";
-            this.pnlTABCaixa.Size = new System.Drawing.Size(1080, 287);
+            this.pnlTABCaixa.Size = new System.Drawing.Size(1080, 396);
             this.pnlTABCaixa.TabIndex = 0;
             // 
             // dgvTABCaixas
@@ -114,7 +114,7 @@
             this.dgvTABCaixas.Name = "dgvTABCaixas";
             this.dgvTABCaixas.ReadOnly = true;
             this.dgvTABCaixas.RowTemplate.Height = 28;
-            this.dgvTABCaixas.Size = new System.Drawing.Size(1080, 287);
+            this.dgvTABCaixas.Size = new System.Drawing.Size(1080, 396);
             this.dgvTABCaixas.TabIndex = 0;
             this.dgvTABCaixas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTABCaixas_CellClick);
             // 
@@ -185,7 +185,7 @@
             this.gbxTotais.Controls.Add(this.lblVDinheiro);
             this.gbxTotais.Controls.Add(this.lblVBanese);
             this.gbxTotais.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbxTotais.Location = new System.Drawing.Point(28, 687);
+            this.gbxTotais.Location = new System.Drawing.Point(28, 820);
             this.gbxTotais.Name = "gbxTotais";
             this.gbxTotais.Size = new System.Drawing.Size(1079, 199);
             this.gbxTotais.TabIndex = 7;
@@ -415,7 +415,7 @@
             this.gbxValores.Controls.Add(this.txtDinheiro);
             this.gbxValores.Controls.Add(this.txtBanese);
             this.gbxValores.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbxValores.Location = new System.Drawing.Point(28, 442);
+            this.gbxValores.Location = new System.Drawing.Point(28, 575);
             this.gbxValores.Name = "gbxValores";
             this.gbxValores.Size = new System.Drawing.Size(1079, 222);
             this.gbxValores.TabIndex = 8;
@@ -594,7 +594,7 @@
             // 
             // btnTransf
             // 
-            this.btnTransf.Location = new System.Drawing.Point(579, 892);
+            this.btnTransf.Location = new System.Drawing.Point(579, 1025);
             this.btnTransf.Name = "btnTransf";
             this.btnTransf.Size = new System.Drawing.Size(130, 45);
             this.btnTransf.TabIndex = 22;
@@ -603,7 +603,7 @@
             // 
             // btnAvulso
             // 
-            this.btnAvulso.Location = new System.Drawing.Point(712, 892);
+            this.btnAvulso.Location = new System.Drawing.Point(712, 1025);
             this.btnAvulso.Name = "btnAvulso";
             this.btnAvulso.Size = new System.Drawing.Size(130, 45);
             this.btnAvulso.TabIndex = 21;
@@ -612,7 +612,7 @@
             // 
             // btnAlterar
             // 
-            this.btnAlterar.Location = new System.Drawing.Point(845, 892);
+            this.btnAlterar.Location = new System.Drawing.Point(845, 1025);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(130, 45);
             this.btnAlterar.TabIndex = 20;
@@ -622,7 +622,7 @@
             // 
             // btnSalvar
             // 
-            this.btnSalvar.Location = new System.Drawing.Point(978, 892);
+            this.btnSalvar.Location = new System.Drawing.Point(978, 1025);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(130, 45);
             this.btnSalvar.TabIndex = 19;
@@ -718,7 +718,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1348, 949);
+            this.ClientSize = new System.Drawing.Size(1380, 1105);
             this.Controls.Add(this.txtNome);
             this.Controls.Add(this.txtNumoper);
             this.Controls.Add(this.txtNumcaixa);

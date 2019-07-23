@@ -182,17 +182,38 @@ namespace GUI
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            frmConsultaTABCaixas f = new frmConsultaTABCaixas(seg, dtpMovimento.Value.ToString("yyyyMMdd"));
-            f.ShowDialog();
-            txtNumcaixa.Text = f.numcaixa.ToString();
-            txtNumoper.Text = f.numoper.ToString();
-            txtNome.Text = f.nomeoper.ToString();
-            Insert(
-                    Convert.ToInt32(this.txtNumcaixa.Text.ToString()),
-                    Convert.ToInt32(this.txtNumoper.Text.ToString()),
-                    this.txtNome.Text.ToString(),
-                    Convert.ToInt32(this.cbxTurno.Text.ToString())
-                );
+            try
+            {
+                frmConsultaTABCaixas f = new frmConsultaTABCaixas(seg, dtpMovimento.Value.ToString("yyyyMMdd"));
+                f.ShowDialog();
+                if (f.numcaixa != 0)
+                {
+                    txtNumcaixa.Text = f.numcaixa.ToString();
+                    txtNumoper.Text = f.numoper.ToString();
+                    txtNome.Text = f.nomeoper.ToString();
+                
+                    Insert(
+                        Convert.ToInt32(this.txtNumcaixa.Text.ToString()),
+                        Convert.ToInt32(this.txtNumoper.Text.ToString()),
+                        this.txtNome.Text.ToString(),
+                        Convert.ToInt32(this.cbxTurno.Text.ToString())
+                    );
+                }
+                
+
+            } catch(Exception)
+            {
+                //MessageBox.Show(erro.Message);
+                MessageBox.Show("Erro ao Cadastrar Movimento de Caixa:" +
+                               "\n Verficar: Turno" +
+                               "\n Verficar: Número de Caixa" +
+                               "\n Verficar: Operadora" +
+                               "\n Verficar: Data" +
+                               "\n " +
+                               "\n É possível que já exista um caixa para essa operadora neste turno!", "Informativo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                cbxTurno.Focus();
+            }
+
 
         }
         public void Insert(int numcaixa, int numoper, string nome, int turno)
@@ -202,6 +223,7 @@ namespace GUI
             modelo.CodCaixa = numoper;
             modelo.NomeCaixa = nome.ToString();
             modelo.Turno = turno;
+            modelo.DtCaixa = Convert.ToDateTime(dtpMovimento.Text.ToString());
             DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
             BLLTABCaixa bll = new BLLTABCaixa(cx);
             bll.Incluir(modelo);
