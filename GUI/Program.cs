@@ -27,7 +27,7 @@ namespace GUI
             //Só inicia se receber True na propriedade "Logado"
             if (fLogin.Logado)
             {
-                Application.Run(new frmPrincipal(fLogin.Usuario,fLogin.Perfil));
+                Application.Run(new frmPrincipal(fLogin.Usuario,fLogin.Perfil,fLogin.PerfilTed));
             }
 
         }

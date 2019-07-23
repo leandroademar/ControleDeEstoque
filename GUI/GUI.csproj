@@ -208,6 +208,12 @@
     <Compile Include="frmConsultaSubCategoria.Designer.cs">
       <DependentUpon>frmConsultaSubCategoria.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmConsultaTABCaixas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmConsultaTABCaixas.Designer.cs">
+      <DependentUpon>frmConsultaTABCaixas.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmConsultaTesouraria.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -243,6 +249,12 @@
     </Compile>
     <Compile Include="frmFechamentoCaixa.Designer.cs">
       <DependentUpon>frmFechamentoCaixa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmInformeTED.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInformeTED.Designer.cs">
+      <DependentUpon>frmInformeTED.cs</DependentUpon>
     </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
@@ -382,6 +394,9 @@
     <EmbeddedResource Include="frmConsultaSubCategoria.resx">
       <DependentUpon>frmConsultaSubCategoria.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmConsultaTABCaixas.resx">
+      <DependentUpon>frmConsultaTABCaixas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmConsultaTesouraria.resx">
       <DependentUpon>frmConsultaTesouraria.cs</DependentUpon>
     </EmbeddedResource>
@@ -399,6 +414,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmFechamentoCaixa.resx">
       <DependentUpon>frmFechamentoCaixa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInformeTED.resx">
+      <DependentUpon>frmInformeTED.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>

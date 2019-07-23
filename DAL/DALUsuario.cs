@@ -69,6 +69,7 @@ namespace DAL
                 modelo.NomeUser = Convert.ToString(registro["usu_nome"]);
                 modelo.SenhaUser = Convert.ToString(registro["usu_senha"]);
                 modelo.PerfilUser = Convert.ToInt32(registro["per_cod"]);
+                modelo.PerfilTed = Convert.ToInt32(registro["per_ted"]);
             }
             conexao.Desconectar();
             return modelo;
@@ -89,6 +90,8 @@ namespace DAL
                 modelo.NomeUser = Convert.ToString(registro["usu_nome"]);
                 modelo.SenhaUser = Convert.ToString(registro["usu_senha"]);
                 modelo.PerfilUser = Convert.ToInt32(registro["per_cod"]);
+                modelo.PerfilTed = Convert.ToInt32(registro["per_ted"]);
+
             }
             conexao.Desconectar();
             return modelo;

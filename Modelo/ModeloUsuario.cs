@@ -17,12 +17,13 @@ namespace Modelo
 
         }
 
-        public ModeloUsuario(int coduser, String nomeuser, string senhauser,int perfiluser)
+        public ModeloUsuario(int coduser, String nomeuser, string senhauser,int perfiluser,int perfilted)
         {
             this.CodUser = coduser;
             this.NomeUser = nomeuser;
             this.SenhaUser = senhauser;
             this.PerfilUser = perfiluser;
+            this.PerfilTed = perfilted;
         }
 
         private int cod_user;
@@ -48,6 +49,12 @@ namespace Modelo
         {
             get { return this.perfil_user; }
             set { this.perfil_user = value; }
+        }
+        private int perfil_ted;
+        public int PerfilTed
+        {
+            get { return this.perfil_ted; }
+            set { this.perfil_ted = value; }
         }
     }
 }

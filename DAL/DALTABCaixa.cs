@@ -78,6 +78,50 @@ namespace DAL
             conexao.Desconectar();
         }
 
+        public DataTable LocalizarCaixas(int turno,int seg,int dia, string datamovimento)
+        {
+            String comando2 = "";
+            comando2 = comando2 + "SELECT [NUMTRANS] " + "\n";
+            comando2 = comando2 + "      ,[NUMCAIXA] " + "\n";
+            comando2 = comando2 + "      ,[CODCAIXA] " + "\n";
+            comando2 = comando2 + "      ,[NOMECAIXA] " + "\n";
+            comando2 = comando2 + "      ,[DTCAIXA] " + "\n";
+            comando2 = comando2 + "      ,[VLRDIN] " + "\n";
+            comando2 = comando2 + "      ,[VLRDEP] " + "\n";
+            comando2 = comando2 + "      ,[VLRDEB] " + "\n";
+            comando2 = comando2 + "      ,[VLRTRAN] " + "\n";
+            comando2 = comando2 + "      ,[VLRCHEQ] " + "\n";
+            comando2 = comando2 + "      ,[VLRVEND] " + "\n";
+            comando2 = comando2 + "      ,[VLRCRED] " + "\n";
+            comando2 = comando2 + "      ,[TURNO] " + "\n";
+            comando2 = comando2 + "      ,[VLRCCTKS] " + "\n";
+            comando2 = comando2 + "      ,[VLRCDTKS] " + "\n";
+            comando2 = comando2 + "      ,[VLRMOEDA] " + "\n";
+            comando2 = comando2 + "      ,[VLROUTROS] " + "\n";
+            comando2 = comando2 + "  FROM [TABFECHA] " + "\n";
+            comando2 = comando2 + "  WHERE DTCAIXA = '"+datamovimento+"' " + "\n";
+            if(seg != 0)
+            {
+                comando2 = comando2 + "  AND NUMCAIXA IN ('10','11','12') " + "\n";
+
+            }
+            else
+            {
+                comando2 = comando2 + "  AND NUMCAIXA NOT IN ('10','11','12') " + "\n";
+
+            }
+            if (dia == 0)
+            {
+                comando2 = comando2 + "  AND TURNO = " + turno;
+            }
+
+            DataTable tabela = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter
+            (comando2, conexao.StringConexao);
+            da.Fill(tabela);
+            return tabela;
+        }
+       
 
     }
 }

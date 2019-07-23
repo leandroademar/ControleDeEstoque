@@ -14,6 +14,7 @@ namespace GUI
         public string Usuario { get; internal set; }
         public string Senha { get; internal set; }
         public int Perfil { get; internal set; }
+        public int PerfilTed { get; internal set; }
         public string vUsuario;
         public string vSenha;
         
@@ -58,15 +59,18 @@ namespace GUI
                     vUsuario = modelo.NomeUser.ToString();
                     vSenha = modelo.SenhaUser.ToString();
                     Perfil = modelo.PerfilUser;
+                    PerfilTed = modelo.PerfilUser;
                     if (this.txtUser.Text == vUsuario && this.txtSenha.Text == vSenha)
                     {
 
                         Logado = true;
                         Usuario = txtUser.Text;
                         Perfil = modelo.PerfilUser;
+                        PerfilTed = modelo.PerfilTed;
                         //Salvar o nome de usuário nas configurações do aplicativo
                         Properties.Settings.Default.Usuario = txtUser.Text;
                         Properties.Settings.Default.Perfil = modelo.PerfilUser;
+                        Properties.Settings.Default.PerfilTed = modelo.PerfilUser;
                         Properties.Settings.Default.Save();
                         this.Close();
 

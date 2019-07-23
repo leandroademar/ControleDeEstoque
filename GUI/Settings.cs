@@ -18,6 +18,7 @@
         }
 
         public int Perfil { get; internal set; }
+        public int PerfilTed { get; internal set; }
         public string Usuario { get; internal set; }
 
         private void SettingChangingEventHandler(object sender, System.Configuration.SettingChangingEventArgs e) {

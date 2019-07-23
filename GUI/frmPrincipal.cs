@@ -9,11 +9,15 @@ namespace GUI
     public partial class frmPrincipal : Form
     {
         
-        public frmPrincipal(string usuario, int perfil)
+        public frmPrincipal(string usuario, int perfil,int perfilted)
         {
             InitializeComponent();
             tstNomeUser.Text = " Usuário: " + usuario;
             perfilusuario(perfil);
+            if(perfilted==1)
+            {
+                toolStripButton9.Visible = true;
+            }
             
 
     }
@@ -312,7 +316,7 @@ namespace GUI
 
         private void toolStripButton4_Click(object sender, EventArgs e)
         {
-            frmConsultaTesouraria f = new frmConsultaTesouraria();
+            frmFechamentoCaixa f = new frmFechamentoCaixa();
             CheckMdiChildren(f);
         }
 
@@ -420,6 +424,18 @@ namespace GUI
         private void tesourariaToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             frmFechamentoCaixa f = new frmFechamentoCaixa();
+            CheckMdiChildren(f);
+        }
+
+        private void tesourariaToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            frmFechamentoCaixa f = new frmFechamentoCaixa();
+            CheckMdiChildren(f);
+        }
+
+        private void toolStripButton9_Click(object sender, EventArgs e)
+        {
+            frmInformeTED f = new frmInformeTED();
             CheckMdiChildren(f);
         }
     }

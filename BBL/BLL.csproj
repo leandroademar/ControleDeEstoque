@@ -52,6 +52,7 @@
     <Compile Include="BLLItensVenda.cs" />
     <Compile Include="BLLProduto.cs" />
     <Compile Include="BLLSubCategoria.cs" />
+    <Compile Include="BLLTABCaixa.cs" />
     <Compile Include="BLLTipoPagamento.cs" />
     <Compile Include="BLLUnidadeDeMedida.cs" />
     <Compile Include="BLLUsuario.cs" />
