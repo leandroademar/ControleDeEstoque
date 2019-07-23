@@ -238,6 +238,12 @@
     <Compile Include="frmConsultaVenda.Designer.cs">
       <DependentUpon>frmConsultaVenda.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmFechamentoCaixa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmFechamentoCaixa.Designer.cs">
+      <DependentUpon>frmFechamentoCaixa.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -280,6 +286,12 @@
     <Compile Include="frmRelatorioVendas.Designer.cs">
       <DependentUpon>frmRelatorioVendas.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmRelSepara.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRelSepara.Designer.cs">
+      <DependentUpon>frmRelSepara.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmSeparacaoPedido.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -305,10 +317,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>nControleDataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="nControleDataSet2.cs">
+      <DependentUpon>nControleDataSet2.xsd</DependentUpon>
+    </Compile>
     <Compile Include="nControleDataSet2.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>nControleDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="nControleDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>nControleDataSet3.xsd</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -377,6 +397,9 @@
     <EmbeddedResource Include="frmConsultaVenda.resx">
       <DependentUpon>frmConsultaVenda.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmFechamentoCaixa.resx">
+      <DependentUpon>frmFechamentoCaixa.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -398,6 +421,9 @@
     <EmbeddedResource Include="frmRelatorioVendas.resx">
       <DependentUpon>frmRelatorioVendas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmRelSepara.resx">
+      <DependentUpon>frmRelSepara.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmSeparacaoPedido.resx">
       <DependentUpon>frmSeparacaoPedido.cs</DependentUpon>
     </EmbeddedResource>
@@ -417,6 +443,7 @@
     <EmbeddedResource Include="Report1.rdlc" />
     <EmbeddedResource Include="Report2.rdlc" />
     <EmbeddedResource Include="Report3.rdlc" />
+    <EmbeddedResource Include="ReportSeparadas.rdlc" />
     <None Include="GUI_TemporaryKey.pfx" />
     <None Include="nControleDataSet.xsc">
       <DependentUpon>nControleDataSet.xsd</DependentUpon>
@@ -450,6 +477,17 @@
     </None>
     <None Include="nControleDataSet2.xss">
       <DependentUpon>nControleDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="nControleDataSet3.xsc">
+      <DependentUpon>nControleDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="nControleDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>nControleDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="nControleDataSet3.xss">
+      <DependentUpon>nControleDataSet3.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

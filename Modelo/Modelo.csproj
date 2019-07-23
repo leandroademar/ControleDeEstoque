@@ -59,6 +59,7 @@
     <Compile Include="ModeloItensVenda.cs" />
     <Compile Include="ModeloLiberacao.cs" />
     <Compile Include="ModeloSubCategoria.cs" />
+    <Compile Include="ModeloTABCaixa.cs" />
     <Compile Include="ModeloTipoPagamento.cs" />
     <Compile Include="ModeloUnidadeDeMedida.cs" />
     <Compile Include="ModeloProduto.cs" />

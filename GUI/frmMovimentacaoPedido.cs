@@ -506,5 +506,10 @@ namespace GUI
         {
           
         }
+
+        private void txtQuantidade_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -385,7 +385,7 @@ namespace GUI
 
         private void separaçãoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmParametroRel f = new frmParametroRel(3);
+            frmRelSepara f = new frmRelSepara();
             CheckMdiChildren(f);
         }
 
@@ -415,6 +415,12 @@ namespace GUI
         private void toolStripStatusLabel1_Click(object sender, EventArgs e)
         {
             atualizarToolStripMenuItem_Click(sender, e);
+        }
+
+        private void tesourariaToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmFechamentoCaixa f = new frmFechamentoCaixa();
+            CheckMdiChildren(f);
         }
     }
 }

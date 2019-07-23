@@ -152,7 +152,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>equi nome</Value>
+                            <Value>Equipe</Value>
                             <Style>
                               <FontSize>11pt</FontSize>
                               <FontWeight>Bold</FontWeight>
@@ -353,7 +353,7 @@
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>nControleDataSet2</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\Leandro Ademar\Documents\Visual Studio 2017\ControleDeEstoque\GUI\nControleDataSet2.xsd</rd:SchemaPath>
+        <rd:SchemaPath>C:\Tabajara\ControleDeEstoque\GUI\nControleDataSet2.xsd</rd:SchemaPath>
         <rd:TableName>SRE_VENDAS_SEPARADAS</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>

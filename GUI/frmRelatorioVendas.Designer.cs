@@ -57,9 +57,10 @@
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "GUI.Report3.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
+            this.reportViewer1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(1095, 1284);
+            this.reportViewer1.Size = new System.Drawing.Size(597, 554);
             this.reportViewer1.TabIndex = 0;
             // 
             // SRE_VENDAS_SEPARADASTableAdapter
@@ -68,11 +69,10 @@
             // 
             // frmRelatorioVendas
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1095, 1284);
+            this.ClientSize = new System.Drawing.Size(597, 554);
             this.Controls.Add(this.reportViewer1);
-            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "frmRelatorioVendas";
             this.Text = "Relatório de Vendas";
             this.Load += new System.EventHandler(this.frmRelatorioVendas_Load);
