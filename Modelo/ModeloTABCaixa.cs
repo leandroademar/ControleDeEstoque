@@ -25,10 +25,10 @@ namespace Modelo
 
 
         }
-        public ModeloTABCaixa(int numtrans, int numcaixa, int codcaixa, String nomecaixa,DateTime dtcaixa, double vlrdin, double vlrdep, double vlrdeb, double vlrtran, double vlrcheq, double vlrvend, double vlrcred, int turno, double vlrcctks, double vlrcdtks, double vlroutros, double vlrmoedas)
+        public ModeloTABCaixa(int numtrans, int _numcaixa, int codcaixa, String nomecaixa,DateTime dtcaixa, double vlrdin, double vlrdep, double vlrdeb, double vlrtran, double vlrcheq, double vlrvend, double vlrcred, int turno, double vlrcctks, double vlrcdtks, double vlroutros, double vlrmoedas)
         {
             this.NumTrans = numtrans;
-            this.NumCaixa = numcaixa;
+            this.NumCaixa = _numcaixa;
             this.CodCaixa = codcaixa;
             this.NomeCaixa = nomecaixa;
             this.DtCaixa = dtcaixa;
@@ -55,11 +55,11 @@ namespace Modelo
             set { this.numtrans = value; }
         }
 
-        private int numcaixa;
+        private int _numcaixa;
         public int NumCaixa
         {
             get { return this.NumCaixa; }
-            set { this.numcaixa = value; }
+            set { this._numcaixa = value; }
         }
         private int codcaixa;
         public int CodCaixa

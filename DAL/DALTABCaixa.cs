@@ -121,6 +121,18 @@ namespace DAL
             da.Fill(tabela);
             return tabela;
         }
+
+        public  DataTable Buscar(int seg,string dtmovimento)
+        {
+            string comando3 = "EXEC T_TABCAIXA "+seg+",'"+dtmovimento+"','',''";
+
+            DataTable tabela = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter
+            (comando3, conexao.StringConexao);
+            da.Fill(tabela);
+            return tabela;
+
+        }
        
 
     }

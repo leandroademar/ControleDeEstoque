@@ -35,11 +35,27 @@
             this.lblData = new System.Windows.Forms.Label();
             this.lblTurno = new System.Windows.Forms.Label();
             this.gbxTotais = new System.Windows.Forms.GroupBox();
+            this.totalOutros = new System.Windows.Forms.Label();
+            this.totalCheque = new System.Windows.Forms.Label();
+            this.totalCDtks = new System.Windows.Forms.Label();
+            this.totalCCtks = new System.Windows.Forms.Label();
+            this.totalDinheiro = new System.Windows.Forms.Label();
+            this.totalMoedas = new System.Windows.Forms.Label();
+            this.totalTed = new System.Windows.Forms.Label();
+            this.totalCDrede = new System.Windows.Forms.Label();
+            this.totalCCrede = new System.Windows.Forms.Label();
+            this.totalBanese = new System.Windows.Forms.Label();
+            this.lblVOutras = new System.Windows.Forms.Label();
+            this.lblVMoedas = new System.Windows.Forms.Label();
+            this.lblVCheque = new System.Windows.Forms.Label();
+            this.lblVTed = new System.Windows.Forms.Label();
+            this.lblVCDtks = new System.Windows.Forms.Label();
+            this.lblVCDRede = new System.Windows.Forms.Label();
+            this.lblVCCTks = new System.Windows.Forms.Label();
+            this.lblVCCRede = new System.Windows.Forms.Label();
+            this.lblVDinheiro = new System.Windows.Forms.Label();
+            this.lblVBanese = new System.Windows.Forms.Label();
             this.gbxValores = new System.Windows.Forms.GroupBox();
-            this.btnTransf = new System.Windows.Forms.Button();
-            this.btnAvulso = new System.Windows.Forms.Button();
-            this.btnAlterar = new System.Windows.Forms.Button();
-            this.btnSalvar = new System.Windows.Forms.Button();
             this.lblOutros = new System.Windows.Forms.Label();
             this.lblMoedas = new System.Windows.Forms.Label();
             this.txtOutros = new System.Windows.Forms.TextBox();
@@ -60,31 +76,18 @@
             this.txtCCrede = new System.Windows.Forms.TextBox();
             this.txtDinheiro = new System.Windows.Forms.TextBox();
             this.txtBanese = new System.Windows.Forms.TextBox();
+            this.btnTransf = new System.Windows.Forms.Button();
+            this.btnAvulso = new System.Windows.Forms.Button();
+            this.btnAlterar = new System.Windows.Forms.Button();
+            this.btnSalvar = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.gbxSegmento = new System.Windows.Forms.GroupBox();
             this.cbxDia = new System.Windows.Forms.CheckBox();
             this.rbtAtacado = new System.Windows.Forms.RadioButton();
             this.rbtVarejo = new System.Windows.Forms.RadioButton();
-            this.lblVBanese = new System.Windows.Forms.Label();
-            this.lblVDinheiro = new System.Windows.Forms.Label();
-            this.lblVCCTks = new System.Windows.Forms.Label();
-            this.lblVCCRede = new System.Windows.Forms.Label();
-            this.lblVCDtks = new System.Windows.Forms.Label();
-            this.lblVCDRede = new System.Windows.Forms.Label();
-            this.lblVCheque = new System.Windows.Forms.Label();
-            this.lblVTed = new System.Windows.Forms.Label();
-            this.lblVOutras = new System.Windows.Forms.Label();
-            this.lblVMoedas = new System.Windows.Forms.Label();
-            this.totalMoedas = new System.Windows.Forms.Label();
-            this.totalTed = new System.Windows.Forms.Label();
-            this.totalCDrede = new System.Windows.Forms.Label();
-            this.totalCCrede = new System.Windows.Forms.Label();
-            this.totalBanese = new System.Windows.Forms.Label();
-            this.totalOutros = new System.Windows.Forms.Label();
-            this.totalCheque = new System.Windows.Forms.Label();
-            this.totalCDtks = new System.Windows.Forms.Label();
-            this.totalCCtks = new System.Windows.Forms.Label();
-            this.totalDinheiro = new System.Windows.Forms.Label();
+            this.txtNumcaixa = new System.Windows.Forms.TextBox();
+            this.txtNumoper = new System.Windows.Forms.TextBox();
+            this.txtNome = new System.Windows.Forms.TextBox();
             this.pnlTABCaixa.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTABCaixas)).BeginInit();
             this.gbxTotais.SuspendLayout();
@@ -189,6 +192,206 @@
             this.gbxTotais.TabStop = false;
             this.gbxTotais.Text = "Totais";
             // 
+            // totalOutros
+            // 
+            this.totalOutros.AutoSize = true;
+            this.totalOutros.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalOutros.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.totalOutros.Location = new System.Drawing.Point(803, 159);
+            this.totalOutros.Name = "totalOutros";
+            this.totalOutros.Size = new System.Drawing.Size(62, 29);
+            this.totalOutros.TabIndex = 19;
+            this.totalOutros.Text = "0,00";
+            // 
+            // totalCheque
+            // 
+            this.totalCheque.AutoSize = true;
+            this.totalCheque.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalCheque.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.totalCheque.Location = new System.Drawing.Point(605, 159);
+            this.totalCheque.Name = "totalCheque";
+            this.totalCheque.Size = new System.Drawing.Size(62, 29);
+            this.totalCheque.TabIndex = 18;
+            this.totalCheque.Text = "0,00";
+            // 
+            // totalCDtks
+            // 
+            this.totalCDtks.AutoSize = true;
+            this.totalCDtks.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalCDtks.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.totalCDtks.Location = new System.Drawing.Point(407, 159);
+            this.totalCDtks.Name = "totalCDtks";
+            this.totalCDtks.Size = new System.Drawing.Size(62, 29);
+            this.totalCDtks.TabIndex = 17;
+            this.totalCDtks.Text = "0,00";
+            // 
+            // totalCCtks
+            // 
+            this.totalCCtks.AutoSize = true;
+            this.totalCCtks.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalCCtks.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.totalCCtks.Location = new System.Drawing.Point(209, 159);
+            this.totalCCtks.Name = "totalCCtks";
+            this.totalCCtks.Size = new System.Drawing.Size(62, 29);
+            this.totalCCtks.TabIndex = 16;
+            this.totalCCtks.Text = "0,00";
+            // 
+            // totalDinheiro
+            // 
+            this.totalDinheiro.AutoSize = true;
+            this.totalDinheiro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalDinheiro.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.totalDinheiro.Location = new System.Drawing.Point(11, 159);
+            this.totalDinheiro.Name = "totalDinheiro";
+            this.totalDinheiro.Size = new System.Drawing.Size(62, 29);
+            this.totalDinheiro.TabIndex = 15;
+            this.totalDinheiro.Text = "0,00";
+            // 
+            // totalMoedas
+            // 
+            this.totalMoedas.AutoSize = true;
+            this.totalMoedas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalMoedas.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.totalMoedas.Location = new System.Drawing.Point(803, 69);
+            this.totalMoedas.Name = "totalMoedas";
+            this.totalMoedas.Size = new System.Drawing.Size(62, 29);
+            this.totalMoedas.TabIndex = 14;
+            this.totalMoedas.Text = "0,00";
+            // 
+            // totalTed
+            // 
+            this.totalTed.AutoSize = true;
+            this.totalTed.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalTed.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.totalTed.Location = new System.Drawing.Point(605, 69);
+            this.totalTed.Name = "totalTed";
+            this.totalTed.Size = new System.Drawing.Size(62, 29);
+            this.totalTed.TabIndex = 13;
+            this.totalTed.Text = "0,00";
+            // 
+            // totalCDrede
+            // 
+            this.totalCDrede.AutoSize = true;
+            this.totalCDrede.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalCDrede.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.totalCDrede.Location = new System.Drawing.Point(407, 69);
+            this.totalCDrede.Name = "totalCDrede";
+            this.totalCDrede.Size = new System.Drawing.Size(62, 29);
+            this.totalCDrede.TabIndex = 12;
+            this.totalCDrede.Text = "0,00";
+            // 
+            // totalCCrede
+            // 
+            this.totalCCrede.AutoSize = true;
+            this.totalCCrede.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalCCrede.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.totalCCrede.Location = new System.Drawing.Point(209, 69);
+            this.totalCCrede.Name = "totalCCrede";
+            this.totalCCrede.Size = new System.Drawing.Size(62, 29);
+            this.totalCCrede.TabIndex = 11;
+            this.totalCCrede.Text = "0,00";
+            // 
+            // totalBanese
+            // 
+            this.totalBanese.AutoSize = true;
+            this.totalBanese.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalBanese.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.totalBanese.Location = new System.Drawing.Point(11, 69);
+            this.totalBanese.Name = "totalBanese";
+            this.totalBanese.Size = new System.Drawing.Size(62, 29);
+            this.totalBanese.TabIndex = 10;
+            this.totalBanese.Text = "0,00";
+            // 
+            // lblVOutras
+            // 
+            this.lblVOutras.AutoSize = true;
+            this.lblVOutras.Location = new System.Drawing.Point(803, 123);
+            this.lblVOutras.Name = "lblVOutras";
+            this.lblVOutras.Size = new System.Drawing.Size(97, 29);
+            this.lblVOutras.TabIndex = 9;
+            this.lblVOutras.Text = "Outros: ";
+            // 
+            // lblVMoedas
+            // 
+            this.lblVMoedas.AutoSize = true;
+            this.lblVMoedas.Location = new System.Drawing.Point(803, 31);
+            this.lblVMoedas.Name = "lblVMoedas";
+            this.lblVMoedas.Size = new System.Drawing.Size(112, 29);
+            this.lblVMoedas.TabIndex = 8;
+            this.lblVMoedas.Text = "Moedas: ";
+            // 
+            // lblVCheque
+            // 
+            this.lblVCheque.AutoSize = true;
+            this.lblVCheque.Location = new System.Drawing.Point(605, 123);
+            this.lblVCheque.Name = "lblVCheque";
+            this.lblVCheque.Size = new System.Drawing.Size(110, 29);
+            this.lblVCheque.TabIndex = 7;
+            this.lblVCheque.Text = "Cheque: ";
+            // 
+            // lblVTed
+            // 
+            this.lblVTed.AutoSize = true;
+            this.lblVTed.Location = new System.Drawing.Point(605, 31);
+            this.lblVTed.Name = "lblVTed";
+            this.lblVTed.Size = new System.Drawing.Size(74, 29);
+            this.lblVTed.TabIndex = 6;
+            this.lblVTed.Text = "TED: ";
+            // 
+            // lblVCDtks
+            // 
+            this.lblVCDtks.AutoSize = true;
+            this.lblVCDtks.Location = new System.Drawing.Point(407, 123);
+            this.lblVCDtks.Name = "lblVCDtks";
+            this.lblVCDtks.Size = new System.Drawing.Size(113, 29);
+            this.lblVCDtks.TabIndex = 5;
+            this.lblVCDtks.Text = "CD TKS: ";
+            // 
+            // lblVCDRede
+            // 
+            this.lblVCDRede.AutoSize = true;
+            this.lblVCDRede.Location = new System.Drawing.Point(407, 31);
+            this.lblVCDRede.Name = "lblVCDRede";
+            this.lblVCDRede.Size = new System.Drawing.Size(118, 29);
+            this.lblVCDRede.TabIndex = 4;
+            this.lblVCDRede.Text = "CD Rede:";
+            // 
+            // lblVCCTks
+            // 
+            this.lblVCCTks.AutoSize = true;
+            this.lblVCCTks.Location = new System.Drawing.Point(209, 123);
+            this.lblVCCTks.Name = "lblVCCTks";
+            this.lblVCCTks.Size = new System.Drawing.Size(113, 29);
+            this.lblVCCTks.TabIndex = 3;
+            this.lblVCCTks.Text = "CC TKS: ";
+            // 
+            // lblVCCRede
+            // 
+            this.lblVCCRede.AutoSize = true;
+            this.lblVCCRede.Location = new System.Drawing.Point(209, 31);
+            this.lblVCCRede.Name = "lblVCCRede";
+            this.lblVCCRede.Size = new System.Drawing.Size(124, 29);
+            this.lblVCCRede.TabIndex = 2;
+            this.lblVCCRede.Text = "CC Rede: ";
+            // 
+            // lblVDinheiro
+            // 
+            this.lblVDinheiro.AutoSize = true;
+            this.lblVDinheiro.Location = new System.Drawing.Point(11, 123);
+            this.lblVDinheiro.Name = "lblVDinheiro";
+            this.lblVDinheiro.Size = new System.Drawing.Size(116, 29);
+            this.lblVDinheiro.TabIndex = 1;
+            this.lblVDinheiro.Text = "Dinheiro: ";
+            // 
+            // lblVBanese
+            // 
+            this.lblVBanese.AutoSize = true;
+            this.lblVBanese.Location = new System.Drawing.Point(11, 31);
+            this.lblVBanese.Name = "lblVBanese";
+            this.lblVBanese.Size = new System.Drawing.Size(107, 29);
+            this.lblVBanese.TabIndex = 0;
+            this.lblVBanese.Text = "Banese: ";
+            // 
             // gbxValores
             // 
             this.gbxValores.Controls.Add(this.lblOutros);
@@ -218,44 +421,6 @@
             this.gbxValores.TabIndex = 8;
             this.gbxValores.TabStop = false;
             this.gbxValores.Text = "Valores";
-            // 
-            // btnTransf
-            // 
-            this.btnTransf.Location = new System.Drawing.Point(579, 892);
-            this.btnTransf.Name = "btnTransf";
-            this.btnTransf.Size = new System.Drawing.Size(130, 45);
-            this.btnTransf.TabIndex = 22;
-            this.btnTransf.Text = "TED";
-            this.btnTransf.UseVisualStyleBackColor = true;
-            // 
-            // btnAvulso
-            // 
-            this.btnAvulso.Location = new System.Drawing.Point(712, 892);
-            this.btnAvulso.Name = "btnAvulso";
-            this.btnAvulso.Size = new System.Drawing.Size(130, 45);
-            this.btnAvulso.TabIndex = 21;
-            this.btnAvulso.Text = "Avulso";
-            this.btnAvulso.UseVisualStyleBackColor = true;
-            // 
-            // btnAlterar
-            // 
-            this.btnAlterar.Location = new System.Drawing.Point(845, 892);
-            this.btnAlterar.Name = "btnAlterar";
-            this.btnAlterar.Size = new System.Drawing.Size(130, 45);
-            this.btnAlterar.TabIndex = 20;
-            this.btnAlterar.Text = "Alterar";
-            this.btnAlterar.UseVisualStyleBackColor = true;
-            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
-            // 
-            // btnSalvar
-            // 
-            this.btnSalvar.Location = new System.Drawing.Point(978, 892);
-            this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(130, 45);
-            this.btnSalvar.TabIndex = 19;
-            this.btnSalvar.Text = "Salvar";
-            this.btnSalvar.UseVisualStyleBackColor = true;
-            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // lblOutros
             // 
@@ -427,6 +592,44 @@
             this.txtBanese.TabIndex = 0;
             this.txtBanese.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBanese_KeyPress);
             // 
+            // btnTransf
+            // 
+            this.btnTransf.Location = new System.Drawing.Point(579, 892);
+            this.btnTransf.Name = "btnTransf";
+            this.btnTransf.Size = new System.Drawing.Size(130, 45);
+            this.btnTransf.TabIndex = 22;
+            this.btnTransf.Text = "TED";
+            this.btnTransf.UseVisualStyleBackColor = true;
+            // 
+            // btnAvulso
+            // 
+            this.btnAvulso.Location = new System.Drawing.Point(712, 892);
+            this.btnAvulso.Name = "btnAvulso";
+            this.btnAvulso.Size = new System.Drawing.Size(130, 45);
+            this.btnAvulso.TabIndex = 21;
+            this.btnAvulso.Text = "Avulso";
+            this.btnAvulso.UseVisualStyleBackColor = true;
+            // 
+            // btnAlterar
+            // 
+            this.btnAlterar.Location = new System.Drawing.Point(845, 892);
+            this.btnAlterar.Name = "btnAlterar";
+            this.btnAlterar.Size = new System.Drawing.Size(130, 45);
+            this.btnAlterar.TabIndex = 20;
+            this.btnAlterar.Text = "Alterar";
+            this.btnAlterar.UseVisualStyleBackColor = true;
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
+            // 
+            // btnSalvar
+            // 
+            this.btnSalvar.Location = new System.Drawing.Point(978, 892);
+            this.btnSalvar.Name = "btnSalvar";
+            this.btnSalvar.Size = new System.Drawing.Size(130, 45);
+            this.btnSalvar.TabIndex = 19;
+            this.btnSalvar.Text = "Salvar";
+            this.btnSalvar.UseVisualStyleBackColor = true;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
+            // 
             // btnBuscar
             // 
             this.btnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -484,211 +687,41 @@
             this.rbtVarejo.UseVisualStyleBackColor = true;
             this.rbtVarejo.CheckedChanged += new System.EventHandler(this.rbtVarejo_CheckedChanged);
             // 
-            // lblVBanese
+            // txtNumcaixa
             // 
-            this.lblVBanese.AutoSize = true;
-            this.lblVBanese.Location = new System.Drawing.Point(11, 31);
-            this.lblVBanese.Name = "lblVBanese";
-            this.lblVBanese.Size = new System.Drawing.Size(107, 29);
-            this.lblVBanese.TabIndex = 0;
-            this.lblVBanese.Text = "Banese: ";
+            this.txtNumcaixa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNumcaixa.Location = new System.Drawing.Point(379, 107);
+            this.txtNumcaixa.Name = "txtNumcaixa";
+            this.txtNumcaixa.ReadOnly = true;
+            this.txtNumcaixa.Size = new System.Drawing.Size(100, 35);
+            this.txtNumcaixa.TabIndex = 25;
             // 
-            // lblVDinheiro
+            // txtNumoper
             // 
-            this.lblVDinheiro.AutoSize = true;
-            this.lblVDinheiro.Location = new System.Drawing.Point(11, 123);
-            this.lblVDinheiro.Name = "lblVDinheiro";
-            this.lblVDinheiro.Size = new System.Drawing.Size(116, 29);
-            this.lblVDinheiro.TabIndex = 1;
-            this.lblVDinheiro.Text = "Dinheiro: ";
+            this.txtNumoper.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNumoper.Location = new System.Drawing.Point(499, 107);
+            this.txtNumoper.Name = "txtNumoper";
+            this.txtNumoper.ReadOnly = true;
+            this.txtNumoper.Size = new System.Drawing.Size(100, 35);
+            this.txtNumoper.TabIndex = 26;
             // 
-            // lblVCCTks
+            // txtNome
             // 
-            this.lblVCCTks.AutoSize = true;
-            this.lblVCCTks.Location = new System.Drawing.Point(209, 123);
-            this.lblVCCTks.Name = "lblVCCTks";
-            this.lblVCCTks.Size = new System.Drawing.Size(113, 29);
-            this.lblVCCTks.TabIndex = 3;
-            this.lblVCCTks.Text = "CC TKS: ";
-            // 
-            // lblVCCRede
-            // 
-            this.lblVCCRede.AutoSize = true;
-            this.lblVCCRede.Location = new System.Drawing.Point(209, 31);
-            this.lblVCCRede.Name = "lblVCCRede";
-            this.lblVCCRede.Size = new System.Drawing.Size(124, 29);
-            this.lblVCCRede.TabIndex = 2;
-            this.lblVCCRede.Text = "CC Rede: ";
-            // 
-            // lblVCDtks
-            // 
-            this.lblVCDtks.AutoSize = true;
-            this.lblVCDtks.Location = new System.Drawing.Point(407, 123);
-            this.lblVCDtks.Name = "lblVCDtks";
-            this.lblVCDtks.Size = new System.Drawing.Size(113, 29);
-            this.lblVCDtks.TabIndex = 5;
-            this.lblVCDtks.Text = "CD TKS: ";
-            // 
-            // lblVCDRede
-            // 
-            this.lblVCDRede.AutoSize = true;
-            this.lblVCDRede.Location = new System.Drawing.Point(407, 31);
-            this.lblVCDRede.Name = "lblVCDRede";
-            this.lblVCDRede.Size = new System.Drawing.Size(118, 29);
-            this.lblVCDRede.TabIndex = 4;
-            this.lblVCDRede.Text = "CD Rede:";
-            // 
-            // lblVCheque
-            // 
-            this.lblVCheque.AutoSize = true;
-            this.lblVCheque.Location = new System.Drawing.Point(605, 123);
-            this.lblVCheque.Name = "lblVCheque";
-            this.lblVCheque.Size = new System.Drawing.Size(110, 29);
-            this.lblVCheque.TabIndex = 7;
-            this.lblVCheque.Text = "Cheque: ";
-            // 
-            // lblVTed
-            // 
-            this.lblVTed.AutoSize = true;
-            this.lblVTed.Location = new System.Drawing.Point(605, 31);
-            this.lblVTed.Name = "lblVTed";
-            this.lblVTed.Size = new System.Drawing.Size(74, 29);
-            this.lblVTed.TabIndex = 6;
-            this.lblVTed.Text = "TED: ";
-            // 
-            // lblVOutras
-            // 
-            this.lblVOutras.AutoSize = true;
-            this.lblVOutras.Location = new System.Drawing.Point(803, 123);
-            this.lblVOutras.Name = "lblVOutras";
-            this.lblVOutras.Size = new System.Drawing.Size(97, 29);
-            this.lblVOutras.TabIndex = 9;
-            this.lblVOutras.Text = "Outros: ";
-            // 
-            // lblVMoedas
-            // 
-            this.lblVMoedas.AutoSize = true;
-            this.lblVMoedas.Location = new System.Drawing.Point(803, 31);
-            this.lblVMoedas.Name = "lblVMoedas";
-            this.lblVMoedas.Size = new System.Drawing.Size(112, 29);
-            this.lblVMoedas.TabIndex = 8;
-            this.lblVMoedas.Text = "Moedas: ";
-            // 
-            // totalMoedas
-            // 
-            this.totalMoedas.AutoSize = true;
-            this.totalMoedas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalMoedas.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.totalMoedas.Location = new System.Drawing.Point(803, 69);
-            this.totalMoedas.Name = "totalMoedas";
-            this.totalMoedas.Size = new System.Drawing.Size(62, 29);
-            this.totalMoedas.TabIndex = 14;
-            this.totalMoedas.Text = "0,00";
-            // 
-            // totalTed
-            // 
-            this.totalTed.AutoSize = true;
-            this.totalTed.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalTed.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.totalTed.Location = new System.Drawing.Point(605, 69);
-            this.totalTed.Name = "totalTed";
-            this.totalTed.Size = new System.Drawing.Size(62, 29);
-            this.totalTed.TabIndex = 13;
-            this.totalTed.Text = "0,00";
-            // 
-            // totalCDrede
-            // 
-            this.totalCDrede.AutoSize = true;
-            this.totalCDrede.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalCDrede.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.totalCDrede.Location = new System.Drawing.Point(407, 69);
-            this.totalCDrede.Name = "totalCDrede";
-            this.totalCDrede.Size = new System.Drawing.Size(62, 29);
-            this.totalCDrede.TabIndex = 12;
-            this.totalCDrede.Text = "0,00";
-            // 
-            // totalCCrede
-            // 
-            this.totalCCrede.AutoSize = true;
-            this.totalCCrede.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalCCrede.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.totalCCrede.Location = new System.Drawing.Point(209, 69);
-            this.totalCCrede.Name = "totalCCrede";
-            this.totalCCrede.Size = new System.Drawing.Size(62, 29);
-            this.totalCCrede.TabIndex = 11;
-            this.totalCCrede.Text = "0,00";
-            // 
-            // totalBanese
-            // 
-            this.totalBanese.AutoSize = true;
-            this.totalBanese.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalBanese.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.totalBanese.Location = new System.Drawing.Point(11, 69);
-            this.totalBanese.Name = "totalBanese";
-            this.totalBanese.Size = new System.Drawing.Size(62, 29);
-            this.totalBanese.TabIndex = 10;
-            this.totalBanese.Text = "0,00";
-            // 
-            // totalOutros
-            // 
-            this.totalOutros.AutoSize = true;
-            this.totalOutros.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalOutros.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.totalOutros.Location = new System.Drawing.Point(803, 159);
-            this.totalOutros.Name = "totalOutros";
-            this.totalOutros.Size = new System.Drawing.Size(62, 29);
-            this.totalOutros.TabIndex = 19;
-            this.totalOutros.Text = "0,00";
-            // 
-            // totalCheque
-            // 
-            this.totalCheque.AutoSize = true;
-            this.totalCheque.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalCheque.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.totalCheque.Location = new System.Drawing.Point(605, 159);
-            this.totalCheque.Name = "totalCheque";
-            this.totalCheque.Size = new System.Drawing.Size(62, 29);
-            this.totalCheque.TabIndex = 18;
-            this.totalCheque.Text = "0,00";
-            // 
-            // totalCDtks
-            // 
-            this.totalCDtks.AutoSize = true;
-            this.totalCDtks.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalCDtks.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.totalCDtks.Location = new System.Drawing.Point(407, 159);
-            this.totalCDtks.Name = "totalCDtks";
-            this.totalCDtks.Size = new System.Drawing.Size(62, 29);
-            this.totalCDtks.TabIndex = 17;
-            this.totalCDtks.Text = "0,00";
-            // 
-            // totalCCtks
-            // 
-            this.totalCCtks.AutoSize = true;
-            this.totalCCtks.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalCCtks.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.totalCCtks.Location = new System.Drawing.Point(209, 159);
-            this.totalCCtks.Name = "totalCCtks";
-            this.totalCCtks.Size = new System.Drawing.Size(62, 29);
-            this.totalCCtks.TabIndex = 16;
-            this.totalCCtks.Text = "0,00";
-            // 
-            // totalDinheiro
-            // 
-            this.totalDinheiro.AutoSize = true;
-            this.totalDinheiro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalDinheiro.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.totalDinheiro.Location = new System.Drawing.Point(11, 159);
-            this.totalDinheiro.Name = "totalDinheiro";
-            this.totalDinheiro.Size = new System.Drawing.Size(62, 29);
-            this.totalDinheiro.TabIndex = 15;
-            this.totalDinheiro.Text = "0,00";
+            this.txtNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNome.Location = new System.Drawing.Point(619, 107);
+            this.txtNome.Name = "txtNome";
+            this.txtNome.ReadOnly = true;
+            this.txtNome.Size = new System.Drawing.Size(489, 35);
+            this.txtNome.TabIndex = 27;
             // 
             // frmFechamentoCaixa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1348, 949);
+            this.Controls.Add(this.txtNome);
+            this.Controls.Add(this.txtNumoper);
+            this.Controls.Add(this.txtNumcaixa);
             this.Controls.Add(this.btnTransf);
             this.Controls.Add(this.gbxSegmento);
             this.Controls.Add(this.btnAvulso);
@@ -776,5 +809,8 @@
         private System.Windows.Forms.Label totalCDrede;
         private System.Windows.Forms.Label totalCCrede;
         private System.Windows.Forms.Label totalBanese;
+        private System.Windows.Forms.TextBox txtNumcaixa;
+        private System.Windows.Forms.TextBox txtNumoper;
+        private System.Windows.Forms.TextBox txtNome;
     }
 }

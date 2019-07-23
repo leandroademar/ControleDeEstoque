@@ -28,6 +28,10 @@ namespace BLL
             DALTABCaixa DALobj = new DALTABCaixa(conexao);
             return DALobj.LocalizarCaixas(turno,seg,dia, dtmovimento);
         }
-
+        public DataTable Buscar(int seg, string dtmovimento)
+        {
+            DALTABCaixa DALobj = new DALTABCaixa(conexao);
+            return DALobj.Buscar(seg,  dtmovimento);
+        }
     }
 }

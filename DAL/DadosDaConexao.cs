@@ -8,7 +8,7 @@ namespace DAL
 {
     public class DadosDaConexao
     {
-        public static String servidor = @"127.0.0.1";
+        public static String servidor = @"10.1.1.247";
         public static String banco = "nControle";
         public static String usuario = "sa";
         public static String senha = "Adm@123";

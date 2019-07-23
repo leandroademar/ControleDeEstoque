@@ -1,5 +1,6 @@
 ﻿using BLL;
 using DAL;
+using Modelo;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,9 +16,9 @@ namespace GUI
     public partial class frmFechamentoCaixa : Form
     {
         public int dia;
-        public int seg;
+        public int seg = 1;
 
-      
+
         public frmFechamentoCaixa()
         {
             InitializeComponent();
@@ -30,12 +31,12 @@ namespace GUI
             dgvTABCaixas.DataSource = bll.LocalizarCaixas(Convert.ToInt32(cbxTurno.Text), (rbtAtacado.Checked == true) ? 1 : 0, (cbxDia.Checked == true) ? 1 : 0, dtpMovimento.Value.ToString("yyyy-MM-dd"));
             this.AtualizadgvTABCaixa();
             AlteraCampos(1);
-            
+
         }
 
         public void AlteraCampos(int op)
         {
-            if(op==1)
+            if (op == 1)
             {
                 txtDinheiro.Enabled = false;
                 txtBanese.Enabled = false;
@@ -72,14 +73,14 @@ namespace GUI
                 txtMoedas.Enabled = true;
                 txtOutros.Enabled = true;
             }
-            
+
         }
 
         public void AtualizadgvTABCaixa()
         {
             DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
             BLLTABCaixa bll = new BLLTABCaixa(cx);
-            dgvTABCaixas.DataSource = bll.LocalizarCaixas(Convert.ToInt32(cbxTurno.Text),(rbtAtacado.Checked == true) ? 1 : 0, (cbxDia.Checked == true) ? 1 : 0, dtpMovimento.Value.ToString("yyyy-MM-dd"));
+            dgvTABCaixas.DataSource = bll.LocalizarCaixas(Convert.ToInt32(cbxTurno.Text), (rbtAtacado.Checked == true) ? 1 : 0, (cbxDia.Checked == true) ? 1 : 0, dtpMovimento.Value.ToString("yyyy-MM-dd"));
             dgvTABCaixas.RowHeadersVisible = false;
             dgvTABCaixas.ReadOnly = true;
             dgvTABCaixas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -155,7 +156,7 @@ namespace GUI
                 txtCDtks.Text = dgvTABCaixas.Rows[e.RowIndex].Cells[14].Value.ToString();
                 txtMoedas.Text = dgvTABCaixas.Rows[e.RowIndex].Cells[15].Value.ToString();
                 txtOutros.Text = dgvTABCaixas.Rows[e.RowIndex].Cells[16].Value.ToString();
-                   
+
             }
         }
 
@@ -165,7 +166,7 @@ namespace GUI
 
         }
 
-    
+
         private void cbxTurno_SelectedValueChanged(object sender, EventArgs e)
         {
             this.AtualizadgvTABCaixa();
@@ -175,24 +176,46 @@ namespace GUI
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             this.AlteraCampos(1);
-            
+
 
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            frmConsultaTABCaixas f = new frmConsultaTABCaixas();
+            frmConsultaTABCaixas f = new frmConsultaTABCaixas(seg, dtpMovimento.Value.ToString("yyyyMMdd"));
             f.ShowDialog();
-            
-        }
+            txtNumcaixa.Text = f.numcaixa.ToString();
+            txtNumoper.Text = f.numoper.ToString();
+            txtNome.Text = f.nomeoper.ToString();
+            Insert(
+                    Convert.ToInt32(this.txtNumcaixa.Text.ToString()),
+                    Convert.ToInt32(this.txtNumoper.Text.ToString()),
+                    this.txtNome.Text.ToString(),
+                    Convert.ToInt32(this.cbxTurno.Text.ToString())
+                );
 
+        }
+        public void Insert(int numcaixa, int numoper, string nome, int turno)
+        {
+            ModeloTABCaixa modelo = new ModeloTABCaixa();
+            modelo.NumCaixa = numcaixa;
+            modelo.CodCaixa = numoper;
+            modelo.NomeCaixa = nome.ToString();
+            modelo.Turno = turno;
+            DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
+            BLLTABCaixa bll = new BLLTABCaixa(cx);
+            bll.Incluir(modelo);
+            //MessageBox.Show("Cadastro efetuado com sucesso");
+
+        }
         public void AtualizaTotais(int op)
         {
             if (op == 1)
             {
                 this.totalDinheiro.Text = dgvTABCaixas.Rows.Cast<DataGridViewRow>().Sum(i => Convert.ToDecimal(i.Cells[5].Value ?? 0)).ToString("N2");
 
-            }else
+            }
+            else
             {
                 this.totalDinheiro.Text = "0,00";
             }
@@ -209,6 +232,7 @@ namespace GUI
         {
             this.AtualizadgvTABCaixa();
             this.AlteraCampos(1);
+            seg = (rbtAtacado.Checked == true) ? 1 : 0;
         }
 
         private void cbxDia_CheckedChanged(object sender, EventArgs e)
