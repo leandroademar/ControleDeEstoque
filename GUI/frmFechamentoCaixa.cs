@@ -18,6 +18,9 @@ namespace GUI
         public int dia;
         public int seg = 1;
         public int _numtrans = 0;
+        public int __caixa = 0;
+        public string __nome = "";
+        public int __turno = 0;
 
         public frmFechamentoCaixa()
         {
@@ -62,7 +65,9 @@ namespace GUI
                 txtCDtks.Enabled = false;
                 txtMoedas.Enabled = false;
                 txtOutros.Enabled = false;
-                
+                btnAvulso.Visible = false;
+                btnTransf.Visible = false;
+
 
             }
             else
@@ -77,12 +82,15 @@ namespace GUI
                 txtCDtks.Enabled = true;
                 txtMoedas.Enabled = true;
                 txtOutros.Enabled = true;
+                btnAvulso.Visible = true;
+                btnTransf.Visible = true;
             }
 
         }
 
         public void AtualizadgvTABCaixa()
         {
+            
             DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
             BLLTABCaixa bll = new BLLTABCaixa(cx);
             dgvTABCaixas.DataSource = bll.LocalizarCaixas(Convert.ToInt32(cbxTurno.Text), (rbtAtacado.Checked == true) ? 1 : 0, (cbxDia.Checked == true) ? 1 : 0, dtpMovimento.Value.ToString("yyyy-MM-dd"));
@@ -134,7 +142,7 @@ namespace GUI
             }
             if (e.KeyChar == ',' || e.KeyChar == '.')
             {
-                if (!this.Text.Contains(","))
+                if (!txtCCrede.Text.Contains(","))
                 {
                     e.KeyChar = ',';
                 }
@@ -152,6 +160,10 @@ namespace GUI
 
             if (e.RowIndex >= 0)
             {
+                __caixa = Convert.ToInt32(dgvTABCaixas.Rows[e.RowIndex].Cells[1].Value.ToString());
+                __turno = Convert.ToInt32(dgvTABCaixas.Rows[e.RowIndex].Cells[12].Value.ToString());
+                __nome = dgvTABCaixas.Rows[e.RowIndex].Cells[3].Value.ToString();
+
                 _transacao = Convert.ToInt32(dgvTABCaixas.Rows[e.RowIndex].Cells[0].Value.ToString());
                 txtDinheiro.Text = dgvTABCaixas.Rows[e.RowIndex].Cells[5].Value.ToString();
                 txtBanese.Text = dgvTABCaixas.Rows[e.RowIndex].Cells[6].Value.ToString();
@@ -258,6 +270,9 @@ namespace GUI
             DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
             BLLTABCaixa bll = new BLLTABCaixa(cx);
             bll.Incluir(modelo);
+            bll.AlterarTBC(modelo);
+           
+
             this.AtualizadgvTABCaixa();
             
 
@@ -337,7 +352,7 @@ namespace GUI
             }
             if (e.KeyChar == ',' || e.KeyChar == '.')
             {
-                if (!this.Text.Contains(","))
+                if (!txtDinheiro.Text.Contains(","))
                 {
                     e.KeyChar = ',';
                 }
@@ -671,10 +686,129 @@ namespace GUI
 
         private void btnTransf_Click(object sender, EventArgs e)
         {
-
+            frmLctoTED frm = new frmLctoTED(1, __caixa, __nome, __turno);
+            frm.Show();
         }
 
         private void btnAvulso_Click(object sender, EventArgs e)
+        {
+            frmLctoTED frm = new frmLctoTED(2, __caixa, __nome, __turno);
+            frm.Show();
+        }
+
+        private void txtCCtks_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)8 && e.KeyChar != ',' && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+            if (e.KeyChar == ',' || e.KeyChar == '.')
+            {
+                if (!txtCCtks.Text.Contains(","))
+                {
+                    e.KeyChar = ',';
+                }
+                else e.Handled = true;
+            }
+        }
+
+        private void txtCDrede_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)8 && e.KeyChar != ',' && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+            if (e.KeyChar == ',' || e.KeyChar == '.')
+            {
+                if (!txtCDrede.Text.Contains(","))
+                {
+                    e.KeyChar = ',';
+                }
+                else e.Handled = true;
+            }
+        }
+
+        private void txtCDtks_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)8 && e.KeyChar != ',' && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+            if (e.KeyChar == ',' || e.KeyChar == '.')
+            {
+                if (!txtCDtks.Text.Contains(","))
+                {
+                    e.KeyChar = ',';
+                }
+                else e.Handled = true;
+            }
+        }
+
+        private void txtTEDelet_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)8 && e.KeyChar != ',' && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+            if (e.KeyChar == ',' || e.KeyChar == '.')
+            {
+                if (!txtTEDelet.Text.Contains(","))
+                {
+                    e.KeyChar = ',';
+                }
+                else e.Handled = true;
+            }
+        }
+
+        private void txtCheque_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)8 && e.KeyChar != ',' && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+            if (e.KeyChar == ',' || e.KeyChar == '.')
+            {
+                if (!txtCheque.Text.Contains(","))
+                {
+                    e.KeyChar = ',';
+                }
+                else e.Handled = true;
+            }
+        }
+
+        private void txtMoedas_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)8 && e.KeyChar != ',' && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+            if (e.KeyChar == ',' || e.KeyChar == '.')
+            {
+                if (!txtMoedas.Text.Contains(","))
+                {
+                    e.KeyChar = ',';
+                }
+                else e.Handled = true;
+            }
+        }
+
+        private void txtOutros_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)8 && e.KeyChar != ',' && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+            if (e.KeyChar == ',' || e.KeyChar == '.')
+            {
+                if (!txtOutros.Text.Contains(","))
+                {
+                    e.KeyChar = ',';
+                }
+                else e.Handled = true;
+            }
+        }
+
+        private void frmFechamentoCaixa_KeyPress(object sender, KeyPressEventArgs e)
         {
 
         }

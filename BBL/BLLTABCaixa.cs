@@ -38,6 +38,11 @@ namespace BLL
             DALTABCaixa DALobj = new DALTABCaixa(conexao);
             DALobj.Alterar(modelo);
         }
+        public void AlterarTBC(ModeloTABCaixa modelo)
+        {
+            DALTABCaixa DALobj = new DALTABCaixa(conexao);
+            DALobj.AlterarTBC(modelo);
+        }
 
         public DataTable LocalizarCaixas(int turno,int seg,int dia, string dtmovimento)
         {

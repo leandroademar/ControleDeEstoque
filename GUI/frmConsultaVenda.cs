@@ -92,51 +92,48 @@ namespace GUI
 
         private void rbGeral_CheckedChanged(object sender, EventArgs e)
         {
-            //ocultar paineis
-            //pFornecedor.Visible = false;
-            //pnlNome.Visible = false;
-            dgvDados.DataSource = null;
-            // dgvItensConsulta = null;
 
-            if (rbGeral.Checked == true)
-            {
-                DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
-                BLLVenda bllvenda = new BLLVenda(cx);
-                dgvDados.DataSource = bllvenda.Localizar();
-                this.AtualizaCabecalhoDGCompra();
-            }
-            if (rbFornecedor.Checked == true)
-            {
-                DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
-                BLLVenda bllvenda = new BLLVenda(cx);
-                dgvDados.DataSource = bllvenda.LocalizarFatura();
-                this.AtualizaCabecalhoDGCompra();
-            }
+            dgvDados.DataSource = null;
+            DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
+            BLLVenda bllvenda = new BLLVenda(cx);
+            dgvDados.DataSource = bllvenda.LocalizarP(textBox1.Text.ToString());
+            this.AtualizaCabecalhoDGCompra();
+
 
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+ 
+
+
+
+        private void frmConsultaVenda_KeyDown(object sender, KeyEventArgs e)
         {
-            
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+            }
+        }
+
+        private void dgvDados_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                int i = Convert.ToInt32(dgvDados.CurrentRow.Cells[0].Value);
+                this.codigo = i;
+                this.Close();
+            }
         }
 
         private void textBox1_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter && (rbNome.Checked == true))
+
+            if (e.KeyCode == Keys.Enter)
             {
-                DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
-                BLLVenda bllvenda = new BLLVenda(cx);
-                dgvDados.DataSource = bllvenda.Localizar(textBox1.Text.ToString());
-                this.AtualizaCabecalhoDGCompra();
+                dgvDados.Focus();
             }
-            if (e.KeyCode == Keys.Enter && (rbFornecedor.Checked == true))
-            {
-                DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
-                BLLVenda bllvenda = new BLLVenda(cx);
-                dgvDados.DataSource = bllvenda.LocalizarFatura(textBox1.Text.ToString());
-                this.AtualizaCabecalhoDGCompra();
-            }
+                rbGeral_CheckedChanged(sender, e);
         }
 
         private void dgvDados_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -145,18 +142,6 @@ namespace GUI
             {
                 this.codigo = Convert.ToInt32(dgvDados.Rows[e.RowIndex].Cells[0].Value);
                 this.Close();
-            }
-        }
-
-        private void dgvDados_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if(e.RowIndex >= 0)
-            {
-                this.codigo = Convert.ToInt32(dgvDados.Rows[e.RowIndex].Cells[0].Value);
-                DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
-                BLLItensVenda bllitens = new BLLItensVenda(cx);
-                dgvItensConsulta.DataSource = bllitens.Localizar(Convert.ToInt32(dgvDados.Rows[e.RowIndex].Cells[0].Value));
-                this.AtualizaDGVProdutos();
             }
         }
     }

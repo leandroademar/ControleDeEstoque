@@ -664,6 +664,10 @@ namespace GUI
             this.Close();
         }
 
-
+        private void consultarTEDToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmLctoTED frm = new frmLctoTED(1,0,"",0);
+            frm.Show();
+        }
     }
 }

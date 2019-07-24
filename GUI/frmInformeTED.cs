@@ -39,8 +39,11 @@ namespace GUI
             if (e.KeyCode == Keys.Enter)
             {
                 textBox1.Focus();
+               
             }
         }
+
+      
 
         private void textBox3_KeyDown(object sender, KeyEventArgs e)
         {
@@ -58,12 +61,19 @@ namespace GUI
             }
             if (e.KeyChar == ',' || e.KeyChar == '.')
             {
-                if (!this.Text.Contains(","))
+                if (!textBox3.Text.Contains(","))
                 {
                     e.KeyChar = ',';
                 }
                 else e.Handled = true;
             }
         }
+
+        private void maskedTextBox1_Leave(object sender, EventArgs e)
+        {
+            
+        }
+
+
     }
 }

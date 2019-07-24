@@ -88,11 +88,21 @@
             this.txtNumcaixa = new System.Windows.Forms.TextBox();
             this.txtNumoper = new System.Windows.Forms.TextBox();
             this.txtNome = new System.Windows.Forms.TextBox();
+            this.tbpPrincipal = new System.Windows.Forms.TabControl();
+            this.tbpTed = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.dgvRetiradas = new System.Windows.Forms.DataGridView();
+            this.dgvTed = new System.Windows.Forms.DataGridView();
             this.pnlTABCaixa.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTABCaixas)).BeginInit();
             this.gbxTotais.SuspendLayout();
             this.gbxValores.SuspendLayout();
             this.gbxSegmento.SuspendLayout();
+            this.tbpPrincipal.SuspendLayout();
+            this.tbpTed.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRetiradas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTed)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlTABCaixa
@@ -101,7 +111,7 @@
             this.pnlTABCaixa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pnlTABCaixa.Location = new System.Drawing.Point(27, 163);
             this.pnlTABCaixa.Name = "pnlTABCaixa";
-            this.pnlTABCaixa.Size = new System.Drawing.Size(1080, 396);
+            this.pnlTABCaixa.Size = new System.Drawing.Size(1080, 335);
             this.pnlTABCaixa.TabIndex = 0;
             // 
             // dgvTABCaixas
@@ -117,7 +127,7 @@
             this.dgvTABCaixas.ReadOnly = true;
             this.dgvTABCaixas.RowTemplate.Height = 28;
             this.dgvTABCaixas.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dgvTABCaixas.Size = new System.Drawing.Size(1080, 396);
+            this.dgvTABCaixas.Size = new System.Drawing.Size(1080, 335);
             this.dgvTABCaixas.TabIndex = 0;
             this.dgvTABCaixas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTABCaixas_CellClick);
             this.dgvTABCaixas.DoubleClick += new System.EventHandler(this.dgvTABCaixas_DoubleClick);
@@ -189,10 +199,11 @@
             this.gbxTotais.Controls.Add(this.lblVCCRede);
             this.gbxTotais.Controls.Add(this.lblVDinheiro);
             this.gbxTotais.Controls.Add(this.lblVBanese);
+            this.gbxTotais.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.gbxTotais.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbxTotais.Location = new System.Drawing.Point(28, 820);
+            this.gbxTotais.Location = new System.Drawing.Point(1125, 12);
             this.gbxTotais.Name = "gbxTotais";
-            this.gbxTotais.Size = new System.Drawing.Size(1079, 199);
+            this.gbxTotais.Size = new System.Drawing.Size(446, 486);
             this.gbxTotais.TabIndex = 7;
             this.gbxTotais.TabStop = false;
             this.gbxTotais.Text = "Totais";
@@ -202,7 +213,7 @@
             this.totalOutros.AutoSize = true;
             this.totalOutros.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.totalOutros.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.totalOutros.Location = new System.Drawing.Point(803, 159);
+            this.totalOutros.Location = new System.Drawing.Point(86, 443);
             this.totalOutros.Name = "totalOutros";
             this.totalOutros.Size = new System.Drawing.Size(62, 29);
             this.totalOutros.TabIndex = 19;
@@ -213,7 +224,7 @@
             this.totalCheque.AutoSize = true;
             this.totalCheque.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.totalCheque.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.totalCheque.Location = new System.Drawing.Point(605, 159);
+            this.totalCheque.Location = new System.Drawing.Point(256, 443);
             this.totalCheque.Name = "totalCheque";
             this.totalCheque.Size = new System.Drawing.Size(62, 29);
             this.totalCheque.TabIndex = 18;
@@ -224,7 +235,7 @@
             this.totalCDtks.AutoSize = true;
             this.totalCDtks.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.totalCDtks.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.totalCDtks.Location = new System.Drawing.Point(407, 159);
+            this.totalCDtks.Location = new System.Drawing.Point(263, 353);
             this.totalCDtks.Name = "totalCDtks";
             this.totalCDtks.Size = new System.Drawing.Size(62, 29);
             this.totalCDtks.TabIndex = 17;
@@ -235,7 +246,7 @@
             this.totalCCtks.AutoSize = true;
             this.totalCCtks.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.totalCCtks.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.totalCCtks.Location = new System.Drawing.Point(209, 159);
+            this.totalCCtks.Location = new System.Drawing.Point(256, 266);
             this.totalCCtks.Name = "totalCCtks";
             this.totalCCtks.Size = new System.Drawing.Size(62, 29);
             this.totalCCtks.TabIndex = 16;
@@ -246,7 +257,7 @@
             this.totalDinheiro.AutoSize = true;
             this.totalDinheiro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.totalDinheiro.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.totalDinheiro.Location = new System.Drawing.Point(11, 159);
+            this.totalDinheiro.Location = new System.Drawing.Point(80, 180);
             this.totalDinheiro.Name = "totalDinheiro";
             this.totalDinheiro.Size = new System.Drawing.Size(62, 29);
             this.totalDinheiro.TabIndex = 15;
@@ -257,7 +268,7 @@
             this.totalMoedas.AutoSize = true;
             this.totalMoedas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.totalMoedas.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.totalMoedas.Location = new System.Drawing.Point(803, 69);
+            this.totalMoedas.Location = new System.Drawing.Point(257, 180);
             this.totalMoedas.Name = "totalMoedas";
             this.totalMoedas.Size = new System.Drawing.Size(62, 29);
             this.totalMoedas.TabIndex = 14;
@@ -268,7 +279,7 @@
             this.totalTed.AutoSize = true;
             this.totalTed.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.totalTed.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.totalTed.Location = new System.Drawing.Point(605, 69);
+            this.totalTed.Location = new System.Drawing.Point(260, 95);
             this.totalTed.Name = "totalTed";
             this.totalTed.Size = new System.Drawing.Size(62, 29);
             this.totalTed.TabIndex = 13;
@@ -279,7 +290,7 @@
             this.totalCDrede.AutoSize = true;
             this.totalCDrede.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.totalCDrede.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.totalCDrede.Location = new System.Drawing.Point(407, 69);
+            this.totalCDrede.Location = new System.Drawing.Point(86, 353);
             this.totalCDrede.Name = "totalCDrede";
             this.totalCDrede.Size = new System.Drawing.Size(62, 29);
             this.totalCDrede.TabIndex = 12;
@@ -290,7 +301,7 @@
             this.totalCCrede.AutoSize = true;
             this.totalCCrede.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.totalCCrede.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.totalCCrede.Location = new System.Drawing.Point(209, 69);
+            this.totalCCrede.Location = new System.Drawing.Point(80, 266);
             this.totalCCrede.Name = "totalCCrede";
             this.totalCCrede.Size = new System.Drawing.Size(62, 29);
             this.totalCCrede.TabIndex = 11;
@@ -301,7 +312,7 @@
             this.totalBanese.AutoSize = true;
             this.totalBanese.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.totalBanese.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.totalBanese.Location = new System.Drawing.Point(11, 69);
+            this.totalBanese.Location = new System.Drawing.Point(80, 94);
             this.totalBanese.Name = "totalBanese";
             this.totalBanese.Size = new System.Drawing.Size(62, 29);
             this.totalBanese.TabIndex = 10;
@@ -310,7 +321,7 @@
             // lblVOutras
             // 
             this.lblVOutras.AutoSize = true;
-            this.lblVOutras.Location = new System.Drawing.Point(803, 123);
+            this.lblVOutras.Location = new System.Drawing.Point(86, 400);
             this.lblVOutras.Name = "lblVOutras";
             this.lblVOutras.Size = new System.Drawing.Size(97, 29);
             this.lblVOutras.TabIndex = 9;
@@ -319,7 +330,7 @@
             // lblVMoedas
             // 
             this.lblVMoedas.AutoSize = true;
-            this.lblVMoedas.Location = new System.Drawing.Point(803, 31);
+            this.lblVMoedas.Location = new System.Drawing.Point(257, 137);
             this.lblVMoedas.Name = "lblVMoedas";
             this.lblVMoedas.Size = new System.Drawing.Size(112, 29);
             this.lblVMoedas.TabIndex = 8;
@@ -328,7 +339,7 @@
             // lblVCheque
             // 
             this.lblVCheque.AutoSize = true;
-            this.lblVCheque.Location = new System.Drawing.Point(605, 123);
+            this.lblVCheque.Location = new System.Drawing.Point(256, 400);
             this.lblVCheque.Name = "lblVCheque";
             this.lblVCheque.Size = new System.Drawing.Size(110, 29);
             this.lblVCheque.TabIndex = 7;
@@ -337,7 +348,7 @@
             // lblVTed
             // 
             this.lblVTed.AutoSize = true;
-            this.lblVTed.Location = new System.Drawing.Point(605, 31);
+            this.lblVTed.Location = new System.Drawing.Point(260, 52);
             this.lblVTed.Name = "lblVTed";
             this.lblVTed.Size = new System.Drawing.Size(74, 29);
             this.lblVTed.TabIndex = 6;
@@ -346,7 +357,7 @@
             // lblVCDtks
             // 
             this.lblVCDtks.AutoSize = true;
-            this.lblVCDtks.Location = new System.Drawing.Point(407, 123);
+            this.lblVCDtks.Location = new System.Drawing.Point(263, 310);
             this.lblVCDtks.Name = "lblVCDtks";
             this.lblVCDtks.Size = new System.Drawing.Size(113, 29);
             this.lblVCDtks.TabIndex = 5;
@@ -355,7 +366,7 @@
             // lblVCDRede
             // 
             this.lblVCDRede.AutoSize = true;
-            this.lblVCDRede.Location = new System.Drawing.Point(407, 31);
+            this.lblVCDRede.Location = new System.Drawing.Point(86, 310);
             this.lblVCDRede.Name = "lblVCDRede";
             this.lblVCDRede.Size = new System.Drawing.Size(118, 29);
             this.lblVCDRede.TabIndex = 4;
@@ -364,7 +375,7 @@
             // lblVCCTks
             // 
             this.lblVCCTks.AutoSize = true;
-            this.lblVCCTks.Location = new System.Drawing.Point(209, 123);
+            this.lblVCCTks.Location = new System.Drawing.Point(256, 223);
             this.lblVCCTks.Name = "lblVCCTks";
             this.lblVCCTks.Size = new System.Drawing.Size(113, 29);
             this.lblVCCTks.TabIndex = 3;
@@ -373,7 +384,7 @@
             // lblVCCRede
             // 
             this.lblVCCRede.AutoSize = true;
-            this.lblVCCRede.Location = new System.Drawing.Point(209, 31);
+            this.lblVCCRede.Location = new System.Drawing.Point(80, 223);
             this.lblVCCRede.Name = "lblVCCRede";
             this.lblVCCRede.Size = new System.Drawing.Size(124, 29);
             this.lblVCCRede.TabIndex = 2;
@@ -382,7 +393,7 @@
             // lblVDinheiro
             // 
             this.lblVDinheiro.AutoSize = true;
-            this.lblVDinheiro.Location = new System.Drawing.Point(11, 123);
+            this.lblVDinheiro.Location = new System.Drawing.Point(80, 137);
             this.lblVDinheiro.Name = "lblVDinheiro";
             this.lblVDinheiro.Size = new System.Drawing.Size(116, 29);
             this.lblVDinheiro.TabIndex = 1;
@@ -391,7 +402,7 @@
             // lblVBanese
             // 
             this.lblVBanese.AutoSize = true;
-            this.lblVBanese.Location = new System.Drawing.Point(11, 31);
+            this.lblVBanese.Location = new System.Drawing.Point(80, 51);
             this.lblVBanese.Name = "lblVBanese";
             this.lblVBanese.Size = new System.Drawing.Size(107, 29);
             this.lblVBanese.TabIndex = 0;
@@ -420,7 +431,7 @@
             this.gbxValores.Controls.Add(this.txtDinheiro);
             this.gbxValores.Controls.Add(this.txtBanese);
             this.gbxValores.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbxValores.Location = new System.Drawing.Point(28, 575);
+            this.gbxValores.Location = new System.Drawing.Point(29, 512);
             this.gbxValores.Name = "gbxValores";
             this.gbxValores.Size = new System.Drawing.Size(1079, 222);
             this.gbxValores.TabIndex = 8;
@@ -452,7 +463,7 @@
             this.txtOutros.Size = new System.Drawing.Size(133, 35);
             this.txtOutros.TabIndex = 16;
             this.txtOutros.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtOutros_KeyDown);
-            this.txtOutros.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCCrede_KeyPress);
+            this.txtOutros.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtOutros_KeyPress);
             this.txtOutros.Leave += new System.EventHandler(this.txtOutros_Leave);
             // 
             // txtMoedas
@@ -462,7 +473,7 @@
             this.txtMoedas.Size = new System.Drawing.Size(133, 35);
             this.txtMoedas.TabIndex = 15;
             this.txtMoedas.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtMoedas_KeyDown);
-            this.txtMoedas.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCCrede_KeyPress);
+            this.txtMoedas.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMoedas_KeyPress);
             this.txtMoedas.Leave += new System.EventHandler(this.txtMoedas_Leave);
             // 
             // lblCheque
@@ -544,7 +555,7 @@
             this.txtCheque.Size = new System.Drawing.Size(133, 35);
             this.txtCheque.TabIndex = 7;
             this.txtCheque.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCheque_KeyDown);
-            this.txtCheque.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCCrede_KeyPress);
+            this.txtCheque.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCheque_KeyPress);
             this.txtCheque.Leave += new System.EventHandler(this.txtCheque_Leave);
             // 
             // txtTEDelet
@@ -554,7 +565,7 @@
             this.txtTEDelet.Size = new System.Drawing.Size(133, 35);
             this.txtTEDelet.TabIndex = 6;
             this.txtTEDelet.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtTEDelet_KeyDown);
-            this.txtTEDelet.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCCrede_KeyPress);
+            this.txtTEDelet.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTEDelet_KeyPress);
             this.txtTEDelet.Leave += new System.EventHandler(this.txtTEDelet_Leave);
             // 
             // txtCDtks
@@ -564,7 +575,7 @@
             this.txtCDtks.Size = new System.Drawing.Size(133, 35);
             this.txtCDtks.TabIndex = 5;
             this.txtCDtks.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCDtks_KeyDown);
-            this.txtCDtks.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCCrede_KeyPress);
+            this.txtCDtks.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCDtks_KeyPress);
             this.txtCDtks.Leave += new System.EventHandler(this.txtCDtks_Leave);
             // 
             // txtCDrede
@@ -574,7 +585,7 @@
             this.txtCDrede.Size = new System.Drawing.Size(133, 35);
             this.txtCDrede.TabIndex = 4;
             this.txtCDrede.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCDrede_KeyDown);
-            this.txtCDrede.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCCrede_KeyPress);
+            this.txtCDrede.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCDrede_KeyPress);
             this.txtCDrede.Leave += new System.EventHandler(this.txtCDrede_Leave);
             // 
             // txtCCtks
@@ -584,7 +595,7 @@
             this.txtCCtks.Size = new System.Drawing.Size(133, 35);
             this.txtCCtks.TabIndex = 3;
             this.txtCCtks.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCCtks_KeyDown);
-            this.txtCCtks.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCCrede_KeyPress);
+            this.txtCCtks.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCCtks_KeyPress);
             this.txtCCtks.Leave += new System.EventHandler(this.txtCCtks_Leave);
             // 
             // txtCCrede
@@ -619,27 +630,29 @@
             // 
             // btnTransf
             // 
-            this.btnTransf.Location = new System.Drawing.Point(579, 1025);
+            this.btnTransf.Location = new System.Drawing.Point(578, 740);
             this.btnTransf.Name = "btnTransf";
             this.btnTransf.Size = new System.Drawing.Size(130, 45);
             this.btnTransf.TabIndex = 22;
             this.btnTransf.Text = "TED";
             this.btnTransf.UseVisualStyleBackColor = true;
+            this.btnTransf.Visible = false;
             this.btnTransf.Click += new System.EventHandler(this.btnTransf_Click);
             // 
             // btnAvulso
             // 
-            this.btnAvulso.Location = new System.Drawing.Point(712, 1025);
+            this.btnAvulso.Location = new System.Drawing.Point(711, 740);
             this.btnAvulso.Name = "btnAvulso";
             this.btnAvulso.Size = new System.Drawing.Size(130, 45);
             this.btnAvulso.TabIndex = 21;
             this.btnAvulso.Text = "Avulso";
             this.btnAvulso.UseVisualStyleBackColor = true;
+            this.btnAvulso.Visible = false;
             this.btnAvulso.Click += new System.EventHandler(this.btnAvulso_Click);
             // 
             // btnAlterar
             // 
-            this.btnAlterar.Location = new System.Drawing.Point(845, 1025);
+            this.btnAlterar.Location = new System.Drawing.Point(844, 740);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(130, 45);
             this.btnAlterar.TabIndex = 20;
@@ -649,7 +662,7 @@
             // 
             // btnSalvar
             // 
-            this.btnSalvar.Location = new System.Drawing.Point(978, 1025);
+            this.btnSalvar.Location = new System.Drawing.Point(977, 740);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(130, 45);
             this.btnSalvar.TabIndex = 19;
@@ -741,11 +754,73 @@
             this.txtNome.Size = new System.Drawing.Size(489, 35);
             this.txtNome.TabIndex = 27;
             // 
+            // tbpPrincipal
+            // 
+            this.tbpPrincipal.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
+            this.tbpPrincipal.Controls.Add(this.tbpTed);
+            this.tbpPrincipal.Controls.Add(this.tabPage2);
+            this.tbpPrincipal.Location = new System.Drawing.Point(1125, 504);
+            this.tbpPrincipal.Name = "tbpPrincipal";
+            this.tbpPrincipal.SelectedIndex = 0;
+            this.tbpPrincipal.Size = new System.Drawing.Size(446, 281);
+            this.tbpPrincipal.TabIndex = 28;
+            // 
+            // tbpTed
+            // 
+            this.tbpTed.BackColor = System.Drawing.SystemColors.Control;
+            this.tbpTed.Controls.Add(this.dgvTed);
+            this.tbpTed.Location = new System.Drawing.Point(4, 32);
+            this.tbpTed.Name = "tbpTed";
+            this.tbpTed.Padding = new System.Windows.Forms.Padding(3);
+            this.tbpTed.Size = new System.Drawing.Size(438, 245);
+            this.tbpTed.TabIndex = 0;
+            this.tbpTed.Text = "TED";
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPage2.Controls.Add(this.dgvRetiradas);
+            this.tabPage2.Location = new System.Drawing.Point(4, 32);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(438, 245);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Retiradas";
+            // 
+            // dgvRetiradas
+            // 
+            this.dgvRetiradas.AllowUserToAddRows = false;
+            this.dgvRetiradas.AllowUserToDeleteRows = false;
+            this.dgvRetiradas.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgvRetiradas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvRetiradas.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvRetiradas.Location = new System.Drawing.Point(3, 3);
+            this.dgvRetiradas.Name = "dgvRetiradas";
+            this.dgvRetiradas.ReadOnly = true;
+            this.dgvRetiradas.RowTemplate.Height = 28;
+            this.dgvRetiradas.Size = new System.Drawing.Size(432, 239);
+            this.dgvRetiradas.TabIndex = 0;
+            // 
+            // dgvTed
+            // 
+            this.dgvTed.AllowUserToAddRows = false;
+            this.dgvTed.AllowUserToDeleteRows = false;
+            this.dgvTed.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgvTed.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTed.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvTed.Location = new System.Drawing.Point(3, 3);
+            this.dgvTed.Name = "dgvTed";
+            this.dgvTed.ReadOnly = true;
+            this.dgvTed.RowTemplate.Height = 28;
+            this.dgvTed.Size = new System.Drawing.Size(432, 239);
+            this.dgvTed.TabIndex = 0;
+            // 
             // frmFechamentoCaixa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1380, 1105);
+            this.ClientSize = new System.Drawing.Size(1634, 905);
+            this.Controls.Add(this.tbpPrincipal);
             this.Controls.Add(this.txtNome);
             this.Controls.Add(this.txtNumoper);
             this.Controls.Add(this.txtNumcaixa);
@@ -762,6 +837,7 @@
             this.Controls.Add(this.cbxTurno);
             this.Controls.Add(this.dtpMovimento);
             this.Controls.Add(this.pnlTABCaixa);
+            this.KeyPreview = true;
             this.Name = "frmFechamentoCaixa";
             this.Text = "Fechamento de Caixa";
             this.pnlTABCaixa.ResumeLayout(false);
@@ -772,6 +848,11 @@
             this.gbxValores.PerformLayout();
             this.gbxSegmento.ResumeLayout(false);
             this.gbxSegmento.PerformLayout();
+            this.tbpPrincipal.ResumeLayout(false);
+            this.tbpTed.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRetiradas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTed)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -839,5 +920,10 @@
         private System.Windows.Forms.TextBox txtNumcaixa;
         private System.Windows.Forms.TextBox txtNumoper;
         private System.Windows.Forms.TextBox txtNome;
+        private System.Windows.Forms.TabControl tbpPrincipal;
+        private System.Windows.Forms.TabPage tbpTed;
+        private System.Windows.Forms.DataGridView dgvTed;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.DataGridView dgvRetiradas;
     }
 }

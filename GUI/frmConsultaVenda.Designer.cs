@@ -34,9 +34,9 @@
             this.rbFornecedor = new System.Windows.Forms.RadioButton();
             this.dgvDados = new System.Windows.Forms.DataGridView();
             this.pFornecedor = new System.Windows.Forms.Panel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.lbForNome = new System.Windows.Forms.Label();
             this.lblNomeCli = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.tbcDadosVenda = new System.Windows.Forms.TabControl();
             this.tbpVenda = new System.Windows.Forms.TabPage();
             this.tbpItensVenda = new System.Windows.Forms.TabPage();
@@ -55,14 +55,15 @@
             this.groupBox1.Controls.Add(this.rbGeral);
             this.groupBox1.Controls.Add(this.rbNome);
             this.groupBox1.Controls.Add(this.rbFornecedor);
-            this.groupBox1.Location = new System.Drawing.Point(20, 15);
+            this.groupBox1.Location = new System.Drawing.Point(773, 11);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(840, 57);
+            this.groupBox1.Size = new System.Drawing.Size(95, 27);
             this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Consultar pelo:";
+            this.groupBox1.Visible = false;
             // 
             // rbGeral
             // 
@@ -116,21 +117,30 @@
             this.dgvDados.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgvDados.RowTemplate.Height = 24;
             this.dgvDados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDados.Size = new System.Drawing.Size(823, 490);
+            this.dgvDados.Size = new System.Drawing.Size(823, 559);
             this.dgvDados.TabIndex = 12;
-            this.dgvDados.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDados_CellClick);
             this.dgvDados.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDados_CellDoubleClick);
+            this.dgvDados.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvDados_KeyDown);
             // 
             // pFornecedor
             // 
             this.pFornecedor.Controls.Add(this.textBox1);
             this.pFornecedor.Controls.Add(this.lbForNome);
             this.pFornecedor.Controls.Add(this.lblNomeCli);
-            this.pFornecedor.Location = new System.Drawing.Point(22, 78);
+            this.pFornecedor.Location = new System.Drawing.Point(23, 11);
             this.pFornecedor.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pFornecedor.Name = "pFornecedor";
-            this.pFornecedor.Size = new System.Drawing.Size(840, 50);
+            this.pFornecedor.Size = new System.Drawing.Size(627, 50);
             this.pFornecedor.TabIndex = 14;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(143, 10);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(452, 26);
+            this.textBox1.TabIndex = 1;
+            this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
             // 
             // lbForNome
             // 
@@ -149,23 +159,14 @@
             this.lblNomeCli.TabIndex = 0;
             this.lblNomeCli.Text = "Nome do Cliente";
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(143, 10);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(452, 26);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
-            // 
             // tbcDadosVenda
             // 
             this.tbcDadosVenda.Controls.Add(this.tbpVenda);
             this.tbcDadosVenda.Controls.Add(this.tbpItensVenda);
-            this.tbcDadosVenda.Location = new System.Drawing.Point(23, 137);
+            this.tbcDadosVenda.Location = new System.Drawing.Point(23, 68);
             this.tbcDadosVenda.Name = "tbcDadosVenda";
             this.tbcDadosVenda.SelectedIndex = 0;
-            this.tbcDadosVenda.Size = new System.Drawing.Size(837, 529);
+            this.tbcDadosVenda.Size = new System.Drawing.Size(837, 598);
             this.tbcDadosVenda.TabIndex = 16;
             // 
             // tbpVenda
@@ -174,7 +175,7 @@
             this.tbpVenda.Location = new System.Drawing.Point(4, 29);
             this.tbpVenda.Name = "tbpVenda";
             this.tbpVenda.Padding = new System.Windows.Forms.Padding(3);
-            this.tbpVenda.Size = new System.Drawing.Size(829, 496);
+            this.tbpVenda.Size = new System.Drawing.Size(829, 565);
             this.tbpVenda.TabIndex = 0;
             this.tbpVenda.Text = "Vendas";
             this.tbpVenda.UseVisualStyleBackColor = true;
@@ -185,7 +186,7 @@
             this.tbpItensVenda.Location = new System.Drawing.Point(4, 29);
             this.tbpItensVenda.Name = "tbpItensVenda";
             this.tbpItensVenda.Padding = new System.Windows.Forms.Padding(3);
-            this.tbpItensVenda.Size = new System.Drawing.Size(829, 496);
+            this.tbpItensVenda.Size = new System.Drawing.Size(829, 565);
             this.tbpItensVenda.TabIndex = 1;
             this.tbpItensVenda.Text = "Produtos da Venda";
             this.tbpItensVenda.UseVisualStyleBackColor = true;
@@ -202,7 +203,7 @@
             this.dgvItensConsulta.ReadOnly = true;
             this.dgvItensConsulta.RowTemplate.Height = 28;
             this.dgvItensConsulta.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvItensConsulta.Size = new System.Drawing.Size(823, 490);
+            this.dgvItensConsulta.Size = new System.Drawing.Size(823, 559);
             this.dgvItensConsulta.TabIndex = 0;
             // 
             // frmConsultaVenda
@@ -213,11 +214,15 @@
             this.Controls.Add(this.pFornecedor);
             this.Controls.Add(this.tbcDadosVenda);
             this.Controls.Add(this.groupBox1);
+            this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmConsultaVenda";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Consulta de Vendas";
             this.Load += new System.EventHandler(this.frmConsultaCompra_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmConsultaVenda_KeyDown);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDados)).EndInit();

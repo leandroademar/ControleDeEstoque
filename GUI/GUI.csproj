@@ -26,12 +26,11 @@
     <ProductName>Controle de Estoque</ProductName>
     <PublisherName>Leandro Ademar</PublisherName>
     <SuiteName>Controle de Estoque</SuiteName>
-    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>46</ApplicationRevision>
+    <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
+    <ApplicationRevision>49</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
-    <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -146,6 +145,12 @@
     <Compile Include="frmCadastroSubCategoria.Designer.cs">
       <DependentUpon>frmCadastroSubCategoria.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCadastroTED.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCadastroTED.Designer.cs">
+      <DependentUpon>frmCadastroTED.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCadastroTipoPagamento.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -247,6 +252,12 @@
     </Compile>
     <Compile Include="frmInformeTED.Designer.cs">
       <DependentUpon>frmInformeTED.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLctoTED.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLctoTED.Designer.cs">
+      <DependentUpon>frmLctoTED.cs</DependentUpon>
     </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
@@ -358,6 +369,9 @@
     <EmbeddedResource Include="frmCadastroSubCategoria.resx">
       <DependentUpon>frmCadastroSubCategoria.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmCadastroTED.resx">
+      <DependentUpon>frmCadastroTED.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmCadastroTipoPagamento.resx">
       <DependentUpon>frmCadastroTipoPagamento.cs</DependentUpon>
     </EmbeddedResource>
@@ -408,6 +422,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmInformeTED.resx">
       <DependentUpon>frmInformeTED.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLctoTED.resx">
+      <DependentUpon>frmLctoTED.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>

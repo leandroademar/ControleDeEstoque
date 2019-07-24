@@ -16,11 +16,27 @@ namespace GUI
             perfilusuario(perfil);
             if(perfilted==1)
             {
-                toolStripButton9.Visible = true;
+                financeiroToolStripMenuItem.Visible = true;
             }
-            
+            if (perfilted == 3)
+            {
+                AbrirCaixa();
+            }
 
-    }
+        }
+        public void AbrirCaixa()
+        {
+            frmMovimentacaoVenda f = new frmMovimentacaoVenda();
+            if (Application.OpenForms[f.Name] == null)
+            {
+                f.ShowDialog();
+                f.Dispose();
+            }
+            else
+            {
+                Application.OpenForms[f.Name].Focus();
+            }
+        }
         private void CheckMdiChildren(Form form)
         {
             foreach (Form frm in this.MdiChildren)
@@ -36,6 +52,10 @@ namespace GUI
         }
         public void perfilusuario(int pf)
         {
+            if(pf==1)
+            {
+                toolStrip1.Visible = false;
+            }
             if(pf==2)
             {
                 menuStrip1.Visible = false;
@@ -69,7 +89,7 @@ namespace GUI
                 toolStripButton5.Visible = false;
 
             }
-            if (pf==0)
+            if (pf == 0)
             {
                 menuStrip1.Visible = false;
                 toolStripButton1.Visible = false;
@@ -260,7 +280,7 @@ namespace GUI
             }
         }
 
-        private void toolStripButton1_Click(object sender, EventArgs e)
+        public void toolStripButton1_Click(object sender, EventArgs e)
         {
             frmMovimentacaoVenda f = new frmMovimentacaoVenda();
             if (Application.OpenForms[f.Name] == null)
@@ -274,6 +294,8 @@ namespace GUI
             }
 
         }
+        
+
 
         private void vendaToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -441,7 +463,7 @@ namespace GUI
 
         private void transferênciasTEDToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmInformeTED f = new frmInformeTED();
+            frmCadastroTED f = new frmCadastroTED();
             CheckMdiChildren(f);
         }
     }

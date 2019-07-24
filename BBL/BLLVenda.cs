@@ -101,10 +101,10 @@ namespace BLL
             DALVenda DALobj = new DALVenda(conexao);
             return DALobj.Localizar(codigo);
         }
-        public DataTable Localizar(String nome)
+        public DataTable LocalizarP(String nome)
         {
             DALVenda DALobj = new DALVenda(conexao);
-            return DALobj.Localizar(nome);
+            return DALobj.LocalizarP(nome);
         }
         public DataTable LocalizarFatura(String nome)
         {

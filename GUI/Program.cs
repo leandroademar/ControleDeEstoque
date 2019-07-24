@@ -23,13 +23,20 @@ namespace GUI
             //Chamar o login antes de iniciar a aplicação
             Login fLogin = new Login();
             fLogin.ShowDialog();
+         
+
 
             //Só inicia se receber True na propriedade "Logado"
-            if (fLogin.Logado)
-            {
-                Application.Run(new frmPrincipal(fLogin.Usuario,fLogin.Perfil,fLogin.PerfilTed));
+            if (fLogin.Logado && fLogin.Perfil != 3)
+            {         
+                    Application.Run(new frmPrincipal(fLogin.Usuario, fLogin.Perfil, fLogin.PerfilTed));
+              
             }
+            if (fLogin.Logado && fLogin.Perfil == 3)
+            {
+                Application.Run(new frmMovimentacaoVenda());
 
+            }
         }
     }
 }
