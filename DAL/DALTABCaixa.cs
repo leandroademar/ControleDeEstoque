@@ -93,7 +93,26 @@ namespace DAL
 
         public  DataTable Buscar(int seg,string dtmovimento)
         {
-            string comando3 = "EXEC T_TABCAIXA "+seg+",'"+dtmovimento+"','',''";
+            String comando3 = "";
+            comando3 = comando3 + "SELECT NUMTRANS " + "\n";
+            comando3 = comando3 + "      , NUMCHECKOUT " + "\n";
+            comando3 = comando3 + "      , CODFUNCCHECKOUT " + "\n";
+            comando3 = comando3 + "      , NOME " + "\n";
+            comando3 = comando3 + "      , TURNO " + "\n";
+            comando3 = comando3 + "      , DTCAIXA " + "\n";
+            comando3 = comando3 + "      , DTCONFERENCIA " + "\n";
+            comando3 = comando3 + "  FROM  TABCAIXA " + "\n";
+            comando3 = comando3 + "  WHERE TURNO IS NULL " + "\n";
+            if(seg != 0)
+            {
+                comando3 = comando3 + "AND NUMCHECKOUT IN (10,11,12)";
+
+            }
+            else
+            {
+                comando3 = comando3 + "AND NUMCHECKOUT NOT IN (10,11,12)";
+
+            }
 
             DataTable tabela = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter
@@ -102,7 +121,58 @@ namespace DAL
             return tabela;
 
         }
+        public void InsertTBC(ModeloTABCaixa modelo)
+        {
+           
+            string comando4 = " INSERT INTO TABCAIXA (NUMCHECKOUT,CODFUNCCHECKOUT,NOME)  EXEC T_TABCAIXA @SEG,@DATA,'',''";
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = conexao.ObjetoConexao;
+            cmd.CommandText = comando4;
+            cmd.Parameters.AddWithValue("@SEG", modelo.Turno);
+            cmd.Parameters.AddWithValue("@DTCAIXA", modelo.DtCaixa);
+            conexao.Conectar();
+            cmd.ExecuteNonQuery();
+            conexao.Desconectar();
+            
+            
+        }
        
+        public void Alterar (ModeloTABCaixa modelo)
+        {
+         
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = conexao.ObjetoConexao;
+            String comando3 = "";
+            comando3 = comando3 + "UPDATE  TABFECHA SET " + "\n";
+            comando3 = comando3 + "      VLRDIN = @VLRDIN, " + "\n";
+            comando3 = comando3 + "      VLRDEP = @VLRDEP, " + "\n";
+            comando3 = comando3 + "      VLRDEB = @VLRDEB, " + "\n";
+            comando3 = comando3 + "      VLRTRAN = @VLRTRAN, " + "\n";
+            comando3 = comando3 + "      VLRCHEQ = @VLRCHEQ, " + "\n";
+            comando3 = comando3 + "      VLRVEND = @VLRVEND, " + "\n";
+            comando3 = comando3 + "      VLRCRED = @VLRCRED, " + "\n";
+            comando3 = comando3 + "      VLRCCTKS = @VLRCCTKS, " + "\n";
+            comando3 = comando3 + "      VLRCDTKS = @VLRCDTKS, " + "\n";
+            comando3 = comando3 + "      VLRMOEDA = @VLRMOEDA, " + "\n";
+            comando3 = comando3 + "      VLROUTROS = @VLROUTROS " + "\n";
+            comando3 = comando3 + " " + "\n";
+            comando3 = comando3 + "  WHERE NUMTRANS = @NUMTRANS";
+            cmd.CommandText = comando3;
+            cmd.Parameters.AddWithValue("@NUMTRANS", modelo.NumTrans);
+            cmd.Parameters.AddWithValue("@VLRDIN", modelo.VlrDin);
+            cmd.Parameters.AddWithValue("@VLRDEP", modelo.VlrDep);
+            cmd.Parameters.AddWithValue("@VLRDEB", modelo.VlrDeb);
+            cmd.Parameters.AddWithValue("@VLRTRAN", modelo.VlrTran);
+            cmd.Parameters.AddWithValue("@VLRCHEQ", modelo.VlrCheq);
+            cmd.Parameters.AddWithValue("@VLRVEND", modelo.VlrVend);
+            cmd.Parameters.AddWithValue("@VLRCCTKS", modelo.VlrCctks);
+            cmd.Parameters.AddWithValue("@VLRCDTKS", modelo.VlrCdtks);
+            cmd.Parameters.AddWithValue("@VLRMOEDA", modelo.VlrMoedas);
+            cmd.Parameters.AddWithValue("@VLROUTROS", modelo.VlrOutros);
+            conexao.Conectar();
+            cmd.ExecuteNonQuery();
+            conexao.Desconectar();
+        }
 
     }
 }

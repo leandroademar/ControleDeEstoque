@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Modelo;
 
 namespace GUI
 {
@@ -25,6 +26,17 @@ namespace GUI
             InitializeComponent();
             DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
             BLLTABCaixa bll = new BLLTABCaixa(cx);
+            ModeloTABCaixa modelo = new ModeloTABCaixa();
+            try
+            {
+                modelo.Turno = seg;
+                modelo.DtCaixa = Convert.ToDateTime(dtmovimento);
+                bll.IncluirTBC(modelo);
+            }
+            catch
+            {
+
+            }
             dgvCTABCaixa.DataSource = bll.Buscar(seg,dtmovimento);
             this.AtualizaDGV(seg,dtmovimento);
         }
@@ -63,6 +75,7 @@ namespace GUI
         {
             if (e.KeyCode == Keys.Enter)
             {
+               
                 e.SuppressKeyPress = true;
                 numcaixa = Convert.ToInt32(dgvCTABCaixa.CurrentRow.Cells[0].Value.ToString());
                 numoper = Convert.ToInt32(dgvCTABCaixa.CurrentRow.Cells[1].Value.ToString());

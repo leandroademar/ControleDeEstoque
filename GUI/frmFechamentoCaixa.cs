@@ -17,7 +17,7 @@ namespace GUI
     {
         public int dia;
         public int seg = 1;
-
+        public int _numtrans = 0;
 
         public frmFechamentoCaixa()
         {
@@ -138,14 +138,16 @@ namespace GUI
         }
 
 
-
+        public int _transacao = 0;
 
         private void dgvTABCaixas_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             this.AlteraCampos(1);
+            
 
             if (e.RowIndex >= 0)
             {
+                _transacao = Convert.ToInt32(dgvTABCaixas.Rows[e.RowIndex].Cells[0].Value.ToString());
                 txtDinheiro.Text = dgvTABCaixas.Rows[e.RowIndex].Cells[5].Value.ToString();
                 txtBanese.Text = dgvTABCaixas.Rows[e.RowIndex].Cells[6].Value.ToString();
                 txtCDrede.Text = dgvTABCaixas.Rows[e.RowIndex].Cells[7].Value.ToString();
@@ -175,8 +177,29 @@ namespace GUI
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            this.AlteraCampos(1);
+            try
+            {
+                ModeloTABCaixa modelo = new ModeloTABCaixa();
+                modelo.NumTrans = Convert.ToInt32(_transacao.ToString());
+                modelo.VlrDin = Convert.ToDouble(txtDinheiro.Text.ToString());
+                modelo.VlrDep = Convert.ToDouble(txtBanese.Text.ToString());
+                modelo.VlrDeb = Convert.ToDouble(txtCDrede.Text.ToString());
+                modelo.VlrTran = Convert.ToDouble(txtTEDelet.Text.ToString());
+                modelo.VlrCheq = Convert.ToDouble(txtCheque.Text.ToString());
+                modelo.VlrCctks = Convert.ToDouble(txtCCtks.Text.ToString());
+                modelo.VlrCdtks = Convert.ToDouble(txtCDtks.Text.ToString());
+                modelo.VlrMoedas = Convert.ToDouble(txtMoedas.Text.ToString());
+                modelo.VlrOutros = Convert.ToDouble(txtOutros.Text.ToString());
 
+                DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
+                BLLTABCaixa bll = new BLLTABCaixa(cx);
+                bll.Alterar(modelo);
+                this.AlteraCampos(1);
+            }
+            catch
+            {
+
+            }
 
         }
 
@@ -227,7 +250,8 @@ namespace GUI
             DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
             BLLTABCaixa bll = new BLLTABCaixa(cx);
             bll.Incluir(modelo);
-            //MessageBox.Show("Cadastro efetuado com sucesso");
+            this.AtualizadgvTABCaixa();
+            
 
         }
         public void AtualizaTotais(int op)
@@ -235,11 +259,31 @@ namespace GUI
             if (op == 1)
             {
                 this.totalDinheiro.Text = dgvTABCaixas.Rows.Cast<DataGridViewRow>().Sum(i => Convert.ToDecimal(i.Cells[5].Value ?? 0)).ToString("N2");
+                this.totalBanese.Text = dgvTABCaixas.Rows.Cast<DataGridViewRow>().Sum(i => Convert.ToDecimal(i.Cells[6].Value ?? 0)).ToString("N2");
+                this.totalCCrede.Text = dgvTABCaixas.Rows.Cast<DataGridViewRow>().Sum(i => Convert.ToDecimal(i.Cells[7].Value ?? 0)).ToString("N2");
+                this.totalTed.Text = dgvTABCaixas.Rows.Cast<DataGridViewRow>().Sum(i => Convert.ToDecimal(i.Cells[8].Value ?? 0)).ToString("N2");
+                this.totalCheque.Text = dgvTABCaixas.Rows.Cast<DataGridViewRow>().Sum(i => Convert.ToDecimal(i.Cells[9].Value ?? 0)).ToString("N2");
+                this.totalCCrede.Text = dgvTABCaixas.Rows.Cast<DataGridViewRow>().Sum(i => Convert.ToDecimal(i.Cells[11].Value ?? 0)).ToString("N2");
+                this.totalCCtks.Text = dgvTABCaixas.Rows.Cast<DataGridViewRow>().Sum(i => Convert.ToDecimal(i.Cells[13].Value ?? 0)).ToString("N2");
+                this.totalCDtks.Text = dgvTABCaixas.Rows.Cast<DataGridViewRow>().Sum(i => Convert.ToDecimal(i.Cells[14].Value ?? 0)).ToString("N2");
+                this.totalMoedas.Text = dgvTABCaixas.Rows.Cast<DataGridViewRow>().Sum(i => Convert.ToDecimal(i.Cells[15].Value ?? 0)).ToString("N2");
+                this.totalOutros.Text = dgvTABCaixas.Rows.Cast<DataGridViewRow>().Sum(i => Convert.ToDecimal(i.Cells[16].Value ?? 0)).ToString("N2");
+
+
 
             }
             else
             {
                 this.totalDinheiro.Text = "0,00";
+                this.totalBanese.Text = "0,00";
+                this.totalCCrede.Text = "0,00";
+                this.totalTed.Text = "0,00";
+                this.totalCheque.Text = "0,00";
+                this.totalCCrede.Text = "0,00";
+                this.totalCCtks.Text = "0,00";
+                this.totalCDtks.Text = "0,00";
+                this.totalMoedas.Text = "0,00";
+                this.totalOutros.Text = "0,00";
             }
 
         }
@@ -269,6 +313,124 @@ namespace GUI
         {
             this.AtualizadgvTABCaixa();
             this.AlteraCampos(1);
+        }
+
+        private void dgvTABCaixas_DoubleClick(object sender, EventArgs e)
+        {
+            AlteraCampos(0);
+            txtBanese.Focus();
+        }
+
+        private void txtDinheiro_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)8 && e.KeyChar != ',' && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+            if (e.KeyChar == ',' || e.KeyChar == '.')
+            {
+                if (!this.Text.Contains(","))
+                {
+                    e.KeyChar = ',';
+                }
+                else e.Handled = true;
+            }
+        }
+
+        private void txtBanese_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {                
+                txtDinheiro.Focus();
+            }
+        }
+
+        private void txtDinheiro_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtCCrede.Focus();
+            }
+        }
+
+        private void txtCCrede_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtCCtks.Focus();
+            }
+        }
+
+        private void txtCCtks_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtCDrede.Focus();
+            }
+        }
+
+        private void txtCDtks_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtTEDelet.Focus();
+            }
+        }
+
+        private void txtTEDelet_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtCheque.Focus();
+            }
+        }
+
+        private void txtCheque_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtMoedas.Focus();
+            }
+        }
+
+        private void txtMoedas_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtOutros.Focus();
+            }
+        }
+
+        private void txtOutros_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnSalvar.Focus();
+            }
+        }
+
+        private void dgvTABCaixas_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                AlteraCampos(0);
+                txtBanese.Focus();
+            }
+        }
+
+        private void txtCDrede_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtCDtks.Focus();
+            }
+        }
+
+        private void txtBanese_Leave(object sender, EventArgs e)
+        {
+           
+
         }
     }
 }

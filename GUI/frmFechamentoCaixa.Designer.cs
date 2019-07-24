@@ -117,6 +117,8 @@
             this.dgvTABCaixas.Size = new System.Drawing.Size(1080, 396);
             this.dgvTABCaixas.TabIndex = 0;
             this.dgvTABCaixas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTABCaixas_CellClick);
+            this.dgvTABCaixas.DoubleClick += new System.EventHandler(this.dgvTABCaixas_DoubleClick);
+            this.dgvTABCaixas.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvTABCaixas_KeyDown);
             // 
             // dtpMovimento
             // 
@@ -446,6 +448,7 @@
             this.txtOutros.Name = "txtOutros";
             this.txtOutros.Size = new System.Drawing.Size(133, 35);
             this.txtOutros.TabIndex = 16;
+            this.txtOutros.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtOutros_KeyDown);
             this.txtOutros.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCCrede_KeyPress);
             // 
             // txtMoedas
@@ -454,6 +457,7 @@
             this.txtMoedas.Name = "txtMoedas";
             this.txtMoedas.Size = new System.Drawing.Size(133, 35);
             this.txtMoedas.TabIndex = 15;
+            this.txtMoedas.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtMoedas_KeyDown);
             this.txtMoedas.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCCrede_KeyPress);
             // 
             // lblCheque
@@ -534,6 +538,7 @@
             this.txtCheque.Name = "txtCheque";
             this.txtCheque.Size = new System.Drawing.Size(133, 35);
             this.txtCheque.TabIndex = 7;
+            this.txtCheque.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCheque_KeyDown);
             this.txtCheque.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCCrede_KeyPress);
             // 
             // txtTEDelet
@@ -542,6 +547,7 @@
             this.txtTEDelet.Name = "txtTEDelet";
             this.txtTEDelet.Size = new System.Drawing.Size(133, 35);
             this.txtTEDelet.TabIndex = 6;
+            this.txtTEDelet.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtTEDelet_KeyDown);
             this.txtTEDelet.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCCrede_KeyPress);
             // 
             // txtCDtks
@@ -550,6 +556,7 @@
             this.txtCDtks.Name = "txtCDtks";
             this.txtCDtks.Size = new System.Drawing.Size(133, 35);
             this.txtCDtks.TabIndex = 5;
+            this.txtCDtks.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCDtks_KeyDown);
             this.txtCDtks.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCCrede_KeyPress);
             // 
             // txtCDrede
@@ -558,6 +565,7 @@
             this.txtCDrede.Name = "txtCDrede";
             this.txtCDrede.Size = new System.Drawing.Size(133, 35);
             this.txtCDrede.TabIndex = 4;
+            this.txtCDrede.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCDrede_KeyDown);
             this.txtCDrede.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCCrede_KeyPress);
             // 
             // txtCCtks
@@ -566,6 +574,7 @@
             this.txtCCtks.Name = "txtCCtks";
             this.txtCCtks.Size = new System.Drawing.Size(133, 35);
             this.txtCCtks.TabIndex = 3;
+            this.txtCCtks.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCCtks_KeyDown);
             this.txtCCtks.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCCrede_KeyPress);
             // 
             // txtCCrede
@@ -574,6 +583,7 @@
             this.txtCCrede.Name = "txtCCrede";
             this.txtCCrede.Size = new System.Drawing.Size(133, 35);
             this.txtCCrede.TabIndex = 2;
+            this.txtCCrede.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCCrede_KeyDown);
             this.txtCCrede.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCCrede_KeyPress);
             // 
             // txtDinheiro
@@ -582,7 +592,8 @@
             this.txtDinheiro.Name = "txtDinheiro";
             this.txtDinheiro.Size = new System.Drawing.Size(133, 35);
             this.txtDinheiro.TabIndex = 1;
-            this.txtDinheiro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCCrede_KeyPress);
+            this.txtDinheiro.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtDinheiro_KeyDown);
+            this.txtDinheiro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDinheiro_KeyPress);
             // 
             // txtBanese
             // 
@@ -590,7 +601,9 @@
             this.txtBanese.Name = "txtBanese";
             this.txtBanese.Size = new System.Drawing.Size(133, 35);
             this.txtBanese.TabIndex = 0;
+            this.txtBanese.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBanese_KeyDown);
             this.txtBanese.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBanese_KeyPress);
+            this.txtBanese.Leave += new System.EventHandler(this.txtBanese_Leave);
             // 
             // btnTransf
             // 

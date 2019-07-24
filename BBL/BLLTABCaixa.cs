@@ -25,6 +25,19 @@ namespace BLL
             }
             
         }
+        public void IncluirTBC(ModeloTABCaixa modelo)
+        {
+
+            DALTABCaixa DALobj = new DALTABCaixa(conexao);
+            DALobj.InsertTBC(modelo);
+           
+
+        }
+        public void Alterar(ModeloTABCaixa modelo)
+        {
+            DALTABCaixa DALobj = new DALTABCaixa(conexao);
+            DALobj.Alterar(modelo);
+        }
 
         public DataTable LocalizarCaixas(int turno,int seg,int dia, string dtmovimento)
         {
