@@ -37,7 +37,7 @@ namespace GUI
             {
 
             }
-            dgvCTABCaixa.DataSource = bll.Buscar(seg,dtmovimento);
+            dgvCTABCaixa.DataSource = bll.Buscar(seg,dtmovimento,txtCTABcaixa.Text);
             this.AtualizaDGV(seg,dtmovimento);
         }
 
@@ -52,7 +52,7 @@ namespace GUI
             dgvCTABCaixa.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
             BLLTABCaixa bll = new BLLTABCaixa(cx);
-            dgvCTABCaixa.DataSource = bll.Buscar(seg, dtmovimento);
+            dgvCTABCaixa.DataSource = bll.Buscar(seg, dtmovimento,"");
             dgvCTABCaixa.Columns[0].HeaderText = "Caixa";
             dgvCTABCaixa.Columns[0].Width = 80;
             dgvCTABCaixa.Columns[1].HeaderText = "Operador";

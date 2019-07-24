@@ -99,7 +99,7 @@
             // 
             this.pnlTABCaixa.Controls.Add(this.dgvTABCaixas);
             this.pnlTABCaixa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnlTABCaixa.Location = new System.Drawing.Point(27, 149);
+            this.pnlTABCaixa.Location = new System.Drawing.Point(27, 163);
             this.pnlTABCaixa.Name = "pnlTABCaixa";
             this.pnlTABCaixa.Size = new System.Drawing.Size(1080, 396);
             this.pnlTABCaixa.TabIndex = 0;
@@ -108,12 +108,15 @@
             // 
             this.dgvTABCaixas.AllowUserToAddRows = false;
             this.dgvTABCaixas.AllowUserToDeleteRows = false;
+            this.dgvTABCaixas.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvTABCaixas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTABCaixas.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvTABCaixas.GridColor = System.Drawing.SystemColors.Control;
             this.dgvTABCaixas.Location = new System.Drawing.Point(0, 0);
             this.dgvTABCaixas.Name = "dgvTABCaixas";
             this.dgvTABCaixas.ReadOnly = true;
             this.dgvTABCaixas.RowTemplate.Height = 28;
+            this.dgvTABCaixas.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvTABCaixas.Size = new System.Drawing.Size(1080, 396);
             this.dgvTABCaixas.TabIndex = 0;
             this.dgvTABCaixas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTABCaixas_CellClick);
@@ -450,6 +453,7 @@
             this.txtOutros.TabIndex = 16;
             this.txtOutros.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtOutros_KeyDown);
             this.txtOutros.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCCrede_KeyPress);
+            this.txtOutros.Leave += new System.EventHandler(this.txtOutros_Leave);
             // 
             // txtMoedas
             // 
@@ -459,6 +463,7 @@
             this.txtMoedas.TabIndex = 15;
             this.txtMoedas.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtMoedas_KeyDown);
             this.txtMoedas.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCCrede_KeyPress);
+            this.txtMoedas.Leave += new System.EventHandler(this.txtMoedas_Leave);
             // 
             // lblCheque
             // 
@@ -540,6 +545,7 @@
             this.txtCheque.TabIndex = 7;
             this.txtCheque.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCheque_KeyDown);
             this.txtCheque.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCCrede_KeyPress);
+            this.txtCheque.Leave += new System.EventHandler(this.txtCheque_Leave);
             // 
             // txtTEDelet
             // 
@@ -549,6 +555,7 @@
             this.txtTEDelet.TabIndex = 6;
             this.txtTEDelet.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtTEDelet_KeyDown);
             this.txtTEDelet.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCCrede_KeyPress);
+            this.txtTEDelet.Leave += new System.EventHandler(this.txtTEDelet_Leave);
             // 
             // txtCDtks
             // 
@@ -558,6 +565,7 @@
             this.txtCDtks.TabIndex = 5;
             this.txtCDtks.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCDtks_KeyDown);
             this.txtCDtks.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCCrede_KeyPress);
+            this.txtCDtks.Leave += new System.EventHandler(this.txtCDtks_Leave);
             // 
             // txtCDrede
             // 
@@ -567,6 +575,7 @@
             this.txtCDrede.TabIndex = 4;
             this.txtCDrede.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCDrede_KeyDown);
             this.txtCDrede.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCCrede_KeyPress);
+            this.txtCDrede.Leave += new System.EventHandler(this.txtCDrede_Leave);
             // 
             // txtCCtks
             // 
@@ -576,6 +585,7 @@
             this.txtCCtks.TabIndex = 3;
             this.txtCCtks.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCCtks_KeyDown);
             this.txtCCtks.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCCrede_KeyPress);
+            this.txtCCtks.Leave += new System.EventHandler(this.txtCCtks_Leave);
             // 
             // txtCCrede
             // 
@@ -585,6 +595,7 @@
             this.txtCCrede.TabIndex = 2;
             this.txtCCrede.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCCrede_KeyDown);
             this.txtCCrede.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCCrede_KeyPress);
+            this.txtCCrede.Leave += new System.EventHandler(this.txtCCrede_Leave);
             // 
             // txtDinheiro
             // 
@@ -594,6 +605,7 @@
             this.txtDinheiro.TabIndex = 1;
             this.txtDinheiro.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtDinheiro_KeyDown);
             this.txtDinheiro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDinheiro_KeyPress);
+            this.txtDinheiro.Leave += new System.EventHandler(this.txtDinheiro_Leave);
             // 
             // txtBanese
             // 
@@ -613,6 +625,7 @@
             this.btnTransf.TabIndex = 22;
             this.btnTransf.Text = "TED";
             this.btnTransf.UseVisualStyleBackColor = true;
+            this.btnTransf.Click += new System.EventHandler(this.btnTransf_Click);
             // 
             // btnAvulso
             // 
@@ -622,6 +635,7 @@
             this.btnAvulso.TabIndex = 21;
             this.btnAvulso.Text = "Avulso";
             this.btnAvulso.UseVisualStyleBackColor = true;
+            this.btnAvulso.Click += new System.EventHandler(this.btnAvulso_Click);
             // 
             // btnAlterar
             // 

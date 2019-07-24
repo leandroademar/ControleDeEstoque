@@ -91,7 +91,7 @@ namespace DAL
             return tabela;
         }
 
-        public  DataTable Buscar(int seg,string dtmovimento)
+        public  DataTable Buscar(int seg,string dtmovimento,string nome)
         {
             String comando3 = "";
             comando3 = comando3 + "SELECT NUMTRANS " + "\n";
@@ -113,6 +113,7 @@ namespace DAL
                 comando3 = comando3 + "AND NUMCHECKOUT NOT IN (10,11,12)";
 
             }
+            comando3 = comando3 + " AND NOME LIKE '%"+nome+"%'";
 
             DataTable tabela = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter
@@ -142,21 +143,8 @@ namespace DAL
          
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = conexao.ObjetoConexao;
-            String comando3 = "";
-            comando3 = comando3 + "UPDATE  TABFECHA SET " + "\n";
-            comando3 = comando3 + "      VLRDIN = @VLRDIN, " + "\n";
-            comando3 = comando3 + "      VLRDEP = @VLRDEP, " + "\n";
-            comando3 = comando3 + "      VLRDEB = @VLRDEB, " + "\n";
-            comando3 = comando3 + "      VLRTRAN = @VLRTRAN, " + "\n";
-            comando3 = comando3 + "      VLRCHEQ = @VLRCHEQ, " + "\n";
-            comando3 = comando3 + "      VLRVEND = @VLRVEND, " + "\n";
-            comando3 = comando3 + "      VLRCRED = @VLRCRED, " + "\n";
-            comando3 = comando3 + "      VLRCCTKS = @VLRCCTKS, " + "\n";
-            comando3 = comando3 + "      VLRCDTKS = @VLRCDTKS, " + "\n";
-            comando3 = comando3 + "      VLRMOEDA = @VLRMOEDA, " + "\n";
-            comando3 = comando3 + "      VLROUTROS = @VLROUTROS " + "\n";
-            comando3 = comando3 + " " + "\n";
-            comando3 = comando3 + "  WHERE NUMTRANS = @NUMTRANS";
+            String comando3 = " UPDATE  TABFECHA SET VLRDIN = @VLRDIN, VLRDEP = @VLRDEP, VLRDEB = @VLRDEB, VLRTRAN = @VLRTRAN, VLRCHEQ = @VLRCHEQ, VLRVEND = @VLRVEND, VLRCRED = @VLRCRED, " + "\n";
+            comando3 = comando3 + " VLRCCTKS = @VLRCCTKS, VLRCDTKS = @VLRCDTKS, VLRMOEDA = @VLRMOEDA, VLROUTROS = @VLROUTROS  WHERE NUMTRANS = @NUMTRANS;";
             cmd.CommandText = comando3;
             cmd.Parameters.AddWithValue("@NUMTRANS", modelo.NumTrans);
             cmd.Parameters.AddWithValue("@VLRDIN", modelo.VlrDin);
@@ -164,6 +152,7 @@ namespace DAL
             cmd.Parameters.AddWithValue("@VLRDEB", modelo.VlrDeb);
             cmd.Parameters.AddWithValue("@VLRTRAN", modelo.VlrTran);
             cmd.Parameters.AddWithValue("@VLRCHEQ", modelo.VlrCheq);
+            cmd.Parameters.AddWithValue("@VLRCRED", modelo.VlrCred);
             cmd.Parameters.AddWithValue("@VLRVEND", modelo.VlrVend);
             cmd.Parameters.AddWithValue("@VLRCCTKS", modelo.VlrCctks);
             cmd.Parameters.AddWithValue("@VLRCDTKS", modelo.VlrCdtks);

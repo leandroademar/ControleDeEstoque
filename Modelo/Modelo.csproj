@@ -57,6 +57,7 @@
     <Compile Include="ModeloSubCategoria.cs" />
     <Compile Include="ModeloTABCaixa.cs" />
     <Compile Include="ModeloTipoPagamento.cs" />
+    <Compile Include="ModeloTransf.cs" />
     <Compile Include="ModeloUnidadeDeMedida.cs" />
     <Compile Include="ModeloProduto.cs" />
     <Compile Include="ModeloUsuario.cs" />

@@ -56,6 +56,11 @@
             this.receberVendaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mapaDeSeparaçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.suprirEstoqueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.financeiroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tesourariaToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.controleDeValeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.transferênciasTEDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.retiradasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.relatórioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vendasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tesourariaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -83,18 +88,13 @@
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton8 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton9 = new System.Windows.Forms.ToolStripButton();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.tssBanco = new System.Windows.Forms.ToolStripStatusLabel();
             this.tssServer = new System.Windows.Forms.ToolStripStatusLabel();
             this.tstNomeUser = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.financeiroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tesourariaToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.controleDeValeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.transferênciasTEDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.retiradasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripButton9 = new System.Windows.Forms.ToolStripButton();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -309,6 +309,43 @@
             this.suprirEstoqueToolStripMenuItem.Size = new System.Drawing.Size(253, 30);
             this.suprirEstoqueToolStripMenuItem.Text = "Suprir Estoque";
             this.suprirEstoqueToolStripMenuItem.Click += new System.EventHandler(this.suprirEstoqueToolStripMenuItem_Click);
+            // 
+            // financeiroToolStripMenuItem
+            // 
+            this.financeiroToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tesourariaToolStripMenuItem2,
+            this.controleDeValeToolStripMenuItem,
+            this.transferênciasTEDToolStripMenuItem,
+            this.retiradasToolStripMenuItem});
+            this.financeiroToolStripMenuItem.Name = "financeiroToolStripMenuItem";
+            this.financeiroToolStripMenuItem.Size = new System.Drawing.Size(104, 29);
+            this.financeiroToolStripMenuItem.Text = "Financeiro";
+            // 
+            // tesourariaToolStripMenuItem2
+            // 
+            this.tesourariaToolStripMenuItem2.Name = "tesourariaToolStripMenuItem2";
+            this.tesourariaToolStripMenuItem2.Size = new System.Drawing.Size(252, 30);
+            this.tesourariaToolStripMenuItem2.Text = "Tesouraria";
+            this.tesourariaToolStripMenuItem2.Click += new System.EventHandler(this.tesourariaToolStripMenuItem2_Click);
+            // 
+            // controleDeValeToolStripMenuItem
+            // 
+            this.controleDeValeToolStripMenuItem.Name = "controleDeValeToolStripMenuItem";
+            this.controleDeValeToolStripMenuItem.Size = new System.Drawing.Size(252, 30);
+            this.controleDeValeToolStripMenuItem.Text = "Controle de Verbas";
+            // 
+            // transferênciasTEDToolStripMenuItem
+            // 
+            this.transferênciasTEDToolStripMenuItem.Name = "transferênciasTEDToolStripMenuItem";
+            this.transferênciasTEDToolStripMenuItem.Size = new System.Drawing.Size(252, 30);
+            this.transferênciasTEDToolStripMenuItem.Text = "Transferências TED";
+            this.transferênciasTEDToolStripMenuItem.Click += new System.EventHandler(this.transferênciasTEDToolStripMenuItem_Click);
+            // 
+            // retiradasToolStripMenuItem
+            // 
+            this.retiradasToolStripMenuItem.Name = "retiradasToolStripMenuItem";
+            this.retiradasToolStripMenuItem.Size = new System.Drawing.Size(252, 30);
+            this.retiradasToolStripMenuItem.Text = "Retiradas";
             // 
             // relatórioToolStripMenuItem
             // 
@@ -573,6 +610,20 @@
             this.toolStripButton5.Text = "Relatório de Separação";
             this.toolStripButton5.Click += new System.EventHandler(this.toolStripButton5_Click);
             // 
+            // toolStripButton9
+            // 
+            this.toolStripButton9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.toolStripButton9.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton9.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton9.Image")));
+            this.toolStripButton9.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.toolStripButton9.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButton9.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton9.Name = "toolStripButton9";
+            this.toolStripButton9.Size = new System.Drawing.Size(52, 95);
+            this.toolStripButton9.Text = "Informar T.E.D";
+            this.toolStripButton9.Visible = false;
+            this.toolStripButton9.Click += new System.EventHandler(this.toolStripButton9_Click);
+            // 
             // statusStrip1
             // 
             this.statusStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible;
@@ -621,56 +672,6 @@
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(80, 25);
             this.toolStripStatusLabel1.Text = "Atualizar";
             this.toolStripStatusLabel1.Click += new System.EventHandler(this.toolStripStatusLabel1_Click);
-            // 
-            // financeiroToolStripMenuItem
-            // 
-            this.financeiroToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tesourariaToolStripMenuItem2,
-            this.controleDeValeToolStripMenuItem,
-            this.transferênciasTEDToolStripMenuItem,
-            this.retiradasToolStripMenuItem});
-            this.financeiroToolStripMenuItem.Name = "financeiroToolStripMenuItem";
-            this.financeiroToolStripMenuItem.Size = new System.Drawing.Size(104, 29);
-            this.financeiroToolStripMenuItem.Text = "Financeiro";
-            // 
-            // tesourariaToolStripMenuItem2
-            // 
-            this.tesourariaToolStripMenuItem2.Name = "tesourariaToolStripMenuItem2";
-            this.tesourariaToolStripMenuItem2.Size = new System.Drawing.Size(252, 30);
-            this.tesourariaToolStripMenuItem2.Text = "Tesouraria";
-            this.tesourariaToolStripMenuItem2.Click += new System.EventHandler(this.tesourariaToolStripMenuItem2_Click);
-            // 
-            // controleDeValeToolStripMenuItem
-            // 
-            this.controleDeValeToolStripMenuItem.Name = "controleDeValeToolStripMenuItem";
-            this.controleDeValeToolStripMenuItem.Size = new System.Drawing.Size(252, 30);
-            this.controleDeValeToolStripMenuItem.Text = "Controle de Verbas";
-            // 
-            // transferênciasTEDToolStripMenuItem
-            // 
-            this.transferênciasTEDToolStripMenuItem.Name = "transferênciasTEDToolStripMenuItem";
-            this.transferênciasTEDToolStripMenuItem.Size = new System.Drawing.Size(252, 30);
-            this.transferênciasTEDToolStripMenuItem.Text = "Transferências TED";
-            // 
-            // retiradasToolStripMenuItem
-            // 
-            this.retiradasToolStripMenuItem.Name = "retiradasToolStripMenuItem";
-            this.retiradasToolStripMenuItem.Size = new System.Drawing.Size(252, 30);
-            this.retiradasToolStripMenuItem.Text = "Retiradas";
-            // 
-            // toolStripButton9
-            // 
-            this.toolStripButton9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.toolStripButton9.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton9.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton9.Image")));
-            this.toolStripButton9.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.toolStripButton9.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripButton9.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton9.Name = "toolStripButton9";
-            this.toolStripButton9.Size = new System.Drawing.Size(52, 95);
-            this.toolStripButton9.Text = "Informar T.E.D";
-            this.toolStripButton9.Visible = false;
-            this.toolStripButton9.Click += new System.EventHandler(this.toolStripButton9_Click);
             // 
             // frmPrincipal
             // 

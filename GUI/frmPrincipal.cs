@@ -438,5 +438,11 @@ namespace GUI
             frmInformeTED f = new frmInformeTED();
             CheckMdiChildren(f);
         }
+
+        private void transferênciasTEDToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmInformeTED f = new frmInformeTED();
+            CheckMdiChildren(f);
+        }
     }
 }
