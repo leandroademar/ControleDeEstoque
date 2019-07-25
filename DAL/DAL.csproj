@@ -51,7 +51,12 @@
     <Compile Include="DALFornecedor.cs" />
     <Compile Include="DALItenscompra.cs" />
     <Compile Include="DALItensVenda.cs" />
+    <Compile Include="DALOracle\DALPCORIGEMPRECO.cs" />
     <Compile Include="DALOracle\DALPCPEDC.cs" />
+    <Compile Include="DALOracle\DALPCPEDI.cs" />
+    <Compile Include="DALOracle\DALPCVENDACONSUM.cs" />
+    <Compile Include="DALOracle\DALVAR.cs" />
+    <Compile Include="DALOracle\DBNullClasse.cs" />
     <Compile Include="DALProduto.cs" />
     <Compile Include="DALSubCategoria.cs" />
     <Compile Include="DALTABCaixa.cs" />
