@@ -93,7 +93,7 @@ namespace DAL
 
         public  DataTable Buscar(int seg,string dtmovimento,string nome)
         {
-            String comando3 = "";
+            String comando3 = "  ";
             comando3 = comando3 + "SELECT NUMCHECKOUT " + "\n";
             comando3 = comando3 + "      , CODFUNCCHECKOUT " + "\n";
             comando3 = comando3 + "      , NOME " + "\n";
@@ -120,13 +120,10 @@ namespace DAL
         }
         public void InsertTBC(ModeloTABCaixa modelo)
         {
-           
-            string comando4 = " INSERT INTO TABCAIXA (NUMCHECKOUT,CODFUNCCHECKOUT,NOME,DTCAIXA)  EXEC T_TABCAIXA @SEG,@DATA,'','',''";
+
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = conexao.ObjetoConexao;
-            cmd.CommandText = comando4;
-            cmd.Parameters.AddWithValue("@SEG", modelo.Turno);
-            cmd.Parameters.AddWithValue("@DATA", modelo.DtCaixa);
+            cmd.CommandText = "  EXEC SINC_TABAJARA; "; 
             conexao.Conectar();
             cmd.ExecuteNonQuery();
             conexao.Desconectar();
@@ -162,7 +159,7 @@ namespace DAL
         {
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = conexao.ObjetoConexao;
-            String comando4 = " UPDATE TABCAIXA SET TURNO = @TURNO WHERE DTCAIXA = @DTCAIXA AND NUMCHECKOUT = @NUMCAIXA AND CODFUNCCHECKOUT = @CODCAIXA";
+            String comando4 = " UPDATE TABCAIXA SET TURNO = @TURNO WHERE DTCAIXA = @DTCAIXA AND NUMCHECKOUT = @NUMCAIXA AND CODFUNCCHECKOUT = @CODCAIXA;";
             cmd.CommandText = comando4;
             cmd.Parameters.AddWithValue("@TURNO", modelo.Turno);
             cmd.Parameters.AddWithValue("@DTCAIXA", modelo.DtCaixa);

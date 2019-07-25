@@ -42,6 +42,12 @@ namespace GUI
 
         private void btCancelar_Click(object sender, EventArgs e)
         {
+            this.alteraBotoes(1);
+            this.LimpaTela();
+        }
+
+        public void LimpaTela()
+        {
 
         }
     }

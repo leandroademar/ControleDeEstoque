@@ -35,15 +35,17 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtpData = new System.Windows.Forms.DateTimePicker();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.dtpHora = new System.Windows.Forms.DateTimePicker();
             this.pnDados.SuspendLayout();
             this.pnBotoes.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnDados
             // 
+            this.pnDados.Controls.Add(this.dtpHora);
             this.pnDados.Controls.Add(this.label6);
             this.pnDados.Controls.Add(this.textBox2);
             this.pnDados.Controls.Add(this.label5);
@@ -51,9 +53,13 @@
             this.pnDados.Controls.Add(this.label2);
             this.pnDados.Controls.Add(this.label1);
             this.pnDados.Controls.Add(this.textBox3);
-            this.pnDados.Controls.Add(this.dateTimePicker1);
+            this.pnDados.Controls.Add(this.dtpData);
             this.pnDados.Controls.Add(this.textBox1);
             this.pnDados.Controls.Add(this.comboBox1);
+            // 
+            // btCancelar
+            // 
+            this.btCancelar.Click += new System.EventHandler(this.btCancelar_Click);
             // 
             // btSalvar
             // 
@@ -138,15 +144,15 @@
             this.textBox3.Size = new System.Drawing.Size(206, 35);
             this.textBox3.TabIndex = 17;
             // 
-            // dateTimePicker1
+            // dtpData
             // 
-            this.dateTimePicker1.CustomFormat = "dd/MM/yyyy hh:mm";
-            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(21, 246);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(253, 35);
-            this.dateTimePicker1.TabIndex = 16;
+            this.dtpData.CustomFormat = "dd/MM/yyyy";
+            this.dtpData.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpData.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpData.Location = new System.Drawing.Point(21, 246);
+            this.dtpData.Name = "dtpData";
+            this.dtpData.Size = new System.Drawing.Size(158, 35);
+            this.dtpData.TabIndex = 16;
             // 
             // textBox1
             // 
@@ -177,6 +183,17 @@
             this.comboBox1.Size = new System.Drawing.Size(371, 37);
             this.comboBox1.TabIndex = 14;
             // 
+            // dtpHora
+            // 
+            this.dtpHora.CustomFormat = "hh:mm";
+            this.dtpHora.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpHora.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpHora.Location = new System.Drawing.Point(185, 246);
+            this.dtpHora.Name = "dtpHora";
+            this.dtpHora.ShowUpDown = true;
+            this.dtpHora.Size = new System.Drawing.Size(94, 35);
+            this.dtpHora.TabIndex = 26;
+            // 
             // frmCadastroTED
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -199,8 +216,9 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.DateTimePicker dtpData;
+        private System.Windows.Forms.DateTimePicker dtpHora;
     }
 }

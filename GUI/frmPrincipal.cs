@@ -434,7 +434,8 @@ namespace GUI
             if (dialogResult == DialogResult.Yes)
             {
                 System.Diagnostics.Process.Start(@"P:\ATUALIZACAO\nAtualizador.exe");
-                this.Close();
+                Application.Exit();
+                
             }
         }
 

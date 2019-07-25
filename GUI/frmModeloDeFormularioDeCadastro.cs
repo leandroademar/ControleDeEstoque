@@ -91,5 +91,36 @@ namespace GUI
                 this.SelectNextControl(this.ActiveControl, !e.Shift, true, true, true);
             }
         }
+
+        private void btInserir_Click(object sender, EventArgs e)
+        {
+            this.operacao = "inserir";
+            this.alteraBotoes(2);
+        }
+
+        private void btLocalizar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btAlterar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btExcluir_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btSalvar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btCancelar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

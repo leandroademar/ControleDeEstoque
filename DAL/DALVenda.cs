@@ -130,7 +130,7 @@ namespace DAL
         public DataTable LocalizarP(String nome)
         {
             DataTable tabela = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter("Select v.ven_cod, v.ven_nome,v.ven_totalgeral as ven_total,v.ven_data, v.ven_atendente " +
+            SqlDataAdapter da = new SqlDataAdapter("Select v.ven_cod, v.ven_nome,(v.ven_total+v.ven_winthor) as ven_total,v.ven_data, v.ven_atendente " +
             "from venda v inner join cliente c on c.cli_cod = v.cli_cod where" +
                 "  ven_data >= GETDATE() - 8 and ven_status = 'PENDENTE' and  v.ven_nome  like '%" + nome + "%'", conexao.StringConexao);
             da.Fill(tabela);
@@ -140,7 +140,7 @@ namespace DAL
         public DataTable Localizar()
         {
             DataTable tabela = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter("Select v.ven_cod, v.ven_nome,v.ven_totalgeral as ven_total,v.ven_data, v.ven_atendente " +
+            SqlDataAdapter da = new SqlDataAdapter("Select v.ven_cod, v.ven_nome,(v.ven_total+v.ven_winthor) as ven_total,v.ven_data, v.ven_atendente " +
             "from venda v inner join cliente c on c.cli_cod = v.cli_cod where" +
                 " ven_data >= GETDATE() - 8 AND ven_status = 'PENDENTE' ", conexao.StringConexao);
             da.Fill(tabela);

@@ -21,6 +21,8 @@ namespace GUI
         {
             this.operacao = "inserir";
             this.alteraBotoes(2);
+            dtpHora.Value = Convert.ToDateTime("01/01/2000 00:00");
+            dtpData.Value = Convert.ToDateTime("01/01/2000 00:00");
         }
 
         private void btLocalizar_Click(object sender, EventArgs e)
@@ -35,6 +37,16 @@ namespace GUI
         }
 
         private void btSalvar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btCancelar_Click(object sender, EventArgs e)
+        {
+            this.alteraBotoes(1);
+            this.LimpaTela();
+        }
+        public void LimpaTela()
         {
 
         }

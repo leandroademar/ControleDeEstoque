@@ -29,13 +29,11 @@ namespace GUI
             ModeloTABCaixa modelo = new ModeloTABCaixa();
             try
             {
-                modelo.Turno = seg;
-                modelo.DtCaixa = Convert.ToDateTime(dtmovimento);
                 bll.IncluirTBC(modelo);
             }
-            catch
+            catch (Exception ex)
             {
-
+                MessageBox.Show(ex.Message);
             }
             dgvCTABCaixa.DataSource = bll.Buscar(seg,dtmovimento,txtCTABcaixa.Text);
             this.AtualizaDGV(seg,dtmovimento);
@@ -58,7 +56,7 @@ namespace GUI
             dgvCTABCaixa.Columns[1].HeaderText = "Operador";
             dgvCTABCaixa.Columns[1].Width = 80;
             dgvCTABCaixa.Columns[2].HeaderText = "Nome";
-            dgvCTABCaixa.Columns[2].Width = 400;
+            dgvCTABCaixa.Columns[2].Width = 360;
             
         }
 

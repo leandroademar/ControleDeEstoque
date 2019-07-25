@@ -269,7 +269,7 @@ namespace GUI
             modelo.DtCaixa = Convert.ToDateTime(dtpMovimento.Text.ToString());
             DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
             BLLTABCaixa bll = new BLLTABCaixa(cx);
-            bll.Incluir(modelo);
+            bll.Incluir(modelo);            
             bll.AlterarTBC(modelo);
            
 
