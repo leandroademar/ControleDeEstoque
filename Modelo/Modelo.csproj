@@ -54,6 +54,14 @@
     <Compile Include="ModeloItensCompra.cs" />
     <Compile Include="ModeloItensVenda.cs" />
     <Compile Include="ModeloLiberacao.cs" />
+    <Compile Include="ModeloOracle\ModeloMAPA.cs" />
+    <Compile Include="ModeloOracle\ModeloPCCARREG.cs" />
+    <Compile Include="ModeloOracle\ModeloPCEST.cs" />
+    <Compile Include="ModeloOracle\ModeloPCORIGEMPRECO.cs" />
+    <Compile Include="ModeloOracle\ModeloPCPEDC.cs" />
+    <Compile Include="ModeloOracle\ModeloPCPEDI.cs" />
+    <Compile Include="ModeloOracle\ModeloPCVENDACONSUM.cs" />
+    <Compile Include="ModeloOracle\ModeloVAR.cs" />
     <Compile Include="ModeloSubCategoria.cs" />
     <Compile Include="ModeloTABCaixa.cs" />
     <Compile Include="ModeloTipoPagamento.cs" />

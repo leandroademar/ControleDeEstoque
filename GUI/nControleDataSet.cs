@@ -7,9 +7,11 @@
     }
 }
 
-namespace GUI.nControleDataSetTableAdapters {
-    
-    
-    public partial class itensvendaTableAdapter {
+namespace GUI.nControleDataSetTableAdapters
+{
+
+
+    public partial class itensvendaTableAdapter
+    {
     }
 }

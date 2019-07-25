@@ -30,6 +30,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Oracle.DataAccess, Version=4.122.18.3, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=x86" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -50,6 +51,7 @@
     <Compile Include="DALFornecedor.cs" />
     <Compile Include="DALItenscompra.cs" />
     <Compile Include="DALItensVenda.cs" />
+    <Compile Include="DALOracle\DALPCPEDC.cs" />
     <Compile Include="DALProduto.cs" />
     <Compile Include="DALSubCategoria.cs" />
     <Compile Include="DALTABCaixa.cs" />

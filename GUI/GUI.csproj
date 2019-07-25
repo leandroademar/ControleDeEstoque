@@ -145,10 +145,10 @@
     <Compile Include="Cadastros\frmCadastroSubCategoria.Designer.cs">
       <DependentUpon>frmCadastroSubCategoria.cs</DependentUpon>
     </Compile>
-    <Compile Include="Cadastros\frmCadastroTED.cs">
+    <Compile Include="Financeiro\frmCadastroTED.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Cadastros\frmCadastroTED.Designer.cs">
+    <Compile Include="Financeiro\frmCadastroTED.Designer.cs">
       <DependentUpon>frmCadastroTED.cs</DependentUpon>
     </Compile>
     <Compile Include="Cadastros\frmCadastroTipoPagamento.cs">
@@ -247,28 +247,28 @@
     <Compile Include="Consultas\frmControleVale.Designer.cs">
       <DependentUpon>frmControleVale.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmFechamentoCaixa.cs">
+    <Compile Include="Financeiro\frmFechamentoCaixa.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmFechamentoCaixa.Designer.cs">
+    <Compile Include="Financeiro\frmFechamentoCaixa.Designer.cs">
       <DependentUpon>frmFechamentoCaixa.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmInformeTED.cs">
+    <Compile Include="Financeiro\frmInformeTED.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmInformeTED.Designer.cs">
+    <Compile Include="Financeiro\frmInformeTED.Designer.cs">
       <DependentUpon>frmInformeTED.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmLctoFin.cs">
+    <Compile Include="Financeiro\frmLctoFin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmLctoFin.Designer.cs">
+    <Compile Include="Financeiro\frmLctoFin.Designer.cs">
       <DependentUpon>frmLctoFin.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmLctoTED.cs">
+    <Compile Include="Financeiro\frmLctoTED.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmLctoTED.Designer.cs">
+    <Compile Include="Financeiro\frmLctoTED.Designer.cs">
       <DependentUpon>frmLctoTED.cs</DependentUpon>
     </Compile>
     <Compile Include="frmLogin.cs">
@@ -283,22 +283,28 @@
     <Compile Include="frmModeloDeFormularioDeCadastro.Designer.cs">
       <DependentUpon>frmModeloDeFormularioDeCadastro.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmMovimentacaoPedido.cs">
+    <Compile Include="Movimento\frmMessagePedido.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmMovimentacaoPedido.Designer.cs">
+    <Compile Include="Movimento\frmMessagePedido.Designer.cs">
+      <DependentUpon>frmMessagePedido.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Movimento\frmMovimentacaoPedido.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Movimento\frmMovimentacaoPedido.Designer.cs">
       <DependentUpon>frmMovimentacaoPedido.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmMovimentacaoVenda.cs">
+    <Compile Include="Movimento\frmMovimentacaoVenda.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmMovimentacaoVenda.Designer.cs">
+    <Compile Include="Movimento\frmMovimentacaoVenda.Designer.cs">
       <DependentUpon>frmMovimentacaoVenda.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmParametroRel.cs">
+    <Compile Include="Relatórios\frmParametroRel.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmParametroRel.Designer.cs">
+    <Compile Include="Relatórios\frmParametroRel.Designer.cs">
       <DependentUpon>frmParametroRel.cs</DependentUpon>
     </Compile>
     <Compile Include="frmPrincipal.cs">
@@ -307,28 +313,28 @@
     <Compile Include="frmPrincipal.Designer.cs">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmRelatorioVendas.cs">
+    <Compile Include="Relatórios\frmRelatorioVendas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmRelatorioVendas.Designer.cs">
+    <Compile Include="Relatórios\frmRelatorioVendas.Designer.cs">
       <DependentUpon>frmRelatorioVendas.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmRelSepara.cs">
+    <Compile Include="Relatórios\frmRelSepara.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmRelSepara.Designer.cs">
+    <Compile Include="Relatórios\frmRelSepara.Designer.cs">
       <DependentUpon>frmRelSepara.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmSeparacaoPedido.cs">
+    <Compile Include="Movimento\frmSeparacaoPedido.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSeparacaoPedido.Designer.cs">
+    <Compile Include="Movimento\frmSeparacaoPedido.Designer.cs">
       <DependentUpon>frmSeparacaoPedido.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmSuprirEstoque.cs">
+    <Compile Include="Movimento\frmSuprirEstoque.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSuprirEstoque.Designer.cs">
+    <Compile Include="Movimento\frmSuprirEstoque.Designer.cs">
       <DependentUpon>frmSuprirEstoque.cs</DependentUpon>
     </Compile>
     <Compile Include="nControleDataSet.cs">
@@ -381,7 +387,7 @@
     <EmbeddedResource Include="Cadastros\frmCadastroSubCategoria.resx">
       <DependentUpon>frmCadastroSubCategoria.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Cadastros\frmCadastroTED.resx">
+    <EmbeddedResource Include="Financeiro\frmCadastroTED.resx">
       <DependentUpon>frmCadastroTED.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Cadastros\frmCadastroTipoPagamento.resx">
@@ -432,16 +438,16 @@
     <EmbeddedResource Include="Consultas\frmControleVale.resx">
       <DependentUpon>frmControleVale.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmFechamentoCaixa.resx">
+    <EmbeddedResource Include="Financeiro\frmFechamentoCaixa.resx">
       <DependentUpon>frmFechamentoCaixa.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmInformeTED.resx">
+    <EmbeddedResource Include="Financeiro\frmInformeTED.resx">
       <DependentUpon>frmInformeTED.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmLctoFin.resx">
+    <EmbeddedResource Include="Financeiro\frmLctoFin.resx">
       <DependentUpon>frmLctoFin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmLctoTED.resx">
+    <EmbeddedResource Include="Financeiro\frmLctoTED.resx">
       <DependentUpon>frmLctoTED.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
@@ -450,28 +456,31 @@
     <EmbeddedResource Include="frmModeloDeFormularioDeCadastro.resx">
       <DependentUpon>frmModeloDeFormularioDeCadastro.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmMovimentacaoPedido.resx">
+    <EmbeddedResource Include="Movimento\frmMessagePedido.resx">
+      <DependentUpon>frmMessagePedido.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Movimento\frmMovimentacaoPedido.resx">
       <DependentUpon>frmMovimentacaoPedido.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmMovimentacaoVenda.resx">
+    <EmbeddedResource Include="Movimento\frmMovimentacaoVenda.resx">
       <DependentUpon>frmMovimentacaoVenda.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmParametroRel.resx">
+    <EmbeddedResource Include="Relatórios\frmParametroRel.resx">
       <DependentUpon>frmParametroRel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPrincipal.resx">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmRelatorioVendas.resx">
+    <EmbeddedResource Include="Relatórios\frmRelatorioVendas.resx">
       <DependentUpon>frmRelatorioVendas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmRelSepara.resx">
+    <EmbeddedResource Include="Relatórios\frmRelSepara.resx">
       <DependentUpon>frmRelSepara.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSeparacaoPedido.resx">
+    <EmbeddedResource Include="Movimento\frmSeparacaoPedido.resx">
       <DependentUpon>frmSeparacaoPedido.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSuprirEstoque.resx">
+    <EmbeddedResource Include="Movimento\frmSuprirEstoque.resx">
       <DependentUpon>frmSuprirEstoque.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -484,10 +493,10 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Report1.rdlc" />
-    <EmbeddedResource Include="Report2.rdlc" />
-    <EmbeddedResource Include="Report3.rdlc" />
-    <EmbeddedResource Include="ReportSeparadas.rdlc" />
+    <EmbeddedResource Include="Relatórios\Obsoleto\Report1.rdlc" />
+    <EmbeddedResource Include="Relatórios\Obsoleto\Report2.rdlc" />
+    <EmbeddedResource Include="Relatórios\Obsoleto\Report3.rdlc" />
+    <EmbeddedResource Include="Relatórios\Obsoleto\ReportSeparadas.rdlc" />
     <None Include="nControleDataSet.xsc">
       <DependentUpon>nControleDataSet.xsd</DependentUpon>
     </None>
@@ -628,10 +637,7 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Financeiro\" />
-    <Folder Include="Movimento\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

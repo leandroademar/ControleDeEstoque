@@ -56,6 +56,7 @@
             this.pnDados.Controls.Add(this.dtpData);
             this.pnDados.Controls.Add(this.textBox1);
             this.pnDados.Controls.Add(this.comboBox1);
+            this.pnDados.Visible = false;
             // 
             // btCancelar
             // 
@@ -86,6 +87,7 @@
             this.label6.Size = new System.Drawing.Size(106, 29);
             this.label6.TabIndex = 25;
             this.label6.Text = "Número:";
+            this.label6.Visible = false;
             // 
             // textBox2
             // 
@@ -95,6 +97,7 @@
             this.textBox2.ReadOnly = true;
             this.textBox2.Size = new System.Drawing.Size(206, 35);
             this.textBox2.TabIndex = 24;
+            this.textBox2.Visible = false;
             // 
             // label5
             // 

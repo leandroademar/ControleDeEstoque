@@ -1,5 +1,6 @@
 ﻿using BLL;
 using DAL;
+using GUI.Movimento;
 using Modelo;
 using System;
 using System.Collections.Generic;
@@ -125,11 +126,15 @@ namespace GUI
 
                    
                 }
-                MessageBox.Show("Pedido de Venda: \n " + modeloVenda.VenCod.ToString()+" - "+ modeloVenda.VenNome.ToString() +
-                    " \n Valor Pedido: R$ "+ modeloVenda.VenTotal.ToString() + 
-                    "  \n Valor Winthor: R$ "+ modeloVenda.VenWinthor.ToString() +
-                    "  \n Valor Total: R$ " + (modeloVenda.VenTotal + modeloVenda.VenWinthor).ToString() +
-                    " \n ", "Informação do Pedido", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                
+       
+                frmMessagePedido fr = new frmMessagePedido(
+                    modeloVenda.VenCod.ToString()+" - "+ modeloVenda.VenNome.ToString(), 
+                    modeloVenda.VenTotal.ToString(), 
+                    modeloVenda.VenWinthor.ToString(), 
+                    (modeloVenda.VenTotal + modeloVenda.VenWinthor).ToString());
+                fr.Show();
+
                 tbpCliente.Focus();
                 this.LimpaTela();
                 this.alteraBotoes(1);
@@ -137,6 +142,8 @@ namespace GUI
 
 
             }
+
+            
             
 
             catch (Exception erro)
@@ -144,7 +151,12 @@ namespace GUI
                 MessageBox.Show(erro.Message);
             }
             
+           
 
+        }
+        public void MostraInfo(string pedido, string vlrped, string vlrwint, string vlrtot)
+        {
+            
         }
 
         private void btCancelar_Click(object sender, EventArgs e)
