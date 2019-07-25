@@ -466,5 +466,18 @@ namespace GUI
             frmCadastroTED f = new frmCadastroTED();
             CheckMdiChildren(f);
         }
+
+        private void controleDeValeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            frmControleVale f = new frmControleVale();
+            CheckMdiChildren(f);
+        }
+
+        private void retiradasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmLctoFin f = new frmLctoFin();
+            CheckMdiChildren(f);
+        }
     }
 }

@@ -241,6 +241,12 @@
     <Compile Include="frmConsultaVenda.Designer.cs">
       <DependentUpon>frmConsultaVenda.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmControleVale.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmControleVale.Designer.cs">
+      <DependentUpon>frmControleVale.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmFechamentoCaixa.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -252,6 +258,12 @@
     </Compile>
     <Compile Include="frmInformeTED.Designer.cs">
       <DependentUpon>frmInformeTED.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLctoFin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLctoFin.Designer.cs">
+      <DependentUpon>frmLctoFin.cs</DependentUpon>
     </Compile>
     <Compile Include="frmLctoTED.cs">
       <SubType>Form</SubType>
@@ -417,11 +429,17 @@
     <EmbeddedResource Include="frmConsultaVenda.resx">
       <DependentUpon>frmConsultaVenda.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmControleVale.resx">
+      <DependentUpon>frmControleVale.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmFechamentoCaixa.resx">
       <DependentUpon>frmFechamentoCaixa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmInformeTED.resx">
       <DependentUpon>frmInformeTED.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLctoFin.resx">
+      <DependentUpon>frmLctoFin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLctoTED.resx">
       <DependentUpon>frmLctoTED.cs</DependentUpon>
