@@ -39,7 +39,7 @@ namespace GUI
 
         private void tbpCliente_Click(object sender, EventArgs e)
         {
-
+             
         }
 
         private void btLocalizar_Click(object sender, EventArgs e)

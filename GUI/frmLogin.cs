@@ -113,5 +113,11 @@ namespace GUI
             //Vincular ESC ao btnSair
             this.CancelButton = btnSair;
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frmConfiguracaoBancoDados f = new frmConfiguracaoBancoDados();
+            f.Show();
+        }
     }
 }

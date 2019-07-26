@@ -253,12 +253,6 @@
     <Compile Include="Financeiro\frmFechamentoCaixa.Designer.cs">
       <DependentUpon>frmFechamentoCaixa.cs</DependentUpon>
     </Compile>
-    <Compile Include="Financeiro\frmInformeTED.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Financeiro\frmInformeTED.Designer.cs">
-      <DependentUpon>frmInformeTED.cs</DependentUpon>
-    </Compile>
     <Compile Include="Financeiro\frmLctoFin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -440,9 +434,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Financeiro\frmFechamentoCaixa.resx">
       <DependentUpon>frmFechamentoCaixa.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Financeiro\frmInformeTED.resx">
-      <DependentUpon>frmInformeTED.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Financeiro\frmLctoFin.resx">
       <DependentUpon>frmLctoFin.cs</DependentUpon>
