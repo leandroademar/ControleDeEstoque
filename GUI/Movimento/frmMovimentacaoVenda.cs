@@ -30,6 +30,10 @@ namespace GUI
         public double totalcart = 0;
         public string cliente = "Cliente Tabajara";
         public string User = Properties.Settings.Default.Usuario;
+        public int Matricula = Properties.Settings.Default.Matricula;
+        public string NomeW = Properties.Settings.Default.NomeW;
+        public int Caixa = Properties.Settings.Default.Caixa;
+
 
 
 
@@ -37,7 +41,8 @@ namespace GUI
         public frmMovimentacaoVenda()
         {
             InitializeComponent();
-
+            lblCaixa.Text = Caixa.ToString()+" - "+NomeW.ToString();
+           
         }
 
         private void frmMovimentacaoVenda_Load(object sender, EventArgs e)
@@ -300,6 +305,7 @@ namespace GUI
             {
                 txtCart.Focus();
             }
+
         }
 
         private void txtWint_Leave(object sender, EventArgs e)
@@ -342,6 +348,10 @@ namespace GUI
             if (e.KeyCode == Keys.Enter)
             {
                 btnGrava.Focus();
+            }
+            if (e.KeyCode == Keys.F5)
+            {
+                btnCancela_Click(sender, e);
             }
         }
 
@@ -666,8 +676,35 @@ namespace GUI
 
         private void consultarTEDToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmLctoTED frm = new frmLctoTED(2,0,"",0);
+            frmLctoTED frm = new frmLctoTED(2,Caixa,NomeW,1);
             frm.Show();
+        }
+
+        private void txtVenCod_KeyDown(object sender, KeyEventArgs e)
+        {
+            
+        }
+
+        private void btnTED_Click(object sender, EventArgs e)
+        {
+            frmLctoTED frm = new frmLctoTED(2, Caixa, NomeW, 1);
+            frm.Show();
+        }
+
+        private void frmMovimentacaoVenda_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F5)
+            {
+                btnCancela_Click(sender, e);
+            }
+            if (e.KeyCode == Keys.F2)
+            {
+                btnLocaliza_Click(sender, e);
+            }
+            if (e.KeyCode == Keys.F10)
+            {
+                btnTED_Click(sender, e);
+            }
         }
     }
 }

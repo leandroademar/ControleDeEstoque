@@ -1,13 +1,13 @@
 ﻿namespace GUI.Properties {
-    
-    
+
+
     // Esta classe permite que você trate eventos específicos na classe de configurações:
     //  O evento SettingChanging é gerado antes da alteração de um valor de configuração.
     //  O evento PropertyChanged é gerado depois da alteração de um valor de configuração.
     //  O evento SettingsLoaded é gerado depois do carregamento dos valores de configuração.
     //  O evento SettingsSaving é gerado antes de salvar os valores de configuração.
     internal sealed partial class Settings {
-        
+
         public Settings() {
             // // Para adicionar manipuladores de eventos para salvar e alterar configurações, remova os comentários das linhas abaixo:
             //
@@ -20,6 +20,10 @@
         public int Perfil { get; internal set; }
         public int PerfilTed { get; internal set; }
         public string Usuario { get; internal set; }
+        public int Matricula { get; internal set; }
+        public string NomeW { get; internal set; }
+        public int Caixa { get; internal set; }
+
 
         private void SettingChangingEventHandler(object sender, System.Configuration.SettingChangingEventArgs e) {
             // Adicione código para manipular o evento SettingChangingEvent aqui.

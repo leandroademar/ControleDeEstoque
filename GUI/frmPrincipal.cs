@@ -458,7 +458,7 @@ namespace GUI
 
         private void toolStripButton9_Click(object sender, EventArgs e)
         {
-            frmInformeTED f = new frmInformeTED();
+            frmCadastroTED f = new frmCadastroTED();
             CheckMdiChildren(f);
         }
 

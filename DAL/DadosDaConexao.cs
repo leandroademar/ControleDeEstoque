@@ -12,6 +12,8 @@ namespace DAL
         public static String banco = "nControle";
         public static String usuario = "sa";
         public static String senha = "Adm@123";
+        public static String caixa = "10";
+
         public static String StringDeConexao
         {
             get 

@@ -35,16 +35,16 @@
             this.txtTurno = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tbcLcto = new System.Windows.Forms.TabControl();
-            this.tbpLcto = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.dgvTed = new System.Windows.Forms.DataGridView();
             this.dgvAvulso = new System.Windows.Forms.DataGridView();
+            this.dgvTed = new System.Windows.Forms.DataGridView();
+            this.tbpLcto = new System.Windows.Forms.TabPage();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.tbcLcto.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAvulso)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTed)).BeginInit();
             this.SuspendLayout();
             // 
             // txtNome
@@ -94,8 +94,7 @@
             this.txtTurno.Name = "txtTurno";
             this.txtTurno.ReadOnly = true;
             this.txtTurno.Size = new System.Drawing.Size(151, 35);
-            this.txtTurno.TabIndex = 4;
-            this.txtTurno.TabStop = false;
+            this.txtTurno.TabIndex = 0;
             // 
             // label1
             // 
@@ -118,16 +117,6 @@
             this.tbcLcto.Size = new System.Drawing.Size(755, 410);
             this.tbcLcto.TabIndex = 100;
             // 
-            // tbpLcto
-            // 
-            this.tbpLcto.Location = new System.Drawing.Point(4, 32);
-            this.tbpLcto.Name = "tbpLcto";
-            this.tbpLcto.Padding = new System.Windows.Forms.Padding(3);
-            this.tbpLcto.Size = new System.Drawing.Size(747, 374);
-            this.tbpLcto.TabIndex = 0;
-            this.tbpLcto.Text = "Inclur";
-            this.tbpLcto.UseVisualStyleBackColor = true;
-            // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.dgvAvulso);
@@ -140,6 +129,21 @@
             this.tabPage2.Text = "Lançamentos";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // dgvAvulso
+            // 
+            this.dgvAvulso.AllowUserToAddRows = false;
+            this.dgvAvulso.AllowUserToDeleteRows = false;
+            this.dgvAvulso.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAvulso.ColumnHeadersVisible = false;
+            this.dgvAvulso.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvAvulso.Location = new System.Drawing.Point(3, 3);
+            this.dgvAvulso.Name = "dgvAvulso";
+            this.dgvAvulso.ReadOnly = true;
+            this.dgvAvulso.RowTemplate.Height = 28;
+            this.dgvAvulso.Size = new System.Drawing.Size(741, 368);
+            this.dgvAvulso.TabIndex = 1;
+            this.dgvAvulso.Visible = false;
+            // 
             // dgvTed
             // 
             this.dgvTed.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -151,19 +155,15 @@
             this.dgvTed.TabIndex = 0;
             this.dgvTed.Visible = false;
             // 
-            // dgvAvulso
+            // tbpLcto
             // 
-            this.dgvAvulso.AllowUserToAddRows = false;
-            this.dgvAvulso.AllowUserToDeleteRows = false;
-            this.dgvAvulso.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAvulso.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvAvulso.Location = new System.Drawing.Point(3, 3);
-            this.dgvAvulso.Name = "dgvAvulso";
-            this.dgvAvulso.ReadOnly = true;
-            this.dgvAvulso.RowTemplate.Height = 28;
-            this.dgvAvulso.Size = new System.Drawing.Size(741, 368);
-            this.dgvAvulso.TabIndex = 1;
-            this.dgvAvulso.Visible = false;
+            this.tbpLcto.Location = new System.Drawing.Point(4, 32);
+            this.tbpLcto.Name = "tbpLcto";
+            this.tbpLcto.Padding = new System.Windows.Forms.Padding(3);
+            this.tbpLcto.Size = new System.Drawing.Size(747, 374);
+            this.tbpLcto.TabIndex = 0;
+            this.tbpLcto.Text = "Inclur";
+            this.tbpLcto.UseVisualStyleBackColor = true;
             // 
             // label2
             // 
@@ -181,7 +181,7 @@
             this.textBox1.Location = new System.Drawing.Point(198, 121);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(464, 35);
-            this.textBox1.TabIndex = 0;
+            this.textBox1.TabIndex = 1;
             // 
             // frmLctoTED
             // 
@@ -204,8 +204,8 @@
             this.TopMost = true;
             this.tbcLcto.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTed)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAvulso)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTed)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvProdutos = new System.Windows.Forms.DataGridView();
             this.txtVenCod = new System.Windows.Forms.TextBox();
             this.txtNomeCli = new System.Windows.Forms.TextBox();
@@ -62,6 +62,8 @@
             this.abrirCaixaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fecharCaixaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultarTEDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lblCaixa = new System.Windows.Forms.Label();
+            this.btnTED = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdutos)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.gpbRecebimento.SuspendLayout();
@@ -84,23 +86,23 @@
             this.dgvProdutos.Name = "dgvProdutos";
             this.dgvProdutos.ReadOnly = true;
             this.dgvProdutos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvProdutos.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvProdutos.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvProdutos.RowHeadersVisible = false;
             this.dgvProdutos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            this.dgvProdutos.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            this.dgvProdutos.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvProdutos.RowTemplate.Height = 28;
             this.dgvProdutos.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.dgvProdutos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -115,6 +117,7 @@
             this.txtVenCod.Name = "txtVenCod";
             this.txtVenCod.Size = new System.Drawing.Size(145, 35);
             this.txtVenCod.TabIndex = 1;
+            this.txtVenCod.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtVenCod_KeyDown);
             this.txtVenCod.Leave += new System.EventHandler(this.txtVenCod_Leave);
             // 
             // txtNomeCli
@@ -212,7 +215,7 @@
             this.btnLocaliza.Name = "btnLocaliza";
             this.btnLocaliza.Size = new System.Drawing.Size(132, 35);
             this.btnLocaliza.TabIndex = 0;
-            this.btnLocaliza.Text = "Localizar";
+            this.btnLocaliza.Text = "F2 - Localizar";
             this.btnLocaliza.UseVisualStyleBackColor = true;
             this.btnLocaliza.Click += new System.EventHandler(this.btnLocaliza_Click);
             // 
@@ -341,7 +344,7 @@
             this.btnGrava.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnGrava.AutoSize = true;
             this.btnGrava.BackColor = System.Drawing.Color.OrangeRed;
-            this.btnGrava.Location = new System.Drawing.Point(366, 831);
+            this.btnGrava.Location = new System.Drawing.Point(232, 831);
             this.btnGrava.Name = "btnGrava";
             this.btnGrava.Size = new System.Drawing.Size(120, 77);
             this.btnGrava.TabIndex = 1;
@@ -354,7 +357,7 @@
             this.btnCancela.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnCancela.AutoSize = true;
             this.btnCancela.BackColor = System.Drawing.Color.OrangeRed;
-            this.btnCancela.Location = new System.Drawing.Point(492, 831);
+            this.btnCancela.Location = new System.Drawing.Point(488, 831);
             this.btnCancela.Name = "btnCancela";
             this.btnCancela.Size = new System.Drawing.Size(120, 77);
             this.btnCancela.TabIndex = 7;
@@ -377,7 +380,7 @@
             this.btImprimir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btImprimir.AutoSize = true;
             this.btImprimir.BackColor = System.Drawing.Color.OrangeRed;
-            this.btImprimir.Location = new System.Drawing.Point(366, 831);
+            this.btImprimir.Location = new System.Drawing.Point(104, 831);
             this.btImprimir.Name = "btImprimir";
             this.btImprimir.Size = new System.Drawing.Size(120, 77);
             this.btImprimir.TabIndex = 11;
@@ -421,6 +424,28 @@
             this.consultarTEDToolStripMenuItem.Text = "Consultar TED";
             this.consultarTEDToolStripMenuItem.Click += new System.EventHandler(this.consultarTEDToolStripMenuItem_Click);
             // 
+            // lblCaixa
+            // 
+            this.lblCaixa.AutoSize = true;
+            this.lblCaixa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCaixa.Location = new System.Drawing.Point(18, 9);
+            this.lblCaixa.Name = "lblCaixa";
+            this.lblCaixa.Size = new System.Drawing.Size(0, 29);
+            this.lblCaixa.TabIndex = 12;
+            // 
+            // btnTED
+            // 
+            this.btnTED.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnTED.AutoSize = true;
+            this.btnTED.BackColor = System.Drawing.Color.OrangeRed;
+            this.btnTED.Location = new System.Drawing.Point(360, 831);
+            this.btnTED.Name = "btnTED";
+            this.btnTED.Size = new System.Drawing.Size(120, 77);
+            this.btnTED.TabIndex = 13;
+            this.btnTED.Text = "F10 - TED";
+            this.btnTED.UseVisualStyleBackColor = false;
+            this.btnTED.Click += new System.EventHandler(this.btnTED_Click);
+            // 
             // frmMovimentacaoVenda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -429,6 +454,8 @@
             this.BackColor = System.Drawing.SystemColors.Desktop;
             this.ClientSize = new System.Drawing.Size(1218, 992);
             this.ContextMenuStrip = this.contextMenuStrip1;
+            this.Controls.Add(this.btnTED);
+            this.Controls.Add(this.lblCaixa);
             this.Controls.Add(this.btImprimir);
             this.Controls.Add(this.lblTot);
             this.Controls.Add(this.btnCancela);
@@ -444,7 +471,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmMovimentacaoVenda_Load);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtWint_KeyDown);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmMovimentacaoVenda_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdutos)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -489,5 +516,7 @@
         private System.Windows.Forms.ToolStripMenuItem abrirCaixaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fecharCaixaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem consultarTEDToolStripMenuItem;
+        private System.Windows.Forms.Label lblCaixa;
+        private System.Windows.Forms.Button btnTED;
     }
 }

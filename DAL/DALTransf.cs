@@ -58,31 +58,34 @@ namespace DAL
             cmd.ExecuteNonQuery();
             conexao.Desconectar();
         }
-        public DataTable LocalizarCaixas(int turno, int seg, int dia, string datamovimento)
+        public DataTable LocalizarTED(int turno, int seg, int dia, string datamovimento)
         {
-            String comando2 = "";
-            comando2 = comando2 + "SELECT [NUMTRANS] " + "\n";
-            comando2 = comando2 + "      ,[VLROUTROS] " + "\n";
-            comando2 = comando2 + "  FROM [TABFECHA] " + "\n";
-            comando2 = comando2 + "  WHERE DTCAIXA = '" + datamovimento + "' " + "\n";
-            if (seg != 0)
+            String comando3 = "";
+            comando3 = comando3 + "SELECT NUMTRANS " + "\n";
+            comando3 = comando3 + ",NOMEBANCO " + "\n";
+            comando3 = comando3 + ",NOMECLIENTE " + "\n";
+            comando3 = comando3 + ",DATADEP " + "\n";
+            comando3 = comando3 + ",HORA " + "\n";
+            comando3 = comando3 + ",VALOR " + "\n";
+            comando3 = comando3 + ",NUMCAIXA " + "\n";
+            comando3 = comando3 + ",TURNO " + "\n";
+            comando3 = comando3 + ",CODFUNC " + "\n";
+            comando3 = comando3 + "FROM TABTRANSF " + "\n";
+            comando3 = comando3 + "WHERE DATAINCLUSAO >= GETDATE() - 3";
+            if (seg == 0)
             {
-                comando2 = comando2 + "  AND NUMCAIXA IN ('10','11','12') " + "\n";
+                comando3 = comando3 + "  AND NUMCAIXA = @NUMCAIXA " + "\n";
 
             }
-            else
+            if (seg == 1)
             {
-                comando2 = comando2 + "  AND NUMCAIXA NOT IN ('10','11','12') " + "\n";
+                comando3 = comando3 + "  AND TURNO = @TURNO " + "\n";
 
             }
-            if (dia == 0)
-            {
-                comando2 = comando2 + "  AND TURNO = " + turno;
-            }
-
+          
             DataTable tabela = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter
-            (comando2, conexao.StringConexao);
+            (comando3, conexao.StringConexao);
             da.Fill(tabela);
             return tabela;
         }
