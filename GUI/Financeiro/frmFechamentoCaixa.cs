@@ -21,12 +21,20 @@ namespace GUI
         public int __caixa = 0;
         public string __nome = "";
         public int __turno = 0;
+        public string User = "";
+        public string opera = "";
+        public int _xcaixa = 0;
+        public int _xturno = 0;
+        public int _xfunc = 0;
 
         public frmFechamentoCaixa()
         {
             InitializeComponent();
             this.WindowState = FormWindowState.Maximized;
             rbtAtacado.Checked = true;
+            btnAvulso.Visible = false;
+            User = Properties.Settings.Default.Usuario;
+            AlteraP(2);
 
 
             DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
@@ -65,8 +73,7 @@ namespace GUI
                 txtCDtks.Enabled = false;
                 txtMoedas.Enabled = false;
                 txtOutros.Enabled = false;
-                btnAvulso.Visible = false;
-                btnTransf.Visible = false;
+
 
 
             }
@@ -82,12 +89,42 @@ namespace GUI
                 txtCDtks.Enabled = true;
                 txtMoedas.Enabled = true;
                 txtOutros.Enabled = true;
-                btnAvulso.Visible = true;
-                btnTransf.Visible = true;
+
             }
 
         }
-
+        public void AtualizadgvTed()
+        {
+            dgvTed.RowHeadersVisible = false;
+            dgvTed.ReadOnly = true;
+            dgvTed.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
+            BLLTransf bll = new BLLTransf(cx);
+            dgvTed.DataSource = bll.LocalizardgvTED(_xcaixa, _xturno,_xfunc);
+            dgvTed.Columns[0].HeaderText = "Nome";
+            dgvTed.Columns[0].Width = 205;
+            dgvTed.Columns[1].HeaderText = "Valor";
+            dgvTed.Columns[1].Width = 80;
+            dgvTed.RowHeadersVisible = false;
+            dgvTed.ReadOnly = true;
+            dgvTed.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+        }
+        public void AtualizaAvulso()
+        {
+            dgvRetiradas.RowHeadersVisible = false;
+            dgvRetiradas.ReadOnly = true;
+            dgvRetiradas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
+            BLLTransf bll = new BLLTransf(cx);
+            dgvRetiradas.DataSource = bll.LocalizarAvulso(_xcaixa, _xturno, _xfunc);
+            dgvRetiradas.Columns[0].HeaderText = "Nome";
+            dgvRetiradas.Columns[0].Width = 205;
+            dgvRetiradas.Columns[1].HeaderText = "Valor";
+            dgvRetiradas.Columns[1].Width = 80;
+            dgvRetiradas.RowHeadersVisible = false;
+            dgvRetiradas.ReadOnly = true;
+            dgvRetiradas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+        }
         public void AtualizadgvTABCaixa()
         {
             
@@ -116,6 +153,8 @@ namespace GUI
             dgvTABCaixas.Columns[15].Visible = false;
             dgvTABCaixas.Columns[16].Visible = false;
             this.AtualizaTotais(1);
+            AtualizadgvTed();
+            AtualizaAvulso();
         }
 
         private void txtBanese_KeyPress(object sender, KeyPressEventArgs e)
@@ -163,6 +202,11 @@ namespace GUI
                 __caixa = Convert.ToInt32(dgvTABCaixas.Rows[e.RowIndex].Cells[1].Value.ToString());
                 __turno = Convert.ToInt32(dgvTABCaixas.Rows[e.RowIndex].Cells[12].Value.ToString());
                 __nome = dgvTABCaixas.Rows[e.RowIndex].Cells[3].Value.ToString();
+                _xcaixa = Convert.ToInt32(dgvTABCaixas.Rows[e.RowIndex].Cells[1].Value.ToString());
+                _xturno = Convert.ToInt32(dgvTABCaixas.Rows[e.RowIndex].Cells[12].Value.ToString());
+                _xfunc = Convert.ToInt32(dgvTABCaixas.Rows[e.RowIndex].Cells[2].Value.ToString());
+                AtualizaAvulso();
+                AtualizadgvTed();
 
                 _transacao = Convert.ToInt32(dgvTABCaixas.Rows[e.RowIndex].Cells[0].Value.ToString());
                 txtDinheiro.Text = dgvTABCaixas.Rows[e.RowIndex].Cells[5].Value.ToString();
@@ -182,6 +226,7 @@ namespace GUI
         private void btnAlterar_Click(object sender, EventArgs e)
         {
             AlteraCampos(0);
+            btnAvulso.Visible = true;
 
         }
 
@@ -214,6 +259,10 @@ namespace GUI
                 bll.Alterar(modelo);
                 this.AlteraCampos(1);
                 this.AtualizadgvTABCaixa();
+                AtualizadgvTed();
+                AtualizaAvulso();
+                AtualizaTotais(1);
+                LimpaCampos();
                 
             }
             catch
@@ -337,10 +386,17 @@ namespace GUI
             this.AtualizadgvTABCaixa();
             this.AlteraCampos(1);
         }
+        public void LimpaTela()
+        {
+            btnAvulso.Visible = false;
+            this.AtualizadgvTABCaixa();
+            this.AlteraCampos(1);
+        }
 
         private void dgvTABCaixas_DoubleClick(object sender, EventArgs e)
         {
             AlteraCampos(0);
+            btnAvulso.Visible = true;
             txtBanese.Focus();
         }
 
@@ -686,14 +742,12 @@ namespace GUI
 
         private void btnTransf_Click(object sender, EventArgs e)
         {
-            frmLctoTED frm = new frmLctoTED(1, __caixa, __nome, __turno);
-            frm.Show();
+            AlteraP(0);
         }
 
         private void btnAvulso_Click(object sender, EventArgs e)
         {
-            frmLctoTED frm = new frmLctoTED(2, __caixa, __nome, __turno);
-            frm.Show();
+            AlteraP(1);
         }
 
         private void txtCCtks_KeyPress(object sender, KeyPressEventArgs e)
@@ -811,6 +865,132 @@ namespace GUI
         private void frmFechamentoCaixa_KeyPress(object sender, KeyPressEventArgs e)
         {
 
+        }
+        public void AlteraP(int op)
+        {
+            if(op == 0)
+            {
+                opera = "ted";
+                //pnlInsere.Visible = true;
+                lblBanco.Visible = true;
+                lblDesc.Visible = true;
+                lblDataLanc.Visible = true;
+                lblHora.Visible = true;
+                lblValorLanc.Visible = true;
+                txtValor.Visible = true;
+                cbxBanco.Visible = true;
+                dtpData.Visible = true;
+                maskedTextBox1.Visible = true;
+                txtCliente.Visible = true;
+
+            }
+            if (op == 1)
+            {
+                opera = "avulso";
+                //pnlInsere.Visible = true;
+                lblBanco.Visible = false;
+                lblDesc.Visible = true;
+                lblDataLanc.Visible = false;
+                lblHora.Visible = false;
+                lblValorLanc.Visible = true;
+                txtValor.Visible = true;
+                cbxBanco.Visible = false;
+                dtpData.Visible = false;
+                maskedTextBox1.Visible = false;
+                txtCliente.Visible = true;
+
+            }
+            if(op==2)
+            {
+
+                //pnlInsere.Visible = false;
+                lblBanco.Visible = false;
+                lblDesc.Visible = false;
+                lblDataLanc.Visible = false;
+                lblHora.Visible = false;
+                lblValorLanc.Visible = false;
+                txtValor.Visible = false;
+                cbxBanco.Visible = false;
+                dtpData.Visible = false;
+                maskedTextBox1.Visible = false;
+                txtCliente.Visible = false;
+            }
+        }
+        private void txtValor_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter && opera =="ted")
+            {
+                try
+                {
+                    //leitura dos dados
+                    ModeloTransf modelo = new ModeloTransf();
+                    modelo.NomeBanco = cbxBanco.Text;
+                    modelo.NomeCliente = txtCliente.Text;
+                    modelo.DtTransf = dtpData.Text.ToString();
+                    modelo.Hora = maskedTextBox1.Text.ToString();
+                    modelo.Usuario = User;
+                    modelo.Valor = Convert.ToDouble(txtValor.Text.ToString());
+
+                    //obj para gravar os dados no banco
+                    DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
+                    BLLTransf bll = new BLLTransf(cx);
+                    bll.Incluir(modelo);
+                    txtCliente.Clear();
+                    txtValor.Clear();
+                    AlteraP(2);
+                   
+
+                  
+                }
+                catch (Exception erro)
+                {
+                    MessageBox.Show(erro.Message);
+                }
+            }
+            if (e.KeyCode == Keys.Enter && opera == "avulso")
+            {
+                try
+                {
+                    //leitura dos dados
+                    ModeloTransf modelo = new ModeloTransf();
+                    modelo.NomeCliente = txtCliente.Text;
+                    modelo.Usuario = User;
+                    modelo.Valor = Convert.ToDouble(txtValor.Text.ToString());
+                    modelo.Turno = _xturno;
+                    modelo.NumCaixa = _xcaixa;
+                    modelo.CodFunc = _xfunc;
+
+                    //obj para gravar os dados no banco
+                    DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
+                    BLLTransf bll = new BLLTransf(cx);
+                    bll.IncluirRet(modelo);
+                    txtCliente.Clear();
+                    txtValor.Clear();
+                    AlteraP(2);
+                    btnAvulso.Visible = false;
+
+
+
+                }
+                catch (Exception erro)
+                {
+                    MessageBox.Show(erro.Message);
+                }
+            }
+
+        }
+
+        private void frmFechamentoCaixa_KeyDown(object sender, KeyEventArgs e)
+        {
+            LimpaTela();
+        }
+
+        private void txtCliente_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter && txtNome.Text != "") 
+            {
+                txtValor.Focus();
+            }
         }
     }
 }

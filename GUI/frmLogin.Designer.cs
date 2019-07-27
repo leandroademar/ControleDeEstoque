@@ -40,10 +40,10 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.Desktop;
+            this.panel1.BackColor = System.Drawing.SystemColors.Window;
             this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panel1.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.panel1.ForeColor = System.Drawing.Color.DarkGreen;
             this.panel1.Location = new System.Drawing.Point(12, 21);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(959, 250);
@@ -53,7 +53,7 @@
             // 
             this.lblUser.AutoSize = true;
             this.lblUser.Font = new System.Drawing.Font("Berlin Sans FB Demi", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUser.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.lblUser.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.lblUser.Location = new System.Drawing.Point(12, 285);
             this.lblUser.Name = "lblUser";
             this.lblUser.Size = new System.Drawing.Size(124, 35);
@@ -64,7 +64,7 @@
             // 
             this.lblSenha.AutoSize = true;
             this.lblSenha.Font = new System.Drawing.Font("Berlin Sans FB Demi", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSenha.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.lblSenha.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.lblSenha.Location = new System.Drawing.Point(34, 328);
             this.lblSenha.Name = "lblSenha";
             this.lblSenha.Size = new System.Drawing.Size(102, 35);
@@ -120,7 +120,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Desktop;
+            this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(986, 382);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnSair);

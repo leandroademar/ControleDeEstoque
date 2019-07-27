@@ -51,6 +51,8 @@ namespace GUI
                     DadosDaConexao.banco = arquivo.ReadLine();
                     DadosDaConexao.usuario = arquivo.ReadLine();
                     DadosDaConexao.senha = arquivo.ReadLine();
+                    DadosDaConexao.caixa = arquivo.ReadLine();
+
                     arquivo.Close();
                     //testar a conexao
                     SqlConnection conexao = new SqlConnection();
@@ -121,9 +123,6 @@ namespace GUI
         private void Login_Load(object sender, EventArgs e)
         {
 
-            //Vincular Enter ao btnLogin
-            //this.AcceptButton ;
-            //Vincular ESC ao btnSair
             this.CancelButton = btnSair;
         }
 

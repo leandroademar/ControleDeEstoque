@@ -76,7 +76,7 @@
             this.dgvProdutos.AllowUserToDeleteRows = false;
             this.dgvProdutos.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvProdutos.BackgroundColor = System.Drawing.SystemColors.Desktop;
-            this.dgvProdutos.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvProdutos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvProdutos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgvProdutos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgvProdutos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
@@ -88,7 +88,7 @@
             this.dgvProdutos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.WindowText;
@@ -98,7 +98,7 @@
             this.dgvProdutos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.WindowText;
@@ -123,7 +123,7 @@
             // txtNomeCli
             // 
             this.txtNomeCli.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNomeCli.Location = new System.Drawing.Point(124, 99);
+            this.txtNomeCli.Location = new System.Drawing.Point(124, 141);
             this.txtNomeCli.Name = "txtNomeCli";
             this.txtNomeCli.ReadOnly = true;
             this.txtNomeCli.Size = new System.Drawing.Size(458, 35);
@@ -133,7 +133,7 @@
             // txtNomeAtend
             // 
             this.txtNomeAtend.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNomeAtend.Location = new System.Drawing.Point(124, 141);
+            this.txtNomeAtend.Location = new System.Drawing.Point(124, 183);
             this.txtNomeAtend.Name = "txtNomeAtend";
             this.txtNomeAtend.ReadOnly = true;
             this.txtNomeAtend.Size = new System.Drawing.Size(283, 35);
@@ -153,7 +153,7 @@
             this.groupBox1.Controls.Add(this.txtVenCod);
             this.groupBox1.Location = new System.Drawing.Point(12, 52);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(596, 238);
+            this.groupBox1.Size = new System.Drawing.Size(596, 271);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Dados do Pedido";
@@ -162,7 +162,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(40, 189);
+            this.label2.Location = new System.Drawing.Point(40, 231);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(73, 22);
             this.label2.TabIndex = 8;
@@ -171,7 +171,7 @@
             // txtStatus
             // 
             this.txtStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtStatus.Location = new System.Drawing.Point(124, 183);
+            this.txtStatus.Location = new System.Drawing.Point(124, 225);
             this.txtStatus.Name = "txtStatus";
             this.txtStatus.ReadOnly = true;
             this.txtStatus.Size = new System.Drawing.Size(283, 35);
@@ -181,7 +181,7 @@
             // 
             this.lblAtend.AutoSize = true;
             this.lblAtend.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAtend.Location = new System.Drawing.Point(6, 147);
+            this.lblAtend.Location = new System.Drawing.Point(6, 189);
             this.lblAtend.Name = "lblAtend";
             this.lblAtend.Size = new System.Drawing.Size(107, 22);
             this.lblAtend.TabIndex = 5;
@@ -191,7 +191,7 @@
             // 
             this.lblNomeCli.AutoSize = true;
             this.lblNomeCli.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNomeCli.Location = new System.Drawing.Point(34, 105);
+            this.lblNomeCli.Location = new System.Drawing.Point(34, 147);
             this.lblNomeCli.Name = "lblNomeCli";
             this.lblNomeCli.Size = new System.Drawing.Size(79, 22);
             this.lblNomeCli.TabIndex = 4;
@@ -448,12 +448,12 @@
             // 
             // frmMovimentacaoVenda
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.SystemColors.Desktop;
             this.ClientSize = new System.Drawing.Size(1218, 992);
             this.ContextMenuStrip = this.contextMenuStrip1;
+            this.ControlBox = false;
             this.Controls.Add(this.btnTED);
             this.Controls.Add(this.lblCaixa);
             this.Controls.Add(this.btImprimir);

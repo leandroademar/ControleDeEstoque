@@ -233,7 +233,7 @@ namespace GUI
         }
 
         public void AtualizaDGVProdutosVenda()
-       {
+        {
             dgvProdutos.RowHeadersVisible = false;
             dgvProdutos.ReadOnly = true;
             dgvProdutos.Columns[0].Visible = false;
@@ -245,11 +245,13 @@ namespace GUI
             dgvProdutos.Columns[2].HeaderText = "Valor Unit.";
             dgvProdutos.Columns[2].DisplayIndex = 2;
             dgvProdutos.Columns[3].Visible = false;
-            dgvProdutos.Columns[5].Width = 200;
+            dgvProdutos.Columns[5].Width = 350;
             dgvProdutos.Columns[2].Width = 70;
             dgvProdutos.Columns[1].Width = 70;
             dgvProdutos.Sort(dgvProdutos.Columns[5], ListSortDirection.Ascending);
-       }
+        }
+        
+
         private void txtVenCod_Leave(object sender, EventArgs e)
         {
             try
@@ -577,6 +579,26 @@ namespace GUI
             STW_Arquivo.WriteLine("");
             STW_Arquivo.Close();
         }
+        public void GravarTED(string caixa, string pedido, string winthor, string dinheiro, string cartao, string total, string abertura)
+        {
+            StreamWriter STW_Arquivo;
+            STW_Arquivo = new StreamWriter("FECHTED.log", false);
+            STW_Arquivo.WriteLine("");
+            STW_Arquivo.WriteLine("              COMPROVANTE DE TED       ");
+            STW_Arquivo.WriteLine("");
+            STW_Arquivo.WriteLine("");
+            STW_Arquivo.WriteLine("Total.......: R$ " );
+            STW_Arquivo.WriteLine("");
+            STW_Arquivo.WriteLine("------------------------------------------------");
+            STW_Arquivo.WriteLine("");
+            STW_Arquivo.WriteLine("Abertura....: " + abertura);
+            STW_Arquivo.WriteLine("Fechamento..: " + DateTime.Now.ToString("dd/MM/yyyy HH:mm"));
+            STW_Arquivo.WriteLine("Caixa.......: " + User.Trim());
+            STW_Arquivo.WriteLine("Cód Caixa...: " + caixa);
+            STW_Arquivo.WriteLine("");
+            STW_Arquivo.WriteLine("");
+            STW_Arquivo.Close();
+        }
 
         private void txtVlrPed_KeyDown(object sender, KeyEventArgs e)
         {
@@ -676,7 +698,7 @@ namespace GUI
 
         private void consultarTEDToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmLctoTED frm = new frmLctoTED(2,Caixa,NomeW,1);
+            frmLctoTED frm = new frmLctoTED(Caixa,NomeW,1);
             frm.Show();
         }
 
@@ -684,10 +706,12 @@ namespace GUI
         {
             
         }
+   
 
         private void btnTED_Click(object sender, EventArgs e)
         {
-            frmLctoTED frm = new frmLctoTED(2, Caixa, NomeW, 1);
+
+            frmLctoTED frm = new frmLctoTED( Caixa, NomeW, 1);
             frm.Show();
         }
 

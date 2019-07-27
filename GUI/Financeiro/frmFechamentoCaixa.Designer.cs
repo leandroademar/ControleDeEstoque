@@ -90,9 +90,20 @@
             this.txtNome = new System.Windows.Forms.TextBox();
             this.tbpPrincipal = new System.Windows.Forms.TabControl();
             this.tbpTed = new System.Windows.Forms.TabPage();
+            this.dgvTed = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.dgvRetiradas = new System.Windows.Forms.DataGridView();
-            this.dgvTed = new System.Windows.Forms.DataGridView();
+            this.pnlInsere = new System.Windows.Forms.Panel();
+            this.lblBanco = new System.Windows.Forms.Label();
+            this.lblHora = new System.Windows.Forms.Label();
+            this.lblDesc = new System.Windows.Forms.Label();
+            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.lblValorLanc = new System.Windows.Forms.Label();
+            this.lblDataLanc = new System.Windows.Forms.Label();
+            this.txtValor = new System.Windows.Forms.TextBox();
+            this.dtpData = new System.Windows.Forms.DateTimePicker();
+            this.txtCliente = new System.Windows.Forms.TextBox();
+            this.cbxBanco = new System.Windows.Forms.ComboBox();
             this.pnlTABCaixa.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTABCaixas)).BeginInit();
             this.gbxTotais.SuspendLayout();
@@ -100,9 +111,10 @@
             this.gbxSegmento.SuspendLayout();
             this.tbpPrincipal.SuspendLayout();
             this.tbpTed.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTed)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRetiradas)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTed)).BeginInit();
+            this.pnlInsere.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlTABCaixa
@@ -630,24 +642,22 @@
             // 
             // btnTransf
             // 
-            this.btnTransf.Location = new System.Drawing.Point(578, 740);
+            this.btnTransf.Location = new System.Drawing.Point(708, 740);
             this.btnTransf.Name = "btnTransf";
             this.btnTransf.Size = new System.Drawing.Size(130, 45);
             this.btnTransf.TabIndex = 22;
             this.btnTransf.Text = "TED";
             this.btnTransf.UseVisualStyleBackColor = true;
-            this.btnTransf.Visible = false;
             this.btnTransf.Click += new System.EventHandler(this.btnTransf_Click);
             // 
             // btnAvulso
             // 
-            this.btnAvulso.Location = new System.Drawing.Point(711, 740);
+            this.btnAvulso.Location = new System.Drawing.Point(572, 740);
             this.btnAvulso.Name = "btnAvulso";
             this.btnAvulso.Size = new System.Drawing.Size(130, 45);
             this.btnAvulso.TabIndex = 21;
             this.btnAvulso.Text = "Avulso";
             this.btnAvulso.UseVisualStyleBackColor = true;
-            this.btnAvulso.Visible = false;
             this.btnAvulso.Click += new System.EventHandler(this.btnAvulso_Click);
             // 
             // btnAlterar
@@ -672,10 +682,10 @@
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscar.Location = new System.Drawing.Point(276, 38);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(130, 45);
+            this.btnBuscar.Size = new System.Drawing.Size(80, 45);
             this.btnBuscar.TabIndex = 23;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
@@ -730,20 +740,22 @@
             // txtNumcaixa
             // 
             this.txtNumcaixa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNumcaixa.Location = new System.Drawing.Point(379, 107);
+            this.txtNumcaixa.Location = new System.Drawing.Point(407, 106);
             this.txtNumcaixa.Name = "txtNumcaixa";
             this.txtNumcaixa.ReadOnly = true;
             this.txtNumcaixa.Size = new System.Drawing.Size(100, 35);
             this.txtNumcaixa.TabIndex = 25;
+            this.txtNumcaixa.Visible = false;
             // 
             // txtNumoper
             // 
             this.txtNumoper.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNumoper.Location = new System.Drawing.Point(499, 107);
+            this.txtNumoper.Location = new System.Drawing.Point(513, 107);
             this.txtNumoper.Name = "txtNumoper";
             this.txtNumoper.ReadOnly = true;
             this.txtNumoper.Size = new System.Drawing.Size(100, 35);
             this.txtNumoper.TabIndex = 26;
+            this.txtNumoper.Visible = false;
             // 
             // txtNome
             // 
@@ -753,6 +765,7 @@
             this.txtNome.ReadOnly = true;
             this.txtNome.Size = new System.Drawing.Size(489, 35);
             this.txtNome.TabIndex = 27;
+            this.txtNome.Visible = false;
             // 
             // tbpPrincipal
             // 
@@ -776,6 +789,21 @@
             this.tbpTed.TabIndex = 0;
             this.tbpTed.Text = "TED";
             // 
+            // dgvTed
+            // 
+            this.dgvTed.AllowUserToAddRows = false;
+            this.dgvTed.AllowUserToDeleteRows = false;
+            this.dgvTed.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgvTed.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTed.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvTed.Location = new System.Drawing.Point(3, 3);
+            this.dgvTed.Name = "dgvTed";
+            this.dgvTed.ReadOnly = true;
+            this.dgvTed.RowTemplate.Height = 28;
+            this.dgvTed.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dgvTed.Size = new System.Drawing.Size(432, 239);
+            this.dgvTed.TabIndex = 0;
+            // 
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.SystemColors.Control;
@@ -798,28 +826,144 @@
             this.dgvRetiradas.Name = "dgvRetiradas";
             this.dgvRetiradas.ReadOnly = true;
             this.dgvRetiradas.RowTemplate.Height = 28;
+            this.dgvRetiradas.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvRetiradas.Size = new System.Drawing.Size(432, 239);
             this.dgvRetiradas.TabIndex = 0;
             // 
-            // dgvTed
+            // pnlInsere
             // 
-            this.dgvTed.AllowUserToAddRows = false;
-            this.dgvTed.AllowUserToDeleteRows = false;
-            this.dgvTed.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dgvTed.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTed.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvTed.Location = new System.Drawing.Point(3, 3);
-            this.dgvTed.Name = "dgvTed";
-            this.dgvTed.ReadOnly = true;
-            this.dgvTed.RowTemplate.Height = 28;
-            this.dgvTed.Size = new System.Drawing.Size(432, 239);
-            this.dgvTed.TabIndex = 0;
+            this.pnlInsere.Controls.Add(this.lblBanco);
+            this.pnlInsere.Controls.Add(this.lblHora);
+            this.pnlInsere.Controls.Add(this.lblDesc);
+            this.pnlInsere.Controls.Add(this.maskedTextBox1);
+            this.pnlInsere.Controls.Add(this.lblValorLanc);
+            this.pnlInsere.Controls.Add(this.lblDataLanc);
+            this.pnlInsere.Controls.Add(this.txtValor);
+            this.pnlInsere.Controls.Add(this.dtpData);
+            this.pnlInsere.Controls.Add(this.txtCliente);
+            this.pnlInsere.Controls.Add(this.cbxBanco);
+            this.pnlInsere.Location = new System.Drawing.Point(362, 8);
+            this.pnlInsere.Name = "pnlInsere";
+            this.pnlInsere.Size = new System.Drawing.Size(746, 145);
+            this.pnlInsere.TabIndex = 29;
+            // 
+            // lblBanco
+            // 
+            this.lblBanco.AutoSize = true;
+            this.lblBanco.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBanco.Location = new System.Drawing.Point(10, 9);
+            this.lblBanco.Name = "lblBanco";
+            this.lblBanco.Size = new System.Drawing.Size(59, 20);
+            this.lblBanco.TabIndex = 36;
+            this.lblBanco.Text = "Banco:";
+            // 
+            // lblHora
+            // 
+            this.lblHora.AutoSize = true;
+            this.lblHora.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHora.Location = new System.Drawing.Point(551, 9);
+            this.lblHora.Name = "lblHora";
+            this.lblHora.Size = new System.Drawing.Size(48, 20);
+            this.lblHora.TabIndex = 35;
+            this.lblHora.Text = "Hora:";
+            // 
+            // lblDesc
+            // 
+            this.lblDesc.AutoSize = true;
+            this.lblDesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDesc.Location = new System.Drawing.Point(10, 74);
+            this.lblDesc.Name = "lblDesc";
+            this.lblDesc.Size = new System.Drawing.Size(84, 20);
+            this.lblDesc.TabIndex = 34;
+            this.lblDesc.Text = "Descrição:";
+            // 
+            // maskedTextBox1
+            // 
+            this.maskedTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maskedTextBox1.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite;
+            this.maskedTextBox1.Location = new System.Drawing.Point(555, 32);
+            this.maskedTextBox1.Mask = "00:00";
+            this.maskedTextBox1.Name = "maskedTextBox1";
+            this.maskedTextBox1.RejectInputOnFirstFailure = true;
+            this.maskedTextBox1.Size = new System.Drawing.Size(100, 35);
+            this.maskedTextBox1.TabIndex = 29;
+            this.maskedTextBox1.ValidatingType = typeof(System.DateTime);
+            // 
+            // lblValorLanc
+            // 
+            this.lblValorLanc.AutoSize = true;
+            this.lblValorLanc.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblValorLanc.Location = new System.Drawing.Point(493, 74);
+            this.lblValorLanc.Name = "lblValorLanc";
+            this.lblValorLanc.Size = new System.Drawing.Size(50, 20);
+            this.lblValorLanc.TabIndex = 32;
+            this.lblValorLanc.Text = "Valor:";
+            // 
+            // lblDataLanc
+            // 
+            this.lblDataLanc.AutoSize = true;
+            this.lblDataLanc.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDataLanc.Location = new System.Drawing.Point(391, 9);
+            this.lblDataLanc.Name = "lblDataLanc";
+            this.lblDataLanc.Size = new System.Drawing.Size(48, 20);
+            this.lblDataLanc.TabIndex = 31;
+            this.lblDataLanc.Text = "Data:";
+            // 
+            // txtValor
+            // 
+            this.txtValor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtValor.Location = new System.Drawing.Point(497, 97);
+            this.txtValor.Name = "txtValor";
+            this.txtValor.Size = new System.Drawing.Size(167, 35);
+            this.txtValor.TabIndex = 33;
+            this.txtValor.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtValor_KeyDown);
+            // 
+            // dtpData
+            // 
+            this.dtpData.CustomFormat = "dd/MM/yyyy";
+            this.dtpData.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpData.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpData.Location = new System.Drawing.Point(391, 32);
+            this.dtpData.Name = "dtpData";
+            this.dtpData.Size = new System.Drawing.Size(158, 35);
+            this.dtpData.TabIndex = 28;
+            // 
+            // txtCliente
+            // 
+            this.txtCliente.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCliente.Location = new System.Drawing.Point(14, 97);
+            this.txtCliente.MaxLength = 40;
+            this.txtCliente.Name = "txtCliente";
+            this.txtCliente.Size = new System.Drawing.Size(477, 35);
+            this.txtCliente.TabIndex = 30;
+            this.txtCliente.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCliente_KeyDown);
+            // 
+            // cbxBanco
+            // 
+            this.cbxBanco.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cbxBanco.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbxBanco.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxBanco.FormattingEnabled = true;
+            this.cbxBanco.Items.AddRange(new object[] {
+            "Banco do Brasil",
+            "Banco Bradesco",
+            "Banco Banese",
+            "Bnaco Caixa Economica",
+            "Banco Itau",
+            "Banco Santander",
+            "Outro Banco"});
+            this.cbxBanco.Location = new System.Drawing.Point(14, 31);
+            this.cbxBanco.Name = "cbxBanco";
+            this.cbxBanco.Size = new System.Drawing.Size(371, 37);
+            this.cbxBanco.TabIndex = 27;
             // 
             // frmFechamentoCaixa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1634, 905);
+            this.Controls.Add(this.pnlInsere);
             this.Controls.Add(this.tbpPrincipal);
             this.Controls.Add(this.txtNome);
             this.Controls.Add(this.txtNumoper);
@@ -837,7 +981,6 @@
             this.Controls.Add(this.cbxTurno);
             this.Controls.Add(this.dtpMovimento);
             this.Controls.Add(this.pnlTABCaixa);
-            this.KeyPreview = true;
             this.Name = "frmFechamentoCaixa";
             this.Text = "Fechamento de Caixa";
             this.pnlTABCaixa.ResumeLayout(false);
@@ -850,9 +993,11 @@
             this.gbxSegmento.PerformLayout();
             this.tbpPrincipal.ResumeLayout(false);
             this.tbpTed.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTed)).EndInit();
             this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvRetiradas)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTed)).EndInit();
+            this.pnlInsere.ResumeLayout(false);
+            this.pnlInsere.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -925,5 +1070,16 @@
         private System.Windows.Forms.DataGridView dgvTed;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.DataGridView dgvRetiradas;
+        private System.Windows.Forms.Panel pnlInsere;
+        private System.Windows.Forms.Label lblBanco;
+        private System.Windows.Forms.Label lblHora;
+        private System.Windows.Forms.Label lblDesc;
+        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.Label lblValorLanc;
+        private System.Windows.Forms.Label lblDataLanc;
+        private System.Windows.Forms.TextBox txtValor;
+        private System.Windows.Forms.DateTimePicker dtpData;
+        private System.Windows.Forms.TextBox txtCliente;
+        private System.Windows.Forms.ComboBox cbxBanco;
     }
 }
