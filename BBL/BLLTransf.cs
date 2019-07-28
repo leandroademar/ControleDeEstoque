@@ -39,15 +39,15 @@ namespace BLL
             DALTransf DALobj = new DALTransf(conexao);
             return DALobj.LocalizarTED(turno,seg,caixa);
         }
-        public DataTable LocalizardgvTED(int caixa, int turno, int codfunc)
+        public DataTable LocalizardgvTED(int caixa, int turno, int codfunc,string datamov)
         {
             DALTransf DALobj = new DALTransf(conexao);
-            return DALobj.LocalizaTedDgv(caixa, turno, codfunc);
+            return DALobj.LocalizaTedDgv(caixa, turno, codfunc,datamov);
         }
-        public DataTable LocalizarAvulso(int caixa, int turno, int codfunc)
+        public DataTable LocalizarAvulso(int caixa, int turno, int codfunc, string datamov)
         {
             DALTransf DALobj = new DALTransf(conexao);
-            return DALobj.LocalizaAvulso(caixa, turno, codfunc);
+            return DALobj.LocalizaAvulso(caixa, turno, codfunc,datamov);
         }
     }
 }

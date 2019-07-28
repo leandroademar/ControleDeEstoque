@@ -32,7 +32,7 @@ namespace GUI
             InitializeComponent();
             this.WindowState = FormWindowState.Maximized;
             rbtAtacado.Checked = true;
-            btnAvulso.Visible = false;
+            //btnAvulso.Visible = false;
             User = Properties.Settings.Default.Usuario;
             AlteraP(2);
 
@@ -61,34 +61,36 @@ namespace GUI
 
         public void AlteraCampos(int op)
         {
-            if (op == 1)
+            if (op == 0)
             {
-                txtDinheiro.Enabled = false;
-                txtBanese.Enabled = false;
-                txtCDrede.Enabled = false;
-                txtTEDelet.Enabled = false;
-                txtCheque.Enabled = false;
-                txtCCrede.Enabled = false;
-                txtCCtks.Enabled = false;
-                txtCDtks.Enabled = false;
-                txtMoedas.Enabled = false;
-                txtOutros.Enabled = false;
-
+                txtDinheiro.ReadOnly = false;
+                txtBanese.ReadOnly = false;
+                txtCDrede.ReadOnly = false;
+                txtTEDelet.ReadOnly = false;
+                txtCheque.ReadOnly = false;
+                txtCCrede.ReadOnly = false;
+                txtCCtks.ReadOnly = false;
+                txtCDtks.ReadOnly = false;
+                txtMoedas.ReadOnly = false;
+                txtOutros.ReadOnly = false;
+                btnAvulso.Visible = true;
 
 
             }
             else
             {
-                txtDinheiro.Enabled = true;
-                txtBanese.Enabled = true;
-                txtCDrede.Enabled = true;
-                txtTEDelet.Enabled = true;
-                txtCheque.Enabled = true;
-                txtCCrede.Enabled = true;
-                txtCCtks.Enabled = true;
-                txtCDtks.Enabled = true;
-                txtMoedas.Enabled = true;
-                txtOutros.Enabled = true;
+                txtDinheiro.ReadOnly = true;
+                txtBanese.ReadOnly = true;
+                txtCDrede.ReadOnly = true;
+                txtTEDelet.ReadOnly = true;
+                txtCheque.ReadOnly = true;
+                txtCCrede.ReadOnly = true;
+                txtCCtks.ReadOnly = true;
+                txtCDtks.ReadOnly = true;
+                txtMoedas.ReadOnly = true;
+                txtOutros.ReadOnly = true;
+                btnAvulso.Visible = false;
+
 
             }
 
@@ -100,7 +102,7 @@ namespace GUI
             dgvTed.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
             BLLTransf bll = new BLLTransf(cx);
-            dgvTed.DataSource = bll.LocalizardgvTED(_xcaixa, _xturno,_xfunc);
+            dgvTed.DataSource = bll.LocalizardgvTED(_xcaixa, _xturno,_xfunc,dtpMovimento.Value.ToString("dd/MM/yyyy"));
             dgvTed.Columns[0].HeaderText = "Nome";
             dgvTed.Columns[0].Width = 205;
             dgvTed.Columns[1].HeaderText = "Valor";
@@ -109,14 +111,14 @@ namespace GUI
             dgvTed.ReadOnly = true;
             dgvTed.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
-        public void AtualizaAvulso()
+        public void AtualizaAvulso(int _caixa,int _turno, int _func, string datamov)
         {
             dgvRetiradas.RowHeadersVisible = false;
             dgvRetiradas.ReadOnly = true;
             dgvRetiradas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
             BLLTransf bll = new BLLTransf(cx);
-            dgvRetiradas.DataSource = bll.LocalizarAvulso(_xcaixa, _xturno, _xfunc);
+            dgvRetiradas.DataSource = bll.LocalizarAvulso(_caixa, _turno, _func,dtpMovimento.Value.ToString("dd/MM/yyyy"));
             dgvRetiradas.Columns[0].HeaderText = "Nome";
             dgvRetiradas.Columns[0].Width = 205;
             dgvRetiradas.Columns[1].HeaderText = "Valor";
@@ -154,9 +156,11 @@ namespace GUI
             dgvTABCaixas.Columns[16].Visible = false;
             this.AtualizaTotais(1);
             AtualizadgvTed();
-            AtualizaAvulso();
+            AtualizaAvulso(_xcaixa,_xturno,_xfunc, dtpMovimento.Value.ToString("dd/MM/yyyy"));
         }
-
+        public double valora = 0;
+        
+        
         private void txtBanese_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)8 && e.KeyChar != ',' && e.KeyChar != '.')
@@ -171,6 +175,17 @@ namespace GUI
                 }
                 else e.Handled = true;
             }
+            if (e.KeyChar == '+')
+            {
+                
+             
+                valora = valora + Convert.ToDouble(txtBanese.Text);
+                //MessageBox.Show(valora.ToString());
+                txtBanese.Text = valora.ToString();
+                
+
+            }
+
         }
 
         private void txtCCrede_KeyPress(object sender, KeyPressEventArgs e)
@@ -205,7 +220,7 @@ namespace GUI
                 _xcaixa = Convert.ToInt32(dgvTABCaixas.Rows[e.RowIndex].Cells[1].Value.ToString());
                 _xturno = Convert.ToInt32(dgvTABCaixas.Rows[e.RowIndex].Cells[12].Value.ToString());
                 _xfunc = Convert.ToInt32(dgvTABCaixas.Rows[e.RowIndex].Cells[2].Value.ToString());
-                AtualizaAvulso();
+                AtualizaAvulso(_xcaixa, _xturno, _xfunc, dtpMovimento.Value.ToString("dd/MM/yyyy"));
                 AtualizadgvTed();
 
                 _transacao = Convert.ToInt32(dgvTABCaixas.Rows[e.RowIndex].Cells[0].Value.ToString());
@@ -226,7 +241,7 @@ namespace GUI
         private void btnAlterar_Click(object sender, EventArgs e)
         {
             AlteraCampos(0);
-            btnAvulso.Visible = true;
+            //btnAvulso.Visible = true;
 
         }
 
@@ -257,12 +272,12 @@ namespace GUI
                 DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
                 BLLTABCaixa bll = new BLLTABCaixa(cx);
                 bll.Alterar(modelo);
+                AtualizaAvulso(modelo.NumCaixa, modelo.Turno, modelo.CodCaixa, dtpMovimento.Value.ToString("dd/MM/yyyy"));
                 this.AlteraCampos(1);
                 this.AtualizadgvTABCaixa();
                 AtualizadgvTed();
-                AtualizaAvulso();
                 AtualizaTotais(1);
-                LimpaCampos();
+                //LimpaCampos();
                 
             }
             catch
@@ -315,7 +330,7 @@ namespace GUI
             modelo.CodCaixa = numoper;
             modelo.NomeCaixa = nome.ToString();
             modelo.Turno = turno;
-            modelo.DtCaixa = Convert.ToDateTime(dtpMovimento.Text.ToString());
+            modelo.DtCaixa = Convert.ToDateTime(dtpMovimento.Value.ToString("yyyy-MM-dd"));
             DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
             BLLTABCaixa bll = new BLLTABCaixa(cx);
             bll.Incluir(modelo);            
@@ -356,8 +371,25 @@ namespace GUI
                 this.totalCDtks.Text = "0,00";
                 this.totalMoedas.Text = "0,00";
                 this.totalOutros.Text = "0,00";
+
+
             }
 
+        }
+        public void atualizatotal(int op,int numcaixa, int turno, int codfunc, string datamov)
+        {
+            if (op == 0)
+            {
+
+
+            }
+            else
+            {
+                this.lblRpVEntradas.Text = "0,00";
+                this.lblRpVSaidas.Text = "0,00";
+                this.lblRpVtotal.Text = "0,00";
+            }
+            
         }
 
         private void rbtVarejo_CheckedChanged(object sender, EventArgs e)
@@ -388,7 +420,7 @@ namespace GUI
         }
         public void LimpaTela()
         {
-            btnAvulso.Visible = false;
+            //btnAvulso.Visible = false;
             this.AtualizadgvTABCaixa();
             this.AlteraCampos(1);
         }
@@ -396,7 +428,7 @@ namespace GUI
         private void dgvTABCaixas_DoubleClick(object sender, EventArgs e)
         {
             AlteraCampos(0);
-            btnAvulso.Visible = true;
+            //btnAvulso.Visible = true;
             txtBanese.Focus();
         }
 
@@ -937,6 +969,7 @@ namespace GUI
                     bll.Incluir(modelo);
                     txtCliente.Clear();
                     txtValor.Clear();
+                    //AlteraCampos(0);
                     AlteraP(2);
                    
 
@@ -959,6 +992,7 @@ namespace GUI
                     modelo.Turno = _xturno;
                     modelo.NumCaixa = _xcaixa;
                     modelo.CodFunc = _xfunc;
+                    modelo.DtTransf = dtpMovimento.Text.ToString();
 
                     //obj para gravar os dados no banco
                     DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
@@ -966,8 +1000,11 @@ namespace GUI
                     bll.IncluirRet(modelo);
                     txtCliente.Clear();
                     txtValor.Clear();
+                    AlteraCampos(1);
                     AlteraP(2);
-                    btnAvulso.Visible = false;
+                    AtualizaAvulso(_xcaixa,_xturno,_xfunc, dtpMovimento.Value.ToString("dd/MM/yyyy"));
+                    
+                    //btnAvulso.Visible = false;
 
 
 

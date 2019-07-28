@@ -104,6 +104,13 @@
             this.dtpData = new System.Windows.Forms.DateTimePicker();
             this.txtCliente = new System.Windows.Forms.TextBox();
             this.cbxBanco = new System.Windows.Forms.ComboBox();
+            this.gpbTotal = new System.Windows.Forms.GroupBox();
+            this.lblRpEntradas = new System.Windows.Forms.Label();
+            this.lblRpVEntradas = new System.Windows.Forms.Label();
+            this.lblRpSaidas = new System.Windows.Forms.Label();
+            this.lblRpVSaidas = new System.Windows.Forms.Label();
+            this.lblRpVtotal = new System.Windows.Forms.Label();
+            this.lblRpTotal = new System.Windows.Forms.Label();
             this.pnlTABCaixa.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTABCaixas)).BeginInit();
             this.gbxTotais.SuspendLayout();
@@ -115,6 +122,7 @@
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRetiradas)).BeginInit();
             this.pnlInsere.SuspendLayout();
+            this.gpbTotal.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlTABCaixa
@@ -642,7 +650,7 @@
             // 
             // btnTransf
             // 
-            this.btnTransf.Location = new System.Drawing.Point(708, 740);
+            this.btnTransf.Location = new System.Drawing.Point(708, 818);
             this.btnTransf.Name = "btnTransf";
             this.btnTransf.Size = new System.Drawing.Size(130, 45);
             this.btnTransf.TabIndex = 22;
@@ -652,7 +660,7 @@
             // 
             // btnAvulso
             // 
-            this.btnAvulso.Location = new System.Drawing.Point(572, 740);
+            this.btnAvulso.Location = new System.Drawing.Point(572, 818);
             this.btnAvulso.Name = "btnAvulso";
             this.btnAvulso.Size = new System.Drawing.Size(130, 45);
             this.btnAvulso.TabIndex = 21;
@@ -662,7 +670,7 @@
             // 
             // btnAlterar
             // 
-            this.btnAlterar.Location = new System.Drawing.Point(844, 740);
+            this.btnAlterar.Location = new System.Drawing.Point(844, 818);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(130, 45);
             this.btnAlterar.TabIndex = 20;
@@ -672,7 +680,7 @@
             // 
             // btnSalvar
             // 
-            this.btnSalvar.Location = new System.Drawing.Point(977, 740);
+            this.btnSalvar.Location = new System.Drawing.Point(977, 818);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(130, 45);
             this.btnSalvar.TabIndex = 19;
@@ -772,7 +780,7 @@
             this.tbpPrincipal.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
             this.tbpPrincipal.Controls.Add(this.tbpTed);
             this.tbpPrincipal.Controls.Add(this.tabPage2);
-            this.tbpPrincipal.Location = new System.Drawing.Point(1125, 504);
+            this.tbpPrincipal.Location = new System.Drawing.Point(1125, 582);
             this.tbpPrincipal.Name = "tbpPrincipal";
             this.tbpPrincipal.SelectedIndex = 0;
             this.tbpPrincipal.Size = new System.Drawing.Size(446, 281);
@@ -958,11 +966,86 @@
             this.cbxBanco.Size = new System.Drawing.Size(371, 37);
             this.cbxBanco.TabIndex = 27;
             // 
+            // gpbTotal
+            // 
+            this.gpbTotal.Controls.Add(this.lblRpVtotal);
+            this.gpbTotal.Controls.Add(this.lblRpTotal);
+            this.gpbTotal.Controls.Add(this.lblRpVSaidas);
+            this.gpbTotal.Controls.Add(this.lblRpSaidas);
+            this.gpbTotal.Controls.Add(this.lblRpVEntradas);
+            this.gpbTotal.Controls.Add(this.lblRpEntradas);
+            this.gpbTotal.Location = new System.Drawing.Point(29, 740);
+            this.gpbTotal.Name = "gpbTotal";
+            this.gpbTotal.Size = new System.Drawing.Size(1078, 72);
+            this.gpbTotal.TabIndex = 30;
+            this.gpbTotal.TabStop = false;
+            // 
+            // lblRpEntradas
+            // 
+            this.lblRpEntradas.AutoSize = true;
+            this.lblRpEntradas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRpEntradas.Location = new System.Drawing.Point(11, 31);
+            this.lblRpEntradas.Name = "lblRpEntradas";
+            this.lblRpEntradas.Size = new System.Drawing.Size(114, 29);
+            this.lblRpEntradas.TabIndex = 0;
+            this.lblRpEntradas.Text = "Entradas:";
+            // 
+            // lblRpVEntradas
+            // 
+            this.lblRpVEntradas.AutoSize = true;
+            this.lblRpVEntradas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRpVEntradas.Location = new System.Drawing.Point(131, 31);
+            this.lblRpVEntradas.Name = "lblRpVEntradas";
+            this.lblRpVEntradas.Size = new System.Drawing.Size(62, 29);
+            this.lblRpVEntradas.TabIndex = 1;
+            this.lblRpVEntradas.Text = "0,00";
+            // 
+            // lblRpSaidas
+            // 
+            this.lblRpSaidas.AutoSize = true;
+            this.lblRpSaidas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRpSaidas.Location = new System.Drawing.Point(299, 31);
+            this.lblRpSaidas.Name = "lblRpSaidas";
+            this.lblRpSaidas.Size = new System.Drawing.Size(93, 29);
+            this.lblRpSaidas.TabIndex = 2;
+            this.lblRpSaidas.Text = "Saídas:";
+            // 
+            // lblRpVSaidas
+            // 
+            this.lblRpVSaidas.AutoSize = true;
+            this.lblRpVSaidas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRpVSaidas.Location = new System.Drawing.Point(398, 31);
+            this.lblRpVSaidas.Name = "lblRpVSaidas";
+            this.lblRpVSaidas.Size = new System.Drawing.Size(62, 29);
+            this.lblRpVSaidas.TabIndex = 3;
+            this.lblRpVSaidas.Text = "0,00";
+            // 
+            // lblRpVtotal
+            // 
+            this.lblRpVtotal.AutoSize = true;
+            this.lblRpVtotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRpVtotal.Location = new System.Drawing.Point(944, 31);
+            this.lblRpVtotal.Name = "lblRpVtotal";
+            this.lblRpVtotal.Size = new System.Drawing.Size(62, 29);
+            this.lblRpVtotal.TabIndex = 5;
+            this.lblRpVtotal.Text = "0,00";
+            // 
+            // lblRpTotal
+            // 
+            this.lblRpTotal.AutoSize = true;
+            this.lblRpTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRpTotal.Location = new System.Drawing.Point(864, 31);
+            this.lblRpTotal.Name = "lblRpTotal";
+            this.lblRpTotal.Size = new System.Drawing.Size(74, 29);
+            this.lblRpTotal.TabIndex = 4;
+            this.lblRpTotal.Text = "Total:";
+            // 
             // frmFechamentoCaixa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1634, 905);
+            this.Controls.Add(this.gpbTotal);
             this.Controls.Add(this.pnlInsere);
             this.Controls.Add(this.tbpPrincipal);
             this.Controls.Add(this.txtNome);
@@ -998,6 +1081,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvRetiradas)).EndInit();
             this.pnlInsere.ResumeLayout(false);
             this.pnlInsere.PerformLayout();
+            this.gpbTotal.ResumeLayout(false);
+            this.gpbTotal.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1081,5 +1166,12 @@
         private System.Windows.Forms.DateTimePicker dtpData;
         private System.Windows.Forms.TextBox txtCliente;
         private System.Windows.Forms.ComboBox cbxBanco;
+        private System.Windows.Forms.GroupBox gpbTotal;
+        private System.Windows.Forms.Label lblRpVEntradas;
+        private System.Windows.Forms.Label lblRpEntradas;
+        private System.Windows.Forms.Label lblRpVtotal;
+        private System.Windows.Forms.Label lblRpTotal;
+        private System.Windows.Forms.Label lblRpVSaidas;
+        private System.Windows.Forms.Label lblRpSaidas;
     }
 }

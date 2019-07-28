@@ -579,22 +579,24 @@ namespace GUI
             STW_Arquivo.WriteLine("");
             STW_Arquivo.Close();
         }
-        public void GravarTED(string caixa, string pedido, string winthor, string dinheiro, string cartao, string total, string abertura)
+        public void GravarTED(int via,string nomecliente, string total)
         {
             StreamWriter STW_Arquivo;
             STW_Arquivo = new StreamWriter("FECHTED.log", false);
             STW_Arquivo.WriteLine("");
-            STW_Arquivo.WriteLine("              COMPROVANTE DE TED       ");
+            STW_Arquivo.WriteLine("              COMPROVANTE DE TED - VIA:" +via);
             STW_Arquivo.WriteLine("");
-            STW_Arquivo.WriteLine("");
-            STW_Arquivo.WriteLine("Total.......: R$ " );
+            STW_Arquivo.WriteLine("Cliente.....:");
+            STW_Arquivo.WriteLine(" "+cliente);
+            STW_Arquivo.WriteLine(" ");
+            STW_Arquivo.WriteLine("Total.......: R$ " +total );
             STW_Arquivo.WriteLine("");
             STW_Arquivo.WriteLine("------------------------------------------------");
             STW_Arquivo.WriteLine("");
-            STW_Arquivo.WriteLine("Abertura....: " + abertura);
-            STW_Arquivo.WriteLine("Fechamento..: " + DateTime.Now.ToString("dd/MM/yyyy HH:mm"));
-            STW_Arquivo.WriteLine("Caixa.......: " + User.Trim());
-            STW_Arquivo.WriteLine("Cód Caixa...: " + caixa);
+           
+            STW_Arquivo.WriteLine("Data Emissão: " + DateTime.Now.ToString("dd/MM/yyyy HH:mm"));
+            STW_Arquivo.WriteLine("Caixa.......: " + Properties.Settings.Default.NomeW.ToString().Trim());
+            STW_Arquivo.WriteLine("Cód Caixa...: " + Properties.Settings.Default.Matricula.ToString().Trim());
             STW_Arquivo.WriteLine("");
             STW_Arquivo.WriteLine("");
             STW_Arquivo.Close();

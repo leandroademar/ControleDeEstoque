@@ -46,9 +46,10 @@ namespace DAL
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = conexao.ObjetoConexao;
             comando1 = comando1 + "INSERT INTO TABTRANSF  (NOMEBANCO,NOMECLIENTE,DATADEP,HORA,USUARIO,VALOR,HORAAUTORIZACAO,NUMCAIXA,TURNO,CODFUNC) " + "\n";
-            comando1 = comando1 + "VALUES ('Retiradas',@NOMECLIENTE,GETDATE(),FORMAT(GETDATE(), 'hh:mm'),@USUARIO,@VALOR,GETDATE(),@NUMCAIXA,@TURNO,@CODFUNC)";
+            comando1 = comando1 + "VALUES ('Retiradas',@NOMECLIENTE,@DTDEP,FORMAT(GETDATE(), 'hh:mm'),@USUARIO,@VALOR,GETDATE(),@NUMCAIXA,@TURNO,@CODFUNC)";
             cmd.CommandText = comando1;
             cmd.Parameters.AddWithValue("@NOMECLIENTE", modelo.NomeCliente);
+            cmd.Parameters.AddWithValue("@DTDEP", modelo.DtTransf);
             cmd.Parameters.AddWithValue("@USUARIO", modelo.Usuario);
             cmd.Parameters.AddWithValue("@VALOR", modelo.Valor);
             cmd.Parameters.AddWithValue("@NUMCAIXA", modelo.NumCaixa);
@@ -119,23 +120,23 @@ namespace DAL
             da.Fill(tabela);
             return tabela;
         }
-        public DataTable LocalizaTedDgv(int numcaixa,int turno, int codfunc)
+        public DataTable LocalizaTedDgv(int numcaixa,int turno, int codfunc,string datamov)
         {
             string comando4="";
             comando4 = comando4 + "SELECT NOMECLIENTE, VALOR FROM TABTRANSF WHERE  " + "\n";
             comando4 = comando4 + " NUMCAIXA ="+numcaixa+" AND TURNO ="+turno+" AND CODFUNC ="+codfunc;
-            comando4 = comando4 + " AND NOMEBANCO != 'Retiradas';";
+            comando4 = comando4 + " AND DATADEP ='" + datamov + "' AND NOMEBANCO != 'Retiradas';";
             DataTable tabela = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(comando4, conexao.StringConexao);
             da.Fill(tabela);
             return tabela;
         }
-        public DataTable LocalizaAvulso(int numcaixa, int turno, int codfunc)
+        public DataTable LocalizaAvulso(int numcaixa, int turno, int codfunc, string datamov)
         {
             string comando5 = "";
             comando5 = comando5 + "SELECT NOMECLIENTE, VALOR FROM TABTRANSF WHERE  " + "\n";
             comando5 = comando5 + " NUMCAIXA =" + numcaixa + " AND TURNO =" + turno + " AND CODFUNC =" + codfunc;
-            comando5 = comando5 + " AND NOMEBANCO = 'Retiradas';";
+            comando5 = comando5 + " AND DATADEP ='"+datamov+"' AND NOMEBANCO = 'Retiradas';";
             DataTable tabela = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(comando5, conexao.StringConexao);
             da.Fill(tabela);
