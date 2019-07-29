@@ -29,22 +29,32 @@
         private void InitializeComponent()
         {
             this.crvRelatorio = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
+            this.RelVendasSeparas1 = new GUI.Relatórios.RelVendasSeparas();
+            this.RelVendasSeparas2 = new GUI.Relatórios.RelVendasSeparas();
+            this.nControleDataSet1 = new GUI.nControleDataSet();
+            ((System.ComponentModel.ISupportInitialize)(this.nControleDataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // crvRelatorio
             // 
-            this.crvRelatorio.ActiveViewIndex = -1;
+            this.crvRelatorio.ActiveViewIndex = 0;
             this.crvRelatorio.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.crvRelatorio.Cursor = System.Windows.Forms.Cursors.Default;
             this.crvRelatorio.Dock = System.Windows.Forms.DockStyle.Fill;
             this.crvRelatorio.Location = new System.Drawing.Point(0, 0);
             this.crvRelatorio.Name = "crvRelatorio";
+            this.crvRelatorio.ReportSource = this.RelVendasSeparas2;
             this.crvRelatorio.ShowCopyButton = false;
             this.crvRelatorio.ShowParameterPanelButton = false;
             this.crvRelatorio.ShowTextSearchButton = false;
             this.crvRelatorio.ShowZoomButton = false;
             this.crvRelatorio.Size = new System.Drawing.Size(896, 852);
             this.crvRelatorio.TabIndex = 0;
+            // 
+            // nControleDataSet1
+            // 
+            this.nControleDataSet1.DataSetName = "nControleDataSet";
+            this.nControleDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // frmRelatorioVendas
             // 
@@ -55,7 +65,9 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmRelatorioVendas";
             this.Text = "Relatório de Vendas";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmRelatorioVendas_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.nControleDataSet1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -63,5 +75,8 @@
         #endregion
 
         private CrystalDecisions.Windows.Forms.CrystalReportViewer crvRelatorio;
+        private Relatórios.RelVendasSeparas RelVendasSeparas2;
+        private Relatórios.RelVendasSeparas RelVendasSeparas1;
+        private nControleDataSet nControleDataSet1;
     }
 }

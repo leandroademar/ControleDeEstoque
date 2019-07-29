@@ -480,5 +480,11 @@ namespace GUI
             frmLctoFin f = new frmLctoFin();
             CheckMdiChildren(f);
         }
+
+        private void separaçãoToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmParametroRel f = new frmParametroRel(3);
+            CheckMdiChildren(f);
+        }
     }
 }
