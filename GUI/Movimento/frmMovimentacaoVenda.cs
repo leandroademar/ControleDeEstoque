@@ -707,11 +707,7 @@ namespace GUI
 
         private void txtVenCod_KeyDown(object sender, KeyEventArgs e)
         {
-            if(txtCart.Text !="" && e.KeyCode == Keys.Enter)
-            {
-                txtVenCod_Leave(sender, e);
-                txtWint.Focus();
-            }
+            
         }
     
 
