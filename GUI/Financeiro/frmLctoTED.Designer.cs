@@ -38,9 +38,12 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.dgvTed = new System.Windows.Forms.DataGridView();
             this.tbcLcto = new System.Windows.Forms.TabControl();
+            this.gpxTipo = new System.Windows.Forms.GroupBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTed)).BeginInit();
             this.tbcLcto.SuspendLayout();
+            this.gpxTipo.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtNome
@@ -158,12 +161,33 @@
             this.tbcLcto.Size = new System.Drawing.Size(650, 410);
             this.tbcLcto.TabIndex = 100;
             // 
+            // gpxTipo
+            // 
+            this.gpxTipo.Controls.Add(this.checkBox1);
+            this.gpxTipo.Location = new System.Drawing.Point(8, 12);
+            this.gpxTipo.Name = "gpxTipo";
+            this.gpxTipo.Size = new System.Drawing.Size(101, 53);
+            this.gpxTipo.TabIndex = 103;
+            this.gpxTipo.TabStop = false;
+            this.gpxTipo.Text = "Tipo";
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(11, 25);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(80, 24);
+            this.checkBox1.TabIndex = 104;
+            this.checkBox1.Text = "TED ?";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
             // frmLctoTED
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(679, 590);
             this.ControlBox = false;
+            this.Controls.Add(this.gpxTipo);
             this.Controls.Add(this.lblInfo);
             this.Controls.Add(this.tbcLcto);
             this.Controls.Add(this.label1);
@@ -181,6 +205,8 @@
             this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTed)).EndInit();
             this.tbcLcto.ResumeLayout(false);
+            this.gpxTipo.ResumeLayout(false);
+            this.gpxTipo.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -198,5 +224,7 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.DataGridView dgvTed;
         private System.Windows.Forms.TabControl tbcLcto;
+        private System.Windows.Forms.GroupBox gpxTipo;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }

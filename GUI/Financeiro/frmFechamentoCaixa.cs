@@ -58,6 +58,8 @@ namespace GUI
             txtCDtks.Clear();
             txtMoedas.Clear();
             txtOutros.Clear();
+           
+
         }
 
         public void AlteraCampos(int op)
@@ -74,6 +76,8 @@ namespace GUI
                 txtCDtks.ReadOnly = false;
                 txtMoedas.ReadOnly = false;
                 txtOutros.ReadOnly = false;
+                cbxTurnoDet.Enabled = true;
+                button1.Visible = true;
                 btnAvulso.Visible = true;
 
 
@@ -91,6 +95,8 @@ namespace GUI
                 txtMoedas.ReadOnly = true;
                 txtOutros.ReadOnly = true;
                 btnAvulso.Visible = false;
+                cbxTurnoDet.Enabled = false;
+                button1.Visible = false;
 
 
             }
@@ -161,10 +167,11 @@ namespace GUI
             AtualizadgvTed();
             AtualizaAvulso(_xcaixa,_xturno,_xfunc, dtpMovimento.Value.ToString("dd/MM/yyyy"));
         }
-        
-        
 
 
+
+
+        public double acumula = 0 ;
 
         private void txtBanese_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -184,11 +191,13 @@ namespace GUI
             }
             if (e.KeyChar == '+')
             {
-
+                acumula += double.Parse(txtBanese.Text);
+                txtBanese.Text = "";
 
             }
 
         }
+        
 
         private void txtCCrede_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -203,6 +212,12 @@ namespace GUI
                     e.KeyChar = ',';
                 }
                 else e.Handled = true;
+            }
+            if (e.KeyChar == '+')
+            {
+                acumula += double.Parse(txtCCrede.Text);
+                txtCCrede.Text = "";
+
             }
         }
 
@@ -237,6 +252,7 @@ namespace GUI
                 txtCDtks.Text = dgvTABCaixas.Rows[e.RowIndex].Cells[14].Value.ToString();
                 txtMoedas.Text = dgvTABCaixas.Rows[e.RowIndex].Cells[15].Value.ToString();
                 txtOutros.Text = dgvTABCaixas.Rows[e.RowIndex].Cells[16].Value.ToString();
+                cbxTurnoDet.Text = dgvTABCaixas.Rows[e.RowIndex].Cells[12].Value.ToString();
 
             }
         }
@@ -271,6 +287,7 @@ namespace GUI
                 modelo.VlrCdtks = Convert.ToDouble(txtCDtks.Text.ToString());
                 modelo.VlrMoedas = Convert.ToDouble(txtMoedas.Text.ToString());
                 modelo.VlrOutros = Convert.ToDouble(txtOutros.Text.ToString());
+                modelo.Turno = Convert.ToInt32(cbxTurnoDet.Text.ToString());
 
                 DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
                 BLLTABCaixa bll = new BLLTABCaixa(cx);
@@ -381,19 +398,22 @@ namespace GUI
         }
         public void AtualizaTotal()
         {
-            DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
-            BLLTotal bll = new BLLTotal(cx);
-            ModeloTotal modelo = bll.CarregaTotal(_xcaixa, _xturno,  dtpMovimento.Value.ToString("dd/MM/yyyy"), _xfunc);
-            lblRpVEntradas.Text = String.Format("{0:C2}", modelo.VlrEnt);
-            lblRpVSaidas.Text = String.Format("{0:C2}", modelo.VlrSai);
-            lblRpVtotal.Text = String.Format("{0:C2}", modelo.VlrTotal);
-            ModeloTotal modelotg = bll.CarregaTotalGeral( dtpMovimento.Value.ToString("dd/MM/yyyy"));
-            lblTgEnt.Text = String.Format("{0:C2}", modelotg.VlrEnt);
-            lblTgRed.Text = String.Format("{0:C2}", modelotg.VlrRed);
-            lblTgTks.Text = String.Format("{0:C2}", modelotg.VlrTks);
-            lblTgTed.Text = String.Format("{0:C2}", modelotg.VlrTed);
-            lblTgSai.Text = String.Format("{0:C2}", modelotg.VlrSai);
-            lblTgTot.Text = String.Format("{0:C2}", modelotg.VlrTotal);
+           
+                DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
+                BLLTotal bll = new BLLTotal(cx);
+                ModeloTotal modelo = bll.CarregaTotal(_xcaixa, _xturno, dtpMovimento.Value.ToString("dd/MM/yyyy"), _xfunc);
+                lblRpVEntradas.Text = String.Format("{0:C2}", modelo.VlrEnt);
+                lblRpVSaidas.Text = String.Format("{0:C2}", modelo.VlrSai);
+                lblRpVtotal.Text = String.Format("{0:C2}", modelo.VlrTotal);
+                ModeloTotal modelotg = bll.CarregaTotalGeral(dtpMovimento.Value.ToString("dd/MM/yyyy"));
+                lblTgEnt.Text = String.Format("{0:C2}", modelotg.VlrEnt);
+                lblTgRed.Text = String.Format("{0:C2}", modelotg.VlrRed);
+                lblTgTks.Text = String.Format("{0:C2}", modelotg.VlrTks);
+                lblTgTed.Text = String.Format("{0:C2}", modelotg.VlrTed);
+                lblTgSai.Text = String.Format("{0:C2}", modelotg.VlrSai);
+                lblTgTot.Text = String.Format("{0:C2}", modelotg.VlrTotal);
+           
+            
 
 
         }
@@ -467,12 +487,23 @@ namespace GUI
                 }
                 else e.Handled = true;
             }
+            if (e.KeyChar == '+')
+            {
+                acumula += double.Parse(txtDinheiro.Text);
+                txtDinheiro.Text = "";
+
+            }
         }
 
         private void txtBanese_KeyDown(object sender, KeyEventArgs e)
+
         {
             if (e.KeyCode == Keys.Enter)
-            {                
+            {
+                acumula += double.Parse(string.IsNullOrWhiteSpace(txtBanese.Text)?"0":txtBanese.Text);
+                txtBanese.Text = acumula.ToString();
+                acumula = 0;
+
                 txtDinheiro.Focus();
             }
         }
@@ -481,14 +512,21 @@ namespace GUI
         {
             if (e.KeyCode == Keys.Enter)
             {
+                acumula += double.Parse(string.IsNullOrWhiteSpace(txtDinheiro.Text) ? "0" : txtDinheiro.Text);
+                txtDinheiro.Text = acumula.ToString();
+                acumula = 0;
                 txtCCrede.Focus();
             }
         }
 
         private void txtCCrede_KeyDown(object sender, KeyEventArgs e)
         {
+
             if (e.KeyCode == Keys.Enter)
             {
+                acumula += double.Parse(string.IsNullOrWhiteSpace(txtCCrede.Text) ? "0" : txtCCrede.Text);
+                txtCCrede.Text = acumula.ToString();
+                acumula = 0;
                 txtCCtks.Focus();
             }
         }
@@ -497,6 +535,9 @@ namespace GUI
         {
             if (e.KeyCode == Keys.Enter)
             {
+                acumula += double.Parse(string.IsNullOrWhiteSpace(txtCCtks.Text) ? "0" : txtCCtks.Text);
+                txtCCtks.Text = acumula.ToString();
+                acumula = 0;
                 txtCDrede.Focus();
             }
         }
@@ -505,6 +546,9 @@ namespace GUI
         {
             if (e.KeyCode == Keys.Enter)
             {
+                acumula += double.Parse(string.IsNullOrWhiteSpace(txtCDtks.Text) ? "0" : txtCDtks.Text);
+                txtCDtks.Text = acumula.ToString();
+                acumula = 0;
                 txtTEDelet.Focus();
             }
         }
@@ -513,6 +557,9 @@ namespace GUI
         {
             if (e.KeyCode == Keys.Enter)
             {
+                acumula += double.Parse(string.IsNullOrWhiteSpace(txtTEDelet.Text) ? "0" : txtTEDelet.Text);
+                txtTEDelet.Text = acumula.ToString();
+                acumula = 0;
                 txtCheque.Focus();
             }
         }
@@ -521,6 +568,9 @@ namespace GUI
         {
             if (e.KeyCode == Keys.Enter)
             {
+                acumula += double.Parse(string.IsNullOrWhiteSpace(txtCheque.Text) ? "0" : txtCheque.Text);
+                txtCheque.Text = acumula.ToString();
+                acumula = 0;
                 txtMoedas.Focus();
             }
         }
@@ -529,6 +579,9 @@ namespace GUI
         {
             if (e.KeyCode == Keys.Enter)
             {
+                acumula += double.Parse(string.IsNullOrWhiteSpace(txtMoedas.Text) ? "0" : txtMoedas.Text);
+                txtMoedas.Text = acumula.ToString();
+                acumula = 0;
                 txtOutros.Focus();
             }
         }
@@ -537,6 +590,9 @@ namespace GUI
         {
             if (e.KeyCode == Keys.Enter)
             {
+                acumula += double.Parse(txtOutros.Text);
+                txtOutros.Text = acumula.ToString();
+                acumula = 0;
                 btnSalvar.Focus();
             }
         }
@@ -817,6 +873,12 @@ namespace GUI
                 }
                 else e.Handled = true;
             }
+            if (e.KeyChar == '+')
+            {
+                acumula += double.Parse(txtCCtks.Text);
+                txtCCtks.Text = "";
+
+            }
         }
 
         private void txtCDrede_KeyPress(object sender, KeyPressEventArgs e)
@@ -832,6 +894,12 @@ namespace GUI
                     e.KeyChar = ',';
                 }
                 else e.Handled = true;
+            }
+            if (e.KeyChar == '+')
+            {
+                acumula += double.Parse(txtCDrede.Text);
+                txtCDrede.Text = "";
+
             }
         }
 
@@ -849,6 +917,12 @@ namespace GUI
                 }
                 else e.Handled = true;
             }
+            if (e.KeyChar == '+')
+            {
+                acumula += double.Parse(txtCDtks.Text);
+                txtCDtks.Text = "";
+
+            }
         }
 
         private void txtTEDelet_KeyPress(object sender, KeyPressEventArgs e)
@@ -864,6 +938,12 @@ namespace GUI
                     e.KeyChar = ',';
                 }
                 else e.Handled = true;
+            }
+            if (e.KeyChar == '+')
+            {
+                acumula += double.Parse(txtTEDelet.Text);
+                txtTEDelet.Text = "";
+
             }
         }
 
@@ -881,6 +961,12 @@ namespace GUI
                 }
                 else e.Handled = true;
             }
+            if (e.KeyChar == '+')
+            {
+                acumula += double.Parse(txtCheque.Text);
+                txtCheque.Text = "";
+
+            }
         }
 
         private void txtMoedas_KeyPress(object sender, KeyPressEventArgs e)
@@ -897,6 +983,12 @@ namespace GUI
                 }
                 else e.Handled = true;
             }
+            if (e.KeyChar == '+')
+            {
+                acumula += double.Parse(txtMoedas.Text);
+                txtMoedas.Text = "";
+
+            }
         }
 
         private void txtOutros_KeyPress(object sender, KeyPressEventArgs e)
@@ -912,6 +1004,12 @@ namespace GUI
                     e.KeyChar = ',';
                 }
                 else e.Handled = true;
+            }
+            if (e.KeyChar == '+')
+            {
+                acumula += double.Parse(txtOutros.Text);
+                txtOutros.Text = "";
+
             }
         }
 
@@ -1072,6 +1170,33 @@ namespace GUI
             {
                 //do something else
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ModeloTABCaixa modelo = new ModeloTABCaixa();
+            modelo.NumTrans = Convert.ToInt32(_transacao.ToString());
+            modelo.CodCaixa = _xfunc;
+            modelo.NumCaixa = _xcaixa;
+            modelo.DtCaixast = (dtpMovimento.Value.ToString("dd/MM/yyyy"));
+
+
+        
+            DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
+            BLLTABCaixa bll = new BLLTABCaixa(cx);
+            bll.DeletaT(modelo);
+            bll.Deleta(modelo);
+
+            AtualizadgvTABCaixa();
+            AtualizaAvulso(_xcaixa, _xturno, _xfunc, dtpMovimento.Value.ToString("dd/MM/yyyy"));
+            AtualizadgvTed();
+            AtualizaTotal();
+
+        }
+
+        private void frmFechamentoCaixa_KeyDown_1(object sender, KeyEventArgs e)
+        {
+           
         }
     }
 }

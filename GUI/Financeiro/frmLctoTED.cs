@@ -20,13 +20,14 @@ namespace GUI
         public int codfunc = 0;
         public string _nomecli = "";
         public string _vlrted = "";
-
+        public int seg = 0;
 
         public frmLctoTED(int caixa,string nome, int turno)
         {
             InitializeComponent();
             
             codfunc = Properties.Settings.Default.Matricula;
+            checkBox1.Checked = true;
       
                 dgvTed.Visible = true;
                 dgvTed.ReadOnly = false;
@@ -51,7 +52,7 @@ namespace GUI
 
             DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
             BLLTransf bll = new BLLTransf(cx);
-            dgvTed.DataSource = bll.LocalizarTED(numturno,2,0);
+            dgvTed.DataSource = bll.LocalizarTED(numturno,seg,numcaixa);
             dgvTed.Columns[2].HeaderText = "Nome";
             dgvTed.Columns[2].Width = 250;
             dgvTed.Columns[5].HeaderText = "Valor";
@@ -74,8 +75,16 @@ namespace GUI
 
         private void txtTurno_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.Enter && txtTurno.Text != "")
+            if(e.KeyCode == Keys.Enter && txtTurno.Text != "" && checkBox1.Checked == true)
             {
+                //tbcLcto.Visible = true;
+                seg = 2;
+                AtualizaDGVTransf();
+                dgvTed.Focus();
+            }
+            if (e.KeyCode == Keys.Enter && txtTurno.Text != "" && checkBox1.Checked == false)
+            {
+                seg = 1; 
                 //tbcLcto.Visible = true;
                 AtualizaDGVTransf();
                 dgvTed.Focus();
@@ -134,25 +143,50 @@ namespace GUI
 
         public void GravarTED(int via, string nomecliente, string total)
         {
-            StreamWriter STW_Arquivo;
-            STW_Arquivo = new StreamWriter("FECHTED"+via+".log", false);
-            STW_Arquivo.WriteLine("");
-            STW_Arquivo.WriteLine("              COMPROVANTE DE TED - VIA:" + via);
-            STW_Arquivo.WriteLine("");
-            STW_Arquivo.WriteLine("Cliente.....:");
-            STW_Arquivo.WriteLine(" " + nomecliente);
-            STW_Arquivo.WriteLine(" ");
-            STW_Arquivo.WriteLine("Total.......: R$ " + total);
-            STW_Arquivo.WriteLine("");
-            STW_Arquivo.WriteLine("------------------------------------------------");
-            STW_Arquivo.WriteLine("");
+            if(seg == 2)
+            {
+                StreamWriter STW_Arquivo;
+                STW_Arquivo = new StreamWriter("FECHTED" + via + ".log", false);
+                STW_Arquivo.WriteLine("");
+                STW_Arquivo.WriteLine("              COMPROVANTE DE TED - VIA:" + via);
+                STW_Arquivo.WriteLine("");
+                STW_Arquivo.WriteLine("Cliente.....:");
+                STW_Arquivo.WriteLine(" " + nomecliente);
+                STW_Arquivo.WriteLine(" ");
+                STW_Arquivo.WriteLine("Total.......: R$ " + total);
+                STW_Arquivo.WriteLine("");
+                STW_Arquivo.WriteLine("------------------------------------------------");
+                STW_Arquivo.WriteLine("");
 
-            STW_Arquivo.WriteLine("Data Emissão: " + DateTime.Now.ToString("dd/MM/yyyy HH:mm"));
-            STW_Arquivo.WriteLine("Caixa.......: " + Properties.Settings.Default.NomeW.ToString().Trim());
-            STW_Arquivo.WriteLine("Cód Caixa...: " + Properties.Settings.Default.Matricula.ToString().Trim());
-            STW_Arquivo.WriteLine("");
-            STW_Arquivo.WriteLine("");
-            STW_Arquivo.Close();
+                STW_Arquivo.WriteLine("Data Emissão: " + DateTime.Now.ToString("dd/MM/yyyy HH:mm"));
+                STW_Arquivo.WriteLine("Caixa.......: " + Properties.Settings.Default.NomeW.ToString().Trim());
+                STW_Arquivo.WriteLine("Cód Caixa...: " + Properties.Settings.Default.Matricula.ToString().Trim());
+                STW_Arquivo.WriteLine("");
+                STW_Arquivo.WriteLine("");
+                STW_Arquivo.Close();
+            } else
+            {
+                StreamWriter STW_Arquivo;
+                STW_Arquivo = new StreamWriter("FECHTED" + via + ".log", false);
+                STW_Arquivo.WriteLine("");
+                STW_Arquivo.WriteLine("         COMPROVANTE DE RETIRADA - VIA:" + via);
+                STW_Arquivo.WriteLine("");
+                STW_Arquivo.WriteLine("Cliente.....:");
+                STW_Arquivo.WriteLine(" " + nomecliente);
+                STW_Arquivo.WriteLine(" ");
+                STW_Arquivo.WriteLine("Total.......: R$ " + total);
+                STW_Arquivo.WriteLine("");
+                STW_Arquivo.WriteLine("------------------------------------------------");
+                STW_Arquivo.WriteLine("");
+
+                STW_Arquivo.WriteLine("Data Emissão: " + DateTime.Now.ToString("dd/MM/yyyy HH:mm"));
+                STW_Arquivo.WriteLine("Caixa.......: " + Properties.Settings.Default.NomeW.ToString().Trim());
+                STW_Arquivo.WriteLine("Cód Caixa...: " + Properties.Settings.Default.Matricula.ToString().Trim());
+                STW_Arquivo.WriteLine("");
+                STW_Arquivo.WriteLine("");
+                STW_Arquivo.Close();
+            }
+            
         }
 
         private void dgvTed_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

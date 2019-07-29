@@ -83,7 +83,32 @@ namespace DAL
             cmd.ExecuteNonQuery();
             conexao.Desconectar();
         }
-       
+
+        public void AlterarTED(ModeloTransf modelo)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = conexao.ObjetoConexao;
+            String comando2 = "";
+            comando2 = comando2 + "UPDATE TABTRANSF SET " + "\n";
+            comando2 = comando2 + "HORALIBERACAO = GETDATE(), " + "\n";
+            comando2 = comando2 + "NUMCAIXA = @NUMCAIXA, " + "\n";
+            comando2 = comando2 + "TURNO = @TURNO, " + "\n";
+            comando2 = comando2 + "CODFUNC = @CODFUNC, " + "\n";
+            comando2 = comando2 + "NOMECAIXA = @NOMECAIXA";
+            comando2 = comando2 + " WHERE NUMTRANS = @NUMTRANS";
+            cmd.CommandText = comando2;
+            cmd.Parameters.AddWithValue("@NUMCAIXA", modelo.NumCaixa);
+            cmd.Parameters.AddWithValue("@NOMECAIXA", modelo.Usuario);
+            cmd.Parameters.AddWithValue("@TURNO", modelo.Turno);
+            cmd.Parameters.AddWithValue("@CODFUNC", modelo.CodFunc);
+            cmd.Parameters.AddWithValue("@NUMTRANS", modelo.NumTrans);
+
+            conexao.Conectar();
+            cmd.ExecuteNonQuery();
+            conexao.Desconectar();
+        }
+
+
         public DataTable LocalizarTED(int turno, int seg, int caixa)
         {
             String comando3 = "";
@@ -98,14 +123,9 @@ namespace DAL
             comando3 = comando3 + ",CODFUNC " + "\n";
             comando3 = comando3 + "FROM TABTRANSF " + "\n";
             comando3 = comando3 + "WHERE DATAINCLUSAO >= GETDATE() - 3";
-            if (seg == 0)
-            {
-                comando3 = comando3 + "  AND NUMCAIXA IS NOT NULL " + "\n";
-
-            }
             if (seg == 1)
             {
-                comando3 = comando3 + "  AND TURNO ="+turno+" AND NUMCAIXA = "+caixa+ "\n";
+                comando3 = comando3 + " AND HORALIBERACAO IS NULL  AND TURNO ="+turno+" AND NUMCAIXA = "+caixa+ "\n";
 
             }
             if (seg == 2)
@@ -157,5 +177,6 @@ namespace DAL
             cmd.ExecuteNonQuery();
             conexao.Desconectar();
         }
+
     }
 }
