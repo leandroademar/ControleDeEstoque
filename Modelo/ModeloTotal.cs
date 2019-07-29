@@ -15,18 +15,22 @@ namespace Modelo
             this.CodCaixa = 0;
             this.DataMov = "";
             this.VlrEnt = 0.00;
+            this.VlrRed = 0.00;
+            this.VlrTks = 0.00;
             this.VlrSai = 0.00;
             this.VlrTed = 0.00;
             this.VlrTotal = 0.00;
 
         }
-        public ModeloTotal(int _turno, int _numcaixa, int _codcaixa,string _dtmov,double _vlrent, double _vlrsai, double _vlrted,double _vlrtotal)
+        public ModeloTotal(int _turno, int _numcaixa, int _codcaixa,string _dtmov,double _vlrent, double _vlrred, double _vlrtks, double _vlrsai, double _vlrted,double _vlrtotal)
         {
             this.Turno = _turno;
             this.NumCaixa = _numcaixa;
             this.CodCaixa = _codcaixa;
             this.DataMov = _dtmov;
             this.VlrEnt = _vlrent;
+            this.VlrRed = _vlrred;
+            this.VlrTks = _vlrtks;
             this.VlrSai = _vlrsai;
             this.VlrTed = _vlrted;
             this.VlrTotal = _vlrtotal;
@@ -63,6 +67,18 @@ namespace Modelo
         {
             get { return this.vlrent; }
             set { this.vlrent = value; }
+        }
+        private double vlrred;
+        public double VlrRed
+        {
+            get { return this.vlrred; }
+            set { this.vlrred = value; }
+        }
+        private double vlrtks;
+        public double VlrTks
+        {
+            get { return this.vlrtks; }
+            set { this.vlrtks = value; }
         }
         private double vlrsai;
         public double VlrSai

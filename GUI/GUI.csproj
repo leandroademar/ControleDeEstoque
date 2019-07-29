@@ -366,22 +366,10 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Relatórios\RelSeparadas.cs">
+    <Compile Include="Relatórios\RelVendas.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>RelSeparadas.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Relatórios\rel_Carteira.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>rel_Carteira.RPT</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Relatórios\rel_Financeiro_Extrato_Bancario1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>rel_Financeiro_Extrato_Bancario.rpt</DependentUpon>
+      <DependentUpon>RelVendas.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Settings.cs" />
@@ -513,13 +501,9 @@
     <EmbeddedResource Include="Relatórios\Obsoleto\Report2.rdlc" />
     <EmbeddedResource Include="Relatórios\Obsoleto\Report3.rdlc" />
     <EmbeddedResource Include="Relatórios\Obsoleto\ReportSeparadas.rdlc" />
-    <EmbeddedResource Include="Relatórios\RelSeparadas.rpt">
+    <EmbeddedResource Include="Relatórios\RelVendas.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>RelSeparadas.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Relatórios\rel_Carteira.RPT">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>rel_Carteira.cs</LastGenOutput>
+      <LastGenOutput>RelVendas.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="nControleDataSet.xsc">
       <DependentUpon>nControleDataSet.xsd</DependentUpon>
@@ -598,10 +582,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Relatórios\rel_Financeiro_Extrato_Bancario.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>rel_Financeiro_Extrato_Bancario1.cs</LastGenOutput>
-    </EmbeddedResource>
     <None Include="Resources\Alterar.png" />
   </ItemGroup>
   <ItemGroup>

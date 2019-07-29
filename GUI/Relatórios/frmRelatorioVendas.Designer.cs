@@ -40,7 +40,6 @@
             this.crvRelatorio.Location = new System.Drawing.Point(0, 0);
             this.crvRelatorio.Name = "crvRelatorio";
             this.crvRelatorio.ShowCopyButton = false;
-            this.crvRelatorio.ShowLogo = false;
             this.crvRelatorio.ShowParameterPanelButton = false;
             this.crvRelatorio.ShowTextSearchButton = false;
             this.crvRelatorio.ShowZoomButton = false;

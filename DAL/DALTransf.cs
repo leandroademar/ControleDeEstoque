@@ -83,6 +83,7 @@ namespace DAL
             cmd.ExecuteNonQuery();
             conexao.Desconectar();
         }
+       
         public DataTable LocalizarTED(int turno, int seg, int caixa)
         {
             String comando3 = "";
@@ -134,7 +135,7 @@ namespace DAL
         public DataTable LocalizaAvulso(int numcaixa, int turno, int codfunc, string datamov)
         {
             string comando5 = "";
-            comando5 = comando5 + "SELECT NOMECLIENTE, VALOR FROM TABTRANSF WHERE  " + "\n";
+            comando5 = comando5 + "SELECT NOMECLIENTE, VALOR,NUMTRANS FROM TABTRANSF WHERE  " + "\n";
             comando5 = comando5 + " NUMCAIXA =" + numcaixa + " AND TURNO =" + turno + " AND CODFUNC =" + codfunc;
             comando5 = comando5 + " AND DATADEP ='"+datamov+"' AND NOMEBANCO = 'Retiradas';";
             DataTable tabela = new DataTable();
@@ -142,6 +143,19 @@ namespace DAL
             da.Fill(tabela);
             return tabela;
         }
+        public void AlterarDel(ModeloTransf modelo)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = conexao.ObjetoConexao;
+            String comando5 = "";
+            comando5 = comando5 + " DELETE FROM TABTRANSF WHERE NUMTRANS = @NUMTRANS;";
 
+            cmd.CommandText = comando5;
+            cmd.Parameters.AddWithValue("@NUMTRANS", modelo.NumTrans);
+
+            conexao.Conectar();
+            cmd.ExecuteNonQuery();
+            conexao.Desconectar();
+        }
     }
 }

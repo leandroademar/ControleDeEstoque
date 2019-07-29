@@ -34,6 +34,12 @@ namespace BLL
             DALTransf DALobj = new DALTransf(conexao);
             DALobj.Alterar(modelo);
         }
+        public void Deleta(ModeloTransf modelo)
+        {
+
+            DALTransf DALobj = new DALTransf(conexao);
+            DALobj.AlterarDel(modelo);
+        }
         public DataTable LocalizarTED(int turno, int seg, int caixa)
         {
             DALTransf DALobj = new DALTransf(conexao);

@@ -22,5 +22,10 @@ namespace BLL
             DALTABTotais DALobj = new DALTABTotais(conexao);
             return DALobj.CarregaTotal(numcaixa,turno,data,codfunc);
         }
+        public ModeloTotal CarregaTotalGeral( string data)
+        {
+            DALTABTotais DALobj = new DALTABTotais(conexao);
+            return DALobj.CarregaTotalGeral( data);
+        }
     }
 }

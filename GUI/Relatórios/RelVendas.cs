@@ -16,14 +16,14 @@ namespace GUI.Relatórios {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class RelSeparadas : ReportClass {
+    public class RelVendas : ReportClass {
         
-        public RelSeparadas() {
+        public RelVendas() {
         }
         
         public override string ResourceName {
             get {
-                return "RelSeparadas.rpt";
+                return "RelVendas.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace GUI.Relatórios {
         
         public override string FullResourceName {
             get {
-                return "GUI.Relatórios.RelSeparadas.rpt";
+                return "GUI.Relatórios.RelVendas.rpt";
             }
             set {
                 // Do nothing
@@ -90,9 +90,9 @@ namespace GUI.Relatórios {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedRelSeparadas : Component, ICachedReport {
+    public class CachedRelVendas : Component, ICachedReport {
         
-        public CachedRelSeparadas() {
+        public CachedRelVendas() {
         }
         
         [Browsable(false)]
@@ -129,7 +129,7 @@ namespace GUI.Relatórios {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            RelSeparadas rpt = new RelSeparadas();
+            RelVendas rpt = new RelVendas();
             rpt.Site = this.Site;
             return rpt;
         }

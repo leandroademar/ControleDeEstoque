@@ -124,6 +124,7 @@ namespace GUI
             dgvRetiradas.Columns[0].Width = 205;
             dgvRetiradas.Columns[1].HeaderText = "Valor";
             dgvRetiradas.Columns[1].Width = 80;
+            dgvRetiradas.Columns[2].Visible = false;
             dgvRetiradas.RowHeadersVisible = false;
             dgvRetiradas.ReadOnly = true;
             dgvRetiradas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -386,6 +387,13 @@ namespace GUI
             lblRpVEntradas.Text = String.Format("{0:C2}", modelo.VlrEnt);
             lblRpVSaidas.Text = String.Format("{0:C2}", modelo.VlrSai);
             lblRpVtotal.Text = String.Format("{0:C2}", modelo.VlrTotal);
+            ModeloTotal modelotg = bll.CarregaTotalGeral( dtpMovimento.Value.ToString("dd/MM/yyyy"));
+            lblTgEnt.Text = String.Format("{0:C2}", modelotg.VlrEnt);
+            lblTgRed.Text = String.Format("{0:C2}", modelotg.VlrRed);
+            lblTgTks.Text = String.Format("{0:C2}", modelotg.VlrTks);
+            lblTgTed.Text = String.Format("{0:C2}", modelotg.VlrTed);
+            lblTgSai.Text = String.Format("{0:C2}", modelotg.VlrSai);
+            lblTgTot.Text = String.Format("{0:C2}", modelotg.VlrTotal);
 
 
         }
@@ -927,6 +935,7 @@ namespace GUI
                 dtpData.Visible = true;
                 maskedTextBox1.Visible = true;
                 txtCliente.Visible = true;
+                panel1.Visible = false;
 
             }
             if (op == 1)
@@ -943,6 +952,7 @@ namespace GUI
                 dtpData.Visible = false;
                 maskedTextBox1.Visible = false;
                 txtCliente.Visible = true;
+                panel1.Visible = false;
 
             }
             if(op==2)
@@ -959,6 +969,7 @@ namespace GUI
                 dtpData.Visible = false;
                 maskedTextBox1.Visible = false;
                 txtCliente.Visible = false;
+                panel1.Visible = true;
             }
         }
         private void txtValor_KeyDown(object sender, KeyEventArgs e)
@@ -1043,6 +1054,24 @@ namespace GUI
             }
         }
 
- 
+        private void dgvRetiradas_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Deseja excluir do caixa e turno selecionado este valor ?", "Exclusão de Avulso", MessageBoxButtons.YesNo,MessageBoxIcon.Question,MessageBoxDefaultButton.Button2);
+            if (dialogResult == DialogResult.Yes)
+            {
+                DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
+                BLLTransf bll = new BLLTransf(cx);
+                ModeloTransf modelo = new ModeloTransf();
+                modelo.NumTrans = Convert.ToInt32(dgvRetiradas.CurrentRow.Cells[2].Value.ToString());
+                bll.Deleta(modelo);
+                AtualizaAvulso(_xcaixa, _xturno, _xfunc, dtpMovimento.Value.ToString("dd/MM/yyyy"));
+                AtualizadgvTed();
+                AtualizaTotal();
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                //do something else
+            }
+        }
     }
 }
