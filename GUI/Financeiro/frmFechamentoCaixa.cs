@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -155,14 +156,19 @@ namespace GUI
             dgvTABCaixas.Columns[15].Visible = false;
             dgvTABCaixas.Columns[16].Visible = false;
             this.AtualizaTotais(1);
+            AtualizaTotal();
             AtualizadgvTed();
             AtualizaAvulso(_xcaixa,_xturno,_xfunc, dtpMovimento.Value.ToString("dd/MM/yyyy"));
         }
-        public double valora = 0;
         
         
+
+
+
         private void txtBanese_KeyPress(object sender, KeyPressEventArgs e)
         {
+            double[] soma = new double[2];
+
             if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)8 && e.KeyChar != ',' && e.KeyChar != '.')
             {
                 e.Handled = true;
@@ -177,12 +183,7 @@ namespace GUI
             }
             if (e.KeyChar == '+')
             {
-                
-             
-                valora = valora + Convert.ToDouble(txtBanese.Text);
-                //MessageBox.Show(valora.ToString());
-                txtBanese.Text = valora.ToString();
-                
+
 
             }
 
@@ -222,6 +223,7 @@ namespace GUI
                 _xfunc = Convert.ToInt32(dgvTABCaixas.Rows[e.RowIndex].Cells[2].Value.ToString());
                 AtualizaAvulso(_xcaixa, _xturno, _xfunc, dtpMovimento.Value.ToString("dd/MM/yyyy"));
                 AtualizadgvTed();
+                AtualizaTotal();
 
                 _transacao = Convert.ToInt32(dgvTABCaixas.Rows[e.RowIndex].Cells[0].Value.ToString());
                 txtDinheiro.Text = dgvTABCaixas.Rows[e.RowIndex].Cells[5].Value.ToString();
@@ -374,6 +376,17 @@ namespace GUI
 
 
             }
+
+        }
+        public void AtualizaTotal()
+        {
+            DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
+            BLLTotal bll = new BLLTotal(cx);
+            ModeloTotal modelo = bll.CarregaTotal(_xcaixa, _xturno,  dtpMovimento.Value.ToString("dd/MM/yyyy"), _xfunc);
+            lblRpVEntradas.Text = String.Format("{0:C2}", modelo.VlrEnt);
+            lblRpVSaidas.Text = String.Format("{0:C2}", modelo.VlrSai);
+            lblRpVtotal.Text = String.Format("{0:C2}", modelo.VlrTotal);
+
 
         }
         public void atualizatotal(int op,int numcaixa, int turno, int codfunc, string datamov)
@@ -1024,10 +1037,12 @@ namespace GUI
 
         private void txtCliente_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter && txtNome.Text != "") 
+            if (e.KeyCode == Keys.Enter && txtCliente.Text != "") 
             {
                 txtValor.Focus();
             }
         }
+
+ 
     }
 }

@@ -2,13 +2,8 @@
 using Ferramentas;
 using System.Drawing.Printing;
 using System.IO;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL;
 using DAL;
@@ -33,6 +28,9 @@ namespace GUI
         public int Matricula = Properties.Settings.Default.Matricula;
         public string NomeW = Properties.Settings.Default.NomeW;
         public int Caixa = Properties.Settings.Default.Caixa;
+        public string xnomecli;
+        public string xvlrted;
+
 
 
 
@@ -170,6 +168,7 @@ namespace GUI
             this.totaldin = Math.Round(Convert.ToDouble(txtTotal.Text), 2);
             this.totalcart = Math.Round(Convert.ToDouble(txtCart.Text), 2);
             this.cliente = txtNomeCli.ToString();
+
             clsArquivoTxt LCLS_ArquivoTxt = new clsArquivoTxt();
             LCLS_ArquivoTxt.FU_Gravar(txtVenCod.Text, txtNomeCli.Text, totalcart.ToString(), totaldin.ToString(),totalVenda.ToString());
         }
@@ -579,21 +578,21 @@ namespace GUI
             STW_Arquivo.WriteLine("");
             STW_Arquivo.Close();
         }
-        public void GravarTED(int via,string nomecliente, string total)
+        public void GravarTED(int via, string nomecliente, string total)
         {
             StreamWriter STW_Arquivo;
             STW_Arquivo = new StreamWriter("FECHTED.log", false);
             STW_Arquivo.WriteLine("");
-            STW_Arquivo.WriteLine("              COMPROVANTE DE TED - VIA:" +via);
+            STW_Arquivo.WriteLine("              COMPROVANTE DE TED - VIA:" + via);
             STW_Arquivo.WriteLine("");
             STW_Arquivo.WriteLine("Cliente.....:");
-            STW_Arquivo.WriteLine(" "+cliente);
+            STW_Arquivo.WriteLine(" " + cliente);
             STW_Arquivo.WriteLine(" ");
-            STW_Arquivo.WriteLine("Total.......: R$ " +total );
+            STW_Arquivo.WriteLine("Total.......: R$ " + total);
             STW_Arquivo.WriteLine("");
             STW_Arquivo.WriteLine("------------------------------------------------");
             STW_Arquivo.WriteLine("");
-           
+
             STW_Arquivo.WriteLine("Data Emissão: " + DateTime.Now.ToString("dd/MM/yyyy HH:mm"));
             STW_Arquivo.WriteLine("Caixa.......: " + Properties.Settings.Default.NomeW.ToString().Trim());
             STW_Arquivo.WriteLine("Cód Caixa...: " + Properties.Settings.Default.Matricula.ToString().Trim());
@@ -601,6 +600,8 @@ namespace GUI
             STW_Arquivo.WriteLine("");
             STW_Arquivo.Close();
         }
+
+
 
         private void txtVlrPed_KeyDown(object sender, KeyEventArgs e)
         {
@@ -708,13 +709,14 @@ namespace GUI
         {
             
         }
-   
+    
 
         private void btnTED_Click(object sender, EventArgs e)
         {
 
             frmLctoTED frm = new frmLctoTED( Caixa, NomeW, 1);
             frm.Show();
+
         }
 
         private void frmMovimentacaoVenda_KeyDown(object sender, KeyEventArgs e)

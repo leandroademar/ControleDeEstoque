@@ -2,24 +2,24 @@
 using DAL;
 using Modelo;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Drawing.Printing;
+using System.IO;
 using System.Windows.Forms;
 
 namespace GUI
 {
     public partial class frmLctoTED : Form
     {
+        public Font printFont;
+        public StreamReader streamToPrint;
         public int numcaixa = 0;
         public int numoper = 0;
         public int numturno = 0;
         public string nomeoper = "";
         public int codfunc = 0;
+        public string _nomecli = "";
+        public string _vlrted = "";
 
 
         public frmLctoTED(int caixa,string nome, int turno)
@@ -107,6 +107,12 @@ namespace GUI
             {
                 e.SuppressKeyPress = true;
                 AlterarTED();
+                spoolrec("FECHTED1.log");
+                spoolrec("FECHTED2.log");
+                this.Close();
+            }
+            if(e.KeyCode == Keys.Escape)
+            {
                 this.Close();
             }
             
@@ -120,17 +126,101 @@ namespace GUI
             modelo.NumCaixa = Convert.ToInt32(txtCaixa.Text.ToString());
             modelo.Turno = Convert.ToInt32(txtTurno.Text.ToString());
             modelo.CodFunc = codfunc;
+            GravarTED(1,dgvTed.CurrentRow.Cells[2].Value.ToString(),dgvTed.CurrentRow.Cells[5].Value.ToString());
+            GravarTED(2, dgvTed.CurrentRow.Cells[2].Value.ToString(), dgvTed.CurrentRow.Cells[5].Value.ToString());
             bll.Alterar(modelo);
+
+        }
+
+        public void GravarTED(int via, string nomecliente, string total)
+        {
+            StreamWriter STW_Arquivo;
+            STW_Arquivo = new StreamWriter("FECHTED"+via+".log", false);
+            STW_Arquivo.WriteLine("");
+            STW_Arquivo.WriteLine("              COMPROVANTE DE TED - VIA:" + via);
+            STW_Arquivo.WriteLine("");
+            STW_Arquivo.WriteLine("Cliente.....:");
+            STW_Arquivo.WriteLine(" " + nomecliente);
+            STW_Arquivo.WriteLine(" ");
+            STW_Arquivo.WriteLine("Total.......: R$ " + total);
+            STW_Arquivo.WriteLine("");
+            STW_Arquivo.WriteLine("------------------------------------------------");
+            STW_Arquivo.WriteLine("");
+
+            STW_Arquivo.WriteLine("Data Emissão: " + DateTime.Now.ToString("dd/MM/yyyy HH:mm"));
+            STW_Arquivo.WriteLine("Caixa.......: " + Properties.Settings.Default.NomeW.ToString().Trim());
+            STW_Arquivo.WriteLine("Cód Caixa...: " + Properties.Settings.Default.Matricula.ToString().Trim());
+            STW_Arquivo.WriteLine("");
+            STW_Arquivo.WriteLine("");
+            STW_Arquivo.Close();
         }
 
         private void dgvTed_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(txtTurno.Text!="")
-            {
-                AlterarTED();
-                this.Close();
-            }
             
+            AlterarTED();
+            spoolrec("FECHTED1.log");
+            spoolrec("FECHTED2.log");
+            this.Close();
+            
+            
+        }
+        public void spoolrec(string documento)
+        {
+
+            try
+            {
+                streamToPrint = new StreamReader
+                (documento, false);
+                printFont = new Font("Arial", 10);
+                PrintDocument pd = new PrintDocument();
+                pd.PrintPage += new PrintPageEventHandler
+                (this.pd_PrintPage);
+                //PrintController pc = new PrintControllerWithStatusDialog(pd.PrintController);
+                pd.PrintController = new System.Drawing.Printing.StandardPrintController();
+                pd.Print();
+                streamToPrint.Close();
+                pd.Dispose();
+
+            }
+
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        public void pd_PrintPage(object sender, PrintPageEventArgs ev)
+        {
+            float linesPerPage = 0;
+            float yPos = 0;
+            int count = 0;
+            float leftMargin = 2;
+            float topMargin = 1;
+            string line = null;
+
+            // Calculate the number of lines per page.
+            linesPerPage = ev.MarginBounds.Height /
+               printFont.GetHeight(ev.Graphics);
+
+            // Print each line of the file.
+            while (count < linesPerPage &&
+               ((line = streamToPrint.ReadLine()) != null))
+            {
+                yPos = topMargin + (count *
+                   printFont.GetHeight(ev.Graphics));
+                ev.Graphics.DrawString(line, printFont, Brushes.Black,
+                   leftMargin, yPos, new StringFormat());
+                count++;
+            }
+
+            // If more lines exist, print another page.
+            if (line != null)
+                ev.HasMorePages = true;
+            else
+                ev.HasMorePages = false;
         }
     }
 }
