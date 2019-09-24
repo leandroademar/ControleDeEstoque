@@ -40,15 +40,15 @@ namespace BLL
             DALTransf DALobj = new DALTransf(conexao);
             DALobj.AlterarDel(modelo);
         }
-        public DataTable LocalizarTED(int turno, int seg, int caixa)
+        public DataTable LocalizarTED( int seg, int caixa)
         {
             DALTransf DALobj = new DALTransf(conexao);
-            return DALobj.LocalizarTED(turno,seg,caixa);
+            return DALobj.LocalizarTED(seg,caixa);
         }
-        public DataTable LocalizarAv(int turno, int seg, int caixa)
+        public DataTable LocalizarAv( int seg, int caixa)
         {
             DALTransf DALobj = new DALTransf(conexao);
-            return DALobj.LocalizarTED(turno, seg, caixa);
+            return DALobj.LocalizarTED( seg, caixa);
         }
         public DataTable LocalizardgvTED(int caixa, int turno, int codfunc,string datamov)
         {
@@ -58,7 +58,7 @@ namespace BLL
         public DataTable LocalizarAvulso(int caixa, int turno, int codfunc, string datamov)
         {
             DALTransf DALobj = new DALTransf(conexao);
-            return DALobj.LocalizaAvulso(caixa, turno, codfunc,datamov);
+            return DALobj.LocalizaAvulso(caixa, codfunc,datamov);
         }
     }
 }

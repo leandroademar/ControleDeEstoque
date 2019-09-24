@@ -41,7 +41,7 @@ namespace GUI
 
             DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
             BLLTABCaixa bll = new BLLTABCaixa(cx);
-            dgvTABCaixas.DataSource = bll.LocalizarCaixas(Convert.ToInt32(cbxTurno.Text), (rbtAtacado.Checked == true) ? 1 : 0, (cbxDia.Checked == true) ? 1 : 0, dtpMovimento.Value.ToString("yyyy-MM-dd"));
+            dgvTABCaixas.DataSource = bll.LocalizarCaixas( (rbtAtacado.Checked == true) ? 1 : 0,  dtpMovimento.Value.ToString("yyyy-MM-dd"));
             this.AtualizadgvTABCaixa();
             AlteraCampos(1);
 
@@ -77,7 +77,7 @@ namespace GUI
                 txtCDtks.ReadOnly = false;
                 txtMoedas.ReadOnly = false;
                 txtOutros.ReadOnly = false;
-                cbxTurnoDet.Enabled = true;
+                //cbxTurnoDet.Enabled = true;
                 button1.Visible = true;
                 btnAvulso.Visible = true;
 
@@ -96,7 +96,7 @@ namespace GUI
                 txtMoedas.ReadOnly = true;
                 txtOutros.ReadOnly = true;
                 btnAvulso.Visible = false;
-                cbxTurnoDet.Enabled = false;
+               // cbxTurnoDet.Enabled = false;
                 button1.Visible = false;
 
 
@@ -141,15 +141,15 @@ namespace GUI
             
             DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
             BLLTABCaixa bll = new BLLTABCaixa(cx);
-            dgvTABCaixas.DataSource = bll.LocalizarCaixas(Convert.ToInt32(cbxTurno.Text), (rbtAtacado.Checked == true) ? 1 : 0, (cbxDia.Checked == true) ? 1 : 0, dtpMovimento.Value.ToString("yyyy-MM-dd"));
+            dgvTABCaixas.DataSource = bll.LocalizarCaixas( (rbtAtacado.Checked == true) ? 1 : 0, dtpMovimento.Value.ToString("yyyy-MM-dd"));
             dgvTABCaixas.RowHeadersVisible = false;
             dgvTABCaixas.ReadOnly = true;
             dgvTABCaixas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvTABCaixas.Columns[1].HeaderText = "Caixa";
             dgvTABCaixas.Columns[2].HeaderText = "Operador";
             dgvTABCaixas.Columns[3].HeaderText = "Nome";
-            dgvTABCaixas.Columns[12].HeaderText = "Turno";
-            dgvTABCaixas.Columns[3].Width = 420;
+          
+            dgvTABCaixas.Columns[3].Width = 530;
             dgvTABCaixas.Columns[0].Visible = false;
             dgvTABCaixas.Columns[4].Visible = false;
             dgvTABCaixas.Columns[5].Visible = false;
@@ -159,6 +159,7 @@ namespace GUI
             dgvTABCaixas.Columns[9].Visible = false;
             dgvTABCaixas.Columns[10].Visible = false;
             dgvTABCaixas.Columns[11].Visible = false;
+            dgvTABCaixas.Columns[12].Visible = false;
             dgvTABCaixas.Columns[13].Visible = false;
             dgvTABCaixas.Columns[14].Visible = false;
             dgvTABCaixas.Columns[15].Visible = false;
@@ -253,7 +254,7 @@ namespace GUI
                 txtCDtks.Text = dgvTABCaixas.Rows[e.RowIndex].Cells[14].Value.ToString();
                 txtMoedas.Text = dgvTABCaixas.Rows[e.RowIndex].Cells[15].Value.ToString();
                 txtOutros.Text = dgvTABCaixas.Rows[e.RowIndex].Cells[16].Value.ToString();
-                cbxTurnoDet.Text = dgvTABCaixas.Rows[e.RowIndex].Cells[12].Value.ToString();
+                //cbxTurnoDet.Text = dgvTABCaixas.Rows[e.RowIndex].Cells[12].Value.ToString();
 
             }
         }
@@ -288,7 +289,7 @@ namespace GUI
                 modelo.VlrCdtks = Convert.ToDouble(txtCDtks.Text.ToString());
                 modelo.VlrMoedas = Convert.ToDouble(txtMoedas.Text.ToString());
                 modelo.VlrOutros = Convert.ToDouble(txtOutros.Text.ToString());
-                modelo.Turno = Convert.ToInt32(cbxTurnoDet.Text.ToString());
+               // modelo.Turno = Convert.ToInt32(cbxTurnoDet.Text.ToString());
 
                 DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
                 BLLTABCaixa bll = new BLLTABCaixa(cx);
@@ -324,7 +325,7 @@ namespace GUI
                         Convert.ToInt32(this.txtNumcaixa.Text.ToString()),
                         Convert.ToInt32(this.txtNumoper.Text.ToString()),
                         this.txtNome.Text.ToString(),
-                        Convert.ToInt32(this.cbxTurno.Text.ToString())
+                        Convert.ToInt32(1)
                     );
                 }
                 
@@ -339,7 +340,7 @@ namespace GUI
                                "\n Verficar: Data" +
                                "\n " +
                                "\n É possível que já exista um caixa para essa operadora neste turno!", "Informativo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                cbxTurno.Focus();
+                
             }
 
 
@@ -447,13 +448,7 @@ namespace GUI
             seg = (rbtAtacado.Checked == true) ? 1 : 0;
         }
 
-        private void cbxDia_CheckedChanged(object sender, EventArgs e)
-        {
-            if (cbxDia.Checked != true) { cbxTurno.Enabled = true; } else { cbxTurno.Enabled = false; };
-            this.AtualizadgvTABCaixa();
-            this.AlteraCampos(1);
-
-        }
+       
 
         private void dtpMovimento_ValueChanged(object sender, EventArgs e)
         {
@@ -612,6 +607,9 @@ namespace GUI
         {
             if (e.KeyCode == Keys.Enter)
             {
+                acumula += double.Parse(string.IsNullOrWhiteSpace(txtCDrede.Text) ? "0" : txtCDrede.Text);
+                txtCDrede.Text = acumula.ToString();
+                acumula = 0;
                 txtCDtks.Focus();
             }
         }
@@ -690,24 +688,24 @@ namespace GUI
 
         private void txtTEDelet_Leave(object sender, EventArgs e)
         {
-            if (this.Text.Contains(",") == false)
+            if (txtTEDelet.Text.Contains(",") == false)
             {
-                this.Text += ",00";
+                txtTEDelet.Text += ",00";
             }
             else
             {
-                if (this.Text.IndexOf(",") == this.Text.Length - 1)
+                if (txtTEDelet.Text.IndexOf(",") == txtTEDelet.Text.Length - 1)
                 {
-                    this.Text += "00";
+                    txtTEDelet.Text += "00";
                 }
             }
             try
             {
-                Double d = Math.Round(Convert.ToDouble(this.Text), 2);
+                Double d = Math.Round(Convert.ToDouble(txtTEDelet.Text), 2);
             }
             catch
             {
-                this.Text = "0,00";
+                txtTEDelet.Text = "0,00";
             }
         }
 
@@ -1252,6 +1250,42 @@ namespace GUI
             catch (Exception erro)
             {
                 
+            }
+        }
+
+        private void cbxBanco_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter && cbxBanco.Text != "")
+            {
+                //cbxBanco.Visible = true;
+                //maskedTextBox1.Visible = true;
+                //txtCliente.Visible = true;
+                //panel1.Visible = false;
+
+                dtpData.Focus();
+                
+            }
+        }
+
+        private void dtpData_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter && dtpData.Text != "")
+            {
+               
+
+                maskedTextBox1.Focus();
+
+            }
+        }
+
+        private void maskedTextBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter && maskedTextBox1.Text != "")
+            {
+               
+
+                txtCliente.Focus();
+
             }
         }
     }

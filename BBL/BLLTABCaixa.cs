@@ -54,10 +54,10 @@ namespace BLL
             DALobj.AlterarTBC(modelo);
         }
 
-        public DataTable LocalizarCaixas(int turno,int seg,int dia, string dtmovimento)
+        public DataTable LocalizarCaixas(int seg, string dtmovimento)
         {
             DALTABCaixa DALobj = new DALTABCaixa(conexao);
-            return DALobj.LocalizarCaixas(turno,seg,dia, dtmovimento);
+            return DALobj.LocalizarCaixas(seg, dtmovimento);
         }
         public DataTable Buscar(int seg, string dtmovimento,string nome)
         {

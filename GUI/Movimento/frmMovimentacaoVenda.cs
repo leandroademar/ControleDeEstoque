@@ -702,7 +702,7 @@ namespace GUI
 
         private void consultarTEDToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmLctoTED frm = new frmLctoTED(Caixa,NomeW,1);
+            frmLctoTED frm = new frmLctoTED(Caixa,NomeW);
             frm.Show();
         }
 
@@ -719,7 +719,7 @@ namespace GUI
         private void btnTED_Click(object sender, EventArgs e)
         {
 
-            frmLctoTED frm = new frmLctoTED( Caixa, NomeW, 1);
+            frmLctoTED frm = new frmLctoTED( Caixa, NomeW);
             frm.Show();
 
         }

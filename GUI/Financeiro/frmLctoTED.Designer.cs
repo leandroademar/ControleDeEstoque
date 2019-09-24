@@ -32,18 +32,14 @@
             this.txtCaixa = new System.Windows.Forms.TextBox();
             this.lblOper = new System.Windows.Forms.Label();
             this.lblCx = new System.Windows.Forms.Label();
-            this.txtTurno = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lblInfo = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.dgvTed = new System.Windows.Forms.DataGridView();
             this.tbcLcto = new System.Windows.Forms.TabControl();
-            this.gpxTipo = new System.Windows.Forms.GroupBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.btnBusca = new System.Windows.Forms.Button();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTed)).BeginInit();
             this.tbcLcto.SuspendLayout();
-            this.gpxTipo.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtNome
@@ -85,36 +81,6 @@
             this.lblCx.Size = new System.Drawing.Size(142, 29);
             this.lblCx.TabIndex = 3;
             this.lblCx.Text = "Num Caixa.:";
-            // 
-            // txtTurno
-            // 
-            this.txtTurno.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txtTurno.Location = new System.Drawing.Point(464, 81);
-            this.txtTurno.MaxLength = 1;
-            this.txtTurno.Name = "txtTurno";
-            this.txtTurno.Size = new System.Drawing.Size(151, 35);
-            this.txtTurno.TabIndex = 2;
-            this.txtTurno.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtTurno_KeyDown);
-            this.txtTurno.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTurno_KeyPress);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label1.Location = new System.Drawing.Point(341, 84);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(89, 29);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Turno :";
-            // 
-            // lblInfo
-            // 
-            this.lblInfo.AutoSize = true;
-            this.lblInfo.Location = new System.Drawing.Point(451, 58);
-            this.lblInfo.Name = "lblInfo";
-            this.lblInfo.Size = new System.Drawing.Size(164, 20);
-            this.lblInfo.TabIndex = 102;
-            this.lblInfo.Text = "1 = Manhã | 2 = Tarde";
             // 
             // tabPage2
             // 
@@ -161,25 +127,25 @@
             this.tbcLcto.Size = new System.Drawing.Size(650, 410);
             this.tbcLcto.TabIndex = 100;
             // 
-            // gpxTipo
-            // 
-            this.gpxTipo.Controls.Add(this.checkBox1);
-            this.gpxTipo.Location = new System.Drawing.Point(8, 12);
-            this.gpxTipo.Name = "gpxTipo";
-            this.gpxTipo.Size = new System.Drawing.Size(101, 53);
-            this.gpxTipo.TabIndex = 103;
-            this.gpxTipo.TabStop = false;
-            this.gpxTipo.Text = "Tipo";
-            // 
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(11, 25);
+            this.checkBox1.Location = new System.Drawing.Point(151, 51);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(80, 24);
             this.checkBox1.TabIndex = 104;
             this.checkBox1.Text = "TED ?";
             this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // btnBusca
+            // 
+            this.btnBusca.Location = new System.Drawing.Point(308, 74);
+            this.btnBusca.Name = "btnBusca";
+            this.btnBusca.Size = new System.Drawing.Size(130, 45);
+            this.btnBusca.TabIndex = 105;
+            this.btnBusca.Text = "Buscar";
+            this.btnBusca.UseVisualStyleBackColor = true;
+            this.btnBusca.Click += new System.EventHandler(this.btnBusca_Click);
             // 
             // frmLctoTED
             // 
@@ -187,11 +153,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(679, 590);
             this.ControlBox = false;
-            this.Controls.Add(this.gpxTipo);
-            this.Controls.Add(this.lblInfo);
+            this.Controls.Add(this.btnBusca);
+            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.tbcLcto);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtTurno);
             this.Controls.Add(this.lblCx);
             this.Controls.Add(this.lblOper);
             this.Controls.Add(this.txtCaixa);
@@ -205,8 +169,6 @@
             this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTed)).EndInit();
             this.tbcLcto.ResumeLayout(false);
-            this.gpxTipo.ResumeLayout(false);
-            this.gpxTipo.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -218,13 +180,10 @@
         private System.Windows.Forms.TextBox txtCaixa;
         private System.Windows.Forms.Label lblOper;
         private System.Windows.Forms.Label lblCx;
-        private System.Windows.Forms.TextBox txtTurno;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label lblInfo;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.DataGridView dgvTed;
         private System.Windows.Forms.TabControl tbcLcto;
-        private System.Windows.Forms.GroupBox gpxTipo;
         private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Button btnBusca;
     }
 }

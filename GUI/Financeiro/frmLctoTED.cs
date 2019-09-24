@@ -22,21 +22,21 @@ namespace GUI
         public string _vlrted = "";
         public int seg = 0;
 
-        public frmLctoTED(int caixa,string nome, int turno)
+        public frmLctoTED(int caixa,string nome)
         {
             InitializeComponent();
             
             codfunc = Properties.Settings.Default.Matricula;
             checkBox1.Checked = true;
+            btnBusca.Focus();
       
                 dgvTed.Visible = true;
                 dgvTed.ReadOnly = false;
-                //AtualizaDGVTransf(turno);
                 txtCaixa.Text = caixa.ToString();
                 txtNome.Text = nome.ToString();
-                txtTurno.Text = turno.ToString();
+
                 numcaixa = caixa;
-                numturno = turno;
+    
     
             
 
@@ -52,7 +52,7 @@ namespace GUI
 
             DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
             BLLTransf bll = new BLLTransf(cx);
-            dgvTed.DataSource = bll.LocalizarTED(numturno,seg,numcaixa);
+            dgvTed.DataSource = bll.LocalizarTED(seg,numcaixa);
             dgvTed.Columns[2].HeaderText = "Nome";
             dgvTed.Columns[2].Width = 250;
             dgvTed.Columns[5].HeaderText = "Valor";
@@ -72,7 +72,7 @@ namespace GUI
 
 
         }
-
+        /*
         private void txtTurno_KeyDown(object sender, KeyEventArgs e)
         {
             if(e.KeyCode == Keys.Enter && txtTurno.Text != "" && checkBox1.Checked == true)
@@ -90,6 +90,7 @@ namespace GUI
                 dgvTed.Focus();
             }
         }
+        */
 
         private void frmLctoTED_KeyDown(object sender, KeyEventArgs e)
         {
@@ -99,20 +100,13 @@ namespace GUI
             }
         }
 
-        private void txtTurno_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar != '1' && e.KeyChar != '2')
-            {
-                e.Handled = true;
-            }
-            
-        }
+
 
  
 
         private void dgvTed_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.Enter && txtTurno.Text != "")
+            if(e.KeyCode == Keys.Enter)
             {
                 e.SuppressKeyPress = true;
                 AlterarTED();
@@ -133,7 +127,6 @@ namespace GUI
             ModeloTransf modelo = new ModeloTransf();
             modelo.NumTrans = Convert.ToInt32(dgvTed.CurrentRow.Cells[0].Value.ToString());
             modelo.NumCaixa = Convert.ToInt32(txtCaixa.Text.ToString());
-            modelo.Turno = Convert.ToInt32(txtTurno.Text.ToString());
             modelo.CodFunc = codfunc;
             GravarTED(1,dgvTed.CurrentRow.Cells[2].Value.ToString(),dgvTed.CurrentRow.Cells[5].Value.ToString());
             GravarTED(2, dgvTed.CurrentRow.Cells[2].Value.ToString(), dgvTed.CurrentRow.Cells[5].Value.ToString());
@@ -255,6 +248,23 @@ namespace GUI
                 ev.HasMorePages = true;
             else
                 ev.HasMorePages = false;
+        }
+
+        private void btnBusca_Click(object sender, EventArgs e)
+        {
+            if(checkBox1.Checked == true)
+            {
+                seg = 1;
+                AtualizaDGVTransf();
+                dgvTed.Focus();
+
+            }else
+            {
+                seg = 2;
+                AtualizaDGVTransf();
+                dgvTed.Focus();
+            }
+            
         }
     }
 }
