@@ -117,7 +117,7 @@ namespace GUI
                 e.SuppressKeyPress = true;
                 AlterarTED();
                 spoolrec("FECHTED1.log");
-                spoolrec("FECHTED2.log");
+                //spoolrec("FECHTED2.log");
                 this.Close();
             }
             if(e.KeyCode == Keys.Escape)
