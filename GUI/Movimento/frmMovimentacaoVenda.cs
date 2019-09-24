@@ -30,6 +30,7 @@ namespace GUI
         public int Caixa = Properties.Settings.Default.Caixa;
         public string xnomecli;
         public string xvlrted;
+        public int xturno;
 
 
 
@@ -707,7 +708,11 @@ namespace GUI
 
         private void txtVenCod_KeyDown(object sender, KeyEventArgs e)
         {
-            
+            if(txtVenCod.Text != "" && e.KeyCode == Keys.Enter )
+            {
+                txtVenCod_Leave(sender, e);
+                txtWint.Focus();
+            }
         }
     
 
