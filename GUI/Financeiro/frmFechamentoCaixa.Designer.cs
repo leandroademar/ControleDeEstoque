@@ -56,6 +56,9 @@
             this.lblVDinheiro = new System.Windows.Forms.Label();
             this.lblVBanese = new System.Windows.Forms.Label();
             this.gbxValores = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.cbxTurnoDet = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.lblOutros = new System.Windows.Forms.Label();
             this.lblMoedas = new System.Windows.Forms.Label();
             this.txtOutros = new System.Windows.Forms.TextBox();
@@ -125,9 +128,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.lblTgSai = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cbxTurnoDet = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnCor = new System.Windows.Forms.Button();
+            this.cdgCaixaCores = new System.Windows.Forms.ColorDialog();
             this.pnlTABCaixa.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTABCaixas)).BeginInit();
             this.gbxTotais.SuspendLayout();
@@ -480,6 +482,39 @@
             this.gbxValores.TabIndex = 8;
             this.gbxValores.TabStop = false;
             this.gbxValores.Text = "Valores";
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(968, 175);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(105, 41);
+            this.button1.TabIndex = 39;
+            this.button1.Text = "Deletar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // cbxTurnoDet
+            // 
+            this.cbxTurnoDet.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxTurnoDet.FormattingEnabled = true;
+            this.cbxTurnoDet.Items.AddRange(new object[] {
+            "1",
+            "2"});
+            this.cbxTurnoDet.Location = new System.Drawing.Point(954, 65);
+            this.cbxTurnoDet.Name = "cbxTurnoDet";
+            this.cbxTurnoDet.Size = new System.Drawing.Size(80, 37);
+            this.cbxTurnoDet.TabIndex = 38;
+            this.cbxTurnoDet.Text = "1";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(953, 31);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(89, 29);
+            this.label1.TabIndex = 20;
+            this.label1.Text = "Turno.:";
             // 
             // lblOutros
             // 
@@ -1214,44 +1249,23 @@
             this.lblTgSai.TabIndex = 7;
             this.lblTgSai.Text = "0,00";
             // 
-            // label1
+            // btnCor
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(953, 31);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(89, 29);
-            this.label1.TabIndex = 20;
-            this.label1.Text = "Turno.:";
-            // 
-            // cbxTurnoDet
-            // 
-            this.cbxTurnoDet.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbxTurnoDet.FormattingEnabled = true;
-            this.cbxTurnoDet.Items.AddRange(new object[] {
-            "1",
-            "2"});
-            this.cbxTurnoDet.Location = new System.Drawing.Point(954, 65);
-            this.cbxTurnoDet.Name = "cbxTurnoDet";
-            this.cbxTurnoDet.Size = new System.Drawing.Size(80, 37);
-            this.cbxTurnoDet.TabIndex = 38;
-            this.cbxTurnoDet.Text = "1";
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(968, 175);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(105, 41);
-            this.button1.TabIndex = 39;
-            this.button1.Text = "Deletar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnCor.Location = new System.Drawing.Point(27, 818);
+            this.btnCor.Name = "btnCor";
+            this.btnCor.Size = new System.Drawing.Size(57, 45);
+            this.btnCor.TabIndex = 38;
+            this.btnCor.Text = "Cor";
+            this.btnCor.UseVisualStyleBackColor = true;
+            this.btnCor.Click += new System.EventHandler(this.btnCor_Click);
             // 
             // frmFechamentoCaixa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1633, 905);
+            this.Controls.Add(this.btnCor);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.gpbTotal);
             this.Controls.Add(this.pnlInsere);
@@ -1274,6 +1288,7 @@
             this.Controls.Add(this.pnlTABCaixa);
             this.Name = "frmFechamentoCaixa";
             this.Text = "Fechamento de Caixa";
+            this.Load += new System.EventHandler(this.frmFechamentoCaixa_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmFechamentoCaixa_KeyDown_1);
             this.pnlTABCaixa.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTABCaixas)).EndInit();
@@ -1402,5 +1417,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbxTurnoDet;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnCor;
+        private System.Windows.Forms.ColorDialog cdgCaixaCores;
     }
 }

@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -1197,6 +1198,61 @@ namespace GUI
         private void frmFechamentoCaixa_KeyDown_1(object sender, KeyEventArgs e)
         {
            
+        }
+
+        private void btnCor_Click(object sender, EventArgs e)
+        {
+            if (cdgCaixaCores.ShowDialog() == DialogResult.OK)
+            {
+                string corR = "";
+                string corG = "";
+                string corB = "";
+
+
+                this.BackColor = cdgCaixaCores.Color;
+                dgvRetiradas.BackgroundColor = cdgCaixaCores.Color;
+                dgvTABCaixas.BackgroundColor = cdgCaixaCores.Color;
+                dgvTed.BackgroundColor = cdgCaixaCores.Color;
+
+
+                corR = cdgCaixaCores.Color.R.ToString();
+                corG = cdgCaixaCores.Color.G.ToString();
+                corB = cdgCaixaCores.Color.B.ToString();
+                StreamWriter STW_Cor;
+                STW_Cor = new StreamWriter("COR", false);
+                STW_Cor.WriteLine(corR);
+                STW_Cor.WriteLine(corG);
+                STW_Cor.WriteLine(corB);
+
+                STW_Cor.Close();
+            }
+        }
+
+        private void frmFechamentoCaixa_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                string corR = "";
+                string corG = "";
+                string corB = "";
+                StreamReader arquivo = new StreamReader("COR");
+                corR = arquivo.ReadLine();
+                corG = arquivo.ReadLine();
+                corB = arquivo.ReadLine();
+
+                
+                this.BackColor = Color.FromArgb(Convert.ToInt32(corR), Convert.ToInt32(corG), Convert.ToInt32(corB));
+                dgvRetiradas.BackgroundColor = Color.FromArgb(Convert.ToInt32(corR), Convert.ToInt32(corG), Convert.ToInt32(corB));
+                dgvTABCaixas.BackgroundColor = Color.FromArgb(Convert.ToInt32(corR), Convert.ToInt32(corG), Convert.ToInt32(corB));
+                dgvTed.BackgroundColor = Color.FromArgb(Convert.ToInt32(corR), Convert.ToInt32(corG), Convert.ToInt32(corB));
+                
+
+                arquivo.Close();
+            }
+            catch (Exception erro)
+            {
+                
+            }
         }
     }
 }
