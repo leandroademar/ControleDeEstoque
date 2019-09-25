@@ -2,8 +2,6 @@
 using DAL;
 using GUI.Relatórios;
 using System;
-using System.Data;
-using System.Data.SqlClient;
 using System.Windows.Forms;
 
 
