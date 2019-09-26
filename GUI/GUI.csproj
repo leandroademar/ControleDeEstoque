@@ -12,7 +12,7 @@
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>C:\ControleDeEstoque\</PublishUrl>
+    <PublishUrl>P:\ATUALIZACAO\Tabajara\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -28,7 +28,7 @@
     <SuiteName>Controle de Estoque</SuiteName>
     <WebPage>publish.htm</WebPage>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>64</ApplicationRevision>
+    <ApplicationRevision>67</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -115,10 +115,10 @@
     <Compile Include="Cadastros\frmCadastroVerba.Designer.cs">
       <DependentUpon>frmCadastroVerba.cs</DependentUpon>
     </Compile>
-    <Compile Include="Consultas\frmConsultaVerba.cs">
+    <Compile Include="frmConsultaVerba.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Consultas\frmConsultaVerba.Designer.cs">
+    <Compile Include="frmConsultaVerba.Designer.cs">
       <DependentUpon>frmConsultaVerba.cs</DependentUpon>
     </Compile>
     <Compile Include="Ferramentas\frmBackupBancoDeDados.cs">
@@ -259,10 +259,10 @@
     <Compile Include="Consultas\frmConsultaVenda.Designer.cs">
       <DependentUpon>frmConsultaVenda.cs</DependentUpon>
     </Compile>
-    <Compile Include="Financeiro\frmControleVale.cs">
+    <Compile Include="frmControleVale.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Financeiro\frmControleVale.Designer.cs">
+    <Compile Include="frmControleVale.Designer.cs">
       <DependentUpon>frmControleVale.cs</DependentUpon>
     </Compile>
     <Compile Include="Financeiro\frmFechamentoCaixa.cs">
@@ -282,6 +282,12 @@
     </Compile>
     <Compile Include="Financeiro\frmLctoTED.Designer.cs">
       <DependentUpon>frmLctoTED.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLctoVerba.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLctoVerba.Designer.cs">
+      <DependentUpon>frmLctoVerba.cs</DependentUpon>
     </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
@@ -387,7 +393,7 @@
     <EmbeddedResource Include="Cadastros\frmCadastroVerba.resx">
       <DependentUpon>frmCadastroVerba.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Consultas\frmConsultaVerba.resx">
+    <EmbeddedResource Include="frmConsultaVerba.resx">
       <DependentUpon>frmConsultaVerba.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ferramentas\frmBackupBancoDeDados.resx">
@@ -459,7 +465,7 @@
     <EmbeddedResource Include="Consultas\frmConsultaVenda.resx">
       <DependentUpon>frmConsultaVenda.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Financeiro\frmControleVale.resx">
+    <EmbeddedResource Include="frmControleVale.resx">
       <DependentUpon>frmControleVale.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Financeiro\frmFechamentoCaixa.resx">
@@ -470,6 +476,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Financeiro\frmLctoTED.resx">
       <DependentUpon>frmLctoTED.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLctoVerba.resx">
+      <DependentUpon>frmLctoVerba.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>

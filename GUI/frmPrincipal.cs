@@ -471,7 +471,7 @@ namespace GUI
         private void controleDeValeToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
-            frmControleVale f = new frmControleVale();
+            frmLctoVerba f = new frmLctoVerba();
             CheckMdiChildren(f);
         }
 

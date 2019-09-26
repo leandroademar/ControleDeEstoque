@@ -367,7 +367,7 @@ namespace GUI
             }
             catch (Exception erro)
             {
-                System.Windows.MessageBox.Show(erro.Message);
+                MessageBox.Show(erro.Message);
             }
 
         }

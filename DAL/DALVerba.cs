@@ -74,7 +74,7 @@ namespace DAL
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = conexao.ObjetoConexao;
             String cSql2 = "";
-            cSql2 = cSql2 + " UPDATE TABVERBA SET SALDO = VALORDESCONTO - (SELECT SUM(VALOR) FROM TABDETVERBA WHERE IDVERBA = @IDTRAN)" + "\n";
+            cSql2 = cSql2 + " UPDATE TABVERBA SET SALDO = VALORDESCONTO - (SELECT ISNULL(SUM(VALOR),0) FROM TABDETVERBA WHERE IDVERBA = @IDTRAN)" + "\n";
             cSql2 = cSql2 + " WHERE IDTRAN = @IDTRAN";
             cmd.CommandText = cSql2;
             cmd.Parameters.AddWithValue("@IDTRAN", modelo.IdTran);
@@ -87,6 +87,14 @@ namespace DAL
         {
             DataTable tabela = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(" SELECT * FROM TABVERBA WHERE NOMEFORNECEDOR LIKE '%"+valor+"%' ", conexao.StringConexao);
+            da.Fill(tabela);
+            return tabela;
+        }
+
+        public DataTable LocalizarDep(int idtran)
+        {
+            DataTable tabela = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(" SELECT DATADEP,VALOR,IDTRAN FROM TABDETVERBA WHERE IDVERBA = " + idtran , conexao.StringConexao);
             da.Fill(tabela);
             return tabela;
         }
@@ -133,5 +141,33 @@ namespace DAL
             return modelo;
         }
 
+        public void AlterarDel(ModeloVerba modelo)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = conexao.ObjetoConexao;
+            String comando5 = "";
+            comando5 = comando5 + " DELETE FROM TABDETVERBA WHERE IDTRAN = @IDTRAN;";
+
+            cmd.CommandText = comando5;
+            cmd.Parameters.AddWithValue("@IDTRAN", modelo.IdTran);
+
+            conexao.Conectar();
+            cmd.ExecuteNonQuery();
+            conexao.Desconectar();
+        }
+        public void Excluir(ModeloVerba modelo)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = conexao.ObjetoConexao;
+            String comando5 = "";
+            comando5 = comando5 + " DELETE FROM TABVERBA WHERE IDTRAN = @IDTRAN;";
+
+            cmd.CommandText = comando5;
+            cmd.Parameters.AddWithValue("@IDTRAN", modelo.IdTran);
+
+            conexao.Conectar();
+            cmd.ExecuteNonQuery();
+            conexao.Desconectar();
+        }
     }
 }

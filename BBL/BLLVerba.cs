@@ -32,10 +32,29 @@ namespace BLL
             DALobj.AtualizaSaldo(modelo);
         }
 
+        public void Deleta(ModeloVerba modelo)
+        {
+
+            DALVerba DALobj = new DALVerba(conexao);
+            DALobj.AlterarDel(modelo);
+        }
+        public void Excluir(ModeloVerba modelo)
+        {
+
+            DALVerba DALobj = new DALVerba(conexao);
+            DALobj.Excluir(modelo);
+        }
+
         public DataTable Localizar(String valor)
         {
             DALVerba DALobj = new DALVerba(conexao);
             return DALobj.Localizar(valor);
+        }
+
+        public DataTable LocalizarDep(int valor)
+        {
+            DALVerba DALobj = new DALVerba(conexao);
+            return DALobj.LocalizarDep(valor);
         }
         public ModeloVerba CarregaModeloVerba(int codigo)
         {

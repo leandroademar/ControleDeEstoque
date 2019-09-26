@@ -1,6 +1,7 @@
 ﻿using BLL;
 using DAL;
 using System;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace GUI.Consultas
@@ -41,7 +42,15 @@ namespace GUI.Consultas
             dataGridView1.Columns[2].Width = 260;
             dataGridView1.Columns[0].Width = 80;
 
+            this.txtTotalVerba.Text = dataGridView1.Rows.Cast<DataGridViewRow>().Sum(i => Convert.ToDecimal(i.Cells[5].Value ?? 0)).ToString("N2");
+            this.txtTotalSaldo.Text = dataGridView1.Rows.Cast<DataGridViewRow>().Sum(i => Convert.ToDecimal(i.Cells[11].Value ?? 0)).ToString("N2");
+            this.txtTotalPago.Text = (dataGridView1.Rows.Cast<DataGridViewRow>().Sum(i => Convert.ToDecimal(i.Cells[5].Value ?? 0)) - dataGridView1.Rows.Cast<DataGridViewRow>().Sum(i => Convert.ToDecimal(i.Cells[11].Value ?? 0))).ToString("N2");
+
+
+
         }
+
+
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -50,6 +59,7 @@ namespace GUI.Consultas
                 this.codigo = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value);
                 this.Close();
             }
+            
         }
 
         private void dataGridView1_KeyDown(object sender, KeyEventArgs e)
