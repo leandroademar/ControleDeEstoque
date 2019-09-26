@@ -12,7 +12,7 @@
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>P:\ATUALIZACAO\Tabajara\</PublishUrl>
+    <PublishUrl>C:\ControleDeEstoque\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -28,7 +28,7 @@
     <SuiteName>Controle de Estoque</SuiteName>
     <WebPage>publish.htm</WebPage>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>63</ApplicationRevision>
+    <ApplicationRevision>64</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -109,6 +109,18 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cadastros\frmCadastroVerba.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cadastros\frmCadastroVerba.Designer.cs">
+      <DependentUpon>frmCadastroVerba.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\frmConsultaVerba.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consultas\frmConsultaVerba.Designer.cs">
+      <DependentUpon>frmConsultaVerba.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ferramentas\frmBackupBancoDeDados.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -372,6 +384,12 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Settings.cs" />
+    <EmbeddedResource Include="Cadastros\frmCadastroVerba.resx">
+      <DependentUpon>frmCadastroVerba.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Consultas\frmConsultaVerba.resx">
+      <DependentUpon>frmConsultaVerba.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ferramentas\frmBackupBancoDeDados.resx">
       <DependentUpon>frmBackupBancoDeDados.cs</DependentUpon>
     </EmbeddedResource>

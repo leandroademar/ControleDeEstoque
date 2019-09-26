@@ -355,21 +355,21 @@
             // tesourariaToolStripMenuItem2
             // 
             this.tesourariaToolStripMenuItem2.Name = "tesourariaToolStripMenuItem2";
-            this.tesourariaToolStripMenuItem2.Size = new System.Drawing.Size(247, 30);
+            this.tesourariaToolStripMenuItem2.Size = new System.Drawing.Size(252, 30);
             this.tesourariaToolStripMenuItem2.Text = "Tesouraria";
             this.tesourariaToolStripMenuItem2.Click += new System.EventHandler(this.tesourariaToolStripMenuItem2_Click);
             // 
             // controleDeValeToolStripMenuItem
             // 
             this.controleDeValeToolStripMenuItem.Name = "controleDeValeToolStripMenuItem";
-            this.controleDeValeToolStripMenuItem.Size = new System.Drawing.Size(247, 30);
+            this.controleDeValeToolStripMenuItem.Size = new System.Drawing.Size(252, 30);
             this.controleDeValeToolStripMenuItem.Text = "Controle de Verbas";
             this.controleDeValeToolStripMenuItem.Click += new System.EventHandler(this.controleDeValeToolStripMenuItem_Click);
             // 
             // toolStripSeparator8
             // 
             this.toolStripSeparator8.Name = "toolStripSeparator8";
-            this.toolStripSeparator8.Size = new System.Drawing.Size(244, 6);
+            this.toolStripSeparator8.Size = new System.Drawing.Size(249, 6);
             // 
             // relatóriosToolStripMenuItem1
             // 
@@ -377,7 +377,7 @@
             this.extratoGeralToolStripMenuItem,
             this.fechamentoToolStripMenuItem});
             this.relatóriosToolStripMenuItem1.Name = "relatóriosToolStripMenuItem1";
-            this.relatóriosToolStripMenuItem1.Size = new System.Drawing.Size(247, 30);
+            this.relatóriosToolStripMenuItem1.Size = new System.Drawing.Size(252, 30);
             this.relatóriosToolStripMenuItem1.Text = "Relatórios";
             // 
             // extratoGeralToolStripMenuItem
@@ -674,8 +674,7 @@
             // 
             // frmPrincipal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(879, 691);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.toolStrip1);

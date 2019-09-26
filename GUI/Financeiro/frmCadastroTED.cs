@@ -92,7 +92,6 @@ namespace GUI
             txtValor.Clear();
             maskedTextBox1.Clear();
 
-
         }
 
         private void comboBox1_KeyDown(object sender, KeyEventArgs e)

@@ -54,7 +54,6 @@ namespace GUI
             txtCDtks.Clear();
             txtMoedas.Clear();
             txtOutros.Clear();
-           
 
         }
 
@@ -72,7 +71,6 @@ namespace GUI
                 txtCDtks.ReadOnly = false;
                 txtMoedas.ReadOnly = false;
                 txtOutros.ReadOnly = false;
-                //cbxTurnoDet.Enabled = true;
                 button1.Visible = true;
                 btnAvulso.Visible = true;
 
@@ -1278,7 +1276,6 @@ namespace GUI
             if (e.KeyCode == Keys.Enter && maskedTextBox1.Text != "")
             {
                
-
                 txtCliente.Focus();
 
             }
