@@ -31,6 +31,14 @@
             this.pnBotoes.SuspendLayout();
             this.SuspendLayout();
             // 
+            // btSalvar
+            // 
+            this.btSalvar.Click += new System.EventHandler(this.btSalvar_Click);
+            // 
+            // btInserir
+            // 
+            this.btInserir.Click += new System.EventHandler(this.btInserir_Click);
+            // 
             // frmCadastroVerba
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
