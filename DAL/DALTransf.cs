@@ -104,7 +104,7 @@ namespace DAL
         }
 
 
-        public DataTable LocalizarTED( int seg, int caixa)
+        public DataTable LocalizarTED( int seg, int caixa,int codoper)
         {
             String comando3 = "";
             comando3 = comando3 + "SELECT NUMTRANS " + "\n";
@@ -117,15 +117,15 @@ namespace DAL
             comando3 = comando3 + ",TURNO " + "\n";
             comando3 = comando3 + ",CODFUNC " + "\n";
             comando3 = comando3 + "FROM TABTRANSF " + "\n";
-            comando3 = comando3 + "WHERE DATAINCLUSAO >= GETDATE() - 3";
+            comando3 = comando3 + "WHERE ";
             if (seg == 1)
             {
-                comando3 = comando3 + " AND HORALIBERACAO IS NULL  AND NUMCAIXA = "+caixa+ "\n";
+                comando3 = comando3 + "  HORALIBERACAO IS NULL AND CODFUNC = "+codoper+"  AND NUMCAIXA = "+caixa+ "\n";
 
             }
             if (seg == 2)
             {
-                comando3 = comando3 + "   AND NUMCAIXA IS NULL " + "\n";
+                comando3 = comando3 + " HORALIBERACAO IS NULL AND  NUMCAIXA IS NULL " + "\n";
 
             }
 
