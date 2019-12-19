@@ -28,7 +28,7 @@
     <SuiteName>Controle de Estoque</SuiteName>
     <WebPage>publish.htm</WebPage>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>67</ApplicationRevision>
+    <ApplicationRevision>69</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -331,6 +331,12 @@
     <Compile Include="frmPrincipal.Designer.cs">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Relatórios\frmRelatorioCaixas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Relatórios\frmRelatorioCaixas.Designer.cs">
+      <DependentUpon>frmRelatorioCaixas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Relatórios\frmRelatorioVendas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -387,6 +393,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>RelVendasSeparas.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RelCaixas.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RelCaixas.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Settings.cs" />
@@ -501,6 +513,9 @@
     <EmbeddedResource Include="frmPrincipal.resx">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Relatórios\frmRelatorioCaixas.resx">
+      <DependentUpon>frmRelatorioCaixas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Relatórios\frmRelatorioVendas.resx">
       <DependentUpon>frmRelatorioVendas.cs</DependentUpon>
     </EmbeddedResource>
@@ -530,6 +545,10 @@
     <EmbeddedResource Include="Relatórios\RelVendasSeparas.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RelVendasSeparas.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RelCaixas.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RelCaixas.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="nControleDataSet.xsc">
       <DependentUpon>nControleDataSet.xsd</DependentUpon>
