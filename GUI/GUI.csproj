@@ -28,11 +28,8 @@
     <SuiteName>Controle de Estoque</SuiteName>
     <WebPage>publish.htm</WebPage>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-<<<<<<< HEAD
     <ApplicationRevision>49</ApplicationRevision>
-=======
-    <ApplicationRevision>67</ApplicationRevision>
->>>>>>> parent of 495a4ae... Atualização Geral
+
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -369,15 +366,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-<<<<<<< HEAD
-=======
-    <Compile Include="Relatórios\RelVendasSeparas.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>RelVendasSeparas.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
->>>>>>> parent of 495a4ae... Atualização Geral
+
     <Compile Include="Settings.cs" />
     <EmbeddedResource Include="Ferramentas\frmBackupBancoDeDados.resx">
       <DependentUpon>frmBackupBancoDeDados.cs</DependentUpon>
@@ -510,13 +499,7 @@
     <EmbeddedResource Include="Relatórios\Obsoleto\Report2.rdlc" />
     <EmbeddedResource Include="Relatórios\Obsoleto\Report3.rdlc" />
     <EmbeddedResource Include="Relatórios\Obsoleto\ReportSeparadas.rdlc" />
-<<<<<<< HEAD
-=======
-    <EmbeddedResource Include="Relatórios\RelVendasSeparas.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>RelVendasSeparas.cs</LastGenOutput>
-    </EmbeddedResource>
->>>>>>> parent of 495a4ae... Atualização Geral
+
     <None Include="nControleDataSet.xsc">
       <DependentUpon>nControleDataSet.xsd</DependentUpon>
     </None>
