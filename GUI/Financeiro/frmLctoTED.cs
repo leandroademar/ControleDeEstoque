@@ -20,7 +20,7 @@ namespace GUI
         public int codfunc = 0;
         public string _nomecli = "";
         public string _vlrted = "";
-  
+        public int seg = 0;
 
         public frmLctoTED(int caixa,string nome)
         {
@@ -42,7 +42,7 @@ namespace GUI
 
         }
 
-        public void AtualizaDGVTransf(int seg)
+        public void AtualizaDGVTransf()
 
         {
 
@@ -52,7 +52,7 @@ namespace GUI
 
             DALConexao cx = new DALConexao(DadosDaConexao.StringDeConexao);
             BLLTransf bll = new BLLTransf(cx);
-            dgvTed.DataSource = bll.LocalizarTED(seg,numcaixa,codfunc);
+            dgvTed.DataSource = bll.LocalizarTED(seg,numcaixa);
             dgvTed.Columns[2].HeaderText = "Nome";
             dgvTed.Columns[2].Width = 250;
             dgvTed.Columns[5].HeaderText = "Valor";
@@ -136,7 +136,7 @@ namespace GUI
 
         public void GravarTED(int via, string nomecliente, string total)
         {
-            if(checkBox1.Checked == true)
+            if(seg == 2)
             {
                 StreamWriter STW_Arquivo;
                 STW_Arquivo = new StreamWriter("FECHTED" + via + ".log", false);
@@ -254,14 +254,14 @@ namespace GUI
         {
             if(checkBox1.Checked == true)
             {
-              
-                AtualizaDGVTransf(2);
+                seg = 1;
+                AtualizaDGVTransf();
                 dgvTed.Focus();
 
             }else
             {
-                
-                AtualizaDGVTransf(1);
+                seg = 2;
+                AtualizaDGVTransf();
                 dgvTed.Focus();
             }
             

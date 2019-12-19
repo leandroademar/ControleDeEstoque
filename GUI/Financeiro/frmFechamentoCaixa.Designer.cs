@@ -31,7 +31,9 @@
             this.pnlTABCaixa = new System.Windows.Forms.Panel();
             this.dgvTABCaixas = new System.Windows.Forms.DataGridView();
             this.dtpMovimento = new System.Windows.Forms.DateTimePicker();
+            this.cbxTurno = new System.Windows.Forms.ComboBox();
             this.lblData = new System.Windows.Forms.Label();
+            this.lblTurno = new System.Windows.Forms.Label();
             this.gbxTotais = new System.Windows.Forms.GroupBox();
             this.totalOutros = new System.Windows.Forms.Label();
             this.totalCheque = new System.Windows.Forms.Label();
@@ -54,7 +56,6 @@
             this.lblVDinheiro = new System.Windows.Forms.Label();
             this.lblVBanese = new System.Windows.Forms.Label();
             this.gbxValores = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.lblOutros = new System.Windows.Forms.Label();
             this.lblMoedas = new System.Windows.Forms.Label();
             this.txtOutros = new System.Windows.Forms.TextBox();
@@ -81,6 +82,7 @@
             this.btnSalvar = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.gbxSegmento = new System.Windows.Forms.GroupBox();
+            this.cbxDia = new System.Windows.Forms.CheckBox();
             this.rbtAtacado = new System.Windows.Forms.RadioButton();
             this.rbtVarejo = new System.Windows.Forms.RadioButton();
             this.txtNumcaixa = new System.Windows.Forms.TextBox();
@@ -123,8 +125,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.lblTgSai = new System.Windows.Forms.Label();
-            this.btnCor = new System.Windows.Forms.Button();
-            this.cdgCaixaCores = new System.Windows.Forms.ColorDialog();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cbxTurnoDet = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.pnlTABCaixa.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTABCaixas)).BeginInit();
             this.gbxTotais.SuspendLayout();
@@ -154,17 +157,13 @@
             // 
             this.dgvTABCaixas.AllowUserToAddRows = false;
             this.dgvTABCaixas.AllowUserToDeleteRows = false;
-            this.dgvTABCaixas.AllowUserToResizeColumns = false;
-            this.dgvTABCaixas.AllowUserToResizeRows = false;
             this.dgvTABCaixas.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvTABCaixas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTABCaixas.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvTABCaixas.GridColor = System.Drawing.SystemColors.Control;
             this.dgvTABCaixas.Location = new System.Drawing.Point(0, 0);
-            this.dgvTABCaixas.MultiSelect = false;
             this.dgvTABCaixas.Name = "dgvTABCaixas";
             this.dgvTABCaixas.ReadOnly = true;
-            this.dgvTABCaixas.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvTABCaixas.RowTemplate.Height = 28;
             this.dgvTABCaixas.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvTABCaixas.Size = new System.Drawing.Size(1080, 335);
@@ -184,6 +183,20 @@
             this.dtpMovimento.TabIndex = 1;
             this.dtpMovimento.ValueChanged += new System.EventHandler(this.dtpMovimento_ValueChanged);
             // 
+            // cbxTurno
+            // 
+            this.cbxTurno.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxTurno.FormattingEnabled = true;
+            this.cbxTurno.Items.AddRange(new object[] {
+            "1",
+            "2"});
+            this.cbxTurno.Location = new System.Drawing.Point(182, 40);
+            this.cbxTurno.Name = "cbxTurno";
+            this.cbxTurno.Size = new System.Drawing.Size(88, 37);
+            this.cbxTurno.TabIndex = 2;
+            this.cbxTurno.Text = "1";
+            this.cbxTurno.SelectedValueChanged += new System.EventHandler(this.cbxTurno_SelectedValueChanged);
+            // 
             // lblData
             // 
             this.lblData.AutoSize = true;
@@ -193,6 +206,16 @@
             this.lblData.Size = new System.Drawing.Size(68, 29);
             this.lblData.TabIndex = 3;
             this.lblData.Text = "Data:";
+            // 
+            // lblTurno
+            // 
+            this.lblTurno.AutoSize = true;
+            this.lblTurno.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTurno.Location = new System.Drawing.Point(177, 8);
+            this.lblTurno.Name = "lblTurno";
+            this.lblTurno.Size = new System.Drawing.Size(83, 29);
+            this.lblTurno.TabIndex = 4;
+            this.lblTurno.Text = "Turno:";
             // 
             // gbxTotais
             // 
@@ -229,7 +252,7 @@
             // 
             this.totalOutros.AutoSize = true;
             this.totalOutros.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalOutros.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.totalOutros.ForeColor = System.Drawing.SystemColors.Desktop;
             this.totalOutros.Location = new System.Drawing.Point(80, 443);
             this.totalOutros.Name = "totalOutros";
             this.totalOutros.Size = new System.Drawing.Size(62, 29);
@@ -240,7 +263,7 @@
             // 
             this.totalCheque.AutoSize = true;
             this.totalCheque.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalCheque.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.totalCheque.ForeColor = System.Drawing.SystemColors.Desktop;
             this.totalCheque.Location = new System.Drawing.Point(260, 443);
             this.totalCheque.Name = "totalCheque";
             this.totalCheque.Size = new System.Drawing.Size(62, 29);
@@ -251,7 +274,7 @@
             // 
             this.totalCDtks.AutoSize = true;
             this.totalCDtks.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalCDtks.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.totalCDtks.ForeColor = System.Drawing.SystemColors.Desktop;
             this.totalCDtks.Location = new System.Drawing.Point(260, 353);
             this.totalCDtks.Name = "totalCDtks";
             this.totalCDtks.Size = new System.Drawing.Size(62, 29);
@@ -262,7 +285,7 @@
             // 
             this.totalCCtks.AutoSize = true;
             this.totalCCtks.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalCCtks.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.totalCCtks.ForeColor = System.Drawing.SystemColors.Desktop;
             this.totalCCtks.Location = new System.Drawing.Point(260, 266);
             this.totalCCtks.Name = "totalCCtks";
             this.totalCCtks.Size = new System.Drawing.Size(62, 29);
@@ -273,7 +296,7 @@
             // 
             this.totalDinheiro.AutoSize = true;
             this.totalDinheiro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalDinheiro.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.totalDinheiro.ForeColor = System.Drawing.SystemColors.Desktop;
             this.totalDinheiro.Location = new System.Drawing.Point(80, 180);
             this.totalDinheiro.Name = "totalDinheiro";
             this.totalDinheiro.Size = new System.Drawing.Size(62, 29);
@@ -284,7 +307,7 @@
             // 
             this.totalMoedas.AutoSize = true;
             this.totalMoedas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalMoedas.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.totalMoedas.ForeColor = System.Drawing.SystemColors.Desktop;
             this.totalMoedas.Location = new System.Drawing.Point(260, 180);
             this.totalMoedas.Name = "totalMoedas";
             this.totalMoedas.Size = new System.Drawing.Size(62, 29);
@@ -295,7 +318,7 @@
             // 
             this.totalTed.AutoSize = true;
             this.totalTed.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalTed.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.totalTed.ForeColor = System.Drawing.SystemColors.Desktop;
             this.totalTed.Location = new System.Drawing.Point(260, 95);
             this.totalTed.Name = "totalTed";
             this.totalTed.Size = new System.Drawing.Size(62, 29);
@@ -306,7 +329,7 @@
             // 
             this.totalCDrede.AutoSize = true;
             this.totalCDrede.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalCDrede.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.totalCDrede.ForeColor = System.Drawing.SystemColors.Desktop;
             this.totalCDrede.Location = new System.Drawing.Point(80, 353);
             this.totalCDrede.Name = "totalCDrede";
             this.totalCDrede.Size = new System.Drawing.Size(62, 29);
@@ -317,7 +340,7 @@
             // 
             this.totalCCrede.AutoSize = true;
             this.totalCCrede.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalCCrede.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.totalCCrede.ForeColor = System.Drawing.SystemColors.Desktop;
             this.totalCCrede.Location = new System.Drawing.Point(80, 266);
             this.totalCCrede.Name = "totalCCrede";
             this.totalCCrede.Size = new System.Drawing.Size(62, 29);
@@ -328,7 +351,7 @@
             // 
             this.totalBanese.AutoSize = true;
             this.totalBanese.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalBanese.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.totalBanese.ForeColor = System.Drawing.SystemColors.Desktop;
             this.totalBanese.Location = new System.Drawing.Point(80, 94);
             this.totalBanese.Name = "totalBanese";
             this.totalBanese.Size = new System.Drawing.Size(62, 29);
@@ -376,36 +399,36 @@
             this.lblVCDtks.AutoSize = true;
             this.lblVCDtks.Location = new System.Drawing.Point(260, 310);
             this.lblVCDtks.Name = "lblVCDtks";
-            this.lblVCDtks.Size = new System.Drawing.Size(130, 29);
+            this.lblVCDtks.Size = new System.Drawing.Size(113, 29);
             this.lblVCDtks.TabIndex = 5;
-            this.lblVCDtks.Text = "Deb. TKS: ";
+            this.lblVCDtks.Text = "CD TKS: ";
             // 
             // lblVCDRede
             // 
             this.lblVCDRede.AutoSize = true;
             this.lblVCDRede.Location = new System.Drawing.Point(80, 310);
             this.lblVCDRede.Name = "lblVCDRede";
-            this.lblVCDRede.Size = new System.Drawing.Size(135, 29);
+            this.lblVCDRede.Size = new System.Drawing.Size(118, 29);
             this.lblVCDRede.TabIndex = 4;
-            this.lblVCDRede.Text = "Deb. Rede:";
+            this.lblVCDRede.Text = "CD Rede:";
             // 
             // lblVCCTks
             // 
             this.lblVCCTks.AutoSize = true;
             this.lblVCCTks.Location = new System.Drawing.Point(260, 223);
             this.lblVCCTks.Name = "lblVCCTks";
-            this.lblVCCTks.Size = new System.Drawing.Size(138, 29);
+            this.lblVCCTks.Size = new System.Drawing.Size(113, 29);
             this.lblVCCTks.TabIndex = 3;
-            this.lblVCCTks.Text = "Cred. TKS: ";
+            this.lblVCCTks.Text = "CC TKS: ";
             // 
             // lblVCCRede
             // 
             this.lblVCCRede.AutoSize = true;
             this.lblVCCRede.Location = new System.Drawing.Point(80, 223);
             this.lblVCCRede.Name = "lblVCCRede";
-            this.lblVCCRede.Size = new System.Drawing.Size(149, 29);
+            this.lblVCCRede.Size = new System.Drawing.Size(124, 29);
             this.lblVCCRede.TabIndex = 2;
-            this.lblVCCRede.Text = "Cred. Rede: ";
+            this.lblVCCRede.Text = "CC Rede: ";
             // 
             // lblVDinheiro
             // 
@@ -428,6 +451,8 @@
             // gbxValores
             // 
             this.gbxValores.Controls.Add(this.button1);
+            this.gbxValores.Controls.Add(this.cbxTurnoDet);
+            this.gbxValores.Controls.Add(this.label1);
             this.gbxValores.Controls.Add(this.lblOutros);
             this.gbxValores.Controls.Add(this.lblMoedas);
             this.gbxValores.Controls.Add(this.txtOutros);
@@ -455,17 +480,6 @@
             this.gbxValores.TabIndex = 8;
             this.gbxValores.TabStop = false;
             this.gbxValores.Text = "Valores";
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(968, 175);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(105, 41);
-            this.button1.TabIndex = 39;
-            this.button1.Text = "Deletar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // lblOutros
             // 
@@ -528,36 +542,36 @@
             this.lblCdrede.AutoSize = true;
             this.lblCdrede.Location = new System.Drawing.Point(407, 34);
             this.lblCdrede.Name = "lblCdrede";
-            this.lblCdrede.Size = new System.Drawing.Size(135, 29);
+            this.lblCdrede.Size = new System.Drawing.Size(118, 29);
             this.lblCdrede.TabIndex = 14;
-            this.lblCdrede.Text = "Deb. Rede:";
+            this.lblCdrede.Text = "CD Rede:";
             // 
             // lblCdtks
             // 
             this.lblCdtks.AutoSize = true;
             this.lblCdtks.Location = new System.Drawing.Point(407, 111);
             this.lblCdtks.Name = "lblCdtks";
-            this.lblCdtks.Size = new System.Drawing.Size(124, 29);
+            this.lblCdtks.Size = new System.Drawing.Size(107, 29);
             this.lblCdtks.TabIndex = 12;
-            this.lblCdtks.Text = "Deb. TKS:";
+            this.lblCdtks.Text = "CD TKS:";
             // 
             // lblCCtks
             // 
             this.lblCCtks.AutoSize = true;
             this.lblCCtks.Location = new System.Drawing.Point(209, 111);
             this.lblCCtks.Name = "lblCCtks";
-            this.lblCCtks.Size = new System.Drawing.Size(132, 29);
+            this.lblCCtks.Size = new System.Drawing.Size(107, 29);
             this.lblCCtks.TabIndex = 11;
-            this.lblCCtks.Text = "Cred. TSK:";
+            this.lblCCtks.Text = "CC TSK:";
             // 
             // lblCcrede
             // 
             this.lblCcrede.AutoSize = true;
             this.lblCcrede.Location = new System.Drawing.Point(209, 34);
             this.lblCcrede.Name = "lblCcrede";
-            this.lblCcrede.Size = new System.Drawing.Size(143, 29);
+            this.lblCcrede.Size = new System.Drawing.Size(118, 29);
             this.lblCcrede.TabIndex = 10;
-            this.lblCcrede.Text = "Cred. Rede:";
+            this.lblCcrede.Text = "CC Rede:";
             // 
             // lblDinheiro
             // 
@@ -710,6 +724,7 @@
             // 
             // gbxSegmento
             // 
+            this.gbxSegmento.Controls.Add(this.cbxDia);
             this.gbxSegmento.Controls.Add(this.rbtAtacado);
             this.gbxSegmento.Controls.Add(this.rbtVarejo);
             this.gbxSegmento.Location = new System.Drawing.Point(27, 83);
@@ -717,6 +732,17 @@
             this.gbxSegmento.Size = new System.Drawing.Size(328, 60);
             this.gbxSegmento.TabIndex = 24;
             this.gbxSegmento.TabStop = false;
+            // 
+            // cbxDia
+            // 
+            this.cbxDia.AutoSize = true;
+            this.cbxDia.Location = new System.Drawing.Point(216, 26);
+            this.cbxDia.Name = "cbxDia";
+            this.cbxDia.Size = new System.Drawing.Size(100, 24);
+            this.cbxDia.TabIndex = 25;
+            this.cbxDia.Text = "Por Dia ?";
+            this.cbxDia.UseVisualStyleBackColor = true;
+            this.cbxDia.CheckedChanged += new System.EventHandler(this.cbxDia_CheckedChanged);
             // 
             // rbtAtacado
             // 
@@ -894,7 +920,6 @@
             this.maskedTextBox1.Size = new System.Drawing.Size(100, 35);
             this.maskedTextBox1.TabIndex = 29;
             this.maskedTextBox1.ValidatingType = typeof(System.DateTime);
-            this.maskedTextBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.maskedTextBox1_KeyDown);
             // 
             // lblValorLanc
             // 
@@ -934,7 +959,6 @@
             this.dtpData.Name = "dtpData";
             this.dtpData.Size = new System.Drawing.Size(158, 35);
             this.dtpData.TabIndex = 28;
-            this.dtpData.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dtpData_KeyDown);
             // 
             // txtCliente
             // 
@@ -965,7 +989,6 @@
             this.cbxBanco.Name = "cbxBanco";
             this.cbxBanco.Size = new System.Drawing.Size(371, 37);
             this.cbxBanco.TabIndex = 27;
-            this.cbxBanco.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbxBanco_KeyDown);
             // 
             // gpbTotal
             // 
@@ -1191,23 +1214,44 @@
             this.lblTgSai.TabIndex = 7;
             this.lblTgSai.Text = "0,00";
             // 
-            // btnCor
+            // label1
             // 
-            this.btnCor.Location = new System.Drawing.Point(27, 818);
-            this.btnCor.Name = "btnCor";
-            this.btnCor.Size = new System.Drawing.Size(57, 45);
-            this.btnCor.TabIndex = 38;
-            this.btnCor.Text = "Cor";
-            this.btnCor.UseVisualStyleBackColor = true;
-            this.btnCor.Click += new System.EventHandler(this.btnCor_Click);
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(953, 31);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(89, 29);
+            this.label1.TabIndex = 20;
+            this.label1.Text = "Turno.:";
+            // 
+            // cbxTurnoDet
+            // 
+            this.cbxTurnoDet.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxTurnoDet.FormattingEnabled = true;
+            this.cbxTurnoDet.Items.AddRange(new object[] {
+            "1",
+            "2"});
+            this.cbxTurnoDet.Location = new System.Drawing.Point(954, 65);
+            this.cbxTurnoDet.Name = "cbxTurnoDet";
+            this.cbxTurnoDet.Size = new System.Drawing.Size(80, 37);
+            this.cbxTurnoDet.TabIndex = 38;
+            this.cbxTurnoDet.Text = "1";
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(968, 175);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(105, 41);
+            this.button1.TabIndex = 39;
+            this.button1.Text = "Deletar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // frmFechamentoCaixa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1633, 905);
-            this.Controls.Add(this.btnCor);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.gpbTotal);
             this.Controls.Add(this.pnlInsere);
@@ -1223,12 +1267,13 @@
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.gbxValores);
             this.Controls.Add(this.gbxTotais);
+            this.Controls.Add(this.lblTurno);
             this.Controls.Add(this.lblData);
+            this.Controls.Add(this.cbxTurno);
             this.Controls.Add(this.dtpMovimento);
             this.Controls.Add(this.pnlTABCaixa);
             this.Name = "frmFechamentoCaixa";
             this.Text = "Fechamento de Caixa";
-            this.Load += new System.EventHandler(this.frmFechamentoCaixa_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmFechamentoCaixa_KeyDown_1);
             this.pnlTABCaixa.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTABCaixas)).EndInit();
@@ -1259,7 +1304,9 @@
 
         private System.Windows.Forms.Panel pnlTABCaixa;
         private System.Windows.Forms.DateTimePicker dtpMovimento;
+        private System.Windows.Forms.ComboBox cbxTurno;
         private System.Windows.Forms.Label lblData;
+        private System.Windows.Forms.Label lblTurno;
         private System.Windows.Forms.DataGridView dgvTABCaixas;
         private System.Windows.Forms.GroupBox gbxTotais;
         private System.Windows.Forms.GroupBox gbxValores;
@@ -1289,6 +1336,7 @@
         private System.Windows.Forms.TextBox txtBanese;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.GroupBox gbxSegmento;
+        private System.Windows.Forms.CheckBox cbxDia;
         private System.Windows.Forms.RadioButton rbtAtacado;
         private System.Windows.Forms.RadioButton rbtVarejo;
         private System.Windows.Forms.Label lblVOutras;
@@ -1351,8 +1399,8 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label lblTgRed;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cbxTurnoDet;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button btnCor;
-        private System.Windows.Forms.ColorDialog cdgCaixaCores;
     }
 }

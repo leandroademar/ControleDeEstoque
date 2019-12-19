@@ -59,7 +59,6 @@
     <Compile Include="BLLUnidadeDeMedida.cs" />
     <Compile Include="BLLUsuario.cs" />
     <Compile Include="BLLVenda.cs" />
-    <Compile Include="BLLVerba.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

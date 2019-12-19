@@ -1,7 +1,11 @@
 ﻿using Modelo;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace DAL
 {
@@ -43,7 +47,7 @@ namespace DAL
             conexao.Desconectar();
         }
 
-        public DataTable LocalizarCaixas(int seg, string datamovimento)
+        public DataTable LocalizarCaixas(int turno,int seg,int dia, string datamovimento)
         {
             String comando2 = "";
             comando2 = comando2 + "SELECT [NUMTRANS] " + "\n";
@@ -75,7 +79,10 @@ namespace DAL
                 comando2 = comando2 + "  AND NUMCAIXA NOT IN ('10','11','12') " + "\n";
 
             }
-            
+            if (dia == 0)
+            {
+                comando2 = comando2 + "  AND TURNO = " + turno;
+            }
 
             DataTable tabela = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter

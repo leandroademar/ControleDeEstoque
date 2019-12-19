@@ -1,7 +1,11 @@
 ﻿using DAL;
 using Modelo;
 using System;
+using System.Collections.Generic;
 using System.Data;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 namespace BLL
 {
     public class BLLTABCaixa
@@ -50,10 +54,10 @@ namespace BLL
             DALobj.AlterarTBC(modelo);
         }
 
-        public DataTable LocalizarCaixas(int seg, string dtmovimento)
+        public DataTable LocalizarCaixas(int turno,int seg,int dia, string dtmovimento)
         {
             DALTABCaixa DALobj = new DALTABCaixa(conexao);
-            return DALobj.LocalizarCaixas(seg, dtmovimento);
+            return DALobj.LocalizarCaixas(turno,seg,dia, dtmovimento);
         }
         public DataTable Buscar(int seg, string dtmovimento,string nome)
         {

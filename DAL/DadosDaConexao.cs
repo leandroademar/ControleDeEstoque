@@ -1,4 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace DAL
 {
@@ -18,17 +22,5 @@ namespace DAL
             }
         }
     }
-    public class DadosDaConexaoTAB
-    {
-        public static String servidor = "WINT";
-        public static String usuario = "TABAJARA";
-        public static String senha = "SU9FTA3A";
-        public static String StringDeConexao
-        {
-            get
-            {
-                return @"Data Source=" + servidor + "; User ID=" + usuario + ";Password=" + senha + ";Unicode = True";
-            }
-        }
-    }
+
 }
