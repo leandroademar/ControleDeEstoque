@@ -211,6 +211,26 @@ namespace DAL
             return tabela;
         }
 
+        public DataTable LocalizarSeparadas(string dtinicial, string dtfinal)
+        {
+
+            DataTable tabela = new DataTable();
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = conexao.ObjetoConexao;
+            cmd.CommandText = "select *  from RELSEPARADAS WHERE ven_dtfimsep BETWEEN @dtinicial and @dtfinal";
+            cmd.Parameters.AddWithValue("@dtinicial", dtinicial);
+            cmd.Parameters.AddWithValue("@dtfinal", dtfinal);
+
+            // cmd.Parameters.Add("@dtinicial", System.Data.SqlDbType.DateTime);
+            // cmd.Parameters["@dtinicial"].Value = dtinicial;
+            // cmd.Parameters.Add("@dtfinal", System.Data.SqlDbType.DateTime);
+            // cmd.Parameters["@dtfinal"].Value = dtfinal;
+            //conexao.Conectar();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(tabela);
+            //conexao.Desconectar();
+            return tabela;
+        }
 
         public ModeloVenda CarregaModeloVenda(int codigo)
         {
@@ -278,5 +298,6 @@ namespace DAL
             registro.Close();
             return modelof;
         }
+        
     }
 }

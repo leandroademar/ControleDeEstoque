@@ -51,10 +51,10 @@ namespace GUI
 
             if (tp == 3)
             {
-                string dtinicial = dtpInicial.Value.ToString("yyyyMMdd");
-                string dtfinal = dtpFinal.Value.ToString("yyyyMMdd");
+                
 
-                frmRelatorioVendas f = new frmRelatorioVendas(dtinicial, dtfinal);
+                frmRelatorioVendas f = new frmRelatorioVendas(dtpInicial.Value.ToString("yyyy-MM-dd"), dtpFinal.Value.ToString("yyyy-MM-dd"));
+               
                 f.Show();
             }
         }

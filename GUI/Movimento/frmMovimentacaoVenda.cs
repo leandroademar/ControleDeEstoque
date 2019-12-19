@@ -2,13 +2,8 @@
 using Ferramentas;
 using System.Drawing.Printing;
 using System.IO;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL;
 using DAL;
@@ -30,6 +25,14 @@ namespace GUI
         public double totalcart = 0;
         public string cliente = "Cliente Tabajara";
         public string User = Properties.Settings.Default.Usuario;
+        public int Matricula = Properties.Settings.Default.Matricula;
+        public string NomeW = Properties.Settings.Default.NomeW;
+        public int Caixa = Properties.Settings.Default.Caixa;
+        public string xnomecli;
+        public string xvlrted;
+        public int xturno;
+
+
 
 
 
@@ -37,7 +40,8 @@ namespace GUI
         public frmMovimentacaoVenda()
         {
             InitializeComponent();
-
+            lblCaixa.Text = Caixa.ToString()+" - "+NomeW.ToString();
+           
         }
 
         private void frmMovimentacaoVenda_Load(object sender, EventArgs e)
@@ -165,6 +169,7 @@ namespace GUI
             this.totaldin = Math.Round(Convert.ToDouble(txtTotal.Text), 2);
             this.totalcart = Math.Round(Convert.ToDouble(txtCart.Text), 2);
             this.cliente = txtNomeCli.ToString();
+
             clsArquivoTxt LCLS_ArquivoTxt = new clsArquivoTxt();
             LCLS_ArquivoTxt.FU_Gravar(txtVenCod.Text, txtNomeCli.Text, totalcart.ToString(), totaldin.ToString(),totalVenda.ToString());
         }
@@ -228,7 +233,7 @@ namespace GUI
         }
 
         public void AtualizaDGVProdutosVenda()
-       {
+        {
             dgvProdutos.RowHeadersVisible = false;
             dgvProdutos.ReadOnly = true;
             dgvProdutos.Columns[0].Visible = false;
@@ -240,11 +245,13 @@ namespace GUI
             dgvProdutos.Columns[2].HeaderText = "Valor Unit.";
             dgvProdutos.Columns[2].DisplayIndex = 2;
             dgvProdutos.Columns[3].Visible = false;
-            dgvProdutos.Columns[5].Width = 200;
+            dgvProdutos.Columns[5].Width = 350;
             dgvProdutos.Columns[2].Width = 70;
             dgvProdutos.Columns[1].Width = 70;
             dgvProdutos.Sort(dgvProdutos.Columns[5], ListSortDirection.Ascending);
-       }
+        }
+        
+
         private void txtVenCod_Leave(object sender, EventArgs e)
         {
             try
@@ -300,6 +307,7 @@ namespace GUI
             {
                 txtCart.Focus();
             }
+
         }
 
         private void txtWint_Leave(object sender, EventArgs e)
@@ -342,6 +350,10 @@ namespace GUI
             if (e.KeyCode == Keys.Enter)
             {
                 btnGrava.Focus();
+            }
+            if (e.KeyCode == Keys.F5)
+            {
+                btnCancela_Click(sender, e);
             }
         }
 
@@ -567,6 +579,30 @@ namespace GUI
             STW_Arquivo.WriteLine("");
             STW_Arquivo.Close();
         }
+        public void GravarTED(int via, string nomecliente, string total)
+        {
+            StreamWriter STW_Arquivo;
+            STW_Arquivo = new StreamWriter("FECHTED.log", false);
+            STW_Arquivo.WriteLine("");
+            STW_Arquivo.WriteLine("              COMPROVANTE DE TED - VIA:" + via);
+            STW_Arquivo.WriteLine("");
+            STW_Arquivo.WriteLine("Cliente.....:");
+            STW_Arquivo.WriteLine(" " + cliente);
+            STW_Arquivo.WriteLine(" ");
+            STW_Arquivo.WriteLine("Total.......: R$ " + total);
+            STW_Arquivo.WriteLine("");
+            STW_Arquivo.WriteLine("------------------------------------------------");
+            STW_Arquivo.WriteLine("");
+
+            STW_Arquivo.WriteLine("Data Emissão: " + DateTime.Now.ToString("dd/MM/yyyy HH:mm"));
+            STW_Arquivo.WriteLine("Caixa.......: " + Properties.Settings.Default.NomeW.ToString().Trim());
+            STW_Arquivo.WriteLine("Cód Caixa...: " + Properties.Settings.Default.Matricula.ToString().Trim());
+            STW_Arquivo.WriteLine("");
+            STW_Arquivo.WriteLine("");
+            STW_Arquivo.Close();
+        }
+
+
 
         private void txtVlrPed_KeyDown(object sender, KeyEventArgs e)
         {
@@ -666,8 +702,42 @@ namespace GUI
 
         private void consultarTEDToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmLctoTED frm = new frmLctoTED(2,0,"",0);
+            frmLctoTED frm = new frmLctoTED(Caixa,NomeW,1);
             frm.Show();
+        }
+
+        private void txtVenCod_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(txtVenCod.Text != "" && e.KeyCode == Keys.Enter )
+            {
+                txtVenCod_Leave(sender, e);
+                txtWint.Focus();
+            }
+        }
+    
+
+        private void btnTED_Click(object sender, EventArgs e)
+        {
+
+            frmLctoTED frm = new frmLctoTED( Caixa, NomeW, 1);
+            frm.Show();
+
+        }
+
+        private void frmMovimentacaoVenda_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F5)
+            {
+                btnCancela_Click(sender, e);
+            }
+            if (e.KeyCode == Keys.F2)
+            {
+                btnLocaliza_Click(sender, e);
+            }
+            if (e.KeyCode == Keys.F10)
+            {
+                btnTED_Click(sender, e);
+            }
         }
     }
 }
