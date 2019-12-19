@@ -150,6 +150,7 @@ namespace GUI
                 btnCancel_Click(sender, e);
                 this.AtualizaCabecalhoDGCompra();
                 txtCodVenda.Text = null;
+                txtCodVenda.Focus();
 
             }
             if (rbtSeparados.Checked == true && ckbDivide.Checked == false)
@@ -163,6 +164,8 @@ namespace GUI
                 btnCancel_Click(sender, e);
                 this.AtualizaCabecalhoDGSeparados();
                 txtCodVenda.Text = null;
+                txtCodVenda.Focus();
+
 
             }
 
