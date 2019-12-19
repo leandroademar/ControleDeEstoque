@@ -1,12 +1,16 @@
 ﻿using System;
-using System.Data;
-using System.Data.SqlClient;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using Modelo;
 
 namespace DAL
 {
     public class DALTransf
     {
+<<<<<<< HEAD
+=======
         private DALConexao conexao;
         private string stringDeConexao;
 
@@ -104,7 +108,7 @@ namespace DAL
         }
 
 
-        public DataTable LocalizarTED( int seg, int caixa,int codoper)
+        public DataTable LocalizarTED( int seg, int caixa)
         {
             String comando3 = "";
             comando3 = comando3 + "SELECT NUMTRANS " + "\n";
@@ -117,15 +121,15 @@ namespace DAL
             comando3 = comando3 + ",TURNO " + "\n";
             comando3 = comando3 + ",CODFUNC " + "\n";
             comando3 = comando3 + "FROM TABTRANSF " + "\n";
-            comando3 = comando3 + "WHERE ";
+            comando3 = comando3 + "WHERE DATAINCLUSAO >= GETDATE() - 3";
             if (seg == 1)
             {
-                comando3 = comando3 + "  HORALIBERACAO IS NULL AND CODFUNC = "+codoper+"  AND NUMCAIXA = "+caixa+ "\n";
+                comando3 = comando3 + " AND HORALIBERACAO IS NULL  AND NUMCAIXA = "+caixa+ "\n";
 
             }
             if (seg == 2)
             {
-                comando3 = comando3 + " HORALIBERACAO IS NULL AND  NUMCAIXA IS NULL " + "\n";
+                comando3 = comando3 + "   AND NUMCAIXA IS NULL " + "\n";
 
             }
 
@@ -172,6 +176,7 @@ namespace DAL
             cmd.ExecuteNonQuery();
             conexao.Desconectar();
         }
+>>>>>>> parent of 495a4ae... Atualização Geral
 
     }
 }

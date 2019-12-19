@@ -12,17 +12,11 @@ namespace GUI
     {
         public bool Logado { get; internal set; }
         public string Usuario { get; internal set; }
-        public string NomeW { get; internal set; }
-
-
         public string Senha { get; internal set; }
         public int Perfil { get; internal set; }
         public int PerfilTed { get; internal set; }
-        public int Matricula { get; internal set; }
-
         public string vUsuario;
         public string vSenha;
-        public int caixa;
         
         public Login()
         {
@@ -51,14 +45,10 @@ namespace GUI
                     DadosDaConexao.banco = arquivo.ReadLine();
                     DadosDaConexao.usuario = arquivo.ReadLine();
                     DadosDaConexao.senha = arquivo.ReadLine();
-                    DadosDaConexao.caixa = arquivo.ReadLine();
-
                     arquivo.Close();
                     //testar a conexao
                     SqlConnection conexao = new SqlConnection();
                     conexao.ConnectionString = DadosDaConexao.StringDeConexao;
-                    caixa = Convert.ToInt32(DadosDaConexao.caixa.Trim());
-
                     conexao.Open();
                     conexao.Close();
 
@@ -77,15 +67,10 @@ namespace GUI
                         Usuario = txtUser.Text;
                         Perfil = modelo.PerfilUser;
                         PerfilTed = modelo.PerfilTed;
-                        Matricula = modelo.Matricula;
-                        NomeW = modelo.NomeWint;
                         //Salvar o nome de usuário nas configurações do aplicativo
                         Properties.Settings.Default.Usuario = txtUser.Text;
                         Properties.Settings.Default.Perfil = modelo.PerfilUser;
                         Properties.Settings.Default.PerfilTed = modelo.PerfilUser;
-                        Properties.Settings.Default.Matricula = modelo.Matricula;
-                        Properties.Settings.Default.NomeW = modelo.NomeWint;
-                        Properties.Settings.Default.Caixa = caixa;
                         Properties.Settings.Default.Save();
                         this.Close();
 
@@ -123,13 +108,10 @@ namespace GUI
         private void Login_Load(object sender, EventArgs e)
         {
 
+            //Vincular Enter ao btnLogin
+            //this.AcceptButton ;
+            //Vincular ESC ao btnSair
             this.CancelButton = btnSair;
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            frmConfiguracaoBancoDados f = new frmConfiguracaoBancoDados();
-            f.Show();
         }
     }
 }

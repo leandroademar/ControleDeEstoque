@@ -35,7 +35,6 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
@@ -55,21 +54,28 @@
     <Compile Include="ModeloItensCompra.cs" />
     <Compile Include="ModeloItensVenda.cs" />
     <Compile Include="ModeloLiberacao.cs" />
+    <Compile Include="ModeloOracle\ModeloMAPA.cs" />
+    <Compile Include="ModeloOracle\ModeloPCCARREG.cs" />
+    <Compile Include="ModeloOracle\ModeloPCEST.cs" />
+    <Compile Include="ModeloOracle\ModeloPCORIGEMPRECO.cs" />
+    <Compile Include="ModeloOracle\ModeloPCPEDC.cs" />
+    <Compile Include="ModeloOracle\ModeloPCPEDI.cs" />
+    <Compile Include="ModeloOracle\ModeloPCVENDACONSUM.cs" />
+    <Compile Include="ModeloOracle\ModeloVAR.cs" />
     <Compile Include="ModeloSubCategoria.cs" />
     <Compile Include="ModeloTABCaixa.cs" />
     <Compile Include="ModeloTipoPagamento.cs" />
-    <Compile Include="ModeloTotal.cs" />
     <Compile Include="ModeloTransf.cs" />
     <Compile Include="ModeloUnidadeDeMedida.cs" />
     <Compile Include="ModeloProduto.cs" />
     <Compile Include="ModeloUsuario.cs" />
     <Compile Include="ModeloVenda.cs" />
-    <Compile Include="ModeloVerba.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
     <None Include="Modelo.ruleset" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

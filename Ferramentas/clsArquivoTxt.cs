@@ -4,15 +4,16 @@
 // 041-3232.6416
 
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using System.IO;
-
 
 namespace Ferramentas
 {
     public class clsArquivoTxt
     {
         string datapagamento = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
-
         public void FU_Gravar(string txtID, string txtCliente, string txtCarta,string txtDinheiro,string txtValor)
         {
             File.Delete("PEDIDO.TXT");
@@ -45,6 +46,6 @@ namespace Ferramentas
             STW_Arquivo.Close();
         }
 
-
+        
     }
 }

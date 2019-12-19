@@ -1,7 +1,11 @@
 ﻿using Modelo;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace DAL
 {
@@ -43,7 +47,7 @@ namespace DAL
             conexao.Desconectar();
         }
 
-        public DataTable LocalizarCaixas(int seg, string datamovimento)
+        public DataTable LocalizarCaixas(int turno,int seg,int dia, string datamovimento)
         {
             String comando2 = "";
             comando2 = comando2 + "SELECT [NUMTRANS] " + "\n";
@@ -75,7 +79,10 @@ namespace DAL
                 comando2 = comando2 + "  AND NUMCAIXA NOT IN ('10','11','12') " + "\n";
 
             }
-            
+            if (dia == 0)
+            {
+                comando2 = comando2 + "  AND TURNO = " + turno;
+            }
 
             DataTable tabela = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter
@@ -129,10 +136,9 @@ namespace DAL
          
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = conexao.ObjetoConexao;
-            String comando3 = " UPDATE  TABFECHA SET TURNO = @TURNO, VLRDIN = @VLRDIN, VLRDEP = @VLRDEP, VLRDEB = @VLRDEB, VLRTRAN = @VLRTRAN, VLRCHEQ = @VLRCHEQ, VLRVEND = @VLRVEND, VLRCRED = @VLRCRED, " + "\n";
+            String comando3 = " UPDATE  TABFECHA SET VLRDIN = @VLRDIN, VLRDEP = @VLRDEP, VLRDEB = @VLRDEB, VLRTRAN = @VLRTRAN, VLRCHEQ = @VLRCHEQ, VLRVEND = @VLRVEND, VLRCRED = @VLRCRED, " + "\n";
             comando3 = comando3 + " VLRCCTKS = @VLRCCTKS, VLRCDTKS = @VLRCDTKS, VLRMOEDA = @VLRMOEDA, VLROUTROS = @VLROUTROS  WHERE NUMTRANS = @NUMTRANS;";
             cmd.CommandText = comando3;
-            cmd.Parameters.AddWithValue("@TURNO", modelo.Turno);
             cmd.Parameters.AddWithValue("@NUMTRANS", modelo.NumTrans);
             cmd.Parameters.AddWithValue("@VLRDIN", modelo.VlrDin);
             cmd.Parameters.AddWithValue("@VLRDEP", modelo.VlrDep);
@@ -163,37 +169,6 @@ namespace DAL
             cmd.ExecuteNonQuery();
             conexao.Desconectar();
 
-        }
-
-
-        public void DelCaixa(ModeloTABCaixa modelo)
-        {
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = conexao.ObjetoConexao;
-            String comando5 = "";
-            comando5 = comando5 + " DELETE FROM TABFECHA WHERE NUMTRANS = @NUMTRANS;";
-
-            cmd.CommandText = comando5;
-            cmd.Parameters.AddWithValue("@NUMTRANS", modelo.NumTrans);
-            conexao.Conectar();
-            cmd.ExecuteNonQuery();
-            conexao.Desconectar();
-        }
-        public void DelCaixaT(ModeloTABCaixa modelo)
-        {
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = conexao.ObjetoConexao;
-            String comando5 = "";
-            comando5 = comando5 + " DELETE FROM TABCAIXA WHERE NUMCHECKOUT = @NUMCAIXA AND CODFUNCCHECKOUT = @CODFUNC AND TURNO = @TURNO AND CONVERT(nvarchar(30), DTCAIXA, 103) = @DATA;;";
-
-            cmd.CommandText = comando5;
-            cmd.Parameters.AddWithValue("@NUMCAIXA", modelo.NumCaixa);
-            cmd.Parameters.AddWithValue("@CODFUNC", modelo.CodCaixa);
-            cmd.Parameters.AddWithValue("@TURNO", modelo.Turno);
-            cmd.Parameters.AddWithValue("@DATA", modelo.DtCaixast);
-            conexao.Conectar();
-            cmd.ExecuteNonQuery();
-            conexao.Desconectar();
         }
 
     }

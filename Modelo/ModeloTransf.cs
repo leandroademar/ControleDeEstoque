@@ -1,4 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Modelo
 {
@@ -22,7 +26,7 @@ namespace Modelo
 
 
         }
-        public ModeloTransf(int _numtrans, string _nomebanco,string _nomecliente, string _dttransf,string _hora, DateTime _horaautorizacao, string _usuario,string _usuarioaut, double _valor,int _numcaixa, int _turno, int _codfunc)
+        public ModeloTransf(int _numtrans, string _nomebanco,string _nomecliente, DateTime _dttransf,string _hora, DateTime _horaautorizacao, string _usuario,string _usuarioaut, double _valor,int _numcaixa, int _turno, int _codfunc)
         {
             this.NumTrans = _numtrans;
             this.NomeBanco = _nomebanco;
@@ -57,8 +61,8 @@ namespace Modelo
             set { this.nomecliente = value; }
         }
 
-        private string dttransf;
-        public string DtTransf
+        private DateTime dttransf;
+        public DateTime DtTransf
         {
             get { return this.dttransf; }
             set { this.dttransf = value; }

@@ -54,12 +54,9 @@
     <Compile Include="BLLSubCategoria.cs" />
     <Compile Include="BLLTABCaixa.cs" />
     <Compile Include="BLLTipoPagamento.cs" />
-    <Compile Include="BLLTotal.cs" />
-    <Compile Include="BLLTransf.cs" />
     <Compile Include="BLLUnidadeDeMedida.cs" />
     <Compile Include="BLLUsuario.cs" />
     <Compile Include="BLLVenda.cs" />
-    <Compile Include="BLLVerba.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

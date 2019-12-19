@@ -1,4 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GUI
@@ -44,10 +51,10 @@ namespace GUI
 
             if (tp == 3)
             {
-                
+                string dtinicial = dtpInicial.Value.ToString("yyyyMMdd");
+                string dtfinal = dtpFinal.Value.ToString("yyyyMMdd");
 
-                frmRelatorioVendas f = new frmRelatorioVendas(dtpInicial.Value.ToString("yyyy-MM-dd"), dtpFinal.Value.ToString("yyyy-MM-dd"));
-               
+                frmRelatorioVendas f = new frmRelatorioVendas(dtinicial, dtfinal);
                 f.Show();
             }
         }

@@ -1,5 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
 using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using DAL;
 using System.Data.SqlClient;
@@ -21,11 +28,8 @@ namespace GUI
                 arquivo.WriteLine(txtBanco.Text);
                 arquivo.WriteLine(txtUsuario.Text);
                 arquivo.WriteLine(txtSenha.Text);
-                arquivo.WriteLine(txtCaixa.Text); 
-
                 arquivo.Close();
                 MessageBox.Show("Arquivo Atualizado com sucesso!!!");
-                this.Close();
             }
             catch(Exception erro)
             {
@@ -42,8 +46,6 @@ namespace GUI
                 txtBanco.Text = arquivo.ReadLine();
                 txtUsuario.Text = arquivo.ReadLine();
                 txtSenha.Text = arquivo.ReadLine();
-                txtCaixa.Text = arquivo.ReadLine();
-
                 arquivo.Close();
             }
             catch (Exception erro)
@@ -61,7 +63,6 @@ namespace GUI
                 DadosDaConexao.banco = txtBanco.Text;
                 DadosDaConexao.usuario = txtUsuario.Text;
                 DadosDaConexao.senha = txtSenha.Text;
-                DadosDaConexao.caixa = txtCaixa.Text;
                 //testar a conexao
                 SqlConnection conexao = new SqlConnection();
                 conexao.ConnectionString = DadosDaConexao.StringDeConexao;

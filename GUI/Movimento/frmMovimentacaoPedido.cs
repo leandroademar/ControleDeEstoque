@@ -3,6 +3,11 @@ using DAL;
 using GUI.Movimento;
 using Modelo;
 using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Text;
 using System.Windows.Forms;
 
 namespace GUI
@@ -34,7 +39,7 @@ namespace GUI
 
         private void tbpCliente_Click(object sender, EventArgs e)
         {
-             
+
         }
 
         private void btLocalizar_Click(object sender, EventArgs e)

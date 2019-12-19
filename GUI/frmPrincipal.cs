@@ -458,7 +458,7 @@ namespace GUI
 
         private void toolStripButton9_Click(object sender, EventArgs e)
         {
-            frmCadastroTED f = new frmCadastroTED();
+            frmInformeTED f = new frmInformeTED();
             CheckMdiChildren(f);
         }
 
@@ -471,19 +471,13 @@ namespace GUI
         private void controleDeValeToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
-            frmLctoVerba f = new frmLctoVerba();
+            frmControleVale f = new frmControleVale();
             CheckMdiChildren(f);
         }
 
         private void retiradasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmLctoFin f = new frmLctoFin();
-            CheckMdiChildren(f);
-        }
-
-        private void separaçãoToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            frmParametroRel f = new frmParametroRel(3);
             CheckMdiChildren(f);
         }
     }

@@ -1,4 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace DAL
 {
@@ -8,8 +12,6 @@ namespace DAL
         public static String banco = "nControle";
         public static String usuario = "sa";
         public static String senha = "Adm@123";
-        public static String caixa = "1";
-
         public static String StringDeConexao
         {
             get 

@@ -1,4 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using DAL;
 using Modelo;
 using System.Data;
@@ -121,11 +125,6 @@ namespace BLL
         {
             DALVenda DALobj = new DALVenda(conexao);
             return DALobj.LocalizarSeparados(nome);
-        }
-        public DataTable LocalizarSeparadas(string dtinicial, string dtfinal)
-        {
-            DALVenda DALobj = new DALVenda(conexao);
-            return DALobj.LocalizarSeparadas(dtinicial,dtfinal);
         }
         public DataTable LocalizarFinalizados(string nome)
         {

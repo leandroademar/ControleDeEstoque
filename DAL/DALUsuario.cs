@@ -1,7 +1,11 @@
 ﻿using Modelo;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace DAL
 {
@@ -66,9 +70,6 @@ namespace DAL
                 modelo.SenhaUser = Convert.ToString(registro["usu_senha"]);
                 modelo.PerfilUser = Convert.ToInt32(registro["per_cod"]);
                 modelo.PerfilTed = Convert.ToInt32(registro["per_ted"]);
-                modelo.Matricula = Convert.ToInt32(registro["usu_caixa"]);
-                modelo.NomeWint = Convert.ToString(registro["cax_nome"]);
-
             }
             conexao.Desconectar();
             return modelo;
