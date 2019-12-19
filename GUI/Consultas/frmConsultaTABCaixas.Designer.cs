@@ -45,7 +45,6 @@
             this.label1.Size = new System.Drawing.Size(98, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Nome Caixa:";
-            this.label1.Visible = false;
             // 
             // txtCTABcaixa
             // 
@@ -53,28 +52,26 @@
             this.txtCTABcaixa.Name = "txtCTABcaixa";
             this.txtCTABcaixa.Size = new System.Drawing.Size(532, 26);
             this.txtCTABcaixa.TabIndex = 1;
-            this.txtCTABcaixa.Visible = false;
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.dgvCTABCaixa);
-            this.panel1.Location = new System.Drawing.Point(16, 18);
+            this.panel1.Location = new System.Drawing.Point(16, 112);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(785, 570);
+            this.panel1.Size = new System.Drawing.Size(785, 476);
             this.panel1.TabIndex = 2;
             // 
             // dgvCTABCaixa
             // 
             this.dgvCTABCaixa.AllowUserToAddRows = false;
             this.dgvCTABCaixa.AllowUserToDeleteRows = false;
-            this.dgvCTABCaixa.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvCTABCaixa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCTABCaixa.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvCTABCaixa.Location = new System.Drawing.Point(0, 0);
             this.dgvCTABCaixa.Name = "dgvCTABCaixa";
             this.dgvCTABCaixa.ReadOnly = true;
             this.dgvCTABCaixa.RowTemplate.Height = 28;
-            this.dgvCTABCaixa.Size = new System.Drawing.Size(785, 570);
+            this.dgvCTABCaixa.Size = new System.Drawing.Size(785, 476);
             this.dgvCTABCaixa.TabIndex = 0;
             this.dgvCTABCaixa.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCTABCaixa_CellDoubleClick);
             this.dgvCTABCaixa.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvCTABCaixa_KeyDown);
@@ -87,7 +84,6 @@
             this.btnConsultar.TabIndex = 3;
             this.btnConsultar.Text = "Consultar";
             this.btnConsultar.UseVisualStyleBackColor = true;
-            this.btnConsultar.Visible = false;
             this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
             // 
             // frmConsultaTABCaixas

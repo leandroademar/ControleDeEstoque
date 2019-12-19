@@ -1,16 +1,23 @@
-﻿using BLL;
-using DAL;
-using Modelo;
-using System;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
 using System.Drawing;
-using System.Drawing.Printing;
-using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GUI
 {
     public partial class frmLctoTED : Form
     {
+<<<<<<< HEAD
+        public frmLctoTED(int op,int caixa,string nome, int turno)
+        {
+            InitializeComponent();
+            if (op == 1)
+=======
         public Font printFont;
         public StreamReader streamToPrint;
         public int numcaixa = 0;
@@ -196,57 +203,26 @@ namespace GUI
         {
 
             try
+>>>>>>> parent of 495a4ae... Atualização Geral
             {
-                streamToPrint = new StreamReader
-                (documento, false);
-                printFont = new Font("Arial", 10);
-                PrintDocument pd = new PrintDocument();
-                pd.PrintPage += new PrintPageEventHandler
-                (this.pd_PrintPage);
-                //PrintController pc = new PrintControllerWithStatusDialog(pd.PrintController);
-                pd.PrintController = new System.Drawing.Printing.StandardPrintController();
-                pd.Print();
-                streamToPrint.Close();
-                pd.Dispose();
+                dgvTed.Visible = true;
+            }
+            if (op == 2)
+            {
+                dgvTed.Visible = true;
+                txtCaixa.ReadOnly = false;
+                txtTurno.ReadOnly = false;
+                txtNome.ReadOnly = false;
+                txtCaixa.Focus();
 
             }
 
-
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
-        }
-
-        public void pd_PrintPage(object sender, PrintPageEventArgs ev)
-        {
-            float linesPerPage = 0;
-            float yPos = 0;
-            int count = 0;
-            float leftMargin = 2;
-            float topMargin = 1;
-            string line = null;
-
-            // Calculate the number of lines per page.
-            linesPerPage = ev.MarginBounds.Height /
-               printFont.GetHeight(ev.Graphics);
-
-            // Print each line of the file.
-            while (count < linesPerPage &&
-               ((line = streamToPrint.ReadLine()) != null))
-            {
-                yPos = topMargin + (count *
-                   printFont.GetHeight(ev.Graphics));
-                ev.Graphics.DrawString(line, printFont, Brushes.Black,
-                   leftMargin, yPos, new StringFormat());
-                count++;
-            }
-
-            // If more lines exist, print another page.
-            if (line != null)
-                ev.HasMorePages = true;
             else
+<<<<<<< HEAD
+            {
+                dgvAvulso.Visible = true;
+                
+=======
                 ev.HasMorePages = false;
         }
 
@@ -263,8 +239,13 @@ namespace GUI
                 seg = 2;
                 AtualizaDGVTransf();
                 dgvTed.Focus();
+>>>>>>> parent of 495a4ae... Atualização Geral
             }
-            
+            txtCaixa.Text = caixa.ToString();
+            txtTurno.Text = turno.ToString();
+            txtNome.Text = nome.ToString();
         }
+
+
     }
 }

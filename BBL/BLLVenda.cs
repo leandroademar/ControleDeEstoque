@@ -126,11 +126,6 @@ namespace BLL
             DALVenda DALobj = new DALVenda(conexao);
             return DALobj.LocalizarSeparados(nome);
         }
-        public DataTable LocalizarSeparadas(string dtinicial, string dtfinal)
-        {
-            DALVenda DALobj = new DALVenda(conexao);
-            return DALobj.LocalizarSeparadas(dtinicial,dtfinal);
-        }
         public DataTable LocalizarFinalizados(string nome)
         {
             DALVenda DALobj = new DALVenda(conexao);
