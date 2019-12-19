@@ -65,7 +65,6 @@
     <Compile Include="ModeloSubCategoria.cs" />
     <Compile Include="ModeloTABCaixa.cs" />
     <Compile Include="ModeloTipoPagamento.cs" />
-    <Compile Include="ModeloTotal.cs" />
     <Compile Include="ModeloTransf.cs" />
     <Compile Include="ModeloUnidadeDeMedida.cs" />
     <Compile Include="ModeloProduto.cs" />
@@ -76,6 +75,7 @@
   <ItemGroup>
     <None Include="App.Config" />
     <None Include="Modelo.ruleset" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

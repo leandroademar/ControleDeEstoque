@@ -38,16 +38,6 @@ namespace BLL
             DALTABCaixa DALobj = new DALTABCaixa(conexao);
             DALobj.Alterar(modelo);
         }
-        public void Deleta(ModeloTABCaixa modelo)
-        {
-            DALTABCaixa DALobj = new DALTABCaixa(conexao);
-            DALobj.DelCaixa(modelo);
-        }
-        public void DeletaT(ModeloTABCaixa modelo)
-        {
-            DALTABCaixa DALobj = new DALTABCaixa(conexao);
-            DALobj.DelCaixaT(modelo);
-        }
         public void AlterarTBC(ModeloTABCaixa modelo)
         {
             DALTABCaixa DALobj = new DALTABCaixa(conexao);
