@@ -22,10 +22,11 @@ namespace Modelo
             this.VlrCdtks = 0.00;
             this.VlrMoedas = 0.00;
             this.VlrOutros = 0.00;
+            this.DtCaixast = "";
 
 
         }
-        public ModeloTABCaixa(int _numtrans, int _numcaixa, int _codcaixa, String _nomecaixa, DateTime _dtcaixa, double _vlrdin, double _vlrdep, double _vlrdeb, double _vlrtran, double _vlrcheq, double _vlrvend, double _vlrcred, int _turno, double _vlrcctks, double _vlrcdtks, double _vlroutros, double _vlrmoedas)
+        public ModeloTABCaixa(int _numtrans, int _numcaixa, int _codcaixa, String _nomecaixa, DateTime _dtcaixa, double _vlrdin, double _vlrdep, double _vlrdeb, double _vlrtran, double _vlrcheq, double _vlrvend, double _vlrcred, int _turno, double _vlrcctks, double _vlrcdtks, double _vlroutros, double _vlrmoedas,string _dtcaixast)
         {
             this.NumTrans = _numtrans;
             this.NumCaixa = _numcaixa;
@@ -44,6 +45,8 @@ namespace Modelo
             this.VlrCdtks = _vlrcdtks;
             this.VlrOutros = _vlroutros;
             this.VlrMoedas = _vlrmoedas;
+            this.DtCaixast = _dtcaixast;
+
 
 
         }
@@ -153,6 +156,12 @@ namespace Modelo
         {
             get { return this.dtcaixa; }
             set { this.dtcaixa = value; }
+        }
+        private string dtcaixast;
+        public string DtCaixast
+        {
+            get { return this.dtcaixast; }
+            set { this.dtcaixast = value; }
         }
 
     }

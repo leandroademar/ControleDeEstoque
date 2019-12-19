@@ -26,7 +26,7 @@ namespace Modelo
 
 
         }
-        public ModeloTransf(int _numtrans, string _nomebanco,string _nomecliente, DateTime _dttransf,string _hora, DateTime _horaautorizacao, string _usuario,string _usuarioaut, double _valor,int _numcaixa, int _turno, int _codfunc)
+        public ModeloTransf(int _numtrans, string _nomebanco,string _nomecliente, string _dttransf,string _hora, DateTime _horaautorizacao, string _usuario,string _usuarioaut, double _valor,int _numcaixa, int _turno, int _codfunc)
         {
             this.NumTrans = _numtrans;
             this.NomeBanco = _nomebanco;
@@ -61,8 +61,8 @@ namespace Modelo
             set { this.nomecliente = value; }
         }
 
-        private DateTime dttransf;
-        public DateTime DtTransf
+        private string dttransf;
+        public string DtTransf
         {
             get { return this.dttransf; }
             set { this.dttransf = value; }
