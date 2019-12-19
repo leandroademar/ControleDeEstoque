@@ -51,7 +51,7 @@
             // 
             this.txtCTABcaixa.Location = new System.Drawing.Point(16, 53);
             this.txtCTABcaixa.Name = "txtCTABcaixa";
-            this.txtCTABcaixa.Size = new System.Drawing.Size(416, 26);
+            this.txtCTABcaixa.Size = new System.Drawing.Size(532, 26);
             this.txtCTABcaixa.TabIndex = 1;
             this.txtCTABcaixa.Visible = false;
             // 
@@ -81,7 +81,7 @@
             // 
             // btnConsultar
             // 
-            this.btnConsultar.Location = new System.Drawing.Point(438, 49);
+            this.btnConsultar.Location = new System.Drawing.Point(554, 49);
             this.btnConsultar.Name = "btnConsultar";
             this.btnConsultar.Size = new System.Drawing.Size(107, 35);
             this.btnConsultar.TabIndex = 3;
