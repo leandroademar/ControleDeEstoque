@@ -51,12 +51,11 @@
     <Compile Include="DALFornecedor.cs" />
     <Compile Include="DALItenscompra.cs" />
     <Compile Include="DALItensVenda.cs" />
+    <Compile Include="DALOracle\DALPCPEDC.cs" />
     <Compile Include="DALProduto.cs" />
     <Compile Include="DALSubCategoria.cs" />
     <Compile Include="DALTABCaixa.cs" />
-    <Compile Include="DALTABTotais.cs" />
     <Compile Include="DALTipoPagamento.cs" />
-    <Compile Include="DALTransf.cs" />
     <Compile Include="DALUnidadeDeMedida.cs" />
     <Compile Include="DALUsuario.cs" />
     <Compile Include="DALVenda.cs" />

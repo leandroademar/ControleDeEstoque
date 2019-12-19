@@ -38,16 +38,6 @@ namespace BLL
             DALTABCaixa DALobj = new DALTABCaixa(conexao);
             DALobj.Alterar(modelo);
         }
-        public void Deleta(ModeloTABCaixa modelo)
-        {
-            DALTABCaixa DALobj = new DALTABCaixa(conexao);
-            DALobj.DelCaixa(modelo);
-        }
-        public void DeletaT(ModeloTABCaixa modelo)
-        {
-            DALTABCaixa DALobj = new DALTABCaixa(conexao);
-            DALobj.DelCaixaT(modelo);
-        }
         public void AlterarTBC(ModeloTABCaixa modelo)
         {
             DALTABCaixa DALobj = new DALTABCaixa(conexao);
@@ -59,10 +49,10 @@ namespace BLL
             DALTABCaixa DALobj = new DALTABCaixa(conexao);
             return DALobj.LocalizarCaixas(turno,seg,dia, dtmovimento);
         }
-        public DataTable Buscar(int seg, string dtmovimento,string nome)
+        public DataTable Buscar(int seg, string dtmovimento)
         {
             DALTABCaixa DALobj = new DALTABCaixa(conexao);
-            return DALobj.Buscar(seg,  dtmovimento,nome);
+            return DALobj.Buscar(seg,  dtmovimento);
         }
     }
 }

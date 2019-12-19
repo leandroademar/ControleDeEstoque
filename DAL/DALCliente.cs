@@ -95,7 +95,6 @@ namespace DAL
             return tabela;
         }
 
-
         public DataTable LocalizarPorNome(String valor)
         {
             return Localizar(valor);
