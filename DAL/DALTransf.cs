@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,8 +11,6 @@ namespace DAL
 {
     public class DALTransf
     {
-<<<<<<< HEAD
-=======
         private DALConexao conexao;
         private string stringDeConexao;
 
@@ -176,7 +176,6 @@ namespace DAL
             cmd.ExecuteNonQuery();
             conexao.Desconectar();
         }
->>>>>>> parent of 495a4ae... Atualização Geral
 
     }
 }
