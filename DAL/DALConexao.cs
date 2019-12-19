@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Data.SqlClient;
-using Oracle.DataAccess.Client;
+//using Oracle.DataAccess.Client;
 
 namespace DAL
 {
